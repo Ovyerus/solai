@@ -1,41 +1,15 @@
-'use strict';
+import { announce, download, exportCSS } from './palette-shared.js';
+import { initTheme } from './theme.js';
 const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
 const names={blue:'Tide',alter:'Ember',violet:'Dusk',green:'Viridian',rose:'Bloom'};
 const hues={blue:'CYAN-BLUE',alter:'AMBER',violet:'VIOLET',green:'LEAF-GREEN',rose:'DUSTY ROSE'};
 const descriptions={blue:'Cyan-blue, like harbour lights across dark water.',alter:'Warm amber—the greenhouse after sundown.',violet:'Violet settling over the last train home.',green:'Leaf-green against the city’s charcoal.',rose:'Rose light caught on concrete.'};
-const shortNames={fg:'Neutral',bg:'Background',coShades:'Tinted neutral',accent:'Lead accent',coAccent:'Companion',chartreuse:'Chartreuse',spring:'Spring green'};
-let data,flavour=document.documentElement.dataset.flavor||'blue',mode=document.documentElement.dataset.mode||'dark',effect='dither',toastTimer;const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let data,flavour=document.documentElement.dataset.flavor||'blue',mode=document.documentElement.dataset.mode||'dark',effect='dither';const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const modeName=()=>mode==='light'?'Light':'Dark';
 const currentPalette=()=>data.flavors[flavour].modes[mode];
-const themeSelect=$('#theme-select');
-themeSelect.value=flavour;
-themeSelect.addEventListener('change',()=>selectFlavour(themeSelect.value));
-function announce(s){$('#toast').textContent=s;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2400)}
-async function copy(s,label){try{if(!navigator.clipboard)throw Error();await navigator.clipboard.writeText(s);announce(label||'Copied')}catch(e){$('#copy-fallback').value=s;$('#copy-dialog').showModal();$('#copy-fallback').select()}}
-function cssName(s){return s.replace(/\./g,'-').replace(/[A-Z]/g,m=>'-'+m.toLowerCase())}
-function exportCSS(){
-  const f=currentPalette();
-  const provenance=f.upstreamVariant
-    ? `Original Dolch primitives (${f.upstreamVariant}): Renzhi Li, MIT.`
-    : 'Independent colour study using the Dolch generation method.';
-  return `/* Solai ${names[flavour]} ${modeName()} · ${provenance} Semantic UI roles are proposed. */\n:root {\n  color-scheme: ${mode};\n`+
-    Object.entries(f.roleValues).map(([key,value])=>`  --solai-${cssName(key)}: ${value};`).join('\n')+'\n}\n';
-}
-function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
-function contrastInk(hex){const c=hex.match(/[\da-f]{2}/gi).slice(0,3).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);const l=c[0]*.2126+c[1]*.7152+c[2]*.0722;return (l+.05)/.05>=1.05/(l+.05)?'#000000':'#FFFFFF'}
-function swatch(label,hex,source){const b=document.createElement('button');b.className='swatch';b.title=`${label} · ${source} · copy ${hex}`;b.setAttribute('aria-label',`Copy ${label}, ${hex}`);const block=document.createElement('span');block.className='swatch-color';block.style.background=hex;block.style.setProperty('--swatch-ink',contrastInk(hex));block.innerHTML='<span>↗ COPY</span>';const n=document.createElement('span');n.className='swatch-name';n.textContent=label;const h=document.createElement('span');h.className='swatch-hex';h.textContent=hex;b.append(block,n,h);b.addEventListener('click',()=>copy(hex,`${label} · ${hex} copied`));return b}
-function updatePalette(){const f=currentPalette(),r=f.roleValues,p=f.primitives;const neutrals=$('#neutral-swatches');neutrals.replaceChildren();[['Canvas','surface.canvas'],['Panel','surface.panel'],['Raised','surface.raised'],['Border','border.subtle'],['Text','text.secondary'],['Emphasis','text.emphasis']].forEach(([label,key])=>neutrals.append(swatch(label,r[key],key)));
-const accents=$('#accent-swatches');accents.replaceChildren();accents.append(swatch('Lead',r['accent.primary'],f.roles['accent.primary'].sourceKey),swatch('Companion',r['accent.secondary'],f.roles['accent.secondary'].sourceKey));['red','orange','yellow','chartreuse','green','spring','cyan','azure','blue','violet','magenta','rose'].forEach(k=>accents.append(swatch(shortNames[k]||k[0].toUpperCase()+k.slice(1),p[k][8],`${k}[8]`)));
-const table=$('#ramps-table');table.replaceChildren();for(const [family,colors] of Object.entries(p)){const row=document.createElement('div');row.className='ramp-row';const label=document.createElement('label');label.textContent=shortNames[family]||family;row.append(label);colors.forEach((hex,i)=>{const b=document.createElement('button');b.className='ramp-cell';b.style.background=hex;b.style.setProperty('--swatch-ink',contrastInk(hex));b.textContent=i;b.title=`${family}[${i}] · ${hex}`;b.setAttribute('aria-label',`Copy ${family} grade ${i}, ${hex}`);b.addEventListener('click',()=>copy(hex,`${family}[${i}] · ${hex}`));row.append(b)});table.append(row)}
-const ansi=[p.fg[3],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][7]),p.fg[8],p.fg[6],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][9]),p.fg[10]];$('#ansi-swatches').replaceChildren(...ansi.map(hex=>{const e=document.createElement('span');e.style.background=hex;e.title=hex;return e}));
-$('#button-ratio').textContent=f.contrastChecks.find(c=>c.name==='Primary button').ratio.toFixed(2)+':1';$('#contrast-count').textContent=f.contrastChecks.length;
-}
-function updateTheme(persist=true){
+function updateAnsi(){const p=currentPalette().primitives;const ansi=[p.fg[3],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][7]),p.fg[8],p.fg[6],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][9]),p.fg[10]];$('#ansi-swatches').replaceChildren(...ansi.map(hex=>{const e=document.createElement('span');e.style.background=hex;e.title=hex;return e}));}
+function updateTheme(){
   const f=currentPalette(),r=f.roleValues;
-  document.documentElement.dataset.flavor=flavour;
-  document.documentElement.dataset.mode=mode;
-  themeSelect.value=flavour;
-  document.querySelector('meta[name=theme-color]').content=r['surface.canvas'];
   $$('.current-name').forEach(e=>e.textContent=names[flavour]);
   $$('.current-name-lower').forEach(e=>e.textContent=names[flavour].toLowerCase());
   $$('.current-mode').forEach(e=>e.textContent=modeName());
@@ -43,7 +17,6 @@ function updateTheme(persist=true){
   $('.accent-hex').textContent="'"+r['accent.primary']+"'";
   $('#flavour-description').textContent=descriptions[flavour];
   $('#flavour-origin').textContent=f.upstreamVariant?'UPSTREAM PALETTE · PROPOSED UI ROLES':'NEW COLOUR STUDY';
-  $$('[data-mode-option]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.modeOption===mode)));
   $$('.flavour-button').forEach(b=>{
     const active=b.dataset.flavour===flavour;
     const colors=data.flavors[b.dataset.flavour].modes[mode].roleValues;
@@ -55,16 +28,9 @@ function updateTheme(persist=true){
     const shades=[colors['surface.panel'],colors['surface.raised'],colors['text.secondary'],colors['accent.primary'],colors['accent.highlight']];
     [...b.querySelectorAll('.mini-ramp i')].forEach((bar,index)=>bar.style.background=shades[index]);
   });
-  if(persist){
-    try{
-      localStorage.setItem('solai.flavour',flavour);
-      localStorage.setItem('solai.mode',mode);
-    }catch(error){}
-  }
-  updatePalette();
+  updateAnsi();
   renderArt();
 }
-function selectFlavour(id){if(!data.flavors[id])return;flavour=id;updateTheme()}
 function buildFlavours(){
   const parent=$('#flavour-list');
   data.flavorOrder.forEach((id,index)=>{
@@ -74,18 +40,10 @@ function buildFlavours(){
     button.setAttribute('aria-pressed','false');
     button.innerHTML=`<span class="n">0${index+1} /</span><span class="check"></span><h3>${names[id]}</h3><small>${hues[id]}</small><div class="mini-ramp"></div>`;
     for(let grade=0;grade<5;grade++)button.querySelector('.mini-ramp').append(document.createElement('i'));
-    button.addEventListener('click',()=>selectFlavour(id));
+    button.addEventListener('click',()=>theme.selectFlavour(id));
     parent.append(button);
   });
 }
-$$('[data-mode-option]').forEach(button=>{
-  button.setAttribute('aria-pressed',String(button.dataset.modeOption===mode));
-  button.addEventListener('click',()=>{
-    if(!data||!data.modeOrder.includes(button.dataset.modeOption))return;
-    mode=button.dataset.modeOption;
-    updateTheme();
-  });
-});
 function selectTab(name){$$('[data-tab]').forEach(b=>{const active=b.dataset.tab===name;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1});$$('[role=tabpanel]').forEach(p=>p.hidden=p.id!=='sample-'+name);$('#window-title').textContent={editor:'theme.ts',terminal:'~/studio',interface:'Preferences'}[name];$('#window-title').classList.toggle('technical-title',name!=='interface')}
 $$('[data-tab]').forEach(b=>{b.addEventListener('click',()=>selectTab(b.dataset.tab));b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();const tabs=$$('[data-tab]');let i=tabs.indexOf(b);i=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[i].focus();selectTab(tabs[i].dataset.tab)})});selectTab('editor');
 $('#save-demo').addEventListener('click',()=>announce('Preview saved'));
@@ -96,13 +54,11 @@ $('#reset-demo').addEventListener('click',()=>{
   toggles[1].checked=false;
   announce('Preview reset');
 });
-$('#contrast-button').addEventListener('click',()=>$('#take-it').scrollIntoView({behavior:reduced.matches?'instant':'smooth'}));
-$('#copy-css').addEventListener('click',()=>{if(data)copy(exportCSS(),`${names[flavour]} ${modeName()} CSS copied`)});
 $$('[data-download]').forEach(button=>button.addEventListener('click',()=>{
   if(!data)return;
   const type=button.dataset.download;
   const filename=`solai-${names[flavour].toLowerCase()}-${mode}`;
-  if(type==='css')download(exportCSS(),'text/css',`${filename}.css`);
+  if(type==='css')download(exportCSS(currentPalette(),names[flavour],mode),'text/css',`${filename}.css`);
   else if(type==='json')download(JSON.stringify({...currentPalette(),name:`Solai ${names[flavour]} ${modeName()}`,source:data.source},null,2),'application/json',`${filename}.json`);
   else download(JSON.stringify(data,null,2),'application/json','solai-palettes.json');
 }));
@@ -138,20 +94,19 @@ const ascii=canvas(w,h),ac=ascii.getContext('2d');ac.fillStyle=f.roleValues['sur
 function paintArt(){if(!ctx||!renderCache[effect])return;ctx.drawImage(renderCache[effect],0,0);if(hoverPoint&&!reduced.matches&&effect!=='ascii'){ctx.save();ctx.beginPath();ctx.arc(hoverPoint.x*art.width,hoverPoint.y*art.height,Math.max(75,art.width*.13),0,Math.PI*2);ctx.clip();ctx.drawImage(renderCache.ascii,0,0);ctx.restore()}}
 sourceImage.onload=()=>{artReady=true;renderArt()};sourceImage.onerror=()=>{art.style.display='none'};sourceImage.src='/assets/landscape.png';
 $$('[data-effect]').forEach(b=>b.addEventListener('click',()=>{effect=b.dataset.effect;hoverPoint=null;$$('[data-effect]').forEach(x=>{const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});paintArt()}));art.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||reduced.matches)return;const r=art.getBoundingClientRect();hoverPoint={x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height};if(!raf)raf=requestAnimationFrame(()=>{raf=0;paintArt()})});art.addEventListener('pointerleave',()=>{hoverPoint=null;paintArt()});let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderArt,150)});reduced.addEventListener('change',()=>{hoverPoint=null;paintArt()});
-fetch('/assets/palettes.json').then(response=>{
-  if(!response.ok)throw Error('Palette unavailable');
-  return response.json();
-}).then(result=>{
-  data=result;
-  if(!data.flavors[flavour])flavour=data.defaultFlavor;
-  if(!data.modeOrder.includes(mode))mode=data.defaultMode;
-  buildFlavours();
-  updateTheme(false);
-  $$('[data-mode-option]').forEach(button=>button.disabled=false);
-  themeSelect.disabled=false;
-}).catch(()=>{
-  announce('Palette data could not load. Please refresh.');
-  $('#flavour-description').textContent='Palette data unavailable. Please refresh.';
+const theme=initTheme({
+  onChange(state){
+    const firstLoad=!data;
+    data=state.data;
+    flavour=state.flavour;
+    mode=state.mode;
+    if(firstLoad)buildFlavours();
+    updateTheme();
+  },
+  onError(){
+    announce('Palette data could not load. Please refresh.');
+    $('#flavour-description').textContent='Palette data unavailable. Please refresh.';
+  }
 });
 
 if(document.fonts){document.fonts.load('400 10px \"Iosevka Solai\"').then(()=>renderArt()).catch(()=>{});}

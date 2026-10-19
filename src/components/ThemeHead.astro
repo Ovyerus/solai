@@ -1,0 +1,18 @@
+<link rel="preload" href="/assets/fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
+<script is:inline>
+  let flavor = 'blue';
+  let mode = 'dark';
+  try {
+    flavor = localStorage.getItem('solai.flavour') || flavor;
+    mode = localStorage.getItem('solai.mode') || mode;
+  } catch (error) {}
+  const query = new URLSearchParams(location.search);
+  const requestedTheme = query.get('theme');
+  if (requestedTheme) {
+    const names = { tide: 'blue', ember: 'alter', dusk: 'violet', viridian: 'green', bloom: 'rose' };
+    flavor = names[requestedTheme.toLowerCase()] || requestedTheme;
+  }
+  mode = query.get('mode') || mode;
+  document.documentElement.dataset.flavor = ['blue', 'alter', 'violet', 'green', 'rose'].includes(flavor) ? flavor : 'blue';
+  document.documentElement.dataset.mode = ['dark', 'light'].includes(mode) ? mode : 'dark';
+</script>

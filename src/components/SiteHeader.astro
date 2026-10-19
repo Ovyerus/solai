@@ -1,0 +1,32 @@
+---
+import AppearanceControl from './AppearanceControl.astro';
+
+interface Props {
+  home?: boolean;
+}
+
+const { home = false } = Astro.props;
+---
+
+<a class="skip" href="#main">Skip to content</a>
+<header class:list={['site-header', { 'site-header--page': !home }]}>
+  <a class="wordmark" href={home ? '#' : '/'} data-theme-link={home ? undefined : true} aria-label="Solai home">solai<span class="mark">✳</span></a>
+  <nav aria-label="Main">
+    <div class="nav-links">
+      <a href={home ? '#flavours' : '/#flavours'} data-theme-link={home ? undefined : true}>Flavours</a>
+      <a href={home ? '#examples' : '/#examples'} data-theme-link={home ? undefined : true}>Previews</a>
+      <a href={home ? '/palette/' : '#main'} data-theme-link={home ? true : undefined} aria-current={home ? undefined : 'page'}>Palette</a>
+      <a href={home ? '#take-it' : '/#take-it'} data-theme-link={home ? undefined : true}>Downloads <span>↗</span></a>
+    </div>
+  </nav>
+  <div class="theme-controls" role="group" aria-label="Appearance">
+    <select id="theme-select" class="theme-select" aria-label="Colour theme" disabled>
+      <option value="blue">Tide</option>
+      <option value="alter">Ember</option>
+      <option value="violet">Dusk</option>
+      <option value="green">Viridian</option>
+      <option value="rose">Bloom</option>
+    </select>
+    <AppearanceControl />
+  </div>
+</header>

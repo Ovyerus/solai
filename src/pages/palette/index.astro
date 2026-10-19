@@ -1,0 +1,104 @@
+---
+import Page from '../../layouts/Page.astro';
+import ThemeHead from '../../components/ThemeHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import '../../styles/main.css';
+import '../../styles/themes.css';
+import '../../styles/palette-ramps.css';
+import '../../styles/palette.css';
+---
+
+<Page
+  title="Palette — Solai"
+  description="Explore all 17 Solai colour ramps in five flavours and two modes. Copy original hex values and semantic theme CSS."
+  flavor="blue"
+>
+  <ThemeHead slot="head" />
+  <SiteHeader />
+
+  <main id="main" class="palette-page">
+    <header class="wrap palette-intro">
+      <div class="palette-title-row">
+        <div>
+          <h1>Palette</h1>
+          <p id="palette-selection" class="palette-selection" aria-live="polite">Loading selected palette…</p>
+        </div>
+        <div class="palette-actions">
+          <button class="text-button" id="copy-css" type="button" disabled>Copy theme CSS ↗</button>
+          <a class="text-button" href="/#take-it" data-theme-link>Downloads ↗</a>
+        </div>
+      </div>
+      <p id="palette-status" class="muted" role="status">Loading palette data…</p>
+    </header>
+
+    <div id="palette-content" hidden>
+      <section class="wrap palette-section" aria-labelledby="generated-heading">
+        <div class="section-top section-heading">
+          <h2 id="generated-heading">Generated ramps</h2>
+        </div>
+        <div class="palette-instructions muted" id="ramp-instructions">
+          <p>Hover over a bar to reveal its colour-filled preview. Move to choose a stop; click to copy its exact hex. With a keyboard, use Left/Right or Home/End, then Enter or Space to copy. On narrow screens, scroll the table sideways.</p>
+          <p>Grades run from background to foreground: dark to bright in dark mode, light to dark in light mode. Only the gradient between stops is interpolated in OKLab; the original palette values are unchanged.</p>
+        </div>
+        <div class="palette-ramp-scroll" role="region" aria-label="Generated colour ramps" tabindex="0">
+          <div class="palette-ramp-table">
+            <div class="ramp-columns" aria-hidden="true">
+              <span>Ramp</span>
+              <div class="ramp-grades">
+                {Array.from({ length: 11 }, (_, grade) => <span style={`left:${grade * 10}%`}>{grade}</span>)}
+              </div>
+            </div>
+            <div id="palette-ramp-list" class="palette-ramp-list" aria-describedby="ramp-instructions"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap palette-section" aria-labelledby="semantic-heading">
+        <div class="section-top section-heading">
+          <h2 id="semantic-heading">Semantic swatches</h2>
+        </div>
+        <p class="muted">Click a swatch to copy its hex value. The swatch title identifies its source ramp and grade.</p>
+        <div class="palette-heading">
+          <h3>Surfaces &amp; type</h3>
+        </div>
+        <div id="neutral-swatches" class="swatch-grid neutrals"></div>
+        <div class="palette-heading">
+          <h3>Accents</h3>
+        </div>
+        <div id="accent-swatches" class="swatch-grid"></div>
+      </section>
+
+      <section class="wrap palette-section" aria-labelledby="contrast-heading">
+        <div class="section-top section-heading">
+          <h2 id="contrast-heading">Selected contrast</h2>
+        </div>
+        <div class="contrast-specimen">
+          <div>
+            <span class="mono muted">BUTTON LABEL</span>
+            <strong id="button-ratio"></strong>
+            <span>text contrast</span>
+          </div>
+          <a class="primary" id="contrast-button" href="/#take-it" data-theme-link>Downloads ↗</a>
+        </div>
+        <p class="muted"><span id="contrast-count"></span> selected contrast pairs checked for this flavour and mode; not a complete accessibility audit. Check contrast for the surface you use.</p>
+      </section>
+    </div>
+    <SiteFooter />
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Close">×</button>
+      <h3 id="copy-dialog-title">Copy this colour data</h3>
+      <p id="copy-dialog-description">Your browser couldn’t copy automatically. Select the text below.</p>
+      <textarea id="copy-fallback" aria-label="Colour data to copy" readonly></textarea>
+      <button class="primary">Done</button>
+    </form>
+  </dialog>
+  <noscript><p class="wrap">Enable JavaScript to load the palette explorer. <a href="/downloads/flavors.css">Download all theme CSS</a> or <a href="/downloads/flavor-studies.json">all palette data</a> without JavaScript.</p></noscript>
+  <script>
+    import '../../scripts/palette.js';
+  </script>
+</Page>

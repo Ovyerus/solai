@@ -1,7 +1,9 @@
 ---
 import Page from '../layouts/Page.astro';
 import AppSamples from '../components/AppSamples.astro';
-import AppearanceControl from '../components/AppearanceControl.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ThemeHead from '../components/ThemeHead.astro';
 import '../styles/main.css';
 import '../styles/themes.css';
 ---
@@ -11,47 +13,8 @@ import '../styles/themes.css';
   description="Five colour themes in light and dark, with palette previews and CSS and JSON downloads."
   flavor="blue"
 >
-  <Fragment slot="head">
-    <link rel="preload" href="/assets/fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
-    <script is:inline>
-      let flavor = 'blue';
-      let mode = 'dark';
-      try {
-        flavor = localStorage.getItem('solai.flavour') || flavor;
-        mode = localStorage.getItem('solai.mode') || mode;
-      } catch (error) {}
-      const query = new URLSearchParams(location.search);
-      const requestedTheme = query.get('theme');
-      if (requestedTheme) {
-        const names = { tide: 'blue', ember: 'alter', dusk: 'violet', viridian: 'green', bloom: 'rose' };
-        flavor = names[requestedTheme.toLowerCase()] || requestedTheme;
-      }
-      mode = query.get('mode') || mode;
-      document.documentElement.dataset.flavor = ['blue', 'alter', 'violet', 'green', 'rose'].includes(flavor) ? flavor : 'blue';
-      document.documentElement.dataset.mode = ['dark', 'light'].includes(mode) ? mode : 'dark';
-    </script>
-  </Fragment>
-
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="#" aria-label="Solai home">solai<span class="mark">✳</span></a>
-    <nav aria-label="Main">
-      <div class="nav-links">
-        <a href="#flavours">Flavours</a>
-        <a href="#examples">Previews</a>
-        <a href="#palette">Palette</a>
-        <a href="#take-it">Downloads <span>↗</span></a>
-      </div>
-      <select id="theme-select" class="theme-select" aria-label="Colour theme" disabled>
-        <option value="blue">Tide</option>
-        <option value="alter">Ember</option>
-        <option value="violet">Dusk</option>
-        <option value="green">Viridian</option>
-        <option value="rose">Bloom</option>
-      </select>
-    </nav>
-    <AppearanceControl />
-  </header>
+  <ThemeHead slot="head" />
+  <SiteHeader home />
 
   <main id="main">
     <section class="hero" aria-label="Solai introduction">
@@ -83,36 +46,6 @@ import '../styles/themes.css';
 
     <AppSamples />
 
-    <section id="palette" class="wrap section">
-      <div class="section-top section-heading">
-        <h2>Palette</h2>
-        <button class="text-button" id="copy-css">Copy theme CSS ↗</button>
-      </div>
-      <p class="muted">Click a swatch to copy its hex value.</p>
-      <div class="palette-heading">
-        <h3>Surfaces &amp; type</h3>
-      </div>
-      <div id="neutral-swatches" class="swatch-grid neutrals"></div>
-      <div class="palette-heading">
-        <h3>Accents</h3>
-      </div>
-      <div id="accent-swatches" class="swatch-grid"></div>
-      <details class="ramps">
-        <summary><span>Explore all 17 generated ramps</span><span>11 GRADES EACH &nbsp; +</span></summary>
-        <p>Grades run from background to foreground: dark to bright in dark mode, light to dark in light mode. Check contrast for the surface you use.</p>
-        <div id="ramps-table"></div>
-      </details>
-      <div class="contrast-specimen">
-        <div>
-          <span class="mono muted">BUTTON LABEL</span>
-          <strong id="button-ratio">6.87:1</strong>
-          <span>text contrast</span>
-        </div>
-        <button class="primary" id="contrast-button">Downloads ↗</button>
-      </div>
-      <p class="muted"><span id="contrast-count">21</span> selected contrast pairs checked per flavour; not a complete accessibility audit.</p>
-    </section>
-
     <section id="take-it" class="wrap section downloads">
       <div class="section-top section-heading">
         <h2>Downloads</h2>
@@ -139,27 +72,10 @@ import '../styles/themes.css';
       </div>
     </section>
 
-    <footer class="wrap">
-      <div class="footer-top">
-        <a class="wordmark" href="#">solai<span class="mark">✳</span></a>
-      </div>
-      <div class="footer-meta">
-        <p>Tide &amp; Ember: <a href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch by Renzhi Li</a> · <a href="/downloads/LICENSE-Dolch.txt">MIT</a><br />Presentation: <a href="https://madoromi.moonwit.ch/" target="_blank" rel="noreferrer">madoromi</a> · <a href="https://doll.systems" target="_blank" rel="noreferrer">doll.systems</a>.<br />Fonts: <a href="/assets/fonts/Sora-OFL.txt">Sora</a> · <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai</a>.</p>
-        <a href="#">BACK TO TOP ↑</a>
-      </div>
-    </footer>
+    <SiteFooter />
   </main>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <dialog id="copy-dialog">
-    <form method="dialog">
-      <button class="dialog-close" aria-label="Close">×</button>
-      <h3>Copy this colour data</h3>
-      <p>Your browser couldn’t copy automatically. Select the text below.</p>
-      <textarea id="copy-fallback" readonly></textarea>
-      <button class="primary">Done</button>
-    </form>
-  </dialog>
   <noscript><p class="wrap">Enable JavaScript to switch palettes, explore colours and download theme data.</p></noscript>
   <script>
     import '../scripts/app.js';
