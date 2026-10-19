@@ -1,23 +1,42 @@
-# Solai local source
+# Solai
 
-A standalone, buildless copy of the current Solai theme explorer. The files in `dist/` are the actual editable source, not a compiled bundle. No package install, build step, application server, API keys, or network services are needed. Fonts, palette data, artwork and downloads are included locally.
+A static Astro site for the Solai theme explorer. Editable pages, styles and browser scripts live in `src/`; fonts, palette data, artwork and downloads live in `public/`. Astro builds deployable files into `dist/`. The deployed site needs no application server, API keys or runtime framework.
 
 ## Run locally
 
-Unzip, open a terminal in the `solai` folder, and run:
+With Nix, enter the pinned development shell, which provides only Node.js 24 and pnpm:
 
 ```sh
-python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
+nix develop
 ```
 
-Open **http://localhost:8000/**. The type comparison is at **http://localhost:8000/type/**. Stop the server with Ctrl+C. Use HTTP rather than opening the HTML directly, because the pages fetch local JSON. Python 3 is only serving files; the site itself runs in your browser with no runtime libraries.
+For automatic loading with nix-direnv, run `direnv allow` once; `.envrc` uses the same flake. Without Nix, install a supported even-numbered Node.js release **22.22.0 or newer** (Node.js 24 LTS recommended) and the pnpm version declared in `package.json`.
 
-To work with a coding agent, open this `solai` folder and ask it to read `AGENTS.md`. Edit files under `dist/`, then refresh the browser. Optional JavaScript syntax checks, if Node is available:
+Then install the locked dependencies and start Astro:
 
 ```sh
-node --check dist/assets/app.js
-node --check dist/type/type.js
+pnpm install --frozen-lockfile
+pnpm dev
 ```
+
+Open **http://localhost:4321/**. The standalone type comparison is at **http://localhost:4321/type/**. Edit `src/` or `public/` and Astro refreshes the development page. Use HTTP rather than opening HTML directly, because the pages fetch local JSON.
+
+To build and preview the production site:
+
+```sh
+node --check src/scripts/app.js
+node --check src/scripts/type.js
+pnpm build
+pnpm preview
+```
+
+Preview also defaults to port 4321, so stop the development server first or pass a different `--port`. Stop foreground servers with Ctrl+C. Astro also supports background servers (`pnpm dev --background`); stop those with `pnpm dev stop` or `pnpm preview stop`, respectively.
+
+`dist/` is generated output, not editable source. Deploy that directory to a static host after building; Node.js is required only for development and builds. No client framework or server adapter is used.
+
+## Version control
+
+This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj` and `git` work against the same history, with a `main` bookmark/branch. The original buildless website is preserved in the initial commit. Use `jj status` and `jj log` to inspect changes; `jj new` starts a new change. Generated output, installed packages, Astro caches and macOS metadata are ignored.
 
 ## Current baseline
 
@@ -27,14 +46,21 @@ Palettes: **Tide, Ember, Dusk, Viridian, Bloom**. Sora is the interface/display 
 
 ## File map
 
-- `dist/index.html`: main page structure and copy
-- `dist/assets/style.css`: layout, typography and default theme variables
-- `dist/assets/app.js`: palette controls, samples, downloads and canvas rendering
-- `dist/assets/palettes.json`: current canonical palette data and provenance
-- `dist/assets/landscape.png`: current grayscale landscape source
-- `dist/assets/fonts/`: self-hosted font files and their license notices
-- `dist/downloads/`: original downloads, licenses and the Dolch reference ZIP
-- `dist/type/`: editable typography comparison page
+- `src/pages/index.astro`: main page structure and copy
+- `src/pages/type/index.astro`: standalone typography comparison page
+- `src/layouts/Page.astro`: shared document metadata and page slots
+- `src/components/AppSamples.astro`: editor, terminal and interface specimens
+- `src/styles/main.css` and `src/styles/type.css`: independent page styles and self-hosted font declarations
+- `src/scripts/app.js`: palette controls, samples, downloads and canvas rendering
+- `src/scripts/type.js`: typography comparison controls
+- `public/assets/palettes.json`: current canonical palette data and provenance
+- `public/assets/landscape.png`: current grayscale landscape source
+- `public/assets/fonts/`: self-hosted font files and their license notices
+- `public/downloads/`: original downloads, licenses and the Dolch reference ZIP
+- `astro.config.mjs`: static output and trailing-slash route configuration
+- `flake.nix` and `flake.lock`: pinned Node.js/pnpm development shell for Apple Silicon macOS and ARM64/x86-64 Linux
+- `.envrc`: optional nix-direnv integration
+- `pnpm-lock.yaml`: locked application dependencies; use pnpm rather than npm
 - `art-source/`: optional landscape generator and proposed balcony artwork
 - `palette-source/`: optional Python palette generators and their complete inputs
 
@@ -46,4 +72,4 @@ Palettes: **Tide, Ember, Dusk, Viridian, Bloom**. Sora is the interface/display 
 
 Tide preserves Dolch Blue primitives; Ember preserves Dolch Alter primitives. Dusk, Viridian and Bloom are independent color studies using the same generation approach. The semantic UI role mappings are proposed mappings, including those for Tide and Ember.
 
-Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. Preserve `dist/downloads/LICENSE-Dolch.txt` and all font notices. The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.
+Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. Preserve `public/downloads/LICENSE-Dolch.txt` and all font notices. The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.

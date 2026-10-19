@@ -1,0 +1,188 @@
+---
+import Page from '../layouts/Page.astro';
+import AppSamples from '../components/AppSamples.astro';
+import '../styles/main.css';
+---
+
+<Page
+  title="Solai — a little atmosphere"
+  description="Solai. A considered family of dark colour themes, rooted in Dolch."
+  flavor="blue"
+>
+  <Fragment slot="head">
+    <link rel="preload" href="/assets/fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      try {
+        const variables = JSON.parse(localStorage.getItem('solai.variables') || '{}');
+        Object.entries(variables).forEach(([key, color]) => {
+          if (/^[a-z-]+$/.test(key) && /^#[0-9a-f]{6}([0-9a-f]{2})?$/i.test(color)) {
+            document.documentElement.style.setProperty('--' + key, color);
+          }
+        });
+      } catch (error) {}
+    </script>
+  </Fragment>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Solai home">solai<span class="mark">✳</span></a>
+    <nav aria-label="Main">
+      <a href="#flavours">Flavours</a>
+      <a href="#examples">In use</a>
+      <a href="#palette">Palette</a>
+      <a href="#take-it">Take it with you <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="Solai introduction">
+      <div class="hero-art">
+        <canvas id="landscape" width="1440" height="760" aria-label="An abstract mountain lake, rendered in the selected theme colours">A mountain lake rendered in the current theme.</canvas>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-heading wrap">
+          <h1>solai<span>✳</span></h1>
+          <p>A little atmosphere<br />for the everyday.</p>
+        </div>
+        <div class="effect-controls" role="group" aria-label="Image treatment">
+          <button data-effect="soft" aria-pressed="false">Soft</button>
+          <button data-effect="dither" class="active" aria-pressed="true">Dither</button>
+          <button data-effect="ascii" aria-pressed="false">ASCII</button>
+        </div>
+      </div>
+      <div id="hero-palette-bar" class="hero-palette-bar" role="group" aria-label="Choose a colour theme"></div>
+    </section>
+
+    <section id="flavours" class="wrap section">
+      <div class="section-top">
+        <span class="index">01 / FIND YOUR LIGHT</span>
+        <span class="mono muted">ONE FAMILY · FIVE ATMOSPHERES</span>
+      </div>
+      <div class="section-heading">
+        <h2>A change of hue.<br />The same quiet company.</h2>
+        <p>Rooted in Dolch’s carefully generated colours. Keep the familiar blue, warm things up, or wander somewhere new.</p>
+      </div>
+      <div id="flavour-list" class="flavour-list" role="group" aria-label="Choose a theme"></div>
+      <div class="flavour-caption">
+        <span id="flavour-description"></span>
+        <span id="flavour-origin" class="tag"></span>
+      </div>
+    </section>
+
+    <AppSamples />
+
+    <section id="palette" class="wrap section">
+      <div class="section-top">
+        <span class="index">03 / THE COLOUR LIBRARY</span>
+        <button class="text-button" id="copy-css">Copy theme CSS ↗</button>
+      </div>
+      <div class="section-heading">
+        <h2>Every colour<br />has somewhere to belong.</h2>
+        <p>Click a swatch to copy its hex value. Start with the working set; the full generated palette is here when you need it.</p>
+      </div>
+      <div class="palette-heading">
+        <h3>Surfaces &amp; type</h3>
+        <span class="mono muted">THE QUIET FOUNDATION</span>
+      </div>
+      <div id="neutral-swatches" class="swatch-grid neutrals"></div>
+      <div class="palette-heading">
+        <h3>Accent &amp; company</h3>
+        <span class="mono muted">USE THE WHOLE SPECTRUM, WITH INTENTION</span>
+      </div>
+      <div id="accent-swatches" class="swatch-grid"></div>
+      <details class="ramps">
+        <summary><span>Explore all 17 generated ramps</span><span>11 GRADES EACH &nbsp; +</span></summary>
+        <p>These are source colour families, not eleven equally readable text colours. Dark grades suit fills; brighter grades suit text on dark backgrounds.</p>
+        <div id="ramps-table"></div>
+      </details>
+    </section>
+
+    <section id="principles" class="wrap section">
+      <div class="section-top">
+        <span class="index">04 / HOW IT HOLDS TOGETHER</span>
+        <span class="mono muted">COLOUR → ROLE → APPLICATION</span>
+      </div>
+      <div class="principles">
+        <article>
+          <span class="large-index">01</span>
+          <h3>Keep the charcoal.</h3>
+          <p>Very gently tinted neutrals give each flavour its atmosphere. The accent gets to shine because the rest knows when to be quiet.</p>
+        </article>
+        <article>
+          <span class="large-index">02</span>
+          <h3>Give colour a job.</h3>
+          <p>One lead accent for interaction. Supporting hues for syntax, categories and status. A green success stays green when the interface turns pink.</p>
+        </article>
+        <article>
+          <span class="large-index">03</span>
+          <h3>Make it readable.</h3>
+          <p>Dark labels on bright buttons. Clear foregrounds on raised surfaces. <span id="contrast-count">21</span> selected contrast pairs checked per flavour, with no claim of a complete accessibility audit.</p>
+        </article>
+      </div>
+      <div class="contrast-specimen">
+        <div>
+          <span class="mono muted">PRIMARY ACTION</span>
+          <strong id="button-ratio">6.87:1</strong>
+          <span>text contrast</span>
+        </div>
+        <button class="primary" id="contrast-button">A clear next step ↗</button>
+        <p>Same original accent.<br />A more readable label.</p>
+      </div>
+    </section>
+
+    <section id="take-it" class="wrap section downloads">
+      <div class="section-top">
+        <span class="index">05 / TAKE IT WITH YOU</span>
+        <span class="tag">EXPERIMENTAL / v0.1</span>
+      </div>
+      <div class="section-heading">
+        <h2>Yours to make<br />yourself at home in.</h2>
+        <p>Portable colour data and a shared vocabulary for future ports. No installers, no claims of integrations that don’t exist yet.</p>
+      </div>
+      <div class="download-list">
+        <button data-download="json">
+          <span><strong>Current palette</strong><small><span class="current-name">Tide</span> · primitives, semantic roles &amp; provenance</small></span>
+          <span>JSON ↗</span>
+        </button>
+        <button data-download="css">
+          <span><strong>Current theme variables</strong><small>Copy into a web project and map to your components</small></span>
+          <span>CSS ↗</span>
+        </button>
+        <button data-download="all">
+          <span><strong>The whole Solai family</strong><small>Five palettes · source parameters · contrast checks</small></span>
+          <span>JSON ↗</span>
+        </button>
+        <a href="/downloads/dolch-reference-starter.zip" download>
+          <span><strong>Original reference &amp; generators</strong><small>Earlier Dolch-labelled starter · MIT notice · Python scripts</small></span>
+          <span>ZIP ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="footer-top">
+        <a class="wordmark" href="#">solai<span class="mark">✳</span></a>
+        <p>For the things you make.<br />And the time you spend making them.</p>
+      </div>
+      <div class="footer-meta">
+        <span>AN INDEPENDENT COLOUR STUDY</span>
+        <p>Rooted in <a href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch by Renzhi Li</a> · <a href="/downloads/LICENSE-Dolch.txt">MIT</a><br />Presentation inspired by <a href="https://madoromi.moonwit.ch/" target="_blank" rel="noreferrer">madoromi</a> and <a href="https://doll.systems" target="_blank" rel="noreferrer">doll.systems</a>. Original landscape study. <a href="/assets/fonts/Sora-OFL.txt">Sora</a> + <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai</a>.</p>
+        <a href="#">BACK TO THE LIGHT ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Close">×</button>
+      <h3>Copy this colour data</h3>
+      <p>Your browser couldn’t copy automatically. Select the text below.</p>
+      <textarea id="copy-fallback" readonly></textarea>
+      <button class="primary">Done</button>
+    </form>
+  </dialog>
+  <noscript><p class="wrap">Enable JavaScript to switch palettes, explore colours and download theme data.</p></noscript>
+  <script>
+    import '../scripts/app.js';
+  </script>
+</Page>

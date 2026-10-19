@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  flavor?: string;
+}
+
+const { title, description, flavor } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-flavor={flavor}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101416" />
+    {description && <meta name="description" content={description} />}
+    <title>{title}</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

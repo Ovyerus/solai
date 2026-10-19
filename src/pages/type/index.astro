@@ -1,0 +1,104 @@
+---
+import Page from '../../layouts/Page.astro';
+import '../../styles/type.css';
+---
+
+<Page title="Solai · type comparison">
+  <header>
+    <a href="/">← Solai</a>
+    <span>TYPE COMPARISON</span>
+    <span id="font-status" role="status">Loading fonts…</span>
+  </header>
+  <main>
+    <section class="controls" aria-label="Typography controls">
+      <fieldset>
+        <legend>Proportional font</legend>
+        <div class="segmented">
+          <button data-font="space" aria-pressed="true">Space Grotesk</button>
+          <button data-font="sora" aria-pressed="false">Sora</button>
+        </div>
+      </fieldset>
+      <label>Body size <span id="size-label">18px</span><input id="size" type="range" min="14" max="24" step="1" value="18" /></label>
+      <label>Heading weight
+        <select id="weight">
+          <option value="400">400 · Regular</option>
+          <option value="500" selected>500 · Medium</option>
+          <option value="600">600 · Semibold</option>
+          <option value="700">700 · Bold</option>
+        </select>
+      </label>
+      <label>Palette
+        <select id="palette">
+          <option value="blue">Tide</option>
+          <option value="alter">Ember</option>
+          <option value="violet">Dusk</option>
+          <option value="green">Viridian</option>
+          <option value="rose">Bloom</option>
+        </select>
+      </label>
+    </section>
+    <p class="note">Same content, same sizes, same spacing. Only the proportional font changes. Code and colour values stay in Iosevka Solai.</p>
+    <section class="specimen">
+      <div class="specimen-label"><span id="chosen-name">Space Grotesk</span><span>HEADINGS / BODY / INTERFACE</span></div>
+      <h1 contenteditable="true" spellcheck="false" aria-label="Editable large heading">Solai, in your own words.</h1>
+      <div class="intro">
+        <div>
+          <h2 contenteditable="true" spellcheck="false" aria-label="Editable secondary heading">A colour theme you can live with.</h2>
+          <p contenteditable="true" spellcheck="false" aria-label="Editable body sample">A familiar blue, a little warm amber, or something quieter in violet. Solai brings the same colour language to the tools you use every day, with clear text, thoughtful contrast, and enough personality to feel like yours.</p>
+          <p class="secondary-copy">Compare the shapes of a, g, r and t, the punctuation, and how each line wraps. You can click the heading or paragraph and type your own text; your edits stay here while you switch.</p>
+        </div>
+        <aside>
+          <span class="small-label">THE FAMILY</span>
+          <ul>
+            <li>Tide <span>Cyan-blue</span></li>
+            <li>Ember <span>Warm amber</span></li>
+            <li>Dusk <span>Soft violet</span></li>
+            <li>Viridian <span>Muted green</span></li>
+            <li>Bloom <span>Dusty rose</span></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="ui-grid">
+        <div class="ui-demo">
+          <h3>Appearance</h3>
+          <label for="workspace">Workspace name</label>
+          <input id="workspace" type="text" value="A place to make things" />
+          <div class="row"><span>Use theme colours</span><input type="checkbox" checked aria-label="Use theme colours" /></div>
+          <div class="buttons">
+            <button id="apply" class="primary">Apply theme</button>
+            <button id="reset" class="secondary">Reset samples</button>
+          </div>
+          <p id="demo-status" class="small-label" role="status">Local interface specimen</p>
+        </div>
+        <div class="code-demo">
+          <span class="small-label">IOSEVKA SOLAI / FIXED THROUGHOUT</span>
+          <pre is:raw><code><b>const</b> theme = {
+  name: <i id="code-name">'Tide'</i>,
+  background: <i id="code-bg">'#101416'</i>,
+  accent: <i id="code-accent">'#00ACCE'</i>,
+  readable: <b>true</b>,
+};
+
+<span>// Il1 | O0 | {} [] =&gt; !=</span></code></pre>
+        </div>
+      </div>
+      <section class="glyphs">
+        <h3>Details make the difference.</h3>
+        <p contenteditable="true" spellcheck="false" aria-label="Editable alphabet sample">abcdefghijklmnopqrstuvwxyz<br />ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />0123456789 &amp; @ # % + = ? !</p>
+        <div class="weights">
+          <p style="font-weight:400">400 · Clear colour, considered type.</p>
+          <p style="font-weight:500">500 · Clear colour, considered type.</p>
+          <p style="font-weight:600">600 · Clear colour, considered type.</p>
+          <p style="font-weight:700">700 · Clear colour, considered type.</p>
+        </div>
+      </section>
+    </section>
+    <footer>
+      <span>Nothing here changes your main Solai site.</span>
+      <span>Fonts self-hosted · <a href="/assets/fonts/SpaceGrotesk-OFL.txt">Space Grotesk license</a> · <a href="/assets/fonts/Sora-OFL.txt">Sora license</a> · <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai license</a></span>
+    </footer>
+  </main>
+  <script>
+    import '../../scripts/type.js';
+  </script>
+</Page>

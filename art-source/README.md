@@ -1,6 +1,6 @@
 # Artwork sources
 
-The site currently loads `dist/assets/landscape.png`; its left-shore skyline is drawn separately by `drawSkyline` in the main JavaScript.
+The site currently loads `public/assets/landscape.png` at `/assets/landscape.png`; its left-shore skyline is drawn separately by `drawSkyline` in `src/scripts/app.js`.
 
 ## Original landscape
 
