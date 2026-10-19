@@ -1,0 +1,632 @@
+{
+  "name": "Dolch cross-application starter",
+  "status": "Unofficial experimental semantic mapping",
+  "source": {
+    "repository": "https://github.com/be5invis/vscode-theme-dolch",
+    "commit": "cf3817311b30d3c21a60ebb0b250d18386e66a30",
+    "commitDate": "2023-11-26T06:17:36Z",
+    "extensionVersion": "0.4.0",
+    "license": "MIT",
+    "copyright": "Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)",
+    "method": "Independent calculation from inspected source parameters and D65 CIELAB conversion; repository code was not executed"
+  },
+  "flavor": "original dark",
+  "primitives": {
+    "fg": [
+      "#101416",
+      "#222527",
+      "#343739",
+      "#464A4C",
+      "#5A5E60",
+      "#6F7375",
+      "#84888A",
+      "#9A9EA0",
+      "#B0B4B7",
+      "#C7CBCE",
+      "#DFE3E6"
+    ],
+    "bg": [
+      "#101416",
+      "#222527",
+      "#343739",
+      "#464A4C",
+      "#5A5E60",
+      "#6F7375",
+      "#84888A",
+      "#9A9EA0",
+      "#B0B4B7",
+      "#C7CBCE",
+      "#DFE3E6"
+    ],
+    "coShades": [
+      "#001825",
+      "#002838",
+      "#123B4B",
+      "#294E5F",
+      "#3E6273",
+      "#527789",
+      "#688C9F",
+      "#7EA3B5",
+      "#94B9CD",
+      "#ABD0E4",
+      "#C2E8FC"
+    ],
+    "accent": [
+      "#00213C",
+      "#002F4F",
+      "#004363",
+      "#005677",
+      "#006B8C",
+      "#0080A1",
+      "#0096B7",
+      "#00ACCE",
+      "#38C3E5",
+      "#5CDAFC",
+      "#7BF2FF"
+    ],
+    "coAccent": [
+      "#002321",
+      "#003033",
+      "#004445",
+      "#005859",
+      "#006D6D",
+      "#008382",
+      "#009997",
+      "#07AFAE",
+      "#3EC6C4",
+      "#5EDEDB",
+      "#7BF5F3"
+    ],
+    "red": [
+      "#360000",
+      "#4C0C0A",
+      "#641E1B",
+      "#7E302B",
+      "#98433B",
+      "#B4564D",
+      "#CF695F",
+      "#EC7D71",
+      "#FF9285",
+      "#FFA798",
+      "#FFBDAC"
+    ],
+    "orange": [
+      "#2F0700",
+      "#411A00",
+      "#572B00",
+      "#6F3D11",
+      "#885020",
+      "#A26330",
+      "#BC7740",
+      "#D78C50",
+      "#F3A161",
+      "#FFB773",
+      "#FFCD85"
+    ],
+    "yellow": [
+      "#231200",
+      "#302400",
+      "#423600",
+      "#574902",
+      "#6D5C12",
+      "#847123",
+      "#9C8633",
+      "#B49C43",
+      "#CDB253",
+      "#E6C964",
+      "#FFE075"
+    ],
+    "chartreuse": [
+      "#091900",
+      "#182A00",
+      "#263D00",
+      "#38510F",
+      "#4B661F",
+      "#5E7B2F",
+      "#72913F",
+      "#87A850",
+      "#9CC061",
+      "#B2D773",
+      "#C8F085"
+    ],
+    "green": [
+      "#001E00",
+      "#002D0A",
+      "#00411B",
+      "#00562B",
+      "#136B3C",
+      "#28814D",
+      "#3A9860",
+      "#4DB073",
+      "#5FC886",
+      "#72E19A",
+      "#85FAAE"
+    ],
+    "spring": [
+      "#002014",
+      "#002F25",
+      "#004338",
+      "#00584B",
+      "#006E5F",
+      "#008473",
+      "#009B89",
+      "#00B39F",
+      "#00CCB5",
+      "#00E5CD",
+      "#00FEE4"
+    ],
+    "cyan": [
+      "#001F29",
+      "#002F3E",
+      "#004253",
+      "#005769",
+      "#006D80",
+      "#008398",
+      "#009BB1",
+      "#00B2CA",
+      "#00CBE4",
+      "#00E3FE",
+      "#00FDFF"
+    ],
+    "azure": [
+      "#001C39",
+      "#002D4F",
+      "#004067",
+      "#00547F",
+      "#006999",
+      "#007FB3",
+      "#0095CE",
+      "#00ACE9",
+      "#00C4FF",
+      "#00DCFF",
+      "#00F5FF"
+    ],
+    "blue": [
+      "#00163E",
+      "#002755",
+      "#00396E",
+      "#004C87",
+      "#0060A1",
+      "#2575BC",
+      "#3D8BD8",
+      "#52A1F4",
+      "#67B8FF",
+      "#7CCFFF",
+      "#91E7FF"
+    ],
+    "violet": [
+      "#110C37",
+      "#241D4E",
+      "#372E65",
+      "#4C407E",
+      "#615397",
+      "#7767B1",
+      "#8D7CCC",
+      "#A491E7",
+      "#BBA6FF",
+      "#D3BCFF",
+      "#ECD3FF"
+    ],
+    "magenta": [
+      "#2C0028",
+      "#420F3C",
+      "#582151",
+      "#703367",
+      "#88457E",
+      "#A15895",
+      "#BB6CAE",
+      "#D580C7",
+      "#F095E1",
+      "#FFAAFB",
+      "#FFC0FF"
+    ],
+    "rose": [
+      "#360013",
+      "#4D0424",
+      "#661836",
+      "#7F2B49",
+      "#9A3E5C",
+      "#B55171",
+      "#D06486",
+      "#ED789C",
+      "#FF8CB2",
+      "#FFA1C9",
+      "#FFB7E1"
+    ]
+  },
+  "roles": {
+    "surface.canvas": {
+      "value": "#101416",
+      "sourceKey": "bg[0]",
+      "usage": "Main canvas; exact original editor background",
+      "contrastOnSurfaces": {
+        "canvas": 1.0,
+        "panel": 1.201,
+        "raised": 1.545,
+        "hover": 2.068
+      }
+    },
+    "surface.panel": {
+      "value": "#222527",
+      "sourceKey": "bg[1]",
+      "usage": "Cards, sidebar, inputs, dialogs",
+      "contrastOnSurfaces": {
+        "canvas": 1.201,
+        "panel": 1.0,
+        "raised": 1.286,
+        "hover": 1.721
+      }
+    },
+    "surface.raised": {
+      "value": "#343739",
+      "sourceKey": "bg[2]",
+      "usage": "Raised containers and status regions; use text.secondary or brighter",
+      "contrastOnSurfaces": {
+        "canvas": 1.545,
+        "panel": 1.286,
+        "raised": 1.0,
+        "hover": 1.338
+      }
+    },
+    "surface.hover": {
+      "value": "#464A4C",
+      "sourceKey": "bg[3]",
+      "usage": "Hover or pressed fill; use text.primary or text.emphasis, because text.secondary is only 4.29:1 here",
+      "contrastOnSurfaces": {
+        "canvas": 2.068,
+        "panel": 1.721,
+        "raised": 1.338,
+        "hover": 1.0
+      }
+    },
+    "border.subtle": {
+      "value": "#464A4C",
+      "sourceKey": "fg[3]",
+      "usage": "Decorative dividers; do not rely on this alone to identify a control",
+      "contrastOnSurfaces": {
+        "canvas": 2.068,
+        "panel": 1.721,
+        "raised": 1.338,
+        "hover": 1.0
+      }
+    },
+    "border.strong": {
+      "value": "#84888A",
+      "sourceKey": "fg[6]",
+      "usage": "Essential control outlines on canvas, panel or raised surfaces; 3.35:1 on raised, 2.50:1 on hover",
+      "contrastOnSurfaces": {
+        "canvas": 5.178,
+        "panel": 4.31,
+        "raised": 3.351,
+        "hover": 2.504
+      }
+    },
+    "text.primary": {
+      "value": "#C7CBCE",
+      "sourceKey": "fg[9]",
+      "usage": "Primary readable text on all four surfaces; 5.49:1 even on hover",
+      "contrastOnSurfaces": {
+        "canvas": 11.345,
+        "panel": 9.444,
+        "raised": 7.343,
+        "hover": 5.487
+      }
+    },
+    "text.emphasis": {
+      "value": "#DFE3E6",
+      "sourceKey": "fg[10]",
+      "usage": "Headings and strongest emphasis",
+      "contrastOnSurfaces": {
+        "canvas": 14.35,
+        "panel": 11.945,
+        "raised": 9.288,
+        "hover": 6.939
+      }
+    },
+    "text.secondary": {
+      "value": "#B0B4B7",
+      "sourceKey": "fg[8]",
+      "usage": "Original Dolch body color; safe normal-sized text on canvas, panel and raised; 5.74:1 on raised",
+      "contrastOnSurfaces": {
+        "canvas": 8.872,
+        "panel": 7.385,
+        "raised": 5.742,
+        "hover": 4.291
+      }
+    },
+    "text.muted": {
+      "value": "#9A9EA0",
+      "sourceKey": "fg[7]",
+      "usage": "Muted but readable text on canvas and panel only; 5.71:1 on panel, 4.44:1 on raised",
+      "contrastOnSurfaces": {
+        "canvas": 6.856,
+        "panel": 5.707,
+        "raised": 4.437,
+        "hover": 3.315
+      }
+    },
+    "text.disabled": {
+      "value": "#6F7375",
+      "sourceKey": "fg[5]",
+      "usage": "Inactive or decorative text only; original comments/line numbers; below 4.5:1 on every surface",
+      "contrastOnSurfaces": {
+        "canvas": 3.868,
+        "panel": 3.22,
+        "raised": 2.504,
+        "hover": 1.871
+      }
+    },
+    "accent.primary": {
+      "value": "#00ACCE",
+      "sourceKey": "accent[7]",
+      "usage": "Main cyan-blue identity: links on canvas/panel, filled primary controls with accent.ink; raised-panel links should use accent.hover",
+      "contrastOnSurfaces": {
+        "canvas": 6.873,
+        "panel": 5.721,
+        "raised": 4.449,
+        "hover": 3.324
+      }
+    },
+    "accent.hover": {
+      "value": "#38C3E5",
+      "sourceKey": "accent[8]",
+      "usage": "Hover/active accent; links on raised surfaces; on surface.hover use accent.highlight for small text",
+      "contrastOnSurfaces": {
+        "canvas": 8.914,
+        "panel": 7.42,
+        "raised": 5.769,
+        "hover": 4.311
+      }
+    },
+    "accent.highlight": {
+      "value": "#7BF2FF",
+      "sourceKey": "accent[10]",
+      "usage": "High emphasis, cursor, small highlight details; reserve sparingly",
+      "contrastOnSurfaces": {
+        "canvas": 14.102,
+        "panel": 11.738,
+        "raised": 9.127,
+        "hover": 6.82
+      }
+    },
+    "accent.ink": {
+      "value": "#101416",
+      "sourceKey": "fg[0]",
+      "usage": "Dark labels/icons on primary or hover accent fills; 6.87:1 on accent.primary and 8.91:1 on accent.hover",
+      "contrastOnSurfaces": {
+        "canvas": 1.0,
+        "panel": 1.201,
+        "raised": 1.545,
+        "hover": 2.068
+      }
+    },
+    "accent.secondary": {
+      "value": "#3EC6C4",
+      "sourceKey": "coAccent[8]",
+      "usage": "Secondary teal accent derived from original type names",
+      "contrastOnSurfaces": {
+        "canvas": 8.891,
+        "panel": 7.401,
+        "raised": 5.755,
+        "hover": 4.3
+      }
+    },
+    "selection.background": {
+      "value": "#00ACCE50",
+      "sourceKey": "accent[7]",
+      "usage": "Original translucent selection; exact serialized value #00ACCE50, composited over the current surface",
+      "alpha": 0.3137254901960784,
+      "sourceAlphaBeforeSerialization": 0.3125
+    },
+    "status.success": {
+      "value": "#5FC886",
+      "sourceKey": "green[8]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 8.902,
+        "panel": 7.41,
+        "raised": 5.762,
+        "hover": 4.305
+      }
+    },
+    "status.successBackground": {
+      "value": "#00411B",
+      "sourceKey": "green[2]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.563,
+        "panel": 1.301,
+        "raised": 1.012,
+        "hover": 1.323
+      }
+    },
+    "status.warning": {
+      "value": "#CDB253",
+      "sourceKey": "yellow[8]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 8.899,
+        "panel": 7.408,
+        "raised": 5.76,
+        "hover": 4.304
+      }
+    },
+    "status.warningBackground": {
+      "value": "#423600",
+      "sourceKey": "yellow[2]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.552,
+        "panel": 1.292,
+        "raised": 1.004,
+        "hover": 1.333
+      }
+    },
+    "status.danger": {
+      "value": "#FF9285",
+      "sourceKey": "red[8]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 8.558,
+        "panel": 7.124,
+        "raised": 5.539,
+        "hover": 4.139
+      }
+    },
+    "status.dangerBackground": {
+      "value": "#641E1B",
+      "sourceKey": "red[2]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.538,
+        "panel": 1.28,
+        "raised": 1.005,
+        "hover": 1.345
+      }
+    },
+    "status.info": {
+      "value": "#67B8FF",
+      "sourceKey": "blue[8]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 8.712,
+        "panel": 7.252,
+        "raised": 5.639,
+        "hover": 4.213
+      }
+    },
+    "status.infoBackground": {
+      "value": "#00396E",
+      "sourceKey": "blue[2]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.597,
+        "panel": 1.329,
+        "raised": 1.034,
+        "hover": 1.295
+      }
+    },
+    "support.orange": {
+      "value": "#F3A161",
+      "sourceKey": "orange[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 8.893,
+        "panel": 7.402,
+        "raised": 5.756,
+        "hover": 4.3
+      }
+    },
+    "support.chartreuse": {
+      "value": "#9CC061",
+      "sourceKey": "chartreuse[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 8.932,
+        "panel": 7.435,
+        "raised": 5.781,
+        "hover": 4.319
+      }
+    },
+    "support.spring": {
+      "value": "#00CCB5",
+      "sourceKey": "spring[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 9.089,
+        "panel": 7.566,
+        "raised": 5.883,
+        "hover": 4.396
+      }
+    },
+    "support.cyan": {
+      "value": "#00CBE4",
+      "sourceKey": "cyan[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 9.405,
+        "panel": 7.829,
+        "raised": 6.087,
+        "hover": 4.548
+      }
+    },
+    "support.violet": {
+      "value": "#BBA6FF",
+      "sourceKey": "violet[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 8.831,
+        "panel": 7.351,
+        "raised": 5.716,
+        "hover": 4.271
+      }
+    },
+    "support.magenta": {
+      "value": "#F095E1",
+      "sourceKey": "magenta[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 8.901,
+        "panel": 7.409,
+        "raised": 5.761,
+        "hover": 4.305
+      }
+    },
+    "support.rose": {
+      "value": "#FF8CB2",
+      "sourceKey": "rose[8]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 8.509,
+        "panel": 7.083,
+        "raised": 5.507,
+        "hover": 4.115
+      }
+    }
+  },
+  "terminalProposal": {
+    "description": "Proposed ANSI adapter; upstream supplies no ANSI theme. Not tested in a specific terminal.",
+    "background": "#101416",
+    "foreground": "#B0B4B7",
+    "cursor": "#7BF2FF",
+    "cursorText": "#101416",
+    "selectionBackground": "#004363",
+    "selectionForeground": "#DFE3E6",
+    "ansi": [
+      "#464A4C",
+      "#EC7D71",
+      "#4DB073",
+      "#B49C43",
+      "#52A1F4",
+      "#D580C7",
+      "#00B2CA",
+      "#B0B4B7",
+      "#84888A",
+      "#FFA798",
+      "#72E19A",
+      "#E6C964",
+      "#7CCFFF",
+      "#FFAAFB",
+      "#00E3FE",
+      "#DFE3E6"
+    ],
+    "ansiOrder": [
+      "black",
+      "red",
+      "green",
+      "yellow",
+      "blue",
+      "magenta",
+      "cyan",
+      "white",
+      "brightBlack",
+      "brightRed",
+      "brightGreen",
+      "brightYellow",
+      "brightBlue",
+      "brightMagenta",
+      "brightCyan",
+      "brightWhite"
+    ]
+  }
+}
