@@ -1,5 +1,6 @@
 ---
 import Page from '../../layouts/Page.astro';
+import AppearanceControl from '../../components/AppearanceControl.astro';
 import '../../styles/type.css';
 ---
 
@@ -27,7 +28,7 @@ import '../../styles/type.css';
           <option value="700">700 · Bold</option>
         </select>
       </label>
-      <label>Palette
+      <label class="palette-control">Palette
         <select id="palette">
           <option value="blue">Tide</option>
           <option value="alter">Ember</option>
@@ -36,6 +37,10 @@ import '../../styles/type.css';
           <option value="rose">Bloom</option>
         </select>
       </label>
+      <fieldset>
+        <legend>Colour mode</legend>
+        <AppearanceControl />
+      </fieldset>
     </section>
     <section class="specimen">
       <div class="specimen-label"><span id="chosen-name">Space Grotesk</span><span>HEADINGS / BODY / INTERFACE</span></div>
@@ -73,9 +78,10 @@ import '../../styles/type.css';
           <span class="small-label">IOSEVKA SOLAI</span>
           <pre is:raw><code><b>const</b> theme = {
   name: <i id="code-name">'Tide'</i>,
+  mode: <i id="code-mode">'dark'</i>,
   background: <i id="code-bg">'#101416'</i>,
   accent: <i id="code-accent">'#00ACCE'</i>,
-  readable: <b>true</b>,
+  readable: <b id="code-readable">true</b>,
 };
 
 <span>// Il1 | O0 | {} [] =&gt; !=</span></code></pre>

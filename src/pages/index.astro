@@ -1,25 +1,34 @@
 ---
 import Page from '../layouts/Page.astro';
 import AppSamples from '../components/AppSamples.astro';
+import AppearanceControl from '../components/AppearanceControl.astro';
 import '../styles/main.css';
+import '../styles/themes.css';
 ---
 
 <Page
-  title="Solai — dark colour themes"
-  description="Five dark colour themes with palette previews and CSS and JSON downloads."
+  title="Solai — colour themes"
+  description="Five colour themes in light and dark, with palette previews and CSS and JSON downloads."
   flavor="blue"
 >
   <Fragment slot="head">
     <link rel="preload" href="/assets/fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>
+      let flavor = 'blue';
+      let mode = 'dark';
       try {
-        const variables = JSON.parse(localStorage.getItem('solai.variables') || '{}');
-        Object.entries(variables).forEach(([key, color]) => {
-          if (/^[a-z-]+$/.test(key) && /^#[0-9a-f]{6}([0-9a-f]{2})?$/i.test(color)) {
-            document.documentElement.style.setProperty('--' + key, color);
-          }
-        });
+        flavor = localStorage.getItem('solai.flavour') || flavor;
+        mode = localStorage.getItem('solai.mode') || mode;
       } catch (error) {}
+      const query = new URLSearchParams(location.search);
+      const requestedTheme = query.get('theme');
+      if (requestedTheme) {
+        const names = { tide: 'blue', ember: 'alter', dusk: 'violet', viridian: 'green', bloom: 'rose' };
+        flavor = names[requestedTheme.toLowerCase()] || requestedTheme;
+      }
+      mode = query.get('mode') || mode;
+      document.documentElement.dataset.flavor = ['blue', 'alter', 'violet', 'green', 'rose'].includes(flavor) ? flavor : 'blue';
+      document.documentElement.dataset.mode = ['dark', 'light'].includes(mode) ? mode : 'dark';
     </script>
   </Fragment>
 
@@ -27,11 +36,21 @@ import '../styles/main.css';
   <header class="site-header">
     <a class="wordmark" href="#" aria-label="Solai home">solai<span class="mark">✳</span></a>
     <nav aria-label="Main">
-      <a href="#flavours">Flavours</a>
-      <a href="#examples">Previews</a>
-      <a href="#palette">Palette</a>
-      <a href="#take-it">Downloads <span>↗</span></a>
+      <div class="nav-links">
+        <a href="#flavours">Flavours</a>
+        <a href="#examples">Previews</a>
+        <a href="#palette">Palette</a>
+        <a href="#take-it">Downloads <span>↗</span></a>
+      </div>
+      <select id="theme-select" class="theme-select" aria-label="Colour theme" disabled>
+        <option value="blue">Tide</option>
+        <option value="alter">Ember</option>
+        <option value="violet">Dusk</option>
+        <option value="green">Viridian</option>
+        <option value="rose">Bloom</option>
+      </select>
     </nav>
+    <AppearanceControl />
   </header>
 
   <main id="main">
@@ -49,7 +68,6 @@ import '../styles/main.css';
           <button data-effect="ascii" aria-pressed="false">ASCII</button>
         </div>
       </div>
-      <div id="hero-palette-bar" class="hero-palette-bar" role="group" aria-label="Choose a colour theme"></div>
     </section>
 
     <section id="flavours" class="wrap section">
@@ -81,7 +99,7 @@ import '../styles/main.css';
       <div id="accent-swatches" class="swatch-grid"></div>
       <details class="ramps">
         <summary><span>Explore all 17 generated ramps</span><span>11 GRADES EACH &nbsp; +</span></summary>
-        <p>These are source colour families, not eleven equally readable text colours. Dark grades suit fills; brighter grades suit text on dark backgrounds.</p>
+        <p>Grades run from background to foreground: dark to bright in dark mode, light to dark in light mode. Check contrast for the surface you use.</p>
         <div id="ramps-table"></div>
       </details>
       <div class="contrast-specimen">
@@ -103,7 +121,7 @@ import '../styles/main.css';
       <p class="muted">Palette data and CSS variables; no app installers.</p>
       <div class="download-list">
         <button data-download="json">
-          <span><strong>Current palette</strong><small><span class="current-name">Tide</span> · primitives, semantic roles &amp; provenance</small></span>
+          <span><strong>Current palette</strong><small><span class="current-name">Tide</span> <span class="current-mode">Dark</span> · primitives, semantic roles &amp; provenance</small></span>
           <span>JSON ↗</span>
         </button>
         <button data-download="css">
@@ -111,7 +129,7 @@ import '../styles/main.css';
           <span>CSS ↗</span>
         </button>
         <button data-download="all">
-          <span><strong>All palettes</strong><small>Five palettes · source parameters · contrast checks</small></span>
+          <span><strong>All palettes</strong><small>Five flavours · light &amp; dark · source parameters · contrast checks</small></span>
           <span>JSON ↗</span>
         </button>
         <a href="/downloads/dolch-reference-starter.zip" download>

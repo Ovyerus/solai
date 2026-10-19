@@ -1,0 +1,45 @@
+<div class="appearance-control" role="group" aria-label="Colour mode">
+  <button type="button" data-mode-option="dark" aria-pressed="true" disabled>Dark</button>
+  <button type="button" data-mode-option="light" aria-pressed="false" disabled>Light</button>
+</div>
+
+<style>
+  .appearance-control {
+    display: inline-flex;
+    flex-shrink: 0;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid var(--control-border, var(--strong));
+    background: var(--panel);
+  }
+
+  button {
+    min-width: 48px;
+    min-height: 32px;
+    padding: 5px 10px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  button[aria-pressed='true'] {
+    background: var(--accent);
+    color: var(--ink);
+  }
+
+  button[aria-pressed='false']:hover {
+    background: var(--raised);
+  }
+
+  button:disabled {
+    cursor: wait;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>

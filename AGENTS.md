@@ -11,8 +11,8 @@ Use Conventional Commit descriptions for named changes, such as `feat: ...`, `fi
 - Full-width mountain/lake hero with a transparent overlaid header and small static left-shore skyline
 - Soft, Dither and ASCII treatments, plus pointer ASCII reveal; render on changes, without a perpetual animation loop
 - Sora for the main interface, Iosevka Solai for technical/monospace content
-- Five palettes and stable internal IDs: Tide=`blue`, Ember=`alter`, Dusk=`violet`, Viridian=`green`, Bloom=`rose`
-- Synchronized hero palette bar and lower flavor selector; browser localStorage persistence
+- Five flavours and stable internal IDs: Tide=`blue`, Ember=`alter`, Dusk=`violet`, Viridian=`green`, Bloom=`rose`; each has Dark and Light variants
+- Native header theme dropdown synchronized with the lower flavour cards; no palette bar below the hero; main-page flavour/mode persistence; `/type/` preferences remain local
 - Responsive layout, keyboard-operable tabs and controls, accessible labels, reduced-motion behavior, clipboard fallback and working downloads
 - `/type/` remains a standalone font comparison specimen, with Space Grotesk available there
 
@@ -20,9 +20,9 @@ The proposed high-rise balcony is NOT integrated. Do not silently substitute it 
 
 ## Palette integrity
 
-`public/assets/palettes.json` contains current palette values, generation parameters, source attribution and selected contrast checks. Keep provenance and distinction between original colors and independent studies intact. Tide/Blue and Ember/Alter preserve original Dolch primitives; Dusk/Violet, Viridian/Green and Bloom/Rose are independent studies. Semantic UI roles are proposed in all flavors. Preserve status color meanings and existing internal IDs when changing display names.
+`public/assets/palettes.json` is canonical schema v2: `flavors[id].modes.dark/light` contains each variant's parameters, primitive ramps, proposed semantic roles, provenance and selected contrast checks. Tide/Blue and Ember/Alter preserve the exact four upstream dark/light primitive sets. Dusk/Violet, Viridian/Green and Bloom/Rose are independent studies; all UI semantic mappings are proposed. Preserve status meanings and the five internal IDs.
 
-Optional generators and their inputs are in `palette-source/`; read its README before running them. They produce historical Dolch-labelled data and do not automatically update the live site. Never overwrite current Solai display metadata blindly. If values change, update relevant default CSS, data and export artifacts together, and recalculate actual contrast pairings. Existing selected checks are not a complete accessibility audit.
+`python3 palette-source/build_flavors.py` regenerates the live JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css` and `src/styles/themes.css`; read `palette-source/README.md` first. This optional standard-library tool is separate from Astro builds. The other palette tools remain historical. Never overwrite Solai metadata with historical output. If colors or roles change, update the generator, default CSS where applicable, data and exports together, and recalculate actual contrast pairings. Existing selected checks are not a complete accessibility audit.
 
 Preserve the Dolch MIT notice and all font licenses. Do not describe the whole project as MIT merely because the upstream palette is MIT.
 
@@ -33,7 +33,7 @@ The active pipeline in `src/scripts/app.js` is:
 1. Load `/assets/landscape.png` from `public/assets/`
 2. Draw and crop it to an offscreen canvas
 3. Composite `drawSkyline(...)` in grayscale
-4. Calculate luminance and render Soft, ordered Dither and glyph-based ASCII caches
+4. Calculate luminance and render Soft, ordered Dither and glyph-based ASCII caches for the active variant; light mode reverses ink coverage to keep the sky bright and silhouettes dark
 5. Paint the selected treatment and optional pointer reveal
 
 `art-source/generate_landscape.py` is the original deterministic landscape generator. It is optional and requires NumPy and Pillow; serving or editing the site does not. The supplied PNG is already ready to use.
@@ -46,7 +46,7 @@ If explicitly asked to switch to balcony art: copy/export the chosen source into
 
 - Run `node --check src/scripts/app.js`, `node --check src/scripts/type.js` and `pnpm build`
 - Use `pnpm dev` for development and `pnpm preview` to check the built site; check `/`, `/type/`, fonts, JSON and downloads without missing requests
-- Test all five palettes with each hero treatment, synchronized selectors, pointer enter/leave, resize, keyboard tabs, reduced-motion behavior and narrow layouts
+- Test all five flavours in both modes with each hero treatment, synchronized selectors, pointer enter/leave, resize, keyboard tabs/mode controls, reduced motion and narrow layouts
 - Test copy/download actions and localStorage behavior when affected
 - Check browser console errors and preserve license/source links
 - State what was verified and any remaining limits; do not claim browser QA from syntax checks alone

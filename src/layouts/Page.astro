@@ -3,13 +3,14 @@ interface Props {
   title: string;
   description?: string;
   flavor?: string;
+  mode?: 'dark' | 'light';
 }
 
-const { title, description, flavor } = Astro.props;
+const { title, description, flavor, mode = 'dark' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-flavor={flavor}>
+<html lang="en" data-flavor={flavor} data-mode={mode}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
