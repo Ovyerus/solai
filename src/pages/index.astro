@@ -5,8 +5,8 @@ import '../styles/main.css';
 ---
 
 <Page
-  title="Solai — a little atmosphere"
-  description="Solai. A considered family of dark colour themes, rooted in Dolch."
+  title="Solai — dark colour themes"
+  description="Five dark colour themes with palette previews and CSS and JSON downloads."
   flavor="blue"
 >
   <Fragment slot="head">
@@ -28,9 +28,9 @@ import '../styles/main.css';
     <a class="wordmark" href="#" aria-label="Solai home">solai<span class="mark">✳</span></a>
     <nav aria-label="Main">
       <a href="#flavours">Flavours</a>
-      <a href="#examples">In use</a>
+      <a href="#examples">Previews</a>
       <a href="#palette">Palette</a>
-      <a href="#take-it">Take it with you <span>↗</span></a>
+      <a href="#take-it">Downloads <span>↗</span></a>
     </nav>
   </header>
 
@@ -41,7 +41,7 @@ import '../styles/main.css';
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-heading wrap">
           <h1>solai<span>✳</span></h1>
-          <p>A little atmosphere<br />for the everyday.</p>
+          <p>Light on water.<br />Colour on screen.</p>
         </div>
         <div class="effect-controls" role="group" aria-label="Image treatment">
           <button data-effect="soft" aria-pressed="false">Soft</button>
@@ -53,13 +53,8 @@ import '../styles/main.css';
     </section>
 
     <section id="flavours" class="wrap section">
-      <div class="section-top">
-        <span class="index">01 / FIND YOUR LIGHT</span>
-        <span class="mono muted">ONE FAMILY · FIVE ATMOSPHERES</span>
-      </div>
-      <div class="section-heading">
-        <h2>A change of hue.<br />The same quiet company.</h2>
-        <p>Rooted in Dolch’s carefully generated colours. Keep the familiar blue, warm things up, or wander somewhere new.</p>
+      <div class="section-top section-heading">
+        <h2>Flavours</h2>
       </div>
       <div id="flavour-list" class="flavour-list" role="group" aria-label="Choose a theme"></div>
       <div class="flavour-caption">
@@ -71,22 +66,17 @@ import '../styles/main.css';
     <AppSamples />
 
     <section id="palette" class="wrap section">
-      <div class="section-top">
-        <span class="index">03 / THE COLOUR LIBRARY</span>
+      <div class="section-top section-heading">
+        <h2>Palette</h2>
         <button class="text-button" id="copy-css">Copy theme CSS ↗</button>
       </div>
-      <div class="section-heading">
-        <h2>Every colour<br />has somewhere to belong.</h2>
-        <p>Click a swatch to copy its hex value. Start with the working set; the full generated palette is here when you need it.</p>
-      </div>
+      <p class="muted">Click a swatch to copy its hex value.</p>
       <div class="palette-heading">
         <h3>Surfaces &amp; type</h3>
-        <span class="mono muted">THE QUIET FOUNDATION</span>
       </div>
       <div id="neutral-swatches" class="swatch-grid neutrals"></div>
       <div class="palette-heading">
-        <h3>Accent &amp; company</h3>
-        <span class="mono muted">USE THE WHOLE SPECTRUM, WITH INTENTION</span>
+        <h3>Accents</h3>
       </div>
       <div id="accent-swatches" class="swatch-grid"></div>
       <details class="ramps">
@@ -94,50 +84,23 @@ import '../styles/main.css';
         <p>These are source colour families, not eleven equally readable text colours. Dark grades suit fills; brighter grades suit text on dark backgrounds.</p>
         <div id="ramps-table"></div>
       </details>
-    </section>
-
-    <section id="principles" class="wrap section">
-      <div class="section-top">
-        <span class="index">04 / HOW IT HOLDS TOGETHER</span>
-        <span class="mono muted">COLOUR → ROLE → APPLICATION</span>
-      </div>
-      <div class="principles">
-        <article>
-          <span class="large-index">01</span>
-          <h3>Keep the charcoal.</h3>
-          <p>Very gently tinted neutrals give each flavour its atmosphere. The accent gets to shine because the rest knows when to be quiet.</p>
-        </article>
-        <article>
-          <span class="large-index">02</span>
-          <h3>Give colour a job.</h3>
-          <p>One lead accent for interaction. Supporting hues for syntax, categories and status. A green success stays green when the interface turns pink.</p>
-        </article>
-        <article>
-          <span class="large-index">03</span>
-          <h3>Make it readable.</h3>
-          <p>Dark labels on bright buttons. Clear foregrounds on raised surfaces. <span id="contrast-count">21</span> selected contrast pairs checked per flavour, with no claim of a complete accessibility audit.</p>
-        </article>
-      </div>
       <div class="contrast-specimen">
         <div>
-          <span class="mono muted">PRIMARY ACTION</span>
+          <span class="mono muted">BUTTON LABEL</span>
           <strong id="button-ratio">6.87:1</strong>
           <span>text contrast</span>
         </div>
-        <button class="primary" id="contrast-button">A clear next step ↗</button>
-        <p>Same original accent.<br />A more readable label.</p>
+        <button class="primary" id="contrast-button">Downloads ↗</button>
       </div>
+      <p class="muted"><span id="contrast-count">21</span> selected contrast pairs checked per flavour; not a complete accessibility audit.</p>
     </section>
 
     <section id="take-it" class="wrap section downloads">
-      <div class="section-top">
-        <span class="index">05 / TAKE IT WITH YOU</span>
+      <div class="section-top section-heading">
+        <h2>Downloads</h2>
         <span class="tag">EXPERIMENTAL / v0.1</span>
       </div>
-      <div class="section-heading">
-        <h2>Yours to make<br />yourself at home in.</h2>
-        <p>Portable colour data and a shared vocabulary for future ports. No installers, no claims of integrations that don’t exist yet.</p>
-      </div>
+      <p class="muted">Palette data and CSS variables; no app installers.</p>
       <div class="download-list">
         <button data-download="json">
           <span><strong>Current palette</strong><small><span class="current-name">Tide</span> · primitives, semantic roles &amp; provenance</small></span>
@@ -148,7 +111,7 @@ import '../styles/main.css';
           <span>CSS ↗</span>
         </button>
         <button data-download="all">
-          <span><strong>The whole Solai family</strong><small>Five palettes · source parameters · contrast checks</small></span>
+          <span><strong>All palettes</strong><small>Five palettes · source parameters · contrast checks</small></span>
           <span>JSON ↗</span>
         </button>
         <a href="/downloads/dolch-reference-starter.zip" download>
@@ -161,12 +124,10 @@ import '../styles/main.css';
     <footer class="wrap">
       <div class="footer-top">
         <a class="wordmark" href="#">solai<span class="mark">✳</span></a>
-        <p>For the things you make.<br />And the time you spend making them.</p>
       </div>
       <div class="footer-meta">
-        <span>AN INDEPENDENT COLOUR STUDY</span>
-        <p>Rooted in <a href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch by Renzhi Li</a> · <a href="/downloads/LICENSE-Dolch.txt">MIT</a><br />Presentation inspired by <a href="https://madoromi.moonwit.ch/" target="_blank" rel="noreferrer">madoromi</a> and <a href="https://doll.systems" target="_blank" rel="noreferrer">doll.systems</a>. Original landscape study. <a href="/assets/fonts/Sora-OFL.txt">Sora</a> + <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai</a>.</p>
-        <a href="#">BACK TO THE LIGHT ↑</a>
+        <p>Tide &amp; Ember: <a href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch by Renzhi Li</a> · <a href="/downloads/LICENSE-Dolch.txt">MIT</a><br />Presentation: <a href="https://madoromi.moonwit.ch/" target="_blank" rel="noreferrer">madoromi</a> · <a href="https://doll.systems" target="_blank" rel="noreferrer">doll.systems</a>.<br />Fonts: <a href="/assets/fonts/Sora-OFL.txt">Sora</a> · <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai</a>.</p>
+        <a href="#">BACK TO TOP ↑</a>
       </div>
     </footer>
   </main>

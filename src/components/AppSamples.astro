@@ -1,11 +1,6 @@
 <section id="examples" class="wrap section">
-  <div class="section-top">
-    <span class="index">02 / IN GOOD COMPANY</span>
-    <span class="mono muted">ILLUSTRATIVE APP SAMPLES</span>
-  </div>
-  <div class="section-heading">
-    <h2>Not just a pretty swatch.</h2>
-    <p>The same decisions, carried across code, command lines and everyday interfaces.</p>
+  <div class="section-top section-heading">
+    <h2>Previews</h2>
   </div>
   <div class="sample-toolbar">
     <div class="tabs" role="tablist" aria-label="Application samples">
@@ -19,21 +14,20 @@
   <div class="app-window">
     <div class="window-chrome">
       <span class="window-dots" aria-hidden="true">● ● ●</span>
-      <span id="window-title">a-small-moment.ts</span>
+      <span id="window-title">theme.ts</span>
       <span>⌘</span>
     </div>
     <div id="sample-editor" class="sample editor" role="tabpanel" aria-labelledby="tab-editor">
       <aside class="filetree">
         <span class="mono muted">EXPLORER</span>
         <div>⌄ solai</div>
-        <div class="selected">▧ a-small-moment.ts</div>
+        <div class="selected">▧ theme.ts</div>
         <div>▧ palette.json</div>
         <div>▧ README.md</div>
-        <small>A little less noise.<br />A little more focus.</small>
       </aside>
       <div class="code-area">
-        <div class="code-title">a-small-moment.ts <span>●</span></div>
-        <pre is:raw><code><span class="line"><i>01</i><span class="comment">// A softer place to make things.</span></span><span class="line"><i>02</i><span class="keyword">import</span> { createTheme } <span class="keyword">from</span> <span class="string">'solai'</span>;</span><span class="line"><i>03</i></span><span class="line"><i>04</i><span class="keyword">const</span> atmosphere: <span class="type">Theme</span> = createTheme({</span><span class="line"><i>05</i>  name: <span class="string">'<span class="current-name-lower">tide</span>'</span>,</span><span class="line focus-line"><i>06</i>  background: <span class="string canvas-hex">'#101416'</span>,</span><span class="line"><i>07</i>  accent: <span class="string accent-hex">'#00ACCE'</span>,</span><span class="line"><i>08</i>  noise: <span class="number">0.02</span>,</span><span class="line"><i>09</i>  gentle: <span class="number">true</span>,</span><span class="line"><i>10</i>});</span><span class="line"><i>11</i></span><span class="line"><i>12</i><span class="keyword">export default</span> atmosphere;<span class="cursor">▏</span></span></code></pre>
+        <div class="code-title">theme.ts <span>●</span></div>
+        <pre is:raw><code><span class="line"><i>01</i><span class="keyword">import</span> { createTheme } <span class="keyword">from</span> <span class="string">'solai'</span>;</span><span class="line"><i>02</i></span><span class="line"><i>03</i><span class="keyword">const</span> theme: <span class="type">Theme</span> = createTheme({</span><span class="line"><i>04</i>  name: <span class="string">'<span class="current-name-lower">tide</span>'</span>,</span><span class="line focus-line"><i>05</i>  background: <span class="string canvas-hex">'#101416'</span>,</span><span class="line"><i>06</i>  accent: <span class="string accent-hex">'#00ACCE'</span>,</span><span class="line"><i>07</i>});</span><span class="line"><i>08</i></span><span class="line"><i>09</i><span class="keyword">export default</span> theme;<span class="cursor">▏</span></span></code></pre>
         <div class="code-status">
           <span>main* &nbsp; ✓ 0 problems</span>
           <span>TypeScript · UTF-8</span>
@@ -41,14 +35,11 @@
       </div>
     </div>
     <div id="sample-terminal" class="sample terminal" role="tabpanel" aria-labelledby="tab-terminal" hidden>
-      <p class="term-muted">Last login: a quiet evening</p>
       <p><span class="term-green">~/studio</span> <span class="accent">❯</span> solai inspect --flavour <span class="current-name-lower">tide</span></p>
-      <p class="terminal-logo">s o l a i <span>✳</span></p>
-      <p>Palette loaded. Make yourself at home.</p>
+      <p>Palette loaded.</p>
       <div class="term-facts">
         <span class="accent">Theme</span><span class="current-name">Tide</span>
         <span class="accent">Colours</span><span>17 ramps / 11 steps</span>
-        <span class="accent">Character</span><span>Near-neutral. Clear at heart.</span>
       </div>
       <div id="ansi-swatches" class="ansi-swatches" aria-label="Proposed terminal ANSI colours"></div>
       <p><span class="term-green">✓</span> Core contrast pairs checked</p>
@@ -57,23 +48,21 @@
     </div>
     <div id="sample-interface" class="sample settings" role="tabpanel" aria-labelledby="tab-interface" hidden>
       <aside>
-        <span class="mono muted">YOUR SPACE</span>
-        <h3>A quieter workspace.</h3>
-        <p>A small interface specimen. These controls are local demonstrations.</p>
+        <p>Controls affect this preview only.</p>
         <div class="mini-art" aria-hidden="true">✳</div>
       </aside>
       <div class="settings-content">
         <h3>Appearance</h3>
         <label class="setting-row">
-          <span><strong>Soft focus</strong><small>Keep the important things in view</small></span>
+          <span><strong>Soft focus</strong></span>
           <input type="checkbox" checked role="switch" aria-label="Soft focus" />
         </label>
         <label class="setting-row">
-          <span><strong>Comfortable spacing</strong><small>A little extra room to breathe</small></span>
+          <span><strong>Comfortable spacing</strong></span>
           <input type="checkbox" role="switch" aria-label="Comfortable spacing" />
         </label>
         <label class="input-label" for="workspace-name">Workspace name</label>
-        <input id="workspace-name" type="text" value="A small corner of the internet" maxlength="80" />
+        <input id="workspace-name" type="text" value="Studio" maxlength="80" />
         <div class="status-row">
           <span class="badge success">✓ Saved</span>
           <span class="badge warning">! Review</span>
@@ -87,5 +76,5 @@
       </div>
     </div>
   </div>
-  <p class="sample-note">A design specimen, not a shipping application. Syntax keeps Dolch’s restrained character; status colours keep their meaning.</p>
+  <p class="sample-note">Illustrative previews, not installed app integrations.</p>
 </section>

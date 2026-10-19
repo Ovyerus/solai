@@ -42,6 +42,10 @@ This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj
 
 The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation. The full-width hero, transparent overlaid header and synchronized five-segment palette selector are retained.
 
+The main page contains Flavours, Previews, Palette and Downloads. Selected contrast checks are shown with the palette. The standalone type page includes editable samples, character coverage and weight comparisons.
+
+The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
+
 Palettes: **Tide, Ember, Dusk, Viridian, Bloom**. Sora is the interface/display face, and Iosevka Solai is the monospace face. The separate type comparison also includes Space Grotesk. Palette selection persists in browser localStorage. Demo preferences are illustrative, and exported CSS provides semantic variables rather than installed app themes.
 
 ## File map
