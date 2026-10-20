@@ -11,7 +11,7 @@ import '../../styles/palette.css';
 
 <Page
   title="Palette — Solai"
-  description="Explore all 17 Solai colour ramps in five flavours and two modes. Copy original hex values and semantic theme CSS."
+  description="Solai's colour families in light and dark: cyan-blue, amber, violet, leaf-green and rose, with neutral foundations and a shared ring of supporting hues."
   flavor="blue"
 >
   <ThemeHead slot="head" />
@@ -26,6 +26,7 @@ import '../../styles/palette.css';
         </div>
         <div class="palette-actions">
           <button class="text-button" id="copy-css" type="button" disabled>Copy theme CSS ↗</button>
+          <a class="text-button" href="/guide/" data-theme-link>Colour guide ↗</a>
           <a class="text-button" href="/#take-it" data-theme-link>Downloads ↗</a>
         </div>
       </div>
@@ -35,11 +36,11 @@ import '../../styles/palette.css';
     <div id="palette-content" hidden>
       <section class="wrap palette-section" aria-labelledby="generated-heading">
         <div class="section-top section-heading">
-          <h2 id="generated-heading">Generated ramps</h2>
+          <h2 id="generated-heading">Colour families</h2>
         </div>
-        <div class="palette-instructions muted" id="ramp-instructions">
-          <p>Hover over a bar to reveal its colour-filled preview. Move to choose a stop; click to copy its exact hex. With a keyboard, use Left/Right or Home/End, then Enter or Space to copy. On narrow screens, scroll the table sideways.</p>
-          <p>Grades run from background to foreground: dark to bright in dark mode, light to dark in light mode. Only the gradient between stops is interpolated in OKLab; the original palette values are unchanged.</p>
+        <div class="palette-description muted" id="ramp-description">
+          <p>Neutral and tinted-neutral ramps make the ground: charcoal in the dark variants, pale mist in the light. A lead hue and a companion sit beside twelve supporting colour families.</p>
+          <p>Eleven grades carry each family from the surface end to the foreground—shadow to light in dark mode, pale to deep in light mode.</p>
         </div>
         <div class="palette-ramp-scroll" role="region" aria-label="Generated colour ramps" tabindex="0">
           <div class="palette-ramp-table">
@@ -49,16 +50,20 @@ import '../../styles/palette.css';
                 {Array.from({ length: 11 }, (_, grade) => <span style={`left:${grade * 10}%`}>{grade}</span>)}
               </div>
             </div>
-            <div id="palette-ramp-list" class="palette-ramp-list" aria-describedby="ramp-instructions"></div>
+            <div id="palette-ramp-list" class="palette-ramp-list" aria-describedby="ramp-description"></div>
           </div>
         </div>
+        <details class="palette-help">
+          <summary>Copying &amp; keyboard</summary>
+          <p>Hover over a bar to reveal its colour. Click a bar, preview or dot to copy the exact hex value. With a keyboard, use Left/Right or Home/End to choose a grade, then Enter or Space to copy. The table scrolls sideways on narrow screens.</p>
+        </details>
       </section>
 
       <section class="wrap palette-section" aria-labelledby="semantic-heading">
         <div class="section-top section-heading">
-          <h2 id="semantic-heading">Semantic swatches</h2>
+          <h2 id="semantic-heading">Roles &amp; accents</h2>
         </div>
-        <p class="muted">Click a swatch to copy its hex value. The swatch title identifies its source ramp and grade.</p>
+        <p class="muted">The lead hue carries the flavour. Green, yellow, red and blue keep their meanings as success, warning, error and information, even when the accent changes.</p>
         <div class="palette-heading">
           <h3>Surfaces &amp; type</h3>
         </div>

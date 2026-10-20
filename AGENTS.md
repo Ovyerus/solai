@@ -12,10 +12,11 @@ Use Conventional Commit descriptions for named changes, such as `feat: ...`, `fi
 - Soft, Dither and ASCII treatments, plus pointer ASCII reveal; render on changes, without a perpetual animation loop
 - Sora for the main interface, Iosevka Solai for technical/monospace content
 - Five flavours and stable internal IDs: Tide=`blue`, Ember=`alter`, Dusk=`violet`, Viridian=`green`, Bloom=`rose`; each has Dark and Light variants
-- Native header theme dropdown paired with the Dark/Light toggle at the right edge and synchronized with the home flavour cards; no palette bar below the hero; Home and Palette share flavour/mode persistence and navigation context; `/type/` preferences remain local
+- Native header theme dropdown paired with the Dark/Light toggle at the right edge and synchronized with the home flavour cards; no palette bar below the hero; Home, Palette and Guide share flavour/mode persistence and navigation context; `/type/` preferences remain local
 - Responsive layout, keyboard-operable tabs and controls, accessible labels, reduced-motion behavior, clipboard fallback and working downloads
 - `/type/` remains a standalone font comparison specimen, with Space Grotesk available there
 - `/palette/` is the separate explorer: compact pseudo-table rows with shared grade headings, OKLab gradients between unchanged original stops, stop dots and independent colour-filled preview windows overlaid on the bars. On row entry, position the window at the new stop before fading in; never animate in from its cached column. Row exit fades opacity without intercepting clicks. Keep continuous scrubbing, exact-value copying, fixed 150ms Glide motion (`cubic-bezier(.22, .68, 0, 1)`) with no motion selector, keyboard navigation, native touch scrolling and reduced-motion behavior.
+- `/guide/` explains colour meanings across eight contexts, with three named A/B/C treatments per section varying both semantic assignments and presentation. Studies live in `src/data/guide.js`, resolve from canonical values, and remain unexported proposals. Preserve each context's URL choice across theme changes, stable section/letter references, readable contextual examples, and truthful unavailable-data/no-script states. Do not turn a chosen study into a published alias without updating the generator/data/exports together.
 
 The proposed high-rise balcony is NOT integrated. Do not silently substitute it when making unrelated changes.
 
@@ -45,10 +46,11 @@ If explicitly asked to switch to balcony art: copy/export the chosen source into
 
 ## Verify edits
 
-- Run `node --check` on changed `src/scripts/*.js` files, check the home/type entry points, and run `pnpm build`
-- Use `pnpm dev` for development and `pnpm preview` to check the built site; check `/`, `/palette/`, `/type/`, fonts, JSON and downloads without missing requests
+- Run `node --check` on changed `src/scripts/*.js` and `src/data/*.js` files, check the home/type entry points, and run `pnpm build`
+- Use `pnpm dev` for development and `pnpm preview` to check the built site; check `/`, `/palette/`, `/guide/`, `/type/`, fonts, JSON and downloads without missing requests
 - Test all five flavours in both modes with each hero treatment, synchronized selectors, pointer enter/leave, resize, keyboard tabs/mode controls, reduced motion and narrow layouts
 - Test copy/download actions and localStorage behavior when affected
 - On `/palette/`, check stop/gradient alignment, nearest-stop snapping through the overlay, diagonal entry into cached rows (including rapid re-entry during fade-out), independent row crossfades, idle preview hiding, first/last containment during Glide motion, exact clipboard values, one-tab-stop-per-row keyboard navigation, horizontal/vertical touch scrolling and cross-page theme persistence
+- On `/guide/`, exercise all A/B/C treatments in both modes, actual role/source/value resolution, semantic specimen colours, query restoration and deep links, independent selectors, theme preservation, keyboard traversal, narrow layouts and JSON/no-script failure states. Interface statuses stay green/yellow/red/blue; do not imply ANSI indices or syntax categories have universal status meanings.
 - Check browser console errors and preserve license/source links
 - State what was verified and any remaining limits; do not claim browser QA from syntax checks alone

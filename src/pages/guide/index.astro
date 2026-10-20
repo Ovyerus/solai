@@ -1,0 +1,80 @@
+---
+import Page from '../../layouts/Page.astro';
+import ThemeHead from '../../components/ThemeHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { guideSections } from '../../data/guide.js';
+import '../../styles/main.css';
+import '../../styles/themes.css';
+import '../../styles/guide.css';
+---
+
+<Page title="Colour guide — Solai" description="Compare proposed semantic colour assignments for interfaces, code, prose, editors and terminals across every Solai flavour and mode." flavor="blue">
+  <ThemeHead slot="head" />
+  <SiteHeader />
+  <main id="main" class="guide-page">
+    <header class="wrap guide-intro">
+      <h1>Colour in context.</h1>
+      <p class="guide-lede">The same hue can mark a destination, a type, a change or a line of prose. Compare three interpretations of each context, with colour assignments and presentation changing together.</p>
+      <p>These A/B/C treatments are guide-only proposals. Choosing one does not change the exported palette.</p>
+      <div class="guide-meta">
+        <p id="guide-selection" aria-live="polite">Five flavours · Dark &amp; Light</p>
+        <a href="/palette/" data-theme-link>Explore the source palette ↗</a>
+      </div>
+      <p id="guide-status" role="status" hidden>Loading palette data…</p>
+      <noscript><p class="guide-noscript">JavaScript is needed to resolve and compare the live-colour studies. No specimens have loaded. You can still <a href="/palette/">visit the palette page</a> or <a href="/downloads/flavor-studies.json">download the complete palette data</a>.</p></noscript>
+      <p class="guide-reference">Structure inspired by <a href="https://madoromi.moonwit.ch/#palettes/guide">Madoromi’s palette guide ↗</a>.</p>
+    </header>
+
+    <nav class="wrap guide-nav" aria-label="Guide sections">
+      {guideSections.map(section => <a href={`#${section.id}`}>{section.title}</a>)}
+    </nav>
+
+    <div class="wrap guide-sections">
+      {guideSections.map((section, index) => (
+        <section id={section.id} class="guide-section" data-guide-section={section.id} aria-labelledby={`${section.id}-heading`} data-layout="ledger">
+          <header class="guide-section-header">
+            <div>
+              <span class="guide-section-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <h2 id={`${section.id}-heading`}>{section.title}</h2>
+            </div>
+            <label class="guide-choice" for={`${section.id}-treatment`}>
+              <span>{section.title} treatment</span>
+              <select id={`${section.id}-treatment`} name={section.id} data-guide-select={section.id} aria-describedby={`${section.id}-description`} disabled>
+                {section.variants.map(variant => <option value={variant.id}>{variant.id.toUpperCase()} — {variant.name}</option>)}
+              </select>
+            </label>
+          </header>
+          <p class="guide-section-description">{section.description}</p>
+          <div class="guide-study-heading">
+            <h3 data-study-title>{section.title} / A — {section.variants[0].name}</h3>
+            <p id={`${section.id}-description`} data-study-description>{section.variants[0].description}</p>
+          </div>
+          <div class="guide-ready" hidden>
+            <div class="guide-study-body">
+              <figure class="guide-example">
+                <figcaption>{section.title} example</figcaption>
+                <div class="guide-specimen" data-guide-specimen></div>
+              </figure>
+              <div class="guide-role-group">
+                <h4>Colour roles</h4>
+                <div class="guide-role-list" data-guide-roles></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+    <aside class="wrap guide-notes" aria-label="Reading the studies">
+      <h2>Read the role, not just the hue.</h2>
+      <p>A red syntax token is not automatically an error. Status examples keep green for success and additions, yellow for warnings, red for danger and removals, and blue for information. Labels and symbols carry the meaning alongside colour.</p>
+      <p>ANSI slots are suggested mappings: applications decide how to use them. Dark or softened slots are shown as colour tiles with contrasting labels, not as a promise that every slot works as small foreground text. Recheck contrast on your own surfaces.</p>
+      <p>Treatment choices live in this page’s URL, so you can bookmark or share the exact combination. The header changes flavour and mode without resetting those choices.</p>
+      <p>Need the unchanged values? <a href="/downloads/flavor-studies.json">Download the complete palette data</a> or <a href="/downloads/flavors.css">the canonical theme CSS</a>.</p>
+    </aside>
+  </main>
+  <SiteFooter />
+  <script>
+    import '../../scripts/guide.js';
+  </script>
+</Page>

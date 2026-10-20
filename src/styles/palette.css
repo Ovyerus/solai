@@ -50,13 +50,28 @@
   margin-bottom: 20px;
 }
 
-.palette-instructions {
+.palette-description {
   max-width: 78ch;
   margin-bottom: 20px;
 }
 
-.palette-instructions p {
+.palette-description p {
   margin: 0 0 12px;
+}
+
+.palette-help {
+  margin-top: 16px;
+  max-width: 78ch;
+  color: var(--secondary);
+  font-size: 12px;
+}
+
+.palette-help summary {
+  cursor: pointer;
+}
+
+.palette-help p {
+  margin-bottom: 0;
 }
 
 .palette-page .contrast-specimen .primary {

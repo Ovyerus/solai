@@ -19,7 +19,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open **http://localhost:4321/**. The palette explorer is at **http://localhost:4321/palette/** and the standalone type comparison is at **http://localhost:4321/type/**. Edit `src/` or `public/` and Astro refreshes the development page. Use HTTP rather than opening HTML directly, because the pages fetch local JSON.
+Open **http://localhost:4321/**. The palette explorer is at **http://localhost:4321/palette/**, the colour guide at **http://localhost:4321/guide/** and the independent type comparison at **http://localhost:4321/type/**. Edit `src/` or `public/` and Astro refreshes the development page. Use HTTP rather than opening HTML directly, because the pages fetch local JSON.
 
 To build and preview the production site:
 
@@ -27,6 +27,8 @@ To build and preview the production site:
 node --check src/scripts/app.js
 node --check src/scripts/palette.js
 node --check src/scripts/palette-ramp.js
+node --check src/scripts/guide.js
+node --check src/data/guide.js
 node --check src/scripts/type.js
 pnpm build
 pnpm preview
@@ -44,17 +46,25 @@ This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj
 
 The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation. The full-width hero and transparent overlaid header are retained. The native theme dropdown and Dark/Light toggle are paired at the header's right edge, synchronized with the lower flavour cards; there is no palette bar below the hero.
 
-The home page contains Flavours, Previews and Downloads. `/palette/` contains all generated ramps, semantic swatches and selected contrast checks. The standalone type page includes editable samples, character coverage and weight comparisons.
+The home page contains Flavours, Previews and Downloads. `/palette/` describes the colour families and contains the ramps, role swatches and selected contrast checks; copying/keyboard instructions are optional, collapsed help. `/guide/` explores semantic meanings in eight usage contexts with named treatments. The independent type page includes editable samples, character coverage and weight comparisons.
 
 The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
 
-Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home and Palette share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit control choice updates preferences and any theme query so reloads keep the new selection. The `/type/` controls stay local to that page. Sora is the interface/display face, Iosevka Solai is the monospace face, and the type comparison also includes Space Grotesk. Demo preferences are illustrative; exports are palette data and CSS variables, not installed app themes.
+Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. The `/type/` controls stay local to that page. Sora is the interface/display face, Iosevka Solai is the monospace face, and the type comparison also includes Space Grotesk. Demo preferences are illustrative; exports are palette data and CSS variables, not installed app themes.
 
 ### Palette interaction
 
 The generated ramps use compact pseudo-table rows with a shared 0–10 grade header. Each bar is a continuous OKLab-interpolated gradient with dots at the original stops. Each row has its own colour-filled preview, overlaid on the bar for hover or keyboard focus. On entry, it is placed at the current stop before fading in; it never slides in from that row's cached column. Leaving the row fades its window out over 120 ms without intercepting pointer input. Movement within the row slides between stops. Clicking the bar, window or a dot copies the original hex value, never an interpolated sample.
 
 Horizontal motion is fixed to **Glide: 150 ms with `cubic-bezier(.22, .68, 0, 1)`**, with no motion selector. Reduced motion disables both slides and fades. Keyboard users get one tab stop per row: Left/Right and Home/End choose a grade; Enter or Space copies. Narrow screens scroll the table horizontally with sticky family labels, while touch copying and scrolling remain native.
+
+### Colour guide studies
+
+`/guide/` covers **Surfaces, Text & signals, Code, Prose, Editor chrome, Changes & diagnostics, Terminal UI and ANSI slots**. Each section has three complete, named A/B/C treatments, varying both the proposed colour assignments and presentation: a compact ledger, a prominent context example or role cards. Refer to choices by section and letter, such as **Code B — Colour by role** or **Editor C — Marked edges**.
+
+Choices are stored in the URL, not global preferences: `/guide/?theme=Tide&mode=light&code=b&editor=c#code`. Context parameter names are `surfaces`, `interface`, `code`, `prose`, `editor`, `changes`, `terminal` and `ansi`. Unknown choices fall back to A. Header theme changes preserve the study choices, and section links work after live values load.
+
+These are **guide-only proposals** resolved from canonical palette roles, syntax assignments and primitive ramps. Choosing a treatment does not change the published aliases, source colours or downloads. Interface statuses retain their meanings; a syntax colour or ANSI slot is not inherently a status. Low-contrast ANSI slots are shown as labelled colour tiles, not recommended as universal foreground text. Selected prototype pairings were checked, but the guide is not a complete accessibility audit. If a study is adopted into published aliases, update the generator and exports together.
 
 ## Palette data
 
@@ -74,6 +84,7 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 
 - `src/pages/index.astro`: main page structure and copy
 - `src/pages/palette/index.astro`: standalone palette explorer
+- `src/pages/guide/index.astro`: collaborative semantic-colour guide
 - `src/pages/type/index.astro`: standalone typography comparison page
 - `src/layouts/Page.astro`: shared document metadata and page slots
 - `src/components/AppSamples.astro`: editor, terminal and interface specimens
@@ -82,9 +93,12 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/styles/main.css`: shared site styles and home-page artwork/layout; `src/styles/type.css`: independent type-page styles
 - `src/styles/themes.css`: generated site tokens for every flavour/mode, applied before palette JSON loads
 - `src/styles/palette.css` and `palette-ramps.css`: palette-page layout, gradient markers and sliding preview
+- `src/styles/guide.css`: responsive guide layouts and contextual colour specimens
 - `src/scripts/app.js`: home flavour cards, samples, downloads and canvas rendering
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
+- `src/data/guide.js`: eight usage contexts and 24 named, unexported semantic studies
+- `src/scripts/guide.js`: live colour resolution, per-section treatments and shareable URL state
 - `src/scripts/type.js`: typography comparison controls
 - `public/assets/palettes.json`: current canonical palette data and provenance
 - `public/assets/landscape.png`: current grayscale landscape source

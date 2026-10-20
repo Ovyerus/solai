@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { home = false } = Astro.props;
+const page = Astro.url.pathname.split('/')[1];
 ---
 
 <a class="skip" href="#main">Skip to content</a>
@@ -15,7 +16,8 @@ const { home = false } = Astro.props;
     <div class="nav-links">
       <a href={home ? '#flavours' : '/#flavours'} data-theme-link={home ? undefined : true}>Flavours</a>
       <a href={home ? '#examples' : '/#examples'} data-theme-link={home ? undefined : true}>Previews</a>
-      <a href={home ? '/palette/' : '#main'} data-theme-link={home ? true : undefined} aria-current={home ? undefined : 'page'}>Palette</a>
+      <a href={page === 'palette' ? '#main' : '/palette/'} data-theme-link={page === 'palette' ? undefined : true} aria-current={page === 'palette' ? 'page' : undefined}>Palette</a>
+      <a href={page === 'guide' ? '#main' : '/guide/'} data-theme-link={page === 'guide' ? undefined : true} aria-current={page === 'guide' ? 'page' : undefined}>Guide</a>
       <a href={home ? '#take-it' : '/#take-it'} data-theme-link={home ? undefined : true}>Downloads <span>↗</span></a>
     </div>
   </nav>
