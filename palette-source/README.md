@@ -15,11 +15,16 @@ This reads `reference/all-generated-palettes.json` and `contrast-and-roles.json`
 - `public/assets/palettes.json`: canonical schema v2, with `flavors[id].modes.dark/light`
 - `public/downloads/flavor-studies.json`: the matching whole-family download
 - `public/downloads/flavors.css`: primitive and semantic `--solai-*` variables scoped by `data-flavor` and `data-mode`
-- `src/styles/themes.css`: main-page UI variables and native colour scheme for all ten variants
+- `public/downloads/flavors.tailwind.css`: Tailwind v4 colour tokens for the complete family, with a Tide Dark fallback and root/nested `data-flavor` + `data-mode` selection
+- `src/styles/themes.css`: main-page UI variables, inline Tailwind aliases and native colour scheme for all ten variants
 
 Tide/Ember preserve the exact four upstream dark/light primitive sets. Dusk, Viridian and Bloom use the original per-mode parameters with their established hue choices; their status rings stay aligned with original Blue in that mode. All semantic aliases are independent Solai proposals.
 
 Light grades run from light to dark. Role grades are chosen against actual paired surfaces and button/badge fills, rather than merely reusing dark-mode indices. The generator recalculates 21 selected contrast checks per dark variant and 35 per light variant. Normal text targets 4.5:1 and essential borders 3:1; these checks are not a complete accessibility audit. It rejects failing pairs and unintended changes to the existing complete dark variants. Regeneration is deterministic and does not depend on previous output values.
+
+The Tailwind export serializes the unchanged 17 × 11 primitive stops and 32 `roleValues` entries per variant into 219 `--color-solai-*` tokens. Names are kebab-cased consistently with the existing CSS export. `@theme inline` maps utilities to scoped `--solai-*` values so nested themes resolve correctly. Import it after `@import "tailwindcss"` in a Tailwind v4 consumer; it does not bundle Tailwind, fonts or layout.
+
+The home page's single-variant download is produced by `exportTailwindCSS` in `src/scripts/palette-shared.js`, using the same canonical primitive/role inventory and naming rule, with literal `@theme static` values. Keep both serializations in sync. Neither exports the guide-only mappings or adds syntax aliases.
 
 ## Historical tools
 

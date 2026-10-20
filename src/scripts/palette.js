@@ -40,25 +40,26 @@ let currentSelection;
 function createSwatch(label, hex, source, role) {
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'swatch';
+  button.className = 'swatch group min-w-0 rounded-[2px] border-0 bg-transparent p-0 text-left';
   const origin = role ? `${role} · ${source}` : source;
   button.title = `${label} · ${origin} · copy ${hex}`;
   button.setAttribute('aria-label', `Copy ${label}, ${hex}, ${origin}`);
 
   const colour = document.createElement('span');
-  colour.className = 'swatch-color';
+  colour.className = 'swatch-color flex h-[92px] items-center justify-center rounded-[2px] border border-solai-border-strong font-mono text-[12px] leading-[normal] text-(--swatch-ink) [@media(max-width:650px)]:h-[74px]';
   colour.style.backgroundColor = hex;
   colour.style.setProperty('--swatch-ink', contrastInk(hex));
   const hint = document.createElement('span');
+  hint.className = 'opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100';
   hint.textContent = '↗ COPY';
   hint.setAttribute('aria-hidden', 'true');
   colour.append(hint);
 
   const name = document.createElement('span');
-  name.className = 'swatch-name';
+  name.className = 'swatch-name mt-[9px] block font-sans text-[12px] leading-[normal] whitespace-nowrap';
   name.textContent = label;
   const value = document.createElement('span');
-  value.className = 'swatch-hex';
+  value.className = 'swatch-hex mt-[3px] mb-[16px] block font-mono text-[12px] leading-[normal] text-solai-text-muted';
   value.textContent = hex;
 
   button.append(colour, name, value);

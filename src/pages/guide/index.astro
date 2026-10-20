@@ -4,63 +4,60 @@ import ThemeHead from '../../components/ThemeHead.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { guideSections } from '../../data/guide.js';
-import '../../styles/main.css';
-import '../../styles/themes.css';
-import '../../styles/guide.css';
 ---
 
 <Page title="Colour guide — Solai" description="Explore proposed semantic colour assignments for interfaces, code, prose, editors and terminals across every Solai flavour and mode." flavor="blue">
   <ThemeHead slot="head" />
   <SiteHeader />
-  <main id="main" class="guide-page">
+  <main id="main" class="guide-page pt-[54px] pb-[72px] [@media(max-width:650px)]:pt-[32px] [@media(max-width:650px)]:pb-[45px] motion-reduce:scroll-auto">
     <header class="wrap guide-intro">
-      <h1>Colour in context.</h1>
-      <p class="guide-lede">The same hue can mark a destination, a type, a change or a line of prose. Explore its meaning in each context, with the example beside its colour roles.</p>
-      <p>These colour assignments are guide-only proposals. They do not change the exported palette.</p>
-      <div class="guide-meta">
-        <p id="guide-selection" aria-live="polite">Five flavours · Dark &amp; Light</p>
-        <a href="/palette/" data-theme-link>Explore the source palette ↗</a>
+      <h1 class="mt-0 mb-[22px] max-w-[850px] text-[clamp(42px,7vw,88px)] leading-[1.08] font-normal tracking-[-.065em] text-solai-text-emphasis">Colour in context.</h1>
+      <p class="guide-lede mt-0 mb-[1em] max-w-[900px] text-[clamp(18px,2vw,23px)] leading-[1.65] tracking-[-.025em] [@media(max-width:650px)]:text-[18px]">The same hue can mark a destination, a type, a change or a line of prose. Explore its meaning in each context, with the example beside its colour roles.</p>
+      <p class="mt-0 mb-[1em] max-w-[830px]">These colour assignments are guide-only proposals. They do not change the exported palette.</p>
+      <div class="guide-meta flex flex-wrap items-baseline gap-x-[30px] gap-y-[12px] pt-[15px] [@media(max-width:650px)]:gap-[8px] [@media(max-width:650px)]:text-[13px]">
+        <p id="guide-selection" class="m-0 text-solai-text-emphasis" aria-live="polite">Five flavours · Dark &amp; Light</p>
+        <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/palette/" data-theme-link>Explore the source palette ↗</a>
       </div>
-      <p id="guide-status" role="status" hidden>Loading palette data…</p>
-      <noscript><p class="guide-noscript">JavaScript is needed to resolve the live-colour examples and role values. No specimens have loaded. You can still read the guide’s descriptions, <a href="/palette/">visit the palette page</a> or <a href="/downloads/flavor-studies.json">download the complete palette data</a>.</p></noscript>
-      <p class="guide-reference">Structure inspired by <a href="https://madoromi.moonwit.ch/#palettes/guide">Madoromi’s palette guide ↗</a>.</p>
+      <p id="guide-status" class="mt-[16px] mb-[1em] max-w-[830px] text-[12px] text-solai-text-secondary" role="status" hidden>Loading palette data…</p>
+      <noscript><p class="guide-noscript mt-0 mb-[1em] max-w-[830px] py-[25px]">JavaScript is needed to resolve the live-colour examples and role values. No specimens have loaded. You can still read the guide’s descriptions, <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/palette/">visit the palette page</a> or <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/downloads/flavor-studies.json">download the complete palette data</a>.</p></noscript>
+      <p class="guide-reference mt-0 mb-[1em] max-w-[830px] pt-[12px] text-[12px] text-solai-text-secondary">Structure inspired by <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="https://madoromi.moonwit.ch/#palettes/guide">Madoromi’s palette guide ↗</a>.</p>
     </header>
 
-    <nav class="wrap guide-nav" aria-label="Guide sections">
-      {guideSections.map(section => <a href={`#${section.id}`}>{section.title}</a>)}
+    <nav class="wrap guide-nav mt-[35px] flex flex-wrap gap-x-[24px] gap-y-[10px] border-y border-solai-border-subtle py-[18px] text-[13px] [@media(max-width:650px)]:gap-x-[19px] [@media(max-width:650px)]:gap-y-[8px] [@media(max-width:650px)]:text-[12px]" aria-label="Guide sections">
+      {guideSections.map(section => <a class="inline-flex min-h-[44px] min-w-[44px] items-center rounded-[2px] px-[2px] py-[8px] underline-offset-[4px] hover:text-solai-text-emphasis hover:underline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight" href={`#${section.id}`}>{section.title}</a>)}
     </nav>
 
     <div class="wrap guide-sections">
       {guideSections.map((section, index) => (
-        <section id={section.id} class="guide-section" data-guide-section={section.id} aria-labelledby={`${section.id}-heading`}>
-          <header class="guide-section-header">
-            <div>
-              <span class="guide-section-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <h2 id={`${section.id}-heading`}>{section.title}</h2>
+        <section id={section.id} class="guide-section min-w-0 scroll-mt-[30px] border-b border-solai-border-subtle py-[54px] [@media(max-width:650px)]:py-[35px]" data-guide-section={section.id} aria-labelledby={`${section.id}-heading`}>
+          <header class="guide-section-header flex flex-wrap items-center justify-between gap-[22px] [@media(max-width:650px)]:items-start">
+            <div class="flex items-baseline gap-[14px]">
+              <span class="guide-section-number font-mono text-[13px] text-solai-text-muted" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <h2 id={`${section.id}-heading`} class="m-0 text-[clamp(26px,3.2vw,40px)] leading-[1.25] font-normal tracking-[-.045em] text-solai-text-emphasis">{section.title}</h2>
             </div>
           </header>
-          <p class="guide-section-description">{section.description}</p>
+          <p class="guide-section-description mt-[20px] mb-[28px] max-w-[850px] text-[14px] text-solai-text-secondary [@media(max-width:650px)]:text-[13px]">{section.description}</p>
           <div class="guide-ready" hidden>
-            <div class="guide-study-body">
-              <figure class="guide-example">
-                <figcaption>{section.title} example</figcaption>
-                <div class="guide-specimen" data-guide-specimen></div>
+            <div class="guide-study-body grid grid-cols-[minmax(0,.7fr)_minmax(0,1.3fr)] items-start gap-[28px] [@media(max-width:1000px)]:grid-cols-[minmax(0,1fr)] [@media(max-width:650px)]:gap-[22px]">
+              <figure class="guide-example m-0 min-w-0">
+                <figcaption class="mb-[10px] font-mono text-[12px] leading-[1.5] text-solai-text-secondary">{section.title} example</figcaption>
+                <div class="guide-specimen min-w-0 overflow-hidden rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas text-solai-text-primary" data-guide-specimen></div>
               </figure>
-              <div class="guide-role-group">
-                <h3>Colour roles</h3>
-                <div class="guide-role-list" data-guide-roles></div>
+              <div class="guide-role-group min-w-0">
+                <h3 class="mt-0 mb-[10px] font-mono text-[12px] leading-[1.5] font-normal text-solai-text-secondary">Colour roles</h3>
+                <div class="guide-role-list min-w-0" data-guide-roles></div>
               </div>
             </div>
           </div>
         </section>
       ))}
     </div>
-    <aside class="wrap guide-notes" aria-label="Reading the guide">
-      <h2>Read the role, not just the hue.</h2>
-      <p>A red syntax token is not automatically an error. Status examples keep green for success and additions, yellow for warnings, red for danger and removals, and blue for information. Labels and symbols carry the meaning alongside colour.</p>
-      <p>ANSI slots are suggested mappings: applications decide how to use them. Dark or softened slots are shown as colour tiles with contrasting labels, not as a promise that every slot works as small foreground text. Recheck contrast on your own surfaces.</p>
-      <p>The header changes flavour and mode across all eight contexts. Use the section links to bookmark or share a context.</p>
-      <p>Need the unchanged values? <a href="/downloads/flavor-studies.json">Download the complete palette data</a> or <a href="/downloads/flavors.css">the canonical theme CSS</a>.</p>
+    <aside class="wrap guide-notes pt-[45px]" aria-label="Reading the guide">
+      <h2 class="mt-0 mb-[.83em] text-[23px] font-normal tracking-[-.035em] text-solai-text-emphasis">Read the role, not just the hue.</h2>
+      <p class="mt-0 mb-[1em] max-w-[880px] text-[13px] text-solai-text-secondary">A red syntax token is not automatically an error. Status examples keep green for success and additions, yellow for warnings, red for danger and removals, and blue for information. Labels and symbols carry the meaning alongside colour.</p>
+      <p class="mt-0 mb-[1em] max-w-[880px] text-[13px] text-solai-text-secondary">ANSI slots are suggested mappings: applications decide how to use them. Dark or softened slots are shown as colour tiles with contrasting labels, not as a promise that every slot works as small foreground text. Recheck contrast on your own surfaces.</p>
+      <p class="mt-0 mb-[1em] max-w-[880px] text-[13px] text-solai-text-secondary">The header changes flavour and mode across all eight contexts. Use the section links to bookmark or share a context.</p>
+      <p class="mt-0 mb-[1em] max-w-[880px] text-[13px] text-solai-text-secondary">Need the unchanged values? <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/downloads/flavor-studies.json">Download the complete palette data</a> or <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/downloads/flavors.css">the canonical theme CSS</a>.</p>
     </aside>
   </main>
   <SiteFooter />

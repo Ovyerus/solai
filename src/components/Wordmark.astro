@@ -9,7 +9,7 @@ const { small = false } = Astro.props;
 ---
 
 <SolaiWordmark
-  class:list={['solai-wordmark', { 'solai-wordmark--small': small }]}
+  class:list={['solai-wordmark block h-auto w-full', { 'solai-wordmark--small': small }]}
   width={small ? 478 : 462}
   height={180}
   viewBox={small ? '0 0 2390 900' : '0 0 2310 900'}
@@ -20,9 +20,6 @@ const { small = false } = Astro.props;
 
 <style>
   .solai-wordmark {
-    display: block;
-    width: 100%;
-    height: auto;
     --wordmark-accent: var(--accent);
   }
 

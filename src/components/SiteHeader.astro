@@ -8,22 +8,23 @@ interface Props {
 
 const { home = false } = Astro.props;
 const page = Astro.url.pathname.split('/')[1];
+const navLink = 'inline-flex min-h-[44px] items-center border-b-2 border-transparent py-[6px] aria-[current=page]:border-solai-accent-primary aria-[current=page]:text-solai-text-emphasis';
 ---
 
-<a class="skip" href="#main">Skip to content</a>
-<header class:list={['site-header', { 'site-header--page': !home }]}>
-  <a class="wordmark" href={home ? '#' : '/'} data-theme-link={home ? undefined : true} aria-label="Solai home"><Wordmark small /></a>
-  <nav aria-label="Main">
-    <div class="nav-links">
-      <a href={home ? '#flavours' : '/#flavours'} data-theme-link={home ? undefined : true}>Flavours</a>
-      <a href={home ? '#examples' : '/#examples'} data-theme-link={home ? undefined : true}>Previews</a>
-      <a href={page === 'palette' ? '#main' : '/palette/'} data-theme-link={page === 'palette' ? undefined : true} aria-current={page === 'palette' ? 'page' : undefined}>Palette</a>
-      <a href={page === 'guide' ? '#main' : '/guide/'} data-theme-link={page === 'guide' ? undefined : true} aria-current={page === 'guide' ? 'page' : undefined}>Guide</a>
-      <a href={home ? '#take-it' : '/#take-it'} data-theme-link={home ? undefined : true}>Downloads <span>↗</span></a>
+<a class="skip fixed -top-[100px] left-[20px] z-30 rounded-[2px] bg-solai-accent-primary p-[12px] text-solai-accent-ink hover:text-solai-accent-ink focus:top-[12px]" href="#main">Skip to content</a>
+<header class:list={['site-header inset-x-0 top-0 z-10 flex h-[86px] w-full items-center justify-between gap-[24px] px-[48px] min-[1500px]:px-[calc((100vw_-_1280px)/2)] [@media(max-width:1000px)]:px-[28px] [@media(max-width:900px)]:h-auto [@media(max-width:900px)]:min-h-[86px] [@media(max-width:900px)]:flex-wrap [@media(max-width:900px)]:gap-y-[10px] [@media(max-width:900px)]:py-[16px] [@media(max-width:650px)]:gap-[10px] [@media(max-width:650px)]:px-[18px]', home ? 'absolute border-b-0 bg-transparent' : 'site-header--page relative border-b border-solai-border-subtle bg-solai-surface-canvas']}>
+  <a class="wordmark inline-flex min-h-[44px] w-[3.15em] shrink-0 items-center text-[28px] text-solai-text-emphasis hover:text-solai-accent-hover [@media(max-width:650px)]:text-[25px]" href={home ? '#' : '/'} data-theme-link={home ? undefined : true} aria-label="Solai home"><Wordmark small /></a>
+  <nav class="flex items-center gap-[24px] font-sans text-[12px] tracking-[.03em] [@media(max-width:900px)]:order-3 [@media(max-width:900px)]:w-full [@media(max-width:650px)]:gap-[12px]" aria-label="Main">
+    <div class="nav-links flex flex-wrap items-center gap-x-[28px] gap-y-[4px] [@media(max-width:650px)]:gap-x-[16px] [@media(max-width:650px)]:gap-y-0">
+      <a class={navLink} href={home ? '#flavours' : '/#flavours'} data-theme-link={home ? undefined : true}>Flavours</a>
+      <a class={navLink} href={home ? '#examples' : '/#examples'} data-theme-link={home ? undefined : true}>Previews</a>
+      <a class={navLink} href={page === 'palette' ? '#main' : '/palette/'} data-theme-link={page === 'palette' ? undefined : true} aria-current={page === 'palette' ? 'page' : undefined}>Palette</a>
+      <a class={navLink} href={page === 'guide' ? '#main' : '/guide/'} data-theme-link={page === 'guide' ? undefined : true} aria-current={page === 'guide' ? 'page' : undefined}>Guide</a>
+      <a class={navLink} href={home ? '#take-it' : '/#take-it'} data-theme-link={home ? undefined : true}>Downloads <span class="text-solai-accent-primary">↗</span></a>
     </div>
   </nav>
-  <div class="theme-controls" role="group" aria-label="Appearance">
-    <select id="theme-select" class="theme-select" aria-label="Colour theme" disabled>
+  <div class="theme-controls flex shrink-0 items-stretch gap-[10px] font-sans text-[12px] leading-[normal] [@media(max-width:900px)]:ml-auto [@media(max-width:650px)]:gap-[6px] [@media(max-width:650px)]:text-[11px]" role="group" aria-label="Appearance">
+    <select id="theme-select" class="theme-select min-h-[44px] min-w-[106px] cursor-pointer rounded-[2px] border border-solai-border-strong bg-solai-surface-panel px-[10px] py-[7px] font-sans text-[16px] leading-[normal] text-solai-text-primary disabled:cursor-wait [@media(max-width:650px)]:min-w-[84px] [@media(max-width:650px)]:px-[7px]" aria-label="Colour theme" disabled>
       <option value="blue">Tide</option>
       <option value="alter">Ember</option>
       <option value="violet">Dusk</option>

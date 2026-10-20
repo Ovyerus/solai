@@ -1,4 +1,4 @@
-import { announce, download, exportCSS } from './palette-shared.js';
+import { announce, download, exportCSS, exportTailwindCSS } from './palette-shared.js';
 import { initTheme } from './theme.js';
 const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
 const names={blue:'Tide',alter:'Ember',violet:'Dusk',green:'Viridian',rose:'Bloom'};
@@ -7,7 +7,7 @@ const descriptions={blue:'Cyan-blue, like harbour lights across dark water.',alt
 let data,flavour=document.documentElement.dataset.flavor||'blue',mode=document.documentElement.dataset.mode||'dark',effect='dither';const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const modeName=()=>mode==='light'?'Light':'Dark';
 const currentPalette=()=>data.flavors[flavour].modes[mode];
-function updateAnsi(){const p=currentPalette().primitives;const ansi=[p.fg[3],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][7]),p.fg[8],p.fg[6],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][9]),p.fg[10]];$('#ansi-swatches').replaceChildren(...ansi.map(hex=>{const e=document.createElement('span');e.style.background=hex;e.title=hex;return e}));}
+function updateAnsi(){const p=currentPalette().primitives;const ansi=[p.fg[3],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][7]),p.fg[8],p.fg[6],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][9]),p.fg[10]];$('#ansi-swatches').replaceChildren(...ansi.map(hex=>{const e=document.createElement('span');e.className='h-[20px] flex-1';e.style.background=hex;e.title=hex;return e}));}
 function updateTheme(){
   const f=currentPalette(),r=f.roleValues;
   $$('.current-name').forEach(e=>e.textContent=names[flavour]);
@@ -35,11 +35,11 @@ function buildFlavours(){
   const parent=$('#flavour-list');
   data.flavorOrder.forEach((id,index)=>{
     const button=document.createElement('button');
-    button.className='flavour-button';
+    button.className='flavour-button relative min-h-[190px] rounded-[2px] border-0 border-b-[3px] border-transparent bg-[var(--f-bg)] px-[20px] py-[23px] text-left text-[var(--f-text)] aria-pressed:border-[var(--f-accent)] aria-pressed:bg-[color-mix(in_srgb,var(--f-accent)_12%,var(--f-bg))] hover:border-[var(--f-accent)] [@media(max-width:1000px)]:px-[13px] [@media(max-width:1000px)]:py-[20px] [@media(max-width:650px)]:min-h-[145px] [@media(max-width:650px)]:p-[16px] [@media(max-width:650px)]:last:col-span-full [@media(max-width:650px)]:last:min-h-[120px] [@media(max-width:650px)]:last:[&_.mini-ramp]:max-w-[200px]';
     button.dataset.flavour=id;
     button.setAttribute('aria-pressed','false');
-    button.innerHTML=`<span class="n">0${index+1} /</span><span class="check"></span><h3>${names[id]}</h3><small>${hues[id]}</small><div class="mini-ramp"></div>`;
-    for(let grade=0;grade<5;grade++)button.querySelector('.mini-ramp').append(document.createElement('i'));
+    button.innerHTML=`<span class="n font-mono text-[12px]">0${index+1} /</span><span class="check absolute top-[18px] right-[16px] text-[12px] text-[var(--f-accent)]"></span><h3 class="mt-[23px] mb-0 text-[25px] font-medium tracking-[-1px] text-[var(--f-accent)] [@media(max-width:1000px)]:text-[22px] [@media(max-width:650px)]:mt-[12px] [@media(max-width:650px)]:text-[24px]">${names[id]}</h3><small class="font-mono text-[12px]">${hues[id]}</small><div class="mini-ramp mt-[22px] flex h-[14px] gap-[3px] [@media(max-width:650px)]:mt-[15px] [@media(max-width:650px)]:h-[11px]"></div>`;
+    for(let grade=0;grade<5;grade++){const bar=document.createElement('i');bar.className='flex-1 rounded-[2px]';button.querySelector('.mini-ramp').append(bar);}
     button.addEventListener('click',()=>theme.selectFlavour(id));
     parent.append(button);
   });
@@ -59,6 +59,7 @@ $$('[data-download]').forEach(button=>button.addEventListener('click',()=>{
   const type=button.dataset.download;
   const filename=`solai-${names[flavour].toLowerCase()}-${mode}`;
   if(type==='css')download(exportCSS(currentPalette(),names[flavour],mode),'text/css',`${filename}.css`);
+  else if(type==='tailwind')download(exportTailwindCSS(currentPalette(),names[flavour],mode),'text/css',`${filename}.tailwind.css`);
   else if(type==='json')download(JSON.stringify({...currentPalette(),name:`Solai ${names[flavour]} ${modeName()}`,source:data.source},null,2),'application/json',`${filename}.json`);
   else download(JSON.stringify(data,null,2),'application/json','solai-palettes.json');
 }));

@@ -2,11 +2,11 @@
 import Wordmark from './Wordmark.astro';
 ---
 
-<footer class="wrap">
-  <div class="footer-top">
-    <a class="wordmark" href="#" aria-label="Solai — back to top"><Wordmark /></a>
+<footer class="wrap pt-[110px] pb-[35px] [@media(max-width:650px)]:pt-[70px]">
+  <div class="footer-top flex items-start justify-between pb-[50px] [@media(max-width:650px)]:pb-[25px]">
+    <a class="wordmark inline-flex min-h-[44px] w-[3.15em] shrink-0 items-center text-[55px] text-solai-text-emphasis hover:text-solai-accent-hover [@media(max-width:650px)]:text-[43px]" href="#" aria-label="Solai — back to top"><Wordmark /></a>
   </div>
-  <div class="footer-meta">
+  <div class="footer-meta flex items-start justify-between gap-[25px] border-t border-solai-border-subtle pt-[25px] font-sans text-[9px] tracking-[.06em] text-solai-text-muted [&_p]:m-0 [&_p]:leading-[1.9] [&_a]:underline [&_a]:underline-offset-[3px] [@media(max-width:650px)]:block [@media(max-width:650px)]:text-[8px] [@media(max-width:650px)]:[&_p]:my-[16px]">
     <p>Tide &amp; Ember: <a href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch by Renzhi Li</a> · <a href="/downloads/LICENSE-Dolch.txt">MIT</a><br />Presentation: <a href="https://madoromi.moonwit.ch/" target="_blank" rel="noreferrer">madoromi</a> · <a href="https://doll.systems" target="_blank" rel="noreferrer">doll.systems</a>.<br />Fonts: <a href="/assets/fonts/Sora-OFL.txt">Sora</a> · <a href="/assets/fonts/IosevkaSolai-LICENSE.txt">Iosevka Solai</a>.</p>
     <a href="#">BACK TO TOP ↑</a>
   </div>

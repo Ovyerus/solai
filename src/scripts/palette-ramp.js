@@ -2,39 +2,39 @@ import { contrastInk } from './palette-shared.js';
 
 export function createRamp(family, colors, onCopy) {
   const ramp = document.createElement('div');
-  ramp.className = 'palette-ramp';
+  ramp.className = 'palette-ramp grid min-w-0 grid-cols-[88px_minmax(0,1fr)] items-center gap-[12px] border-b border-solai-border-subtle py-[4px]';
   ramp.dataset.family = family;
   ramp.setAttribute('role', 'group');
   ramp.setAttribute('aria-label', `${family} colour ramp`);
 
   const label = document.createElement('div');
-  label.className = 'ramp-family';
+  label.className = 'ramp-family sticky left-0 z-2 flex items-center self-stretch bg-solai-surface-canvas font-mono text-[12px] leading-[1.4] font-medium text-solai-text-emphasis';
   label.textContent = family;
 
   const track = document.createElement('div');
-  track.className = 'ramp-track';
+  track.className = 'ramp-track relative isolate mx-[14px] h-[28px]';
 
   const position = (grade) => `${grade / (colors.length - 1) * 100}%`;
   const gradient = document.createElement('div');
-  gradient.className = 'ramp-gradient';
+  gradient.className = 'ramp-gradient absolute inset-0 rounded-[2px] shadow-[0_0_0_1px_var(--border)]';
   gradient.setAttribute('aria-hidden', 'true');
   gradient.style.background = `linear-gradient(90deg in oklab, ${colors.map((hex, grade) => `${hex} ${position(grade)}`).join(', ')})`;
 
   const preview = document.createElement('button');
   preview.type = 'button';
-  preview.className = 'ramp-window';
+  preview.className = 'ramp-window absolute inset-y-0 z-1 flex w-[min(112px,100%)] cursor-copy items-center justify-center gap-[8px] rounded-[2px] border border-current px-[6px] py-[2px] font-mono focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-solai-text-emphasis focus-visible:outline-offset-2';
   preview.tabIndex = -1;
   const previewGrade = document.createElement('span');
-  previewGrade.className = 'ramp-window-grade';
+  previewGrade.className = 'ramp-window-grade text-[10px] opacity-70';
   const previewValue = document.createElement('span');
-  previewValue.className = 'ramp-window-value';
+  previewValue.className = 'ramp-window-value text-[12px] leading-[1.4] font-medium whitespace-nowrap';
   preview.append(previewGrade, previewValue);
 
   let selected = Math.floor(colors.length / 2);
   const stops = colors.map((hex, grade) => {
     const stop = document.createElement('button');
     stop.type = 'button';
-    stop.className = 'ramp-stop';
+    stop.className = 'ramp-stop absolute top-0 h-[28px] w-[10%] max-w-[44px] -translate-x-1/2 cursor-copy rounded-[2px] border-0 bg-transparent p-0 [-webkit-tap-highlight-color:transparent] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-solai-text-emphasis focus-visible:outline-offset-2';
     stop.dataset.grade = String(grade);
     stop.dataset.color = hex;
     stop.style.left = position(grade);
@@ -44,7 +44,7 @@ export function createRamp(family, colors, onCopy) {
     stop.setAttribute('aria-label', `Copy ${family}[${grade}], ${hex}`);
 
     const dot = document.createElement('span');
-    dot.className = 'ramp-stop-dot';
+    dot.className = 'ramp-stop-dot absolute top-1/2 left-1/2 size-[8px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-(--stop-ink) bg-(--stop-color)';
     dot.setAttribute('aria-hidden', 'true');
     stop.append(dot);
 

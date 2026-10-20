@@ -6,6 +6,8 @@ This is a static Astro website. Editable source lives in `src/`, and unchanged p
 
 Use Conventional Commit descriptions for named changes, such as `feat: ...`, `fix: ...`, `refactor: ...`, `build: ...` and `chore: ...`. After completing and verifying a change, describe it and run `jj new` before handing back. Always leave `@` as a fresh, empty working change rather than leaving completed work checked out.
 
+Styling uses Tailwind CSS v4 and `@tailwindcss/vite`. `Page.astro` imports the single `src/styles/main.css` entry. Keep complete utility strings in Astro and JavaScript DOM builders; do not construct utility names dynamically. Reuse the `solai-*` semantic colour utilities and `font-sans`/`font-mono`. Keep native CSS for font definitions, base behavior, artwork, registered custom properties and genuinely complex ramp motion—not a second ordinary styling system. Preserve inclusive breakpoints with `[@media(max-width:650px)]:` (and corresponding widths), not exclusive `max-[650px]:` variants. Compare rendered styles when translating old selectors: their specificity may have overridden seemingly active declarations.
+
 ## Baseline to preserve
 
 - Full-width mountain/lake hero with a transparent overlaid header and small static left-shore skyline
@@ -25,7 +27,7 @@ The proposed high-rise balcony is NOT integrated. Do not silently substitute it 
 
 `public/assets/palettes.json` is canonical schema v2: `flavors[id].modes.dark/light` contains each variant's parameters, primitive ramps, proposed semantic roles, provenance and selected contrast checks. Tide/Blue and Ember/Alter preserve the exact four upstream dark/light primitive sets. Dusk/Violet, Viridian/Green and Bloom/Rose are independent studies; all UI semantic mappings are proposed. Preserve status meanings and the five internal IDs.
 
-`python3 palette-source/build_flavors.py` regenerates the live JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css` and `src/styles/themes.css`; read `palette-source/README.md` first. This optional standard-library tool is separate from Astro builds. The other palette tools remain historical. Never overwrite Solai metadata with historical output. If colors or roles change, update the generator, default CSS where applicable, data and exports together, and recalculate actual contrast pairings. Existing selected checks are not a complete accessibility audit.
+`python3 palette-source/build_flavors.py` regenerates the live JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css`, `public/downloads/flavors.tailwind.css` and `src/styles/themes.css`; read `palette-source/README.md` first. This optional standard-library tool is separate from Astro builds. The other palette tools remain historical. Never overwrite Solai metadata with historical output. If colors or roles change, update the generator, default CSS where applicable, data and exports together, and recalculate actual contrast pairings. Keep the family Tailwind export and browser's selected-variant serializer in `palette-shared.js` synchronized: 187 unchanged primitive stops + 32 semantic roles, `solai-` namespace, kebab-case names, no guide-only or extra syntax aliases. Existing selected checks are not a complete accessibility audit.
 
 Preserve the Dolch MIT notice and all font licenses. Do not describe the whole project as MIT merely because the upstream palette is MIT.
 

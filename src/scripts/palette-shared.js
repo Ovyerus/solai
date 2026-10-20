@@ -42,6 +42,31 @@ export function exportCSS(palette, flavorName, mode) {
     Object.entries(palette.roleValues).map(([key, value]) => `  --solai-${cssName(key)}: ${value};`).join('\n') + '\n}\n';
 }
 
+export function exportTailwindCSS(palette, flavorName, mode) {
+  const modeName = mode === 'light' ? 'Light' : 'Dark';
+  const provenance = palette.upstreamVariant
+    ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
+    : 'Independent colour study using the Dolch generation method by Renzhi Li (MIT).';
+  const primitives = Object.entries(palette.primitives).flatMap(([family, colors]) =>
+    colors.map((value, grade) => `  --color-solai-${cssName(family)}-${grade}: ${value};`));
+  const roles = Object.entries(palette.roleValues)
+    .map(([key, value]) => `  --color-solai-${cssName(key)}: ${value};`);
+  return `/* Solai ${flavorName} ${modeName} · ${provenance}
+ * Source: https://github.com/be5invis/vscode-theme-dolch
+ * Semantic UI roles are Solai proposals, not upstream assignments.
+ * Contrast depends on the paired surface; recheck actual use, including alpha selection.
+ * Colour tokens only: no guide-only aliases, syntax aliases beyond roleValues, fonts or layout.
+ * Import after your own @import "tailwindcss"; requires Tailwind CSS 4.
+ */
+@theme static {
+${[...primitives, ...roles].join('\n')}
+}
+:root {
+  color-scheme: ${mode};
+}
+`;
+}
+
 export function download(content, type, name) {
   const url = URL.createObjectURL(new Blob([content], { type }));
   const link = document.createElement('a');

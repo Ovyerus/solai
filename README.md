@@ -37,6 +37,29 @@ Preview also defaults to port 4321, so stop the development server first or pass
 
 `dist/` is generated output, not editable source. Deploy that directory to a static host after building; Node.js is required only for development and builds. No client framework or server adapter is used.
 
+## Styling with Tailwind
+
+The site uses **Tailwind CSS 4** through the official `@tailwindcss/vite` integration. `src/layouts/Page.astro` imports `src/styles/main.css` once. Keep complete utility class names in Astro markup and JavaScript-rendered elements so Tailwind can discover them; do not construct class names from colour or state fragments.
+
+`main.css` contains the Tailwind import, self-hosted font declarations, small shared base rules, the responsive `wrap` utility and the landscape's layered gradients. `palette-ramps.css` retains the registered position property and independent preview transitions. Ordinary layout, typography and control states live in utilities. Generated `themes.css` supplies the canonical colour aliases. Keep inclusive legacy breakpoints with variants such as `[@media(max-width:650px)]:`, rather than Tailwind's exclusive `max-[650px]:`.
+
+### Downloadable Tailwind colour tokens
+
+The home page's Downloads section offers the **current variant** as `solai-tide-dark.tailwind.css` (with the selected flavour and mode in the filename), plus [`flavors.tailwind.css`](public/downloads/flavors.tailwind.css) for the whole family. Each variant contains **219 colour tokens**: 17 primitive ramps × 11 grades and 32 existing semantic roles. Names use the `solai-` namespace and kebab case: `accent[7]` becomes `accent-7`, `coAccent[8]` becomes `co-accent-8`, and `status.dangerBackground` becomes `status-danger-background`.
+
+Import the downloaded file after Tailwind in your project's stylesheet:
+
+```css
+@import "tailwindcss";
+@import "./flavors.tailwind.css";
+```
+
+Use classes such as `bg-solai-surface-canvas`, `text-solai-text-primary`, `border-solai-border-strong`, `bg-solai-accent-7` and `bg-solai-accent-primary/50`.
+
+The family defaults to Tide Dark. Set `data-flavor="blue|alter|violet|green|rose"` and `data-mode="dark|light"` on the same root or nested container to select a variant. Its `@theme inline` aliases resolve at the consuming element, including nested themes. The single-variant download uses literal `@theme static` values and does not require theme attributes. Import either the family or one fixed variant, not both.
+
+These exports require Tailwind v4 and contain colours only—not fonts, layout, guide-only mappings or additional syntax aliases. Original primitive values, alpha selection and proposed semantic roles are preserved. Contrast still depends on the actual foreground/background pairing.
+
 ## Version control
 
 This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj` and `git` work against the same history, with a `main` bookmark/branch. The original buildless website is preserved in the initial commit. Use `jj status` and `jj log` to inspect changes; `jj new` starts a new change. Generated output, installed packages, Astro caches and macOS metadata are ignored.
@@ -53,7 +76,7 @@ The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Co
 
 The shared wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation and footer. Its Sora Medium lettering is outlined at weight 500 with the hero's tight spacing, and the raised eight-ray star is geometric rather than a Unicode glyph. All instances inherit the active theme's ink/accent colours and render without fonts or emoji fallback. Navigation uses the component's `small` optical variant: identical lettering paths, a 1.8× star with slightly heavier rays, and a wider viewBox to prevent clipping. The hero and footer retain the original composition. Edit the master rather than recreating the logo with text; the Sora font notice remains in `public/assets/fonts/Sora-OFL.txt`.
 
-Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Demo preferences are illustrative; exports are palette data and CSS variables, not installed app themes.
+Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Demo preferences are illustrative; exports are palette data, CSS variables and Tailwind colour tokens, not installed app themes.
 
 ### Palette interaction
 
@@ -77,7 +100,7 @@ These are **guide-only proposals** resolved from canonical palette roles, syntax
 
 `public/assets/palettes.json` uses schema version 2: select a variant with `flavors[id].modes.dark` or `flavors[id].modes.light`. Each variant includes its primitive ramps, proposed semantic roles, provenance and selected contrast checks. Current-palette JSON/CSS filenames include the mode, such as `solai-tide-light.json`; the whole-family export contains all ten variants. The static family CSS uses `[data-flavor="blue"][data-mode="light"]` selectors and `--solai-*` variables.
 
-The explorer's OKLab interpolation is display-only. The source ramp generation, primitive colours, semantic mappings and exports are unchanged.
+The explorer's OKLab interpolation is display-only. The source ramp generation, primitive colours, semantic mappings and existing JSON/CSS exports are unchanged; the Tailwind exports serialize those same values.
 
 To regenerate the live data and exports, using Python 3's standard library:
 
@@ -85,7 +108,7 @@ To regenerate the live data and exports, using Python 3's standard library:
 python3 palette-source/build_flavors.py
 ```
 
-This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css` and `src/styles/themes.css`. It verifies upstream primitive equality and actual contrast pairings, and guards against unintended changes to the existing dark variants. Regeneration is optional and is not part of the Astro build. See `palette-source/README.md` for the separate historical tools.
+This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css`, `public/downloads/flavors.tailwind.css` and `src/styles/themes.css`. It verifies upstream primitive equality and actual contrast pairings, and guards against unintended changes to the existing dark variants. Regeneration is optional and is not part of the Astro build. See `palette-source/README.md` for the separate historical tools.
 
 ## File map
 
@@ -97,10 +120,9 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/components/AppearanceControl.astro`: shared keyboard-operable Dark/Light controls
 - `src/components/SiteHeader.astro`, `SiteFooter.astro` and `ThemeHead.astro`: shared navigation, attribution and prepaint theme restoration
 - `src/assets/solai-wordmark.svg` and `src/components/Wordmark.astro`: canonical outlined brand artwork and shared inline SVG presentation
-- `src/styles/main.css`: shared site styles and home-page artwork/layout
-- `src/styles/themes.css`: generated site tokens for every flavour/mode, applied before palette JSON loads
-- `src/styles/palette.css` and `palette-ramps.css`: palette-page layout, gradient markers and sliding preview
-- `src/styles/guide.css`: responsive guide layouts and contextual colour specimens
+- `src/styles/main.css`: single Tailwind entry, font definitions, shared base rules and landscape gradients
+- `src/styles/themes.css`: generated UI colour variables and Tailwind aliases for every flavour/mode, applied before palette JSON loads
+- `src/styles/palette-ramps.css`: registered preview position and independent row motion/fades; ordinary palette and guide styling uses utilities in Astro/JavaScript
 - `src/scripts/app.js`: home flavour cards, samples, downloads and canvas rendering
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
@@ -109,8 +131,8 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `public/assets/palettes.json`: current canonical palette data and provenance
 - `public/assets/landscape.png`: current grayscale landscape source
 - `public/assets/fonts/`: self-hosted font files and their license notices
-- `public/downloads/`: current family JSON/CSS, original reference data, licenses and the untouched Dolch reference ZIP
-- `astro.config.mjs`: static output and trailing-slash route configuration
+- `public/downloads/`: current family JSON/CSS, Tailwind colour tokens, original reference data, licenses and the untouched Dolch reference ZIP
+- `astro.config.mjs`: static output, trailing-slash routes and Tailwind's Vite plugin
 - `flake.nix` and `flake.lock`: pinned Node.js/pnpm development shell for Apple Silicon macOS and ARM64/x86-64 Linux
 - `.envrc`: optional nix-direnv integration
 - `pnpm-lock.yaml`: locked application dependencies; use pnpm rather than npm

@@ -3,10 +3,7 @@ import Page from '../../layouts/Page.astro';
 import ThemeHead from '../../components/ThemeHead.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
-import '../../styles/main.css';
-import '../../styles/themes.css';
 import '../../styles/palette-ramps.css';
-import '../../styles/palette.css';
 ---
 
 <Page
@@ -18,91 +15,91 @@ import '../../styles/palette.css';
   <SiteHeader />
 
   <main id="main" class="palette-page">
-    <header class="wrap palette-intro">
-      <div class="palette-title-row">
+    <header class="wrap palette-intro pt-[64px] [@media(max-width:650px)]:pt-[36px]">
+      <div class="palette-title-row flex items-end justify-between gap-[32px] [@media(max-width:650px)]:flex-col [@media(max-width:650px)]:items-start [@media(max-width:650px)]:gap-[18px]">
         <div>
-          <h1>Palette</h1>
-          <p id="palette-selection" class="palette-selection" aria-live="polite">Loading selected palette…</p>
+          <h1 class="m-0 text-[clamp(48px,7vw,88px)] leading-[1.1] font-[450] tracking-[-.055em]">Palette</h1>
+          <p id="palette-selection" class="palette-selection mt-[16px] font-mono text-[12px] leading-[1.6] font-normal" aria-live="polite">Loading selected palette…</p>
         </div>
-        <div class="palette-actions">
-          <button class="text-button" id="copy-css" type="button" disabled>Copy theme CSS ↗</button>
-          <a class="text-button" href="/guide/" data-theme-link>Colour guide ↗</a>
-          <a class="text-button" href="/#take-it" data-theme-link>Downloads ↗</a>
+        <div class="palette-actions flex flex-wrap items-center gap-x-[28px] gap-y-[12px] pb-[5px] [@media(max-width:650px)]:w-full [@media(max-width:650px)]:justify-between [@media(max-width:650px)]:gap-x-[20px] [@media(max-width:650px)]:gap-y-[8px]">
+          <button class="text-button inline-flex min-h-[44px] items-center rounded-[2px] border-0 bg-transparent px-0 py-[8px] font-sans text-[12px] tracking-[.06em] text-solai-accent-primary" id="copy-css" type="button" disabled>Copy theme CSS ↗</button>
+          <a class="text-button inline-flex min-h-[44px] items-center rounded-[2px] border-0 bg-transparent px-0 py-[8px] font-sans text-[12px] tracking-[.06em] text-solai-accent-primary hover:text-solai-accent-hover" href="/guide/" data-theme-link>Colour guide ↗</a>
+          <a class="text-button inline-flex min-h-[44px] items-center rounded-[2px] border-0 bg-transparent px-0 py-[8px] font-sans text-[12px] tracking-[.06em] text-solai-accent-primary hover:text-solai-accent-hover" href="/#take-it" data-theme-link>Downloads ↗</a>
         </div>
       </div>
-      <p id="palette-status" class="muted" role="status">Loading palette data…</p>
+      <p id="palette-status" class="muted mt-[28px] mb-[1em] max-w-[65ch] font-mono text-[12px] leading-[1.6] font-normal text-solai-text-muted" role="status">Loading palette data…</p>
     </header>
 
     <div id="palette-content" hidden>
-      <section class="wrap palette-section" aria-labelledby="generated-heading">
-        <div class="section-top section-heading">
-          <h2 id="generated-heading">Colour families</h2>
+      <section class="wrap palette-section pt-[48px] [@media(max-width:650px)]:pt-[36px]" aria-labelledby="generated-heading">
+        <div class="section-top section-heading mt-0 mb-[20px] flex flex-wrap items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]">
+          <h2 id="generated-heading" class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] leading-[1.14] font-normal tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Colour families</h2>
         </div>
-        <div class="palette-description muted" id="ramp-description">
-          <p>Neutral and tinted-neutral ramps make the ground: charcoal in the dark variants, pale mist in the light. A lead hue and a companion sit beside twelve supporting colour families.</p>
-          <p>Eleven grades carry each family from the surface end to the foreground—shadow to light in dark mode, pale to deep in light mode.</p>
+        <div class="palette-description muted mb-[20px] max-w-[78ch] text-solai-text-muted" id="ramp-description">
+          <p class="mt-0 mb-[12px]">Neutral and tinted-neutral ramps make the ground: charcoal in the dark variants, pale mist in the light. A lead hue and a companion sit beside twelve supporting colour families.</p>
+          <p class="mt-0 mb-[12px]">Eleven grades carry each family from the surface end to the foreground—shadow to light in dark mode, pale to deep in light mode.</p>
         </div>
-        <div class="palette-ramp-scroll" role="region" aria-label="Generated colour ramps" tabindex="0">
-          <div class="palette-ramp-table">
-            <div class="ramp-columns" aria-hidden="true">
-              <span>Ramp</span>
-              <div class="ramp-grades">
-                {Array.from({ length: 11 }, (_, grade) => <span style={`left:${grade * 10}%`}>{grade}</span>)}
+        <div class="palette-ramp-scroll -mx-[4px] overflow-x-auto p-[4px]" role="region" aria-label="Generated colour ramps" tabindex="0">
+          <div class="palette-ramp-table min-w-[520px]">
+            <div class="ramp-columns grid grid-cols-[88px_minmax(0,1fr)] items-center gap-[12px] border-b border-solai-border-subtle pb-[6px] font-mono text-[11px] leading-[1.4] font-normal text-solai-text-muted" aria-hidden="true">
+              <span class="sticky left-0 z-2 bg-solai-surface-canvas">Ramp</span>
+              <div class="ramp-grades relative mx-[14px] h-[18px]">
+                {Array.from({ length: 11 }, (_, grade) => <span class="absolute -translate-x-1/2" style={`left:${grade * 10}%`}>{grade}</span>)}
               </div>
             </div>
             <div id="palette-ramp-list" class="palette-ramp-list" aria-describedby="ramp-description"></div>
           </div>
         </div>
-        <details class="palette-help">
-          <summary>Copying &amp; keyboard</summary>
-          <p>Hover over a bar to reveal its colour. Click a bar, preview or dot to copy the exact hex value. With a keyboard, use Left/Right or Home/End to choose a grade, then Enter or Space to copy. The table scrolls sideways on narrow screens.</p>
+        <details class="palette-help mt-[16px] max-w-[78ch] text-[12px] text-solai-text-secondary">
+          <summary class="min-h-[44px] cursor-pointer rounded-[2px] py-[12px] font-mono text-[12px] leading-[1.6] font-normal hover:text-solai-text-emphasis">Copying &amp; keyboard</summary>
+          <p class="mt-[1em] mb-0">Hover over a bar to reveal its colour. Click a bar, preview or dot to copy the exact hex value. With a keyboard, use Left/Right or Home/End to choose a grade, then Enter or Space to copy. The table scrolls sideways on narrow screens.</p>
         </details>
       </section>
 
-      <section class="wrap palette-section" aria-labelledby="semantic-heading">
-        <div class="section-top section-heading">
-          <h2 id="semantic-heading">Roles &amp; accents</h2>
+      <section class="wrap palette-section pt-[48px] [@media(max-width:650px)]:pt-[36px]" aria-labelledby="semantic-heading">
+        <div class="section-top section-heading mt-0 mb-[20px] flex flex-wrap items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]">
+          <h2 id="semantic-heading" class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] leading-[1.14] font-normal tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Roles &amp; accents</h2>
         </div>
-        <p class="muted">The lead hue carries the flavour. Green, yellow, red and blue keep their meanings as success, warning, error and information, even when the accent changes.</p>
-        <div class="palette-heading">
-          <h3>Surfaces &amp; type</h3>
+        <p class="muted my-[1em] text-solai-text-muted">The lead hue carries the flavour. Green, yellow, red and blue keep their meanings as success, warning, error and information, even when the accent changes.</p>
+        <div class="palette-heading mt-[27px] mb-[15px] flex items-center justify-between gap-[20px]">
+          <h3 class="m-0 text-[17px] font-[450] [@media(max-width:650px)]:text-[16px]">Surfaces &amp; type</h3>
         </div>
-        <div id="neutral-swatches" class="swatch-grid neutrals"></div>
-        <div class="palette-heading">
-          <h3>Accents</h3>
+        <div id="neutral-swatches" class="swatch-grid neutrals grid grid-cols-6 gap-[14px] [@media(max-width:650px)]:grid-cols-3 [@media(max-width:650px)]:gap-[10px]"></div>
+        <div class="palette-heading mt-[27px] mb-[15px] flex items-center justify-between gap-[20px]">
+          <h3 class="m-0 text-[17px] font-[450] [@media(max-width:650px)]:text-[16px]">Accents</h3>
         </div>
-        <div id="accent-swatches" class="swatch-grid"></div>
+        <div id="accent-swatches" class="swatch-grid grid grid-cols-7 gap-[14px] [@media(max-width:1000px)]:grid-cols-4 [@media(max-width:650px)]:grid-cols-3 [@media(max-width:650px)]:gap-[10px]"></div>
       </section>
 
-      <section class="wrap palette-section" aria-labelledby="contrast-heading">
-        <div class="section-top section-heading">
-          <h2 id="contrast-heading">Selected contrast</h2>
+      <section class="wrap palette-section pt-[48px] [@media(max-width:650px)]:pt-[36px]" aria-labelledby="contrast-heading">
+        <div class="section-top section-heading mt-0 mb-[20px] flex flex-wrap items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]">
+          <h2 id="contrast-heading" class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] leading-[1.14] font-normal tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Selected contrast</h2>
         </div>
-        <div class="contrast-specimen">
-          <div>
-            <span class="mono muted">BUTTON LABEL</span>
-            <strong id="button-ratio"></strong>
-            <span>text contrast</span>
+        <div class="contrast-specimen mt-[30px] flex items-center justify-between gap-[30px] rounded-[2px] border border-solai-border-subtle bg-solai-surface-canvas px-[32px] py-[25px] [@media(max-width:650px)]:block [@media(max-width:650px)]:p-[20px]">
+          <div class="flex flex-wrap items-baseline gap-[18px] [@media(max-width:1000px)]:gap-[10px]">
+            <span class="mono muted font-mono text-[12px] tracking-[.06em] text-solai-text-muted">BUTTON LABEL</span>
+            <strong id="button-ratio" class="font-mono text-[31px] font-[450] text-solai-text-emphasis"></strong>
+            <span class="font-mono text-[12px] leading-[normal] text-solai-text-secondary">text contrast</span>
           </div>
-          <a class="primary" id="contrast-button" href="/#take-it" data-theme-link>Downloads ↗</a>
+          <a class="primary inline-block min-h-[44px] shrink-0 rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] font-sans text-[12px] font-medium text-solai-accent-ink hover:border-solai-accent-hover hover:bg-solai-accent-hover hover:text-solai-accent-ink [@media(max-width:650px)]:mt-[18px]" id="contrast-button" href="/#take-it" data-theme-link>Downloads ↗</a>
         </div>
-        <p class="muted"><span id="contrast-count"></span> selected contrast pairs checked for this flavour and mode; not a complete accessibility audit. Check contrast for the surface you use.</p>
+        <p class="muted my-[1em] text-solai-text-muted"><span id="contrast-count"></span> selected contrast pairs checked for this flavour and mode; not a complete accessibility audit. Check contrast for the surface you use.</p>
       </section>
     </div>
     <SiteFooter />
   </main>
 
-  <div id="toast" role="status" aria-live="polite"></div>
-  <dialog id="copy-dialog" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description">
+  <div id="toast" class="pointer-events-none fixed bottom-[25px] left-1/2 z-50 max-w-[90vw] -translate-x-1/2 translate-y-[20px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[20px] py-[12px] text-center font-sans text-[12px] leading-[normal] text-solai-accent-ink opacity-0 transition-[opacity,translate] duration-200 ease-[ease] [&.visible]:translate-y-0 [&.visible]:opacity-100" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" class="m-auto w-[min(600px,90vw)] rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[25px] text-solai-text-primary backdrop:bg-[#0009]" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description">
     <form method="dialog">
-      <button class="dialog-close" aria-label="Close">×</button>
-      <h3 id="copy-dialog-title">Copy this colour data</h3>
-      <p id="copy-dialog-description">Your browser couldn’t copy automatically. Select the text below.</p>
-      <textarea id="copy-fallback" aria-label="Colour data to copy" readonly></textarea>
-      <button class="primary">Done</button>
+      <button class="dialog-close float-right min-h-[44px] min-w-[44px] rounded-[2px] border border-solai-border-strong bg-transparent text-[23px] text-solai-text-primary" aria-label="Close">×</button>
+      <h3 id="copy-dialog-title" class="my-[1em] text-[1.17em] font-bold">Copy this colour data</h3>
+      <p id="copy-dialog-description" class="my-[1em] text-[13px]">Your browser couldn’t copy automatically. Select the text below.</p>
+      <textarea id="copy-fallback" class="mb-[20px] h-[200px] w-full rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[12px] font-mono text-[16px] leading-[normal] text-solai-text-primary" aria-label="Colour data to copy" readonly></textarea>
+      <button class="primary min-h-[44px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] font-sans text-[12px] font-medium text-solai-accent-ink hover:border-solai-accent-hover hover:bg-solai-accent-hover">Done</button>
     </form>
   </dialog>
-  <noscript><p class="wrap">Enable JavaScript to load the palette explorer. <a href="/downloads/flavors.css">Download all theme CSS</a> or <a href="/downloads/flavor-studies.json">all palette data</a> without JavaScript.</p></noscript>
+  <noscript><p class="wrap my-[1em]">Enable JavaScript to load the palette explorer. <a class="hover:text-solai-accent-hover" href="/downloads/flavors.css">Download all theme CSS</a> or <a class="hover:text-solai-accent-hover" href="/downloads/flavor-studies.json">all palette data</a> without JavaScript.</p></noscript>
   <script>
     import '../../scripts/palette.js';
   </script>
