@@ -74,7 +74,7 @@
 .ramp-gradient {
   position: absolute;
   inset: 0;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 0 0 1px var(--border);
 }
 
@@ -87,7 +87,7 @@
   padding: 0;
   transform: translateX(-50%);
   border: 0;
-  border-radius: 3px;
+  border-radius: 2px;
   background: transparent;
   cursor: copy;
   -webkit-tap-highlight-color: transparent;
@@ -117,7 +117,7 @@
   width: min(112px, 100%);
   padding: 2px 6px;
   border: 1px solid currentColor;
-  border-radius: 3px;
+  border-radius: 2px;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;

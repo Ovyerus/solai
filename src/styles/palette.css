@@ -19,6 +19,7 @@
 
 .palette-selection {
   margin: 16px 0 0;
+  font: 400 12px/1.6 var(--mono);
 }
 
 .palette-actions {
@@ -38,6 +39,7 @@
 #palette-status {
   margin-top: 28px;
   max-width: 65ch;
+  font: 400 12px/1.6 var(--mono);
 }
 
 .palette-section {
@@ -67,7 +69,20 @@
 }
 
 .palette-help summary {
+  min-height: 44px;
+  padding-block: 12px;
+  border-radius: 2px;
+  font: 400 12px/1.6 var(--mono);
   cursor: pointer;
+}
+
+.palette-help summary:hover {
+  color: var(--emphasis);
+}
+
+.palette-help summary:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
 }
 
 .palette-help p {
