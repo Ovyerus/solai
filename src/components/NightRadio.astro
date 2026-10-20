@@ -1,0 +1,90 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+
+const waveform = [12, 18, 10, 26, 38, 24, 15, 31, 46, 34, 21, 12, 28, 42, 53, 31, 18, 36, 48, 27, 16, 24, 39, 54, 44, 26, 13, 32, 47, 35, 21, 14, 25, 41, 56, 37, 22, 12, 29, 45, 32, 19, 11, 24, 40, 51, 33, 20, 14, 27, 43, 30, 18, 10, 22, 35, 24, 15, 9, 6];
+const groups = ['01–04', '05–08', '09–12', '13–16'];
+const voices = [
+  { name: 'Pulse', state: 'Active', steps: [1, 5, 9, 13], muted: false },
+  { name: 'Glass', state: 'Active', steps: [3, 7, 10, 11, 15], muted: false },
+  { name: 'Hiss', state: 'Muted', steps: [2, 4, 6, 8, 10, 12, 14, 16], muted: true },
+];
+---
+
+<PreviewWindow id="preview-radio" title="Night Radio" context="tape 004">
+  <div class="grid min-w-0 grid-cols-[minmax(180px,0.7fr)_minmax(0,1.6fr)] [@media(max-width:650px)]:grid-cols-1">
+    <div class="min-w-0 border-r border-solai-border-subtle bg-solai-surface-panel p-[24px] [@media(max-width:650px)]:border-r-0 [@media(max-width:650px)]:border-b [@media(max-width:650px)]:p-[18px]">
+      <figure class="m-0">
+        <svg class="mx-auto block aspect-square w-full max-w-[300px] border border-solai-border-strong bg-solai-surface-canvas" viewBox="0 0 240 240" role="img" aria-labelledby="radio-cover-title radio-cover-desc">
+          <title id="radio-cover-title">Glasshouse relay — tape cover</title>
+          <desc id="radio-cover-desc">An original geometric rooftop greenhouse beneath a circular radio signal, with planted beds and reflected light.</desc>
+          <path d="M0 178H240V240H0Z" fill="var(--panel)" />
+          <circle cx="165" cy="68" r="39" fill="none" stroke="var(--preview-violet)" stroke-width="1" />
+          <circle cx="165" cy="68" r="27" fill="none" stroke="var(--preview-violet)" stroke-width="1" />
+          <circle cx="165" cy="68" r="15" fill="var(--accent)" />
+          <path d="M30 151L96 96L159 151V193H30ZM30 151H159M96 96V193M63 124V193M127 124V193M30 171H159" fill="none" stroke="var(--support)" stroke-width="1.5" />
+          <path d="M21 193H217M21 200H217M21 207H217M21 214H217" fill="none" stroke="var(--border)" />
+          <path d="M45 187V167M45 178Q31 178 34 164Q47 166 45 178M45 172Q57 171 56 158Q43 161 45 172M112 187V168M112 180Q101 180 101 168Q114 169 112 180M112 175Q125 175 125 162Q113 163 112 175" fill="var(--canvas)" stroke="var(--accent)" stroke-width="1.5" />
+          <path d="M176 174V120M166 130L176 120L186 130M171 149H181M171 158H181" fill="none" stroke="var(--text)" stroke-width="1.5" />
+          <path d="M177 183H209M177 190H198M177 197H205" stroke="var(--preview-cyan)" stroke-width="2" />
+          <path d="M20 25H60M20 31H43M197 221H220" stroke="var(--strong)" />
+        </svg>
+        <figcaption class="mt-[12px] flex flex-wrap justify-between gap-[6px] font-mono text-[11px] leading-[1.6] text-solai-text-secondary"><span>NORTH QUAY ARCHIVE</span><span>NR / 004</span></figcaption>
+      </figure>
+      <div class="mt-[22px] border-t border-solai-border-subtle pt-[14px]">
+        <p class="m-0 font-mono text-[11px] tracking-[.08em] text-solai-text-muted">SIDE A · 3 TRACKS</p>
+        <ol class="m-0 mt-[10px] list-none p-0 font-mono text-[12px] leading-[1.6]">
+          <li class="flex min-w-0 justify-between gap-[12px] border-l-2 border-solai-accent-primary bg-solai-surface-raised px-[10px] py-[8px] text-solai-text-primary"><span>01 Glasshouse relay</span><span class="shrink-0">5:42</span></li>
+          <li class="flex min-w-0 justify-between gap-[12px] px-[12px] py-[8px] text-solai-text-secondary"><span>02 Ferry windows</span><span class="shrink-0">4:16</span></li>
+          <li class="flex min-w-0 justify-between gap-[12px] px-[12px] py-[8px] text-solai-text-secondary"><span>03 Low roof antenna</span><span class="shrink-0">6:08</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="min-w-0 p-[28px] [@media(max-width:650px)]:p-[18px]">
+      <div class="flex flex-wrap items-center justify-between gap-[12px] font-mono text-[11px]">
+        <span class="text-solai-text-secondary">EVENING TRANSMISSIONS / 20:14</span>
+        <span class="inline-flex items-center gap-[7px] rounded-[2px] border border-solai-border-strong bg-solai-surface-raised px-[9px] py-[5px] text-solai-text-primary"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M1 1H4V9H1ZM6 1H9V9H6Z" /></svg>Paused</span>
+      </div>
+      <h4 class="m-0 mt-[23px] font-sans text-[clamp(23px,3vw,34px)] font-normal leading-[1.2] tracking-[-.035em] text-solai-text-emphasis">Glasshouse relay</h4>
+      <p class="m-0 mt-[8px] text-[13px] leading-[1.7] text-solai-text-secondary">Roof Signal Ensemble <span aria-hidden="true">/</span> <span class="text-solai-text-primary">After the last ferry</span></p>
+      <div class="mt-[20px] flex flex-wrap gap-x-[22px] gap-y-[7px] font-mono text-[11px] text-solai-text-muted"><span>84 BPM</span><span>D MINOR</span><span>STEREO · 48 kHz</span></div>
+
+      <figure class="m-0 mt-[25px]">
+        <svg class="block h-[82px] w-full" viewBox="0 0 480 72" preserveAspectRatio="none" role="img" aria-labelledby="radio-wave-title radio-wave-desc">
+          <title id="radio-wave-title">Paused track waveform</title>
+          <desc id="radio-wave-desc">The track is paused at 2 minutes 18 seconds of 5 minutes 42 seconds, about forty percent through.</desc>
+          <path d="M0 36H480" stroke="var(--border)" />
+          {waveform.map((height, index) => <rect x={index * 8 + 2} y={36 - height / 2} width="4" height={height} fill={index < 24 ? 'var(--accent)' : 'var(--support)'} />)}
+          <path d="M194 3V69" stroke="var(--text)" stroke-width="1.5" />
+          <path d="M190 0H198L194 5Z" fill="var(--text)" />
+        </svg>
+        <figcaption class="mt-[4px] flex flex-wrap justify-between gap-[8px] font-mono text-[12px] text-solai-text-secondary"><span class="text-solai-text-primary">02:18 <span class="text-solai-text-muted">/ 05:42</span></span><span>Position held</span></figcaption>
+      </figure>
+
+      <section class="mt-[27px] border-t border-solai-border-subtle pt-[18px]" aria-labelledby="radio-pattern-title">
+        <div class="flex flex-wrap items-center justify-between gap-[8px]">
+          <h5 id="radio-pattern-title" class="m-0 font-mono text-[12px] font-normal text-solai-text-primary">PATTERN 04 <span class="text-solai-text-muted">/ 16 STEPS</span></h5>
+          <span class="rounded-[2px] bg-solai-accent-primary px-[7px] py-[3px] font-mono text-[11px] text-solai-accent-ink">STEP 09</span>
+        </div>
+        <div class="mt-[15px] grid min-w-0 grid-cols-[48px_minmax(0,1fr)] gap-x-[10px] gap-y-[10px]">
+          <span class="sr-only">Step groups</span>
+          <div class="col-start-2 grid min-w-0 grid-cols-4 gap-[6px] font-mono text-[10px] text-solai-text-muted">{groups.map(group => <span>{group}</span>)}</div>
+          {voices.map(voice => <>
+            <span class="self-center font-mono text-[11px] text-solai-text-secondary">{voice.name}<span class="sr-only">: {voice.state}.</span></span>
+            <div class="grid min-w-0 grid-cols-4 gap-[6px]">
+              {groups.map((_, group) => <div class="grid min-w-0 grid-cols-4 gap-[3px]">
+                {Array.from({ length: 4 }, (_, index) => {
+                  const step = group * 4 + index + 1;
+                  const active = voice.steps.includes(step);
+                  return <span class:list={['relative block h-[17px] min-w-0 rounded-[1px] border', voice.muted ? 'border-solai-border-strong bg-solai-surface-panel' : active ? 'border-solai-accent-primary bg-solai-accent-primary' : 'border-solai-border-subtle bg-solai-surface-raised', step === 9 && 'outline outline-1 outline-offset-2 outline-solai-text-primary']}><span class="sr-only">Step {step}: {voice.muted ? (active ? 'programmed, muted' : 'off, muted') : active ? 'on' : 'off'}.</span>{voice.muted && active && <svg class="absolute inset-0 h-full w-full text-solai-text-muted" viewBox="0 0 16 17" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13L12 4" stroke="currentColor" /></svg>}</span>;
+                })}
+              </div>)}
+            </div>
+          </>)}
+        </div>
+        <p class="m-0 mt-[15px] font-mono text-[11px] leading-[1.7] text-solai-text-secondary">Filled: active · Empty: off · Slashed: muted<br />Pulse + Glass enabled; Hiss muted. Outline marks step 09.</p>
+      </section>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-between gap-[8px] border-t border-solai-border-subtle bg-solai-surface-panel px-[18px] py-[9px] font-mono text-[11px] text-solai-text-secondary"><span>NR-004-A · LOCAL TAPE</span><span>SIDE A · 01 / 03</span></div>
+</PreviewWindow>

@@ -1,0 +1,82 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+---
+
+<PreviewWindow id="preview-station" title="Rooftop Station" context="north quay / 03">
+  <div class="flex flex-wrap items-start justify-between gap-[16px] border-b border-solai-border-subtle px-[28px] py-[23px] [@media(max-width:650px)]:px-[18px]">
+    <div class="min-w-0">
+      <p class="m-0 font-mono text-[11px] tracking-[.06em] text-solai-text-muted">GLASSHOUSE + NEIGHBOURHOOD MICROGRID</p>
+      <h4 class="m-0 mt-[8px] font-sans text-[25px] font-normal leading-[1.25] tracking-[-.025em] text-solai-text-emphasis">The roof after sundown</h4>
+      <p class="m-0 mt-[8px] text-[12px] leading-[1.7] text-solai-text-secondary">21 October · 20:14 · North Quay, roof 03</p>
+    </div>
+    <span class="rounded-[2px] border border-solai-status-success bg-solai-status-success-background px-[9px] py-[6px] font-mono text-[11px] text-solai-status-success">POWER · NORMAL</span>
+  </div>
+
+  <div class="grid min-w-0 grid-cols-[minmax(0,1.8fr)_minmax(190px,0.8fr)] [@media(max-width:650px)]:grid-cols-1">
+    <div class="min-w-0 p-[28px] [@media(max-width:650px)]:p-[18px]">
+      <div class="flex flex-wrap items-end justify-between gap-[16px]">
+        <div>
+          <p class="m-0 font-mono text-[11px] text-solai-text-secondary">ROOF DEMAND</p>
+          <p class="m-0 mt-[5px] font-mono text-[38px] leading-[1.1] tracking-[-.06em] text-solai-text-emphasis">1.2 <span class="text-[16px] tracking-normal text-solai-text-secondary">kW</span></p>
+        </div>
+        <p class="m-0 max-w-[225px] text-[12px] leading-[1.7] text-solai-text-secondary">Solar has finished for the day.<br /><span class="text-solai-text-primary">Battery supplies the full roof load.</span></p>
+      </div>
+
+      <figure class="m-0 mt-[27px]" aria-labelledby="station-profile-caption">
+        <figcaption id="station-profile-caption" class="flex flex-wrap items-center justify-between gap-[12px] font-mono text-[11px] text-solai-text-primary">
+          <span>DAY PROFILE · kW</span>
+          <span class="flex flex-wrap gap-x-[15px] gap-y-[7px] text-solai-text-secondary">
+            <span class="inline-flex items-center gap-[6px]"><svg width="20" height="8" aria-hidden="true"><path d="M0 4H20" stroke="var(--accent)" stroke-width="2" /></svg>Solar</span>
+            <span class="inline-flex items-center gap-[6px]"><svg width="20" height="8" aria-hidden="true"><path d="M0 4H20" stroke="var(--support)" stroke-width="2" stroke-dasharray="4 3" /></svg>Demand</span>
+          </span>
+        </figcaption>
+        <div class="mt-[17px] grid min-w-0 grid-cols-[24px_minmax(0,1fr)] gap-x-[7px]">
+          <div class="flex h-[190px] flex-col justify-between text-right font-mono text-[11px] leading-none text-solai-text-secondary" aria-hidden="true"><span>4</span><span>2</span><span>0</span></div>
+          <svg class="block h-[190px] w-full overflow-visible" viewBox="0 0 600 190" preserveAspectRatio="none" role="img" aria-labelledby="station-chart-title station-chart-desc">
+            <title id="station-chart-title">Solar generation and roof demand, midnight to 20:14</title>
+            <desc id="station-chart-desc">Horizontal axis runs from 00:00 to 24:00; vertical axis from zero to four kilowatts. Solid solar generation rises from zero at 06:00 to a 3.8 kilowatt peak at noon, then returns to zero by 19:00. Dashed demand ranges from 0.8 to 1.6 kilowatts, ending at 1.2 kilowatts at 20:14. The shaded area after 20:14 contains no readings.</desc>
+            <path d="M505.83 0H600V190H505.83Z" fill="var(--panel)" />
+            <path d="M0 0H600M0 95H600M0 190H600M150 0V190M300 0V190M450 0V190M600 0V190" fill="none" stroke="var(--border)" stroke-width="1" vector-effect="non-scaling-stroke" />
+            <path d="M0 190H150L175 166.25L200 128.25L225 85.5L250 47.5L275 23.75L300 9.5L325 19L350 38L375 71.25L400 109.25L425 142.5L450 175.75L475 190H505.83" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+            <path d="M0 142.5L75 147.25L150 152L175 137.75L225 128.25L300 114L350 123.5L400 133L450 123.5L475 128.25L505.83 133" fill="none" stroke="var(--support)" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+            <path d="M505.83 0V190" stroke="var(--strong)" stroke-width="1" stroke-dasharray="2 4" vector-effect="non-scaling-stroke" />
+            <path d="M500.83 128H510.83V138H500.83Z" fill="var(--support)" stroke="var(--canvas)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="col-start-2 mt-[9px] flex justify-between font-mono text-[11px] text-solai-text-secondary" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        </div>
+        <p class="m-0 mt-[12px] font-mono text-[11px] leading-[1.7] text-solai-text-secondary">Local time · readings end at 20:14.<br />Shaded area: no readings yet.</p>
+      </figure>
+
+      <dl class="m-0 mt-[22px] grid grid-cols-3 gap-[12px] border-t border-solai-border-subtle pt-[15px] [@media(max-width:650px)]:grid-cols-1">
+        <div class="min-w-0"><dt class="font-mono text-[11px] text-solai-text-muted">SOLAR</dt><dd class="m-0 mt-[6px] font-mono text-[15px] text-solai-text-primary">0.0 kW <span class="block text-[11px] text-solai-text-secondary">After sunset</span></dd></div>
+        <div class="min-w-0"><dt class="font-mono text-[11px] text-solai-text-muted">BATTERY</dt><dd class="m-0 mt-[6px] font-mono text-[15px] text-solai-text-primary">1.2 kW <span class="block text-[11px] text-solai-text-secondary">Discharging</span></dd></div>
+        <div class="min-w-0"><dt class="font-mono text-[11px] text-solai-text-muted">GRID EXCHANGE</dt><dd class="m-0 mt-[6px] font-mono text-[15px] text-solai-text-primary">0.0 kW <span class="block text-[11px] text-solai-text-secondary">No import / export</span></dd></div>
+      </dl>
+    </div>
+
+    <aside class="min-w-0 border-l border-solai-border-subtle bg-solai-surface-panel p-[24px] [@media(max-width:650px)]:border-t [@media(max-width:650px)]:border-l-0 [@media(max-width:650px)]:p-[18px]" aria-label="Roof reserves and greenhouse conditions">
+      <dl class="m-0">
+        <div class="border-b border-solai-border-subtle pb-[20px]">
+          <dt class="font-mono text-[11px] text-solai-text-secondary">BATTERY RESERVE</dt>
+          <dd class="m-0 mt-[8px]"><span class="font-mono text-[27px] leading-[1.2] text-solai-text-emphasis">76<span class="text-[15px]">%</span></span><span class="ml-[9px] rounded-[2px] bg-solai-status-success-background px-[6px] py-[3px] font-mono text-[10px] text-solai-status-success">Normal</span></dd>
+          <dd class="m-0 mt-[12px]"><div class="h-[7px] w-full border border-solai-border-strong bg-solai-surface-canvas" aria-hidden="true"><div class="h-full w-[76%] bg-solai-accent-primary"></div></div><p class="m-0 mt-[8px] font-mono text-[11px] leading-[1.6] text-solai-text-secondary">Reserve floor 25%</p></dd>
+        </div>
+        <div class="border-b border-solai-border-subtle py-[20px]">
+          <dt class="font-mono text-[11px] text-solai-text-secondary">GREENHOUSE AIR</dt>
+          <dd class="m-0 mt-[8px]"><span class="font-mono text-[27px] leading-[1.2] text-solai-text-emphasis">21.4<span class="text-[15px]">°C</span></span></dd>
+          <dd class="m-0 mt-[8px] flex flex-wrap items-center gap-[8px] font-mono text-[11px]"><span class="rounded-[2px] bg-solai-status-success-background px-[6px] py-[3px] text-solai-status-success">Normal</span><span class="text-solai-text-secondary">Target 18–24°C</span></dd>
+        </div>
+        <div class="pt-[20px]">
+          <dt class="font-mono text-[11px] text-solai-text-secondary">RAINWATER RESERVE</dt>
+          <dd class="m-0 mt-[8px]"><span class="font-mono text-[27px] leading-[1.2] text-solai-text-emphasis">68<span class="text-[15px]">%</span></span><span class="ml-[9px] rounded-[2px] bg-solai-status-success-background px-[6px] py-[3px] font-mono text-[10px] text-solai-status-success">Normal</span></dd>
+          <dd class="m-0 mt-[12px]"><div class="h-[7px] w-full border border-solai-border-strong bg-solai-surface-canvas" aria-hidden="true"><div class="h-full w-[68%] bg-solai-accent-secondary"></div></div><p class="m-0 mt-[8px] font-mono text-[11px] leading-[1.6] text-solai-text-secondary">Refill threshold 30%</p></dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+
+  <div class="flex flex-wrap items-start gap-x-[16px] gap-y-[8px] border-t border-solai-border-subtle bg-solai-status-warning-background px-[28px] py-[15px] text-solai-status-warning [@media(max-width:650px)]:px-[18px]">
+    <span class="shrink-0 font-mono text-[11px] leading-[1.8]">! NEEDS ATTENTION</span>
+    <p class="m-0 min-w-0 flex-1 basis-[220px] text-[12px] leading-[1.7]">North gutter filter is due for cleaning. Inspect before the next rainfall; water reserve remains above the refill threshold.</p>
+  </div>
+</PreviewWindow>

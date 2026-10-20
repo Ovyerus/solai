@@ -1,87 +1,49 @@
 ---
-const tabButton = 'min-h-[44px] rounded-[2px] border-0 bg-transparent px-[18px] py-[8px] font-sans text-[12px] text-solai-text-primary aria-selected:bg-solai-accent-primary aria-selected:text-solai-accent-ink aria-[selected=false]:hover:bg-solai-surface-raised aria-[selected=false]:hover:text-solai-text-emphasis [@media(max-width:650px)]:px-[12px]';
-const settingRow = 'setting-row flex min-h-[56px] cursor-pointer items-center justify-between gap-[20px] rounded-[2px] border-b border-solai-border-subtle py-[13px] has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-solai-accent-highlight has-[:focus-visible]:outline-offset-[3px] [&_strong]:text-[12px] [&_strong]:font-medium';
-const switchInput = 'relative m-0 h-[26px] w-[44px] flex-none cursor-pointer appearance-none rounded-[20px] border border-solai-border-strong bg-solai-surface-panel before:absolute before:top-[3px] before:left-[3px] before:h-[18px] before:w-[18px] before:rounded-full before:bg-solai-text-primary before:transition-transform before:duration-150 before:ease-[ease] before:content-[""] checked:border-solai-accent-primary checked:bg-solai-accent-primary checked:before:translate-x-[18px] checked:before:bg-solai-accent-ink focus-visible:outline-none';
-const badge = 'badge rounded-[2px] border border-current px-[8px] py-[4px] font-mono text-[12px] leading-[normal]';
+import EditorPreview from './EditorPreview.astro';
+import TerminalPreview from './TerminalPreview.astro';
+import InterfacePreview from './InterfacePreview.astro';
+import NightRadio from './NightRadio.astro';
+import RooftopStation from './RooftopStation.astro';
+import HarbourDepartures from './HarbourDepartures.astro';
+import FieldNotebook from './FieldNotebook.astro';
+import paletteData from '../../public/assets/palettes.json';
+import { guideSections } from '../data/guide.js';
+import { resolveRole } from '../scripts/guide-renderer.js';
+
+const code = guideSections.find(section => section.id === 'code');
+const editor = guideSections.find(section => section.id === 'editor');
+const ansi = guideSections.find(section => section.id === 'ansi');
+const variables = [
+  ['literal', code.roles.find(role => role.key === 'literal')],
+  ['search', editor.roles.find(role => role.key === 'search')],
+  ...['orange', 'chartreuse', 'spring', 'cyan', 'violet', 'rose'].map((colour, index) => [colour, editor.roles.find(role => role.key === `bracket${index}`)]),
+  ...ansi.roles.map((role, index) => [`ansi-${index}`, role]),
+];
+// Specimen-only colours follow the approved guide mappings, even without client JSON.
+// These scoped variables do not add aliases to the canonical palette or downloads.
+const previewStyles = paletteData.flavorOrder.flatMap(flavour => paletteData.modeOrder.map(mode => {
+  const palette = paletteData.flavors[flavour].modes[mode];
+  const declarations = variables.map(([name, role]) => `--preview-${name}:${resolveRole(role, palette, mode).value}`).join(';');
+  return `:root[data-flavor="${flavour}"][data-mode="${mode}"] #examples{${declarations}}`;
+})).join('\n');
 ---
 
+<style is:inline set:html={previewStyles}></style>
 <section id="examples" class="wrap section pt-[80px] [@media(max-width:650px)]:pt-[50px]">
   <div class="section-top section-heading my-[27px] mb-[38px] flex items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:my-[22px] [@media(max-width:650px)]:mb-[25px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]">
     <h2 class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Previews</h2>
   </div>
-  <div class="sample-toolbar mb-[12px] flex flex-wrap items-center justify-between gap-[12px]">
-    <div class="tabs flex gap-[4px] rounded-[2px] border border-solai-border-strong bg-solai-surface-panel p-[3px]" role="tablist" aria-label="Application samples">
-      <button class={tabButton} id="tab-editor" role="tab" aria-selected="true" aria-controls="sample-editor" data-tab="editor">Editor</button>
-      <button class={tabButton} id="tab-terminal" role="tab" aria-selected="false" aria-controls="sample-terminal" data-tab="terminal">Terminal</button>
-      <button class={tabButton} id="tab-interface" role="tab" aria-selected="false" aria-controls="sample-interface" data-tab="interface">Interface</button>
-    </div>
-    <span class="mono muted font-mono text-[12px] tracking-[.06em] text-solai-text-muted">SOLAI / <span class="current-name">TIDE</span> <span class="current-mode">Dark</span></span>
+  <div class="mb-[20px] flex flex-wrap items-baseline justify-between gap-[10px]">
+    <p class="m-0 text-[12px] leading-[1.7] text-solai-text-secondary">Fixed scenes and fictional readings—not live applications or installed ports.</p>
+    <p class="m-0 font-mono text-[11px] text-solai-text-secondary"><span class="current-name">Tide</span> <span class="current-mode">Dark</span></p>
   </div>
-
-  <div class="app-window overflow-hidden rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas">
-    <div class="window-chrome flex h-[39px] items-center justify-between border-b border-solai-border-subtle bg-solai-surface-panel px-[16px] font-mono text-[12px] text-solai-text-secondary">
-      <span class="window-dots text-[10px] tracking-[3px] text-solai-border-strong" aria-hidden="true">● ● ●</span>
-      <span id="window-title">theme.ts</span>
-      <span>⌘</span>
-    </div>
-    <div id="sample-editor" class="sample editor grid min-h-[414px] grid-cols-[210px_1fr] [@media(max-width:650px)]:min-h-[360px] [@media(max-width:650px)]:grid-cols-1" role="tabpanel" aria-labelledby="tab-editor">
-      <aside class="filetree relative overflow-hidden border-r border-solai-border-subtle bg-solai-surface-panel py-[22px] font-mono text-[11px] [@media(max-width:650px)]:hidden [&>div]:px-[20px] [&>div]:py-[7px] [&>div]:whitespace-nowrap">
-        <span class="mono muted block px-[20px] pb-[20px] font-mono text-[12px] tracking-[.06em] text-solai-text-muted">EXPLORER</span>
-        <div>⌄ solai</div>
-        <div class="selected rounded-[2px] border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))] text-solai-text-emphasis [&.selected]:pl-[18px]">▧ theme.ts</div>
-        <div>▧ palette.json</div>
-        <div>▧ README.md</div>
-      </aside>
-      <div class="code-area min-w-0">
-        <div class="code-title flex min-h-[37px] justify-between border-b border-solai-border-subtle px-[20px] py-[9px] font-mono text-[12px]">theme.ts <span class="text-solai-accent-primary">●</span></div>
-        <pre class="m-0 overflow-auto py-[20px] font-mono text-[14px] leading-[1.9] text-solai-text-secondary [@media(max-width:650px)]:pt-[16px] [@media(max-width:650px)]:text-[12px] [&_code]:font-mono [&_.line]:block [&_.line]:min-h-[23px] [&_.line]:pr-[20px] [&_i]:inline-block [&_i]:w-[50px] [&_i]:select-none [&_i]:text-center [&_i]:not-italic [&_i]:text-solai-text-muted [@media(max-width:650px)]:[&_i]:w-[33px] [&_.keyword]:font-medium [&_.keyword]:text-solai-text-emphasis [&_.string]:text-solai-accent-primary [&_.string]:italic [&_.type]:text-solai-accent-secondary [&_.focus-line]:bg-solai-surface-panel [&_.cursor]:text-solai-accent-highlight" is:raw><code><span class="line"><i>01</i><span class="keyword">import</span> { createTheme } <span class="keyword">from</span> <span class="string">'solai'</span>;</span><span class="line"><i>02</i></span><span class="line"><i>03</i><span class="keyword">const</span> theme: <span class="type">Theme</span> = createTheme({</span><span class="line"><i>04</i>  name: <span class="string">'<span class="current-name-lower">tide</span>'</span>,</span><span class="line focus-line"><i>05</i>  background: <span class="string canvas-hex">'#101416'</span>,</span><span class="line"><i>06</i>  accent: <span class="string accent-hex">'#00ACCE'</span>,</span><span class="line"><i>07</i>});</span><span class="line"><i>08</i></span><span class="line"><i>09</i><span class="keyword">export default</span> theme;<span class="cursor">▏</span></span></code></pre>
-        <div class="code-status flex flex-wrap justify-between gap-x-[15px] gap-y-[8px] border-t border-solai-border-subtle bg-solai-surface-panel px-[16px] py-[7px] font-mono text-[12px] leading-[normal] text-solai-text-secondary">
-          <span>main* &nbsp; ✓ 0 problems</span>
-          <span>TypeScript · UTF-8</span>
-        </div>
-      </div>
-    </div>
-    <div id="sample-terminal" class="sample terminal min-h-[414px] px-[35px] py-[25px] font-mono text-[14px] leading-[1.7] [@media(max-width:650px)]:min-h-[360px] [@media(max-width:650px)]:p-[18px] [@media(max-width:650px)]:text-[12px] [&_p]:my-[9px]" role="tabpanel" aria-labelledby="tab-terminal" hidden>
-      <p><span class="term-green text-solai-status-success">~/studio</span> <span class="accent text-solai-accent-primary">❯</span> solai inspect --flavour <span class="current-name-lower">tide</span></p>
-      <p>Palette loaded.</p>
-      <div class="term-facts grid max-w-[430px] grid-cols-[90px_1fr] gap-[6px] [@media(max-width:650px)]:grid-cols-[70px_1fr]">
-        <span class="accent text-solai-accent-primary">Theme</span><span><span class="current-name">Tide</span> <span class="current-mode">Dark</span></span>
-        <span class="accent text-solai-accent-primary">Colours</span><span>17 ramps / 11 steps</span>
-      </div>
-      <div id="ansi-swatches" class="ansi-swatches my-[20px] flex w-[320px] max-w-full" aria-label="Proposed terminal ANSI colours"></div>
-      <p><span class="term-green text-solai-status-success">✓</span> Core contrast pairs checked</p>
-      <p><span class="term-yellow text-solai-status-warning">!</span> Terminal mappings are proposals, not installed ports</p>
-      <p><span class="term-green text-solai-status-success">~/studio</span> <span class="accent text-solai-accent-primary">❯</span> <span class="cursor text-solai-accent-highlight">▊</span></p>
-    </div>
-    <div id="sample-interface" class="sample settings grid min-h-[414px] grid-cols-[1fr_1.45fr] gap-[60px] p-[38px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:block [@media(max-width:650px)]:min-h-[360px] [@media(max-width:650px)]:p-[23px]" role="tabpanel" aria-labelledby="tab-interface" hidden>
-      <aside class="border-r border-solai-border-subtle pr-[42px] [@media(max-width:650px)]:hidden">
-        <p class="my-[1em] text-[13px] text-solai-text-secondary">Controls affect this preview only.</p>
-        <div class="mini-art text-[85px] leading-[1.5] text-solai-accent-primary" aria-hidden="true"><svg class="inline align-baseline" viewBox="0 0 32 32" width=".75em" height=".75em" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 2V30M2 16H30M6.1 6.1L25.9 25.9M6.1 25.9L25.9 6.1" /></svg></div>
-      </aside>
-      <div class="settings-content">
-        <h3 class="m-0 mb-[10px] text-[21px] font-medium tracking-[-.5px] [@media(max-width:650px)]:text-[19px]">Appearance</h3>
-        <label class={settingRow}>
-          <span><strong>Soft focus</strong></span>
-          <input class={switchInput} type="checkbox" checked role="switch" aria-label="Soft focus" />
-        </label>
-        <label class={settingRow}>
-          <span><strong>Comfortable spacing</strong></span>
-          <input class={switchInput} type="checkbox" role="switch" aria-label="Comfortable spacing" />
-        </label>
-        <label class="input-label mt-[22px] mb-[8px] block font-sans text-[12px] leading-[normal] text-solai-text-emphasis" for="workspace-name">Workspace name</label>
-        <input class="min-h-[44px] w-full rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas px-[12px] py-[10px] text-[16px] text-solai-text-primary" id="workspace-name" type="text" value="Studio" maxlength="80" />
-        <div class="status-row my-[20px] flex flex-wrap gap-[8px]">
-          <span class:list={[badge, 'success bg-solai-status-success-background text-solai-status-success']}>✓ Saved</span>
-          <span class:list={[badge, 'warning bg-solai-status-warning-background text-solai-status-warning']}>! Review</span>
-          <span class:list={[badge, 'danger bg-solai-status-danger-background text-solai-status-danger']}>× Error</span>
-          <span class:list={[badge, 'info bg-solai-status-info-background text-solai-status-info']}>i Note</span>
-        </div>
-        <div class="action-row flex flex-wrap gap-[10px]">
-          <button class="primary min-h-[44px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] font-sans text-[12px] font-medium text-solai-accent-ink hover:border-solai-accent-hover hover:bg-solai-accent-hover" id="save-demo">Save changes</button>
-          <button class="secondary min-h-[44px] rounded-[2px] border border-solai-border-strong bg-transparent px-[17px] py-[10px] font-sans text-[12px] font-medium text-solai-text-primary hover:bg-solai-surface-panel" id="reset-demo">Reset</button>
-        </div>
-      </div>
-    </div>
+  <div class="preview-windows grid min-w-0 gap-[28px]">
+    <EditorPreview />
+    <TerminalPreview />
+    <InterfacePreview />
+    <NightRadio />
+    <RooftopStation />
+    <HarbourDepartures />
+    <FieldNotebook />
   </div>
-  <p class="sample-note mt-[14px] mb-[1em] font-sans text-[12px] tracking-normal text-solai-text-muted">Illustrative previews, not installed app integrations.</p>
 </section>

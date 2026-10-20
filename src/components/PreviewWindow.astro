@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  context: string;
+}
+const { id, title, context } = Astro.props;
+---
+
+<article class="app-window min-w-0 overflow-hidden rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas" aria-labelledby={`${id}-title`} data-preview={id}>
+  <header class="window-chrome flex min-h-[39px] items-center justify-between gap-[12px] border-b border-solai-border-subtle bg-solai-surface-panel px-[16px] py-[9px] font-mono text-[12px] leading-[1.4] text-solai-text-secondary">
+    <span class="window-dots shrink-0 text-[10px] tracking-[3px] text-solai-border-strong [@media(max-width:450px)]:hidden" aria-hidden="true">● ● ●</span>
+    <h3 id={`${id}-title`} class="m-0 min-w-0 text-center text-[12px] font-normal [@media(max-width:450px)]:text-left"><span class="font-sans">{title}</span> · {context}</h3>
+    <span class="shrink-0" aria-hidden="true">⌘</span>
+  </header>
+  <slot />
+</article>

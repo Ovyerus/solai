@@ -94,15 +94,29 @@ WebGL handles the live image. Animation stops offscreen, in a hidden document or
 
 Navigation stays at the viewport top on Home, Palette and Guide. The home header remains transparent over the full-width hero at the top, then gains a solid theme surface while scrolling; Palette and Guide use a solid sticky header throughout. Anchor offsets follow the actual wrapped header height, and focusing visible navbar controls does not move the page. Without JavaScript, the header stays solid and uses a conservative anchor offset. The native theme dropdown and Dark/Light toggle remain paired at the header’s right edge and synchronized with the lower flavour cards; there is no palette bar below the hero.
 
-The home page contains Flavours, Previews and Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
+The home page introduces Solai’s Dolch origins and solarpunk-after-sunset mood between the hero and Flavours. Flavour cards retain their scene captions without upstream/study badges. Seven labelled preview windows are stacked vertically with no selector or tab panels, followed by Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
 
-The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls and preview tabs use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
+The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
 
-The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
+The hero, introduction and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
 
 The single canonical wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation and footer. Its Sora Medium lettering is outlined at weight 500 with tight spacing. The enlarged, raised eight-ray star, heavier rays and unclipped `2390×900` viewBox are baked into the master SVG; there are no alternate size variants or selector props. All placements use `<Wordmark />`, inherit the active theme's ink/accent colours and retain their existing layout widths and accessible containing labels. The artwork renders without fonts or emoji fallback. Edit this master rather than recreating the logo with text. The Sora font notice remains in `public/assets/fonts/Sora-OFL.txt`.
 
 Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Demo preferences are illustrative; exports are palette data, CSS variables and Tailwind colour tokens, not installed app themes.
+
+### Preview specimens
+
+The previews are fixed colour specimens, not live applications or installed ports:
+
+- **Editor:** mostly neutral TypeScript, a file tree, current line, violet search matches, a posed completion menu, change markers and explicit diagnostics.
+- **Terminal:** directory/file/symlink/executable colours, Git output, a process table, resource meters and the guide’s normal/bright ANSI mappings.
+- **Interface:** selected and archived rows, the existing switches/name field and Save/Reset actions, a fixed read-only invalid-field example, a disabled action and a notice.
+- **Night Radio:** original tape-cover artwork, paused waveform, track metadata and a fixed 16-step pattern with active/off/muted states.
+- **Rooftop Station:** a coherent 20:14 microgrid snapshot, solid/dashed solar-demand chart, reserves, greenhouse readings and maintenance notice.
+- **Harbour Departures:** a sample night-service board, independent selection/status colours and a timed route. Narrow screens scroll the table natively.
+- **Field Notebook:** an original evening entry, botanical sketch, quotation, annotation and working footnote/backlink.
+
+All seven follow the shared flavour/mode. Extra specimen-only colours are resolved at Astro build time from the unchanged canonical JSON and approved guide definitions, scoped to `#examples`; no aliases are added to palette downloads. The specimens remain styled without JavaScript or a successful client JSON fetch. Missing client data is reported rather than leaving incorrect code hex values visible. New windows have no app controls, services, timers or animation loops; the existing Interface controls remain page-local.
 
 ### Palette interaction
 
@@ -145,7 +159,9 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/pages/guide/index.astro`: collaborative semantic-colour guide
 - `src/pages/guide-editor/index.astro`: temporary, unlinked live token editor and proposal export UI
 - `src/layouts/Page.astro`: shared document metadata and page slots
-- `src/components/AppSamples.astro`: editor, terminal and interface specimens
+- `src/components/AppSamples.astro` and `PreviewWindow.astro`: seven-window preview composition, build-time scoped colour mappings and shared Linework frame
+- `src/components/EditorPreview.astro`, `TerminalPreview.astro` and `InterfacePreview.astro`: expanded fixed code, shell and interface states; existing Interface controls retained
+- `src/components/NightRadio.astro`, `RooftopStation.astro`, `HarbourDepartures.astro` and `FieldNotebook.astro`: original fixed after-dark colour specimens
 - `src/components/AppearanceControl.astro`: shared keyboard-operable Dark/Light controls
 - `src/components/SiteHeader.astro`, `SiteFooter.astro` and `ThemeHead.astro`: shared navigation, attribution and prepaint theme restoration
 - `src/assets/solai-wordmark.svg` and `src/components/Wordmark.astro`: canonical outlined brand artwork and shared inline SVG presentation

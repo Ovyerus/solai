@@ -1,0 +1,71 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+const lines = [
+  '<span class="keyword">type</span> <span class="type">Scene</span> = <span class="bracket0">{</span>',
+  '  name: <span class="type">string</span>; background: <span class="type">string</span>;',
+  '  accent: <span class="type">string</span>; startHour: <span class="type">number</span>;',
+  '<span class="bracket0">}</span>;',
+  '',
+  '<span class="comment">// Light the glasshouse after the last ferry.</span>',
+  '<span class="keyword">const</span> scene: <span class="type">Scene</span> = <span class="bracket0">{</span>',
+  '  name: <span class="string">\'<span class="current-name-lower">tide</span>\'</span>,',
+  '  background: <span class="string canvas-hex">\'#101416\'</span>,',
+  '  accent: <span class="string accent-hex">\'#00ACCE\'</span>, startHour: <span class="literal">20</span>,',
+  '<span class="bracket0">}</span>;',
+  '',
+  '<span class="keyword">export function</span> <span class="search">lightWindows</span><span class="bracket0">(</span>hour: <span class="type">number</span><span class="bracket0">)</span> <span class="bracket0">{</span>',
+  '  <span class="keyword">const</span> place = hour &gt;= scene.startHour',
+  '    ? <span class="string">"glasshouse"</span> : <span class="string">"north quay"</span>;',
+  '  <span class="keyword">return</span> <span class="string">`${</span>place<span class="string">} / ${</span>scene.name<span class="string">}`</span>;',
+  '<span class="bracket0">}</span>',
+  '',
+  '<span class="keyword">export const</span> destination = <span class="search">lightWindows</span><span class="cursor">▏</span><span class="bracket0">(</span><span class="literal">20</span><span class="bracket0">)</span>;',
+  '<span class="keyword">const</span> <span class="warn">spare</span> = <span class="literal">4</span>;',
+  'lightWindows<span class="bracket0">(</span><span class="error string">"after sunset"</span><span class="bracket0">)</span>;',
+];
+const candidates = [
+  { kind: 'ƒ', name: 'lightWindows', detail: '(hour: number)', selected: true },
+  { kind: '◇', name: 'scene', detail: 'Scene', selected: false },
+  { kind: 'T', name: 'Scene', detail: 'type', selected: false },
+];
+---
+
+<PreviewWindow id="preview-editor" title="Editor" context="glasshouse.ts">
+  <div id="sample-editor" class="sample editor grid min-w-0 grid-cols-[180px_minmax(0,1fr)] [@media(max-width:650px)]:grid-cols-1">
+    <aside class="filetree border-r border-solai-border-subtle bg-solai-surface-panel py-[20px] font-mono text-[12px] text-solai-text-primary [@media(max-width:650px)]:hidden">
+      <p class="m-0 px-[18px] pb-[16px] text-[11px] tracking-[.08em] text-solai-text-secondary">EXPLORER</p>
+      <p class="m-0 px-[18px] py-[7px]">⌄ harbour</p>
+      <p class="m-0 px-[25px] py-[7px]">⌄ src</p>
+      <div class="selected flex items-center justify-between gap-[8px] border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))] py-[8px] pr-[14px] pl-[23px]"><span>glasshouse.ts</span><span class="text-solai-status-warning" aria-label="Modified">M</span></div>
+      <div class="flex justify-between gap-[8px] px-[25px] py-[8px]"><span>readings.ts</span><span class="text-solai-status-success" aria-label="Added">A</span></div>
+      <p class="m-0 px-[25px] py-[8px]">palette.json</p>
+      <p class="m-0 px-[18px] py-[8px] text-solai-text-secondary">▸ notes</p>
+      <p class="m-0 px-[18px] py-[8px] text-solai-text-secondary">README.md</p>
+    </aside>
+    <div class="code-area min-w-0">
+      <div class="flex min-h-[39px] flex-wrap items-center justify-between gap-[8px] border-b border-solai-border-subtle px-[18px] py-[10px] font-mono text-[11px] text-solai-text-secondary">
+        <span>src / glasshouse.ts <span class="text-solai-accent-primary" aria-label="Unsaved">●</span></span>
+        <span>Find: <span class="text-[color:var(--preview-search)] underline underline-offset-[3px]">lightWindows</span> · 2 matches</span>
+      </div>
+      <div class="relative">
+        <div class="overflow-x-auto" tabindex="0" role="region" aria-label="TypeScript colour specimen; scroll horizontally to read">
+          <pre class="m-0 min-w-[660px] py-[18px] font-mono text-[13px] leading-[1.8] text-solai-text-primary [@media(max-width:650px)]:text-[12px] [&_code]:font-mono [&_.line]:block [&_.line]:min-h-[24px] [&_.line]:pr-[18px] [&_i]:inline-block [&_i]:w-[46px] [&_i]:select-none [&_i]:text-center [&_i]:not-italic [&_i]:text-solai-text-muted [&_.keyword]:font-medium [&_.keyword]:text-solai-text-emphasis [&_.string]:text-solai-accent-primary [&_.type]:text-solai-accent-secondary [&_.literal]:text-[color:var(--preview-literal)] [&_.comment]:text-solai-text-muted [&_.bracket0]:text-[color:var(--preview-orange)] [&_.search]:text-[color:var(--preview-search)] [&_.search]:underline [&_.search]:underline-offset-[3px] [&_.cursor]:text-solai-accent-highlight [&_.warn]:decoration-solai-status-warning [&_.warn]:underline [&_.warn]:decoration-wavy [&_.warn]:underline-offset-[4px] [&_.error]:decoration-solai-status-danger [&_.error]:underline [&_.error]:decoration-wavy [&_.error]:underline-offset-[4px]"><code>{lines.map((line, index) => <span class:list={['line', { 'bg-solai-surface-panel': index === 18, 'border-l-2 border-solai-status-success': index === 6, 'border-l-2 border-solai-status-warning': index === 9 }]}><i>{String(index + 1).padStart(2, '0')}</i><span set:html={line || ' '} /></span>)}</code></pre>
+        </div>
+        <aside class="absolute top-[105px] right-[22px] w-[270px] rounded-[2px] border border-solai-border-strong bg-solai-surface-raised text-solai-text-primary [@media(max-width:1000px)]:static [@media(max-width:1000px)]:mx-[18px] [@media(max-width:1000px)]:mb-[18px] [@media(max-width:1000px)]:w-auto" aria-label="Fixed completion menu example">
+          <p class="m-0 border-b border-solai-border-subtle px-[12px] py-[9px] font-mono text-[10px] tracking-[.06em] text-solai-text-primary">COMPLETIONS</p>
+          <ul class="m-0 list-none p-[3px] font-mono text-[11px]">
+            {candidates.map(item => <li class:list={['flex items-center gap-[10px] px-[9px] py-[8px]', { 'border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))]': item.selected }]}><span class="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[2px] bg-solai-accent-primary text-solai-accent-ink" aria-hidden="true">{item.kind}</span><span class="min-w-0"><span class="block">{item.name}</span><span class="block text-[10px]">{item.detail}</span></span>{item.selected && <span class="ml-auto text-[10px]">Selected</span>}</li>)}
+          </ul>
+          <p class="m-0 border-t border-solai-border-subtle px-[12px] py-[10px] text-[12px] leading-[1.6]">Choose the destination for the evening round.</p>
+        </aside>
+      </div>
+      <div class="grid gap-[6px] border-t border-solai-border-subtle px-[18px] py-[12px] font-mono text-[11px] leading-[1.6]">
+        <p class="m-0 text-solai-status-warning">! Line 20 · ‘spare’ is declared but never read.</p>
+        <p class="m-0 text-solai-status-danger">× Line 21 · Expected a number, received a string.</p>
+      </div>
+      <div class="code-status flex flex-wrap justify-between gap-[8px] border-t border-solai-border-subtle bg-solai-surface-panel px-[16px] py-[9px] font-mono text-[11px] text-solai-text-primary">
+        <span>main* <span class="text-solai-status-success">+2</span> <span class="text-solai-status-warning">~1</span> · 1 error · 1 warning</span><span>TypeScript · UTF-8 · 19:52</span>
+      </div>
+    </div>
+  </div>
+</PreviewWindow>

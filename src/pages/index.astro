@@ -29,15 +29,17 @@ const downloadRow = 'group flex w-full items-center justify-between gap-[20px] b
       </div>
     </section>
 
+    <section class="wrap section pt-[80px] [@media(max-width:650px)]:pt-[50px]" aria-label="About Solai">
+      <p class="m-0 max-w-[880px] text-[clamp(22px,2.6vw,32px)] leading-[1.5] tracking-[-.035em] text-solai-text-emphasis">Solai is a fork of <a class="underline decoration-solai-accent-primary underline-offset-[5px] hover:text-solai-accent-hover" href="https://github.com/be5invis/vscode-theme-dolch" target="_blank" rel="noreferrer">Dolch</a>: Renzhi Li’s theme for VSCode, with defined colour scales and alternate colour schemes.</p>
+      <p class="mt-[24px] mb-0 max-w-[760px] text-[clamp(16px,1.6vw,20px)] leading-[1.8] text-solai-text-secondary">The mood is solarpunk after sunset. Synths through an open window, greenhouse light on concrete, harbour lights across the water. A city still awake, with room for things to grow.</p>
+    </section>
+
     <section id="flavours" class="wrap section pt-[80px] [@media(max-width:650px)]:pt-[50px]">
       <div class={sectionHeading}>
         <h2 class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Flavours</h2>
       </div>
       <div id="flavour-list" class="flavour-list grid grid-cols-5 gap-px rounded-[2px] border border-solai-border-strong bg-solai-border-subtle [@media(max-width:650px)]:grid-cols-2" role="group" aria-label="Choose a theme"></div>
-      <div class="flavour-caption flex justify-between gap-[20px] py-[17px] text-[13px] text-solai-text-secondary [@media(max-width:650px)]:block [@media(max-width:650px)]:text-[11px]">
-        <span id="flavour-description"></span>
-        <span id="flavour-origin" class="tag self-start whitespace-nowrap rounded-[2px] border border-solai-border-strong px-[8px] py-[3px] font-mono text-[12px] leading-[normal] tracking-[.06em] [@media(max-width:650px)]:mt-[12px] [@media(max-width:650px)]:inline-block"></span>
-      </div>
+      <p id="flavour-description" class="flavour-caption m-0 py-[17px] text-[13px] text-solai-text-secondary [@media(max-width:650px)]:text-[11px]"></p>
     </section>
 
     <AppSamples />

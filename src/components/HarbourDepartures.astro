@@ -1,0 +1,81 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+---
+
+<PreviewWindow id="preview-departures" title="Harbour Departures" context="north quay · 20:14">
+  <div class="min-w-0 px-[24px] py-[24px] [@media(max-width:650px)]:px-[16px]">
+    <div class="mb-[24px] flex flex-wrap items-end justify-between gap-[16px]">
+      <div class="min-w-0">
+        <p class="mb-[7px] font-mono text-[12px] text-solai-text-secondary">NQ / NIGHT SERVICE</p>
+        <h4 class="m-0 text-[24px] font-medium leading-[1.3] tracking-[-0.03em] text-solai-text-emphasis">North Quay</h4>
+        <p class="mb-0 mt-[8px] text-[13px] leading-[1.7] text-solai-text-secondary">Harbour ferries · Wednesday, 21 October</p>
+      </div>
+      <p class="m-0 border-l-2 border-solai-accent-primary pl-[12px] font-mono text-[12px] leading-[1.8] text-solai-text-secondary">
+        Board as of <time datetime="2026-10-21T20:14">20:14</time><br />
+        All departures in local time
+      </p>
+    </div>
+
+    <div class="min-w-0 overflow-x-auto rounded-[2px] border border-solai-border-subtle focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary" role="region" aria-label="North Quay departures; scroll horizontally on narrow screens" tabindex="0">
+      <table class="w-full min-w-[640px] border-collapse text-left text-[13px] leading-[1.6]">
+        <caption class="sr-only">North Quay night-service departures on 21 October 2026, as of 20:14. The selected journey is the 20:18 H2 ferry to Glasshouse Point.</caption>
+        <thead class="bg-solai-surface-panel font-mono text-[11px] text-solai-text-secondary">
+          <tr>
+            <th class="w-[122px] border-b border-solai-border-subtle px-[16px] py-[12px] font-normal" scope="col">Departure</th>
+            <th class="border-b border-solai-border-subtle px-[16px] py-[12px] font-normal" scope="col">Route / destination</th>
+            <th class="w-[88px] border-b border-solai-border-subtle px-[16px] py-[12px] font-normal" scope="col">Platform</th>
+            <th class="w-[128px] border-b border-solai-border-subtle px-[16px] py-[12px] font-normal" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-solai-text-primary">
+          <tr class="bg-solai-surface-panel">
+            <td class="border-b border-l-[3px] border-b-solai-border-subtle border-l-solai-accent-primary py-[17px] pl-[13px] pr-[16px] align-top font-mono text-[17px]"><time datetime="2026-10-21T20:18">20:18</time></td>
+            <th class="border-b border-solai-border-subtle px-[16px] py-[17px] text-left align-top font-normal" scope="row">
+              <span class="mr-[8px] font-mono text-solai-accent-secondary">H2</span>Glasshouse Point
+              <span class="mt-[5px] block text-[11px] text-solai-accent-primary">Selected journey · via Dry Dock</span>
+            </th>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono">02</td>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top"><span class="inline-block whitespace-nowrap rounded-[2px] bg-solai-status-info-background px-[8px] py-[3px] text-[11px] text-solai-status-info">Boarding</span></td>
+          </tr>
+          <tr>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono text-[17px]"><time datetime="2026-10-21T20:26">20:26</time></td>
+            <th class="border-b border-solai-border-subtle px-[16px] py-[17px] text-left align-top font-normal" scope="row"><span class="mr-[8px] font-mono text-solai-accent-secondary">N4</span>Observatory Steps<span class="mt-[5px] block text-[11px] text-solai-text-secondary">via Lantern Pier</span></th>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono">01</td>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top"><span class="inline-block whitespace-nowrap rounded-[2px] bg-solai-status-success-background px-[8px] py-[3px] text-[11px] text-solai-status-success">On time</span></td>
+          </tr>
+          <tr>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono"><span class="block text-[12px] text-solai-text-secondary">Scheduled 20:32</span><span class="mt-[3px] block text-[17px]"><span class="sr-only">Expected </span><time datetime="2026-10-21T20:42">20:42</time></span></td>
+            <th class="border-b border-solai-border-subtle px-[16px] py-[17px] text-left align-top font-normal" scope="row"><span class="mr-[8px] font-mono text-solai-accent-secondary">R1</span>West Basin<span class="mt-[5px] block text-[11px] text-solai-text-secondary">Late inbound vessel · 10 min delay</span></th>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono">03</td>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top"><span class="inline-block whitespace-nowrap rounded-[2px] bg-solai-status-warning-background px-[8px] py-[3px] text-[11px] text-solai-status-warning">Delayed</span></td>
+          </tr>
+          <tr>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono text-[17px]"><time datetime="2026-10-21T20:40">20:40</time></td>
+            <th class="border-b border-solai-border-subtle px-[16px] py-[17px] text-left align-top font-normal" scope="row"><span class="mr-[8px] font-mono text-solai-accent-secondary">H3</span>South Reach<span class="mt-[5px] block text-[11px] text-solai-text-secondary">Service withdrawn · next sailing 21:10</span></th>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top font-mono"><span aria-label="Not assigned">—</span></td>
+            <td class="border-b border-solai-border-subtle px-[16px] py-[17px] align-top"><span class="inline-block whitespace-nowrap rounded-[2px] bg-solai-status-danger-background px-[8px] py-[3px] text-[11px] text-solai-status-danger">Cancelled</span></td>
+          </tr>
+          <tr>
+            <td class="px-[16px] py-[17px] align-top font-mono text-[17px]"><time datetime="2026-10-21T20:48">20:48</time></td>
+            <th class="px-[16px] py-[17px] text-left align-top font-normal" scope="row"><span class="mr-[8px] font-mono text-solai-accent-secondary">H2</span>Glasshouse Point<span class="mt-[5px] block text-[11px] text-solai-text-secondary">via Dry Dock</span></th>
+            <td class="px-[16px] py-[17px] align-top font-mono">02</td>
+            <td class="px-[16px] py-[17px] align-top"><span class="inline-block whitespace-nowrap rounded-[2px] bg-solai-status-success-background px-[8px] py-[3px] text-[11px] text-solai-status-success">On time</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="mt-[24px] grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] gap-[24px] [@media(max-width:650px)]:grid-cols-1 [@media(max-width:650px)]:gap-[16px]" aria-labelledby="departures-journey-title">
+      <div class="min-w-0">
+        <p class="mb-[7px] mt-0 font-mono text-[11px] text-solai-accent-primary">SELECTED JOURNEY / H2</p>
+        <h4 id="departures-journey-title" class="m-0 text-[16px] font-medium text-solai-text-emphasis">Across to the glasshouse</h4>
+        <p class="mb-0 mt-[8px] text-[12px] leading-[1.8] text-solai-text-secondary">Platform 02 · 13 minutes to Glasshouse Point.<br />Bicycles board at the rear gate.</p>
+      </div>
+      <ol class="m-0 min-w-0 list-none border-l border-solai-border-strong p-0 pl-[18px] font-mono text-[12px] leading-[1.7]">
+        <li class="relative flex min-w-0 flex-wrap justify-between gap-x-[12px] pb-[13px]"><span class="absolute -left-[23px] top-[6px] h-[9px] w-[9px] rounded-full border-2 border-solai-accent-primary bg-solai-surface-canvas" aria-hidden="true"></span><span class="text-solai-text-emphasis">North Quay</span><span class="text-solai-text-secondary">Dep. 20:18</span></li>
+        <li class="relative flex min-w-0 flex-wrap justify-between gap-x-[12px] pb-[13px]"><span class="absolute -left-[22px] top-[7px] h-[7px] w-[7px] rounded-full bg-solai-accent-secondary" aria-hidden="true"></span><span class="text-solai-text-primary">Dry Dock</span><span class="text-solai-text-secondary">20:24</span></li>
+        <li class="relative flex min-w-0 flex-wrap justify-between gap-x-[12px]"><span class="absolute -left-[23px] top-[6px] h-[9px] w-[9px] rounded-full border-2 border-solai-accent-primary bg-solai-accent-primary" aria-hidden="true"></span><span class="text-solai-text-primary">Glasshouse Point</span><span class="text-solai-text-secondary">Arr. 20:31</span></li>
+      </ol>
+    </section>
+  </div>
+</PreviewWindow>

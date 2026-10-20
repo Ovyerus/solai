@@ -1,0 +1,68 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+---
+
+<PreviewWindow id="preview-notebook" title="Field Notebook" context="entry 014 · north quay">
+  <div class="min-w-0 px-[32px] py-[30px] [@media(max-width:650px)]:px-[18px] [@media(max-width:650px)]:py-[24px]">
+    <header class="mb-[28px] border-b border-solai-border-subtle pb-[22px]">
+      <p class="mb-[12px] mt-0 font-mono text-[11px] leading-[1.8] text-solai-text-secondary">21 OCTOBER 2026 · <time datetime="2026-10-21T20:14">20:14</time> · NORTH QUAY GLASSHOUSE</p>
+      <h4 class="m-0 max-w-[560px] text-[28px] font-medium leading-[1.3] tracking-[-0.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[24px]">Where the glass keeps the light</h4>
+      <p class="mb-0 mt-[12px] font-mono text-[12px] text-solai-text-secondary">Evening round / planted roof → harbour wall</p>
+    </header>
+
+    <div class="grid min-w-0 grid-cols-[minmax(0,2fr)_minmax(180px,1fr)] items-start gap-[32px] [@media(max-width:650px)]:grid-cols-1 [@media(max-width:650px)]:gap-[28px]">
+      <div class="min-w-0 max-w-[65ch] text-[14px] leading-[1.95] text-solai-text-primary">
+        <p class="mb-[20px] mt-0">The roof has given back its last warmth. Inside the glasshouse, the bean leaves hold small reflections of the lamps, each one a folded square of amber. Outside, a ferry pulls away from North Quay. Its wake breaks the harbour lights into short, trembling lines before the water draws them straight again.</p>
+
+        <p class="my-[20px]">I leave the west vent open a finger’s width and record the bed under <code class="rounded-[2px] bg-solai-surface-panel px-[5px] py-[2px] font-mono text-[12px] text-solai-accent-secondary">NQ-GH / 04</code>. The soil is still damp below the surface.<sup class="ml-[2px] text-[10px]"><a id="notebook-ref-1" class="text-solai-accent-primary underline decoration-solai-accent-primary underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary" href="#notebook-note-1" aria-label="Read field note 1">1</a></sup> There is no reason to water tonight.</p>
+
+        <blockquote class="mx-0 my-[24px] border-l-2 border-solai-accent-primary py-[3px] pl-[18px] text-[16px] leading-[1.8] text-solai-text-emphasis">
+          <p class="m-0">“Leave a little darkness between the lamps. The plants are not the only things that live here.”</p>
+          <footer class="mt-[9px] font-mono text-[11px] text-solai-text-secondary">— chalk note beside the west door</footer>
+        </blockquote>
+
+        <p class="mb-[12px] mt-[20px]">Before locking up:</p>
+        <ul class="my-0 list-disc space-y-[5px] pl-[19px] marker:text-solai-accent-secondary">
+          <li>Brush fallen leaves from the drain.</li>
+          <li>Set the empty trays beneath the bench.</li>
+          <li>Leave the path light facing down.</li>
+        </ul>
+
+        <p class="mb-0 mt-[20px]">At the harbour wall, the handrail is already cold. A low synth phrase comes through an upstairs window, almost lost beneath the ferry engine. I walk home by the water.</p>
+      </div>
+
+      <aside class="min-w-0 border-l border-solai-border-subtle pl-[22px] [@media(max-width:650px)]:border-l-0 [@media(max-width:650px)]:border-t [@media(max-width:650px)]:pl-0 [@media(max-width:650px)]:pt-[22px]" aria-label="Field sketch and margin annotation">
+        <figure class="m-0">
+          <div class="rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel px-[12px] py-[16px]">
+            <svg class="mx-auto block h-auto w-full max-w-[230px]" viewBox="0 0 220 255" role="img" aria-labelledby="notebook-sketch-title notebook-sketch-description">
+              <title id="notebook-sketch-title">Bean cutting, glasshouse bed 04</title>
+              <desc id="notebook-sketch-description">An original line drawing of a slender stem with three broad leaves above the soil and branching roots below. A dotted line marks the soil surface.</desc>
+              <path d="M109 188 C105 157 116 137 110 113 C104 90 115 70 119 44" fill="none" stroke="var(--support)" stroke-width="2" stroke-linecap="round" />
+              <path d="M111 135 C84 131 59 111 62 84 C88 83 112 102 111 135 Z" fill="var(--canvas)" stroke="var(--support)" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M110 133 L70 93 M94 117 L76 115 M95 117 L94 100" fill="none" stroke="var(--support)" stroke-width="1" stroke-linecap="round" />
+              <path d="M111 112 C112 82 139 65 164 68 C166 94 143 113 111 112 Z" fill="var(--canvas)" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M114 110 L155 76 M133 94 L133 80 M133 94 L150 96" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" />
+              <path d="M116 62 C96 57 84 41 87 22 C108 23 121 40 116 62 Z" fill="var(--canvas)" stroke="var(--support)" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M116 61 L94 31" fill="none" stroke="var(--support)" stroke-width="1" stroke-linecap="round" />
+              <path d="M28 188 H191" fill="none" stroke="var(--strong)" stroke-width="1" stroke-dasharray="3 5" />
+              <path d="M109 188 L110 220 M110 201 L96 211 L91 223 M110 211 L125 221 L130 232 M110 219 L105 235 M99 208 L88 210" fill="none" stroke="var(--support)" stroke-width="1.2" stroke-linecap="round" />
+              <path d="M142 145 H175 M161 142 L175 145 L161 148" fill="none" stroke="var(--strong)" stroke-width="1" />
+              <text x="146" y="135" fill="var(--secondary)" font-family="var(--font-mono)" font-size="10">west vent</text>
+              <text x="28" y="177" fill="var(--secondary)" font-family="var(--font-mono)" font-size="10">soil</text>
+            </svg>
+          </div>
+          <figcaption class="mt-[10px] font-mono text-[11px] leading-[1.8] text-solai-text-secondary">Fig. 01 · Bed 04, leaf study.<br />Drawn at dusk; not to scale.</figcaption>
+        </figure>
+
+        <div class="mt-[24px] border-t border-solai-border-subtle pt-[16px]">
+          <h5 class="mb-[8px] mt-0 font-mono text-[11px] font-normal text-solai-accent-secondary">IN THE MARGIN</h5>
+          <p class="m-0 text-[12px] leading-[1.9] text-solai-text-secondary">The lowest leaf leans towards the west vent. Check it again on the next evening round, before moving the tray.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="mt-[28px] border-t border-solai-border-subtle pt-[16px]">
+      <p id="notebook-note-1" class="m-0 max-w-[75ch] text-[11px] leading-[1.9] text-solai-text-secondary"><span class="mr-[7px] font-mono text-solai-accent-secondary">1.</span>Checked by hand beneath the dry top layer, beside the tray label. This entry records an observation, not a watering schedule. <a class="whitespace-nowrap text-solai-accent-primary underline decoration-solai-accent-primary underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary" href="#notebook-ref-1" aria-label="Return to field note 1 reference">Back to entry ↑</a></p>
+    </footer>
+  </div>
+</PreviewWindow>

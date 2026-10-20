@@ -1,0 +1,52 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+const prompt = 'text-solai-accent-primary';
+const slots = Array.from({ length: 16 }, (_, index) => index);
+const processes = [
+  { pid: 4071, cpu: '12.4', command: 'glasshouse --night-cycle', selected: true },
+  { pid: 4096, cpu: '3.1', command: 'harbour-relay', selected: false },
+  { pid: 4128, cpu: '0.6', command: 'rain-collector', selected: false },
+];
+---
+
+<PreviewWindow id="preview-terminal" title="Terminal" context="~/harbour">
+  <div id="sample-terminal" class="sample terminal grid min-w-0 grid-cols-[1.35fr_1fr] [@media(max-width:1000px)]:grid-cols-1">
+    <div class="min-w-0 border-r border-solai-border-subtle p-[24px] [@media(max-width:1000px)]:border-r-0 [@media(max-width:1000px)]:border-b [@media(max-width:650px)]:p-[17px]">
+      <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Sample shell transcript; scroll horizontally to read">
+        <div class="min-w-[530px] font-mono text-[13px] leading-[1.9] text-solai-text-primary [@media(max-width:650px)]:text-[12px]">
+          <p class="m-0 mb-[8px]"><span class={prompt}>~/harbour</span> <span class="text-solai-text-secondary">main</span> ❯ ls -l</p>
+          <pre class="m-0 font-mono leading-[1.9]"><span class="text-solai-text-secondary">drwxr-xr-x</span>  you  <span class="text-solai-status-info">scenes/</span>      <span class="text-solai-status-info">readings/</span>
+<span class="text-solai-text-secondary">-rw-r--r--</span>  you  palette.json  field-notes.md
+<span class="text-solai-text-secondary">lrwxr-xr-x</span>  you  <span class="text-[color:var(--preview-cyan)]">current → scenes/glasshouse/</span>
+<span class="text-solai-text-secondary">-rwxr-xr-x</span>  you  <span class="text-solai-status-success">night-cycle.sh</span></pre>
+          <p class="mt-[19px] mb-[7px]"><span class={prompt}>~/harbour</span> <span class="text-solai-text-secondary">main</span> ❯ git diff --stat</p>
+          <pre class="m-0 font-mono leading-[1.9]"> scenes/glasshouse.ts | 17 <span class="text-solai-status-success">+++++++++++</span><span class="text-solai-status-danger">------</span>
+ readings/roof.json   |  6 <span class="text-solai-status-success">++++</span><span class="text-solai-status-danger">--</span>
+ <span class="text-solai-text-secondary">2 files changed, 15 insertions(+), 8 deletions(-)</span></pre>
+          <p class="mt-[19px] mb-[7px]"><span class={prompt}>~/harbour</span> <span class="text-solai-text-secondary">main</span> ❯ git log --oneline -2</p>
+          <p class="m-0"><span class="text-solai-accent-secondary">dc76534</span> <span class="bg-solai-selection-background">(HEAD → main)</span> keep the glasshouse warm</p>
+          <p class="m-0"><span class="text-solai-accent-secondary">cf9266d</span> collect the evening readings</p>
+          <p class="mt-[19px] mb-0"><span class={prompt}>~/harbour</span> <span class="text-solai-text-secondary">main</span> ❯ <span class="text-solai-accent-highlight" aria-label="Caret">▊</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="min-w-0 p-[24px] [@media(max-width:650px)]:p-[17px]">
+      <div class="mb-[18px] flex flex-wrap items-center justify-between gap-[8px] font-mono text-[11px] text-solai-text-secondary"><span>ROOF / PROCESS MONITOR</span><span>20:14</span></div>
+      <dl class="m-0 grid grid-cols-[38px_minmax(0,1fr)_40px] items-center gap-x-[10px] gap-y-[12px] font-mono text-[12px]">
+        <dt id="sample-cpu-label">CPU</dt><dd class="m-0"><div class="h-[12px] bg-solai-surface-panel" role="meter" aria-labelledby="sample-cpu-label" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="h-full w-[38%] bg-solai-accent-primary"></div></div></dd><dd class="m-0 text-right">38%</dd>
+        <dt id="sample-memory-label">MEM</dt><dd class="m-0"><div class="h-[12px] bg-solai-surface-panel" role="meter" aria-labelledby="sample-memory-label" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><div class="h-full w-[72%] bg-solai-accent-secondary"></div></div></dd><dd class="m-0 text-right">72%</dd>
+      </dl>
+      <div class="mt-[22px] overflow-x-auto" tabindex="0" role="region" aria-label="Sample process list; scroll horizontally to read">
+        <table class="w-full min-w-[350px] border-collapse text-left font-mono text-[11px] leading-[1.8]">
+          <thead class="border-b border-solai-border-subtle text-solai-text-secondary"><tr><th class="py-[7px] pr-[10px] font-normal">PID</th><th class="py-[7px] pr-[10px] font-normal">CPU%</th><th class="py-[7px] font-normal">COMMAND</th></tr></thead>
+          <tbody>{processes.map(process => <tr class:list={{ 'bg-solai-selection-background': process.selected }}><td class="py-[8px] pr-[10px]">{process.pid}</td><td class="py-[8px] pr-[10px]">{process.cpu}</td><td class="py-[8px]">{process.command}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="mt-[20px] mb-[8px] font-mono text-[11px] text-solai-text-secondary">ANSI / normal + bright</p>
+      <div id="ansi-swatches" class="ansi-swatches grid h-[30px] grid-cols-8 gap-[3px]" aria-label="Sample ANSI colours, normal slots zero to seven followed by bright slots eight to fifteen">
+        {slots.map(slot => <span data-ansi-slot={slot} style={`background-color:var(--preview-ansi-${slot})`} aria-hidden="true"></span>)}
+      </div>
+      <p class="mt-[18px] mb-0 font-mono text-[11px] leading-[1.7] text-solai-text-secondary"><span class="current-name">Tide</span> <span class="current-mode">Dark</span> · 17 ramps / 11 steps<br />Application output chooses its own colour meanings.</p>
+    </div>
+  </div>
+</PreviewWindow>

@@ -1,0 +1,36 @@
+---
+import PreviewWindow from './PreviewWindow.astro';
+const settingRow = 'setting-row flex min-h-[56px] cursor-pointer items-center justify-between gap-[20px] border-b border-solai-border-subtle py-[13px] has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-solai-accent-highlight has-[:focus-visible]:outline-offset-[3px] [&_strong]:text-[12px] [&_strong]:font-medium';
+const switchInput = 'relative m-0 h-[26px] w-[44px] flex-none cursor-pointer appearance-none rounded-[20px] border border-solai-border-strong bg-solai-surface-panel before:absolute before:top-[3px] before:left-[3px] before:h-[18px] before:w-[18px] before:rounded-full before:bg-solai-text-primary before:transition-transform before:duration-150 before:ease-[ease] before:content-[""] checked:border-solai-accent-primary checked:bg-solai-accent-primary checked:before:translate-x-[18px] checked:before:bg-solai-accent-ink focus-visible:outline-none';
+const inputClass = 'min-h-[44px] w-full rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas px-[12px] py-[10px] text-[16px] text-solai-text-primary';
+---
+
+<PreviewWindow id="preview-interface" title="Interface" context="workspace settings">
+  <div id="sample-interface" class="sample settings grid min-w-0 grid-cols-[240px_minmax(0,1fr)] [@media(max-width:800px)]:grid-cols-1">
+    <aside class="min-w-0 border-r border-solai-border-subtle bg-solai-surface-panel py-[25px] [@media(max-width:800px)]:border-r-0 [@media(max-width:800px)]:border-b">
+      <h4 class="m-0 px-[20px] pb-[18px] text-[15px] font-medium text-solai-text-emphasis">Your workspaces</h4>
+      <ul class="m-0 list-none p-0 text-[13px]">
+        <li class="border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))] py-[15px] pr-[20px] pl-[18px]"><span class="block font-medium text-solai-text-emphasis">Glasshouse</span><span class="mt-[4px] block font-mono text-[10px] text-solai-text-primary">Selected · 4 members</span></li>
+        <li class="px-[20px] py-[15px]"><span class="block text-solai-text-primary">North quay</span><span class="mt-[4px] block font-mono text-[10px] text-solai-text-secondary">Workspace · 2 members</span></li>
+        <li class="px-[20px] py-[15px]"><span class="block text-solai-text-secondary">Old observatory</span><span class="mt-[4px] block font-mono text-[10px] text-solai-text-secondary">Archived · read only</span></li>
+      </ul>
+      <p class="mx-[20px] mt-[25px] mb-0 border-t border-solai-border-subtle pt-[16px] text-[12px] leading-[1.8] text-solai-text-secondary">Shared rooms for readings, sketches and the evening round.</p>
+    </aside>
+    <div class="settings-content min-w-0 p-[32px] [@media(max-width:650px)]:p-[20px]">
+      <div class="mb-[8px] flex flex-wrap items-center justify-between gap-[10px]"><h4 class="m-0 text-[23px] font-medium tracking-[-.03em] text-solai-text-emphasis">Appearance</h4><span class="rounded-[2px] bg-solai-status-success-background px-[8px] py-[5px] font-mono text-[10px] text-solai-status-success">✓ Sample saved state</span></div>
+      <p class="mt-0 mb-[16px] text-[12px] leading-[1.7] text-solai-text-secondary">Controls affect this preview only. The other states are fixed examples.</p>
+      <label class={settingRow}><span><strong>Soft focus</strong></span><input class={switchInput} type="checkbox" checked role="switch" aria-label="Soft focus" /></label>
+      <label class={settingRow}><span><strong>Comfortable spacing</strong></span><input class={switchInput} type="checkbox" role="switch" aria-label="Comfortable spacing" /></label>
+      <div class="mt-[22px] grid grid-cols-2 gap-[20px] [@media(max-width:1000px)]:grid-cols-1">
+        <div class="min-w-0"><label class="mb-[8px] block text-[12px] text-solai-text-emphasis" for="workspace-name">Workspace name</label><input class={inputClass} id="workspace-name" type="text" value="Studio" maxlength="80" /></div>
+        <div class="min-w-0"><label class="mb-[8px] block text-[12px] text-solai-text-emphasis" for="sample-invalid-email">Notification email</label><input class="min-h-[44px] w-full rounded-[2px] border border-solai-status-danger bg-solai-surface-canvas px-[12px] py-[10px] text-[16px] text-solai-text-primary" id="sample-invalid-email" type="email" value="roof.harbour" readonly aria-invalid="true" aria-describedby="sample-email-error" /><p id="sample-email-error" class="mt-[7px] mb-0 text-[12px] leading-[1.6] text-solai-status-danger">× Fixed error example: an address needs an @.</p></div>
+      </div>
+      <div class="mt-[22px] rounded-[2px] border-l-[3px] border-solai-status-info bg-solai-status-info-background px-[14px] py-[12px] text-[12px] leading-[1.7] text-solai-status-info"><strong class="font-medium">i Example notice</strong><p class="mt-[3px] mb-0">Shared workspaces need an invitation. Private notes remain separate.</p></div>
+      <div class="action-row mt-[24px] flex flex-wrap gap-[10px]">
+        <button class="primary min-h-[44px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] text-[12px] font-medium text-solai-accent-ink hover:border-solai-accent-hover hover:bg-solai-accent-hover" id="save-demo">Save changes</button>
+        <button class="secondary min-h-[44px] rounded-[2px] border border-solai-border-strong bg-transparent px-[17px] py-[10px] text-[12px] font-medium text-solai-text-primary hover:bg-solai-surface-panel" id="reset-demo">Reset</button>
+        <button class="min-h-[44px] cursor-not-allowed rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel px-[17px] py-[10px] text-[12px] text-solai-text-muted disabled:cursor-not-allowed" type="button" disabled>Invite · unavailable</button>
+      </div>
+    </div>
+  </div>
+</PreviewWindow>

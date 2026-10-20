@@ -8,16 +8,17 @@ const descriptions={blue:'Cyan-blue, like harbour lights across dark water.',alt
 let data,flavour=document.documentElement.dataset.flavor||'blue',mode=document.documentElement.dataset.mode||'dark';
 const modeName=()=>mode==='light'?'Light':'Dark';
 const currentPalette=()=>data.flavors[flavour].modes[mode];
-function updateAnsi(){const p=currentPalette().primitives;const ansi=[p.fg[3],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][7]),p.fg[8],p.fg[6],...['red','green','yellow','blue','magenta','cyan'].map(k=>p[k][9]),p.fg[10]];$('#ansi-swatches').replaceChildren(...ansi.map(hex=>{const e=document.createElement('span');e.className='h-[20px] flex-1';e.style.background=hex;e.title=hex;return e}));}
-function updateTheme(){
-  const f=currentPalette(),r=f.roleValues;
+function updateNames(){
   $$('.current-name').forEach(e=>e.textContent=names[flavour]);
   $$('.current-name-lower').forEach(e=>e.textContent=names[flavour].toLowerCase());
   $$('.current-mode').forEach(e=>e.textContent=modeName());
+}
+function updateTheme(){
+  const r=currentPalette().roleValues;
+  updateNames();
   $('.canvas-hex').textContent="'"+r['surface.canvas']+"'";
   $('.accent-hex').textContent="'"+r['accent.primary']+"'";
   $('#flavour-description').textContent=descriptions[flavour];
-  $('#flavour-origin').textContent=f.customUpstreamVariant?'ADAPTED PALETTE · PROPOSED UI ROLES':f.upstreamVariant?'UPSTREAM PALETTE · PROPOSED UI ROLES':'NEW COLOUR STUDY';
   $$('.flavour-button').forEach(b=>{
     const active=b.dataset.flavour===flavour;
     const colors=data.flavors[b.dataset.flavour].modes[mode].roleValues;
@@ -29,7 +30,6 @@ function updateTheme(){
     const shades=[colors['surface.panel'],colors['surface.raised'],colors['text.secondary'],colors['accent.primary'],colors['accent.highlight']];
     [...b.querySelectorAll('.mini-ramp i')].forEach((bar,index)=>bar.style.background=shades[index]);
   });
-  updateAnsi();
   heroArt.setTheme({ background: r['surface.canvas'], ink: r['accent.primary'], mode });
 }
 function buildFlavours(){
@@ -45,8 +45,6 @@ function buildFlavours(){
     parent.append(button);
   });
 }
-function selectTab(name){$$('[data-tab]').forEach(b=>{const active=b.dataset.tab===name;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1});$$('[role=tabpanel]').forEach(p=>p.hidden=p.id!=='sample-'+name);$('#window-title').textContent={editor:'theme.ts',terminal:'~/studio',interface:'Preferences'}[name];$('#window-title').classList.toggle('technical-title',name!=='interface')}
-$$('[data-tab]').forEach(b=>{b.addEventListener('click',()=>selectTab(b.dataset.tab));b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();const tabs=$$('[data-tab]');let i=tabs.indexOf(b);i=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[i].focus();selectTab(tabs[i].dataset.tab)})});selectTab('editor');
 $('#save-demo').addEventListener('click',()=>announce('Preview saved'));
 $('#reset-demo').addEventListener('click',()=>{
   $('#workspace-name').value='Studio';
@@ -84,5 +82,7 @@ const theme=initTheme({
   onError(){
     announce('Palette data could not load. Please refresh.');
     $('#flavour-description').textContent='Palette data unavailable. Please refresh.';
+    updateNames();
+    $$('.canvas-hex,.accent-hex').forEach(element=>element.textContent="'unavailable'");
   }
 });
