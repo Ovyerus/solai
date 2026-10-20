@@ -28,6 +28,8 @@ node --check src/scripts/app.js
 node --check src/scripts/palette.js
 node --check src/scripts/palette-ramp.js
 node --check src/scripts/guide.js
+node --check src/scripts/guide-renderer.js
+node --check src/scripts/guide-editor.js
 node --check src/data/guide.js
 pnpm build
 pnpm preview
@@ -36,6 +38,17 @@ pnpm preview
 Preview also defaults to port 4321, so stop the development server first or pass a different `--port`. Stop foreground servers with Ctrl+C. Astro also supports background servers (`pnpm dev --background`); stop those with `pnpm dev stop` or `pnpm preview stop`, respectively.
 
 `dist/` is generated output, not editable source. Deploy that directory to a static host after building; Node.js is required only for development and builds. No client framework or server adapter is used.
+
+## Temporary guide token editor
+
+Open **http://localhost:4321/guide-editor/** to tune the eight real guide examples. It starts in Tide Light; `?theme=Bloom&mode=dark#editor` selects another preview and section. The page is unlinked and marked `noindex,nofollow`, not access-controlled; it remains part of static builds while present.
+
+- Edit all 71 section tokens and five inherited specimen-context colours using palette/syntax references, primitive grade sliders or exact six/eight-digit hex values. The colour picker preserves existing alpha; moving a grade slider selects an opaque primitive directly. Action and ANSI label ink is derived from the composited background.
+- Each **flavour × mode** has an independent draft: Tide Light, Tide Dark, Ember Light, and so on through all ten variants. The header selects which draft to edit; token and inherited-context changes affect only that pair. Reset restores only the selected variant. Editor chrome and main-site appearance preferences are unaffected.
+- Valid drafts save under the page-local `solai.guide-editor.v2` localStorage key. Existing version-1 shared Light/Dark drafts are copied into each flavour’s matching mode, then saved in the new structure before the old key is removed. Denied/full storage is reported and the old draft is retained if migration cannot save. Invalid input stays in its own variant, leaves the last valid example visible and blocks the combined export until corrected or reset.
+- **Copy proposal JSON** and **Download proposal JSON** include edits from all ten variants. The `solai-guide-token-study` version-2 payload uses `appliesTo: "specified-flavour-and-mode"`; each change records `flavour`, `mode`, `section`, `token`, `originalSource`, `source` and `resolved: { before, after }` for that pair. Shared-context entries use section `$context`. Send this proposal back for an explicit canonical update; exporting applies nothing and does not change palette downloads.
+
+The temporary UI lives in `src/pages/guide-editor/index.astro` and `src/scripts/guide-editor.js`. Its specimens share `src/scripts/guide-renderer.js` with the canonical guide, rather than maintaining a second set of examples. The canonical mappings in `src/data/guide.js` remain unchanged.
 
 ## Styling with Tailwind
 
@@ -117,6 +130,7 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/pages/index.astro`: main page structure and copy
 - `src/pages/palette/index.astro`: standalone palette explorer
 - `src/pages/guide/index.astro`: collaborative semantic-colour guide
+- `src/pages/guide-editor/index.astro`: temporary, unlinked live token editor and proposal export UI
 - `src/layouts/Page.astro`: shared document metadata and page slots
 - `src/components/AppSamples.astro`: editor, terminal and interface specimens
 - `src/components/AppearanceControl.astro`: shared keyboard-operable Dark/Light controls
@@ -129,7 +143,9 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
 - `src/data/guide.js`: eight usage contexts and their fixed, unexported semantic studies
-- `src/scripts/guide.js`: live colour resolution and section deep links
+- `src/scripts/guide.js`: canonical guide role ledger, theme updates and section deep links
+- `src/scripts/guide-renderer.js`: shared source resolution and real guide specimens
+- `src/scripts/guide-editor.js`: isolated flavour/mode drafts, token controls and JSON proposals
 - `public/assets/palettes.json`: current canonical palette data and provenance
 - `public/assets/landscape.png`: current grayscale landscape source
 - `public/assets/fonts/`: self-hosted font files and their license notices

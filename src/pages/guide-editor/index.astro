@@ -1,0 +1,187 @@
+---
+import Page from '../../layouts/Page.astro';
+import Wordmark from '../../components/Wordmark.astro';
+import AppearanceControl from '../../components/AppearanceControl.astro';
+import { guideSections } from '../../data/guide.js';
+
+const buttonClass = 'inline-flex min-h-[44px] items-center justify-center rounded-[2px] border border-solai-border-strong bg-solai-surface-panel px-[14px] py-[9px] text-[13px] text-solai-text-primary hover:bg-solai-surface-raised hover:text-solai-text-emphasis focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight disabled:cursor-not-allowed disabled:opacity-50';
+const linkClass = 'inline-flex min-h-[44px] items-center rounded-[2px] py-[8px] underline underline-offset-[4px] hover:text-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight';
+---
+
+<Page title="Guide token editor — Solai" description="A temporary local editor for proposing Solai guide token assignments with ten independent flavour and mode drafts." flavor="blue" mode="light">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="preload" href="/assets/fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      (() => {
+        const query = new URLSearchParams(location.search);
+        const names = { tide: 'blue', ember: 'alter', dusk: 'violet', viridian: 'green', bloom: 'rose' };
+        const requested = (query.get('theme') || 'tide').toLowerCase();
+        const flavor = names[requested] || requested;
+        const mode = (query.get('mode') || 'light').toLowerCase();
+        document.documentElement.dataset.flavor = ['blue', 'alter', 'violet', 'green', 'rose'].includes(flavor) ? flavor : 'blue';
+        document.documentElement.dataset.mode = ['dark', 'light'].includes(mode) ? mode : 'light';
+      })();
+    </script>
+  </Fragment>
+
+  <a class="fixed -top-[100px] left-[20px] z-30 rounded-[2px] bg-solai-accent-primary p-[12px] text-solai-accent-ink focus:top-[12px]" href="#main">Skip to editor</a>
+  <header class="sticky top-0 z-20 flex min-h-[86px] flex-wrap items-center justify-between gap-x-[24px] gap-y-[12px] border-b border-solai-border-subtle bg-solai-surface-canvas px-[48px] py-[16px] min-[1500px]:px-[calc((100vw_-_1280px)/2)] [@media(max-width:1000px)]:px-[28px] [@media(max-width:650px)]:gap-x-[8px] [@media(max-width:650px)]:px-[18px]">
+    <div class="flex min-w-0 flex-wrap items-center gap-x-[24px] gap-y-[4px]">
+      <a class="inline-flex min-h-[44px] w-[3.15em] shrink-0 items-center text-[28px] text-solai-text-emphasis hover:text-solai-accent-hover [@media(max-width:650px)]:text-[25px]" href="/guide/" data-editor-link aria-label="Solai colour guide"><Wordmark /></a>
+      <span class="font-mono text-[12px] text-solai-text-secondary [@media(max-width:650px)]:hidden">Temporary · local token study</span>
+    </div>
+    <div class="ml-auto flex max-w-full flex-wrap items-center justify-end gap-[10px] [@media(max-width:650px)]:gap-[6px]" role="group" aria-label="Specimen preview appearance">
+      <label class="sr-only" for="theme-select">Preview flavour</label>
+      <select id="theme-select" class="min-h-[44px] min-w-[106px] rounded-[2px] border border-solai-border-strong bg-solai-surface-panel px-[10px] py-[7px] text-[16px] leading-[normal] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight disabled:cursor-wait [@media(max-width:650px)]:min-w-[84px] [@media(max-width:650px)]:px-[7px]" disabled>
+        <option value="blue">Tide</option>
+        <option value="alter">Ember</option>
+        <option value="violet">Dusk</option>
+        <option value="green">Viridian</option>
+        <option value="rose">Bloom</option>
+      </select>
+      <AppearanceControl />
+      <script is:inline>
+        (() => {
+          document.getElementById('theme-select').value = document.documentElement.dataset.flavor;
+          document.querySelectorAll('[data-mode-option]').forEach(button => {
+            button.setAttribute('aria-pressed', String(button.dataset.modeOption === document.documentElement.dataset.mode));
+          });
+        })();
+      </script>
+    </div>
+  </header>
+
+  <main id="main" class="min-w-0 scroll-mt-[calc(var(--editor-header-height,86px)_+_20px)] pt-[48px] pb-[72px] [@media(max-width:650px)]:pt-[30px] [@media(max-width:650px)]:pb-[45px]">
+    <header class="wrap">
+      <h1 class="mt-0 mb-[20px] max-w-[950px] text-[clamp(36px,6vw,72px)] leading-[1.1] font-normal tracking-[-.06em] text-solai-text-emphasis">Guide token editor.</h1>
+      <p class="mt-0 mb-[18px] max-w-[850px] text-[18px] leading-[1.65] tracking-[-.02em]">Tune the real guide examples, then export a proposal. The canonical guide, palette data and theme downloads stay unchanged.</p>
+      <div class="max-w-[950px] rounded-[2px] border border-solai-border-strong bg-solai-surface-panel px-[20px] py-[16px] [@media(max-width:650px)]:px-[14px]">
+        <p class="m-0 text-[15px] text-solai-text-emphasis"><strong class="font-medium">One independent draft for each flavour and mode.</strong> Changes in Tide Light affect only Tide Light—not Tide Dark or another flavour. Switch flavour or mode to edit that variant’s own tokens.</p>
+        <p id="editor-selection" class="mt-[10px] mb-0 font-mono text-[12px]" aria-live="polite">Tide Light — editing this variant only. The other nine flavour/mode drafts are independent.</p>
+      </div>
+      <p class="mt-[18px] mb-[10px] max-w-[900px] text-[13px] text-solai-text-secondary">This page starts in Tide Light unless the URL selects another preview. Preview choices stay in this URL, not your main-site appearance preferences. Valid drafts are saved locally when browser storage is available.</p>
+      <div class="flex flex-wrap gap-x-[24px] gap-y-[4px] text-[13px]">
+        <a class={linkClass} href="/guide/" data-editor-link>Return to the canonical guide</a>
+        <a class={linkClass} href="/palette/" data-editor-link>Inspect the source ramps ↗</a>
+      </div>
+      <p id="editor-status" class="mt-[12px] mb-0 text-[13px] text-solai-text-secondary" role="status" hidden>Loading palette data…</p>
+      <p id="editor-storage-status" class="mt-[10px] mb-0 max-w-[900px] text-[13px] text-solai-text-secondary" role="status" hidden></p>
+      <noscript><p class="mt-[18px] mb-0 max-w-[900px] border-l-2 border-solai-border-strong pl-[16px] text-[14px]">JavaScript is disabled: editing, live specimens and proposal export are unavailable. No specimen colours have loaded and no draft will be saved. You can still read the descriptions below or <a class="underline underline-offset-[4px]" href="/guide/">open the canonical guide</a>.</p></noscript>
+    </header>
+
+    <nav class="wrap mt-[30px] flex flex-wrap gap-x-[22px] gap-y-[4px] border-y border-solai-border-subtle py-[12px] text-[13px]" aria-label="Token editor sections">
+      <a class={linkClass} href="#specimen-context">Shared context</a>
+      {guideSections.map(section => <a class={linkClass} href={`#${section.id}`}>{section.title}</a>)}
+      <a class={linkClass} href="#proposal">Export proposal</a>
+    </nav>
+
+    <section id="specimen-context" class="wrap scroll-mt-[calc(var(--editor-header-height,86px)_+_20px)] border-b border-solai-border-subtle py-[36px]" aria-labelledby="context-heading">
+      <h2 id="context-heading" class="mt-0 mb-[14px] text-[28px] leading-[1.25] font-normal tracking-[-.04em] text-solai-text-emphasis">Shared specimen context</h2>
+      <p class="mt-0 mb-[16px] max-w-[900px] text-[14px] text-solai-text-secondary">These five inherited tokens affect every specimen in the selected variant, not the editor’s controls or page colours. An example’s explicit section token still takes precedence where it paints the same area.</p>
+      <details class="mb-[22px] max-w-[950px] rounded-[2px] border border-solai-border-subtle px-[14px] text-[13px]">
+        <summary class="min-h-[44px] cursor-pointer py-[11px] text-solai-text-emphasis focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight">How sources and controls work</summary>
+        <div class="pb-[14px] text-solai-text-secondary">
+          <p class="mt-[4px] mb-[12px]">Choose a semantic source such as <code class="font-mono">text.primary</code>, a syntax source such as <code class="font-mono">syntax.keyword</code>, an original primitive such as <code class="font-mono">accent[8]</code>, or an exact <code class="font-mono">#RRGGBB</code> / <code class="font-mono">#RRGGBBAA</code> colour. Suggestions are available in each source field.</p>
+          <p class="mt-0 mb-[12px]">The grade slider follows the resolved primitive family; moving it replaces an alias with that family and grade. Fixed hex colours have no primitive grade. The colour picker fixes the RGB value while retaining an existing alpha suffix.</p>
+          <p class="mt-0 mb-[12px]">Invalid source text keeps the last valid preview and disables export until corrected or reset. Each row shows the canonical source and value alongside the current resolved source and value.</p>
+          <p class="m-0">Filled action and ANSI labels keep automatically derived contrasting ink. This editor does not certify contrast or automatically correct your choices; check the actual combinations before proposing a change.</p>
+        </div>
+      </details>
+      <div data-editor-ready hidden>
+        <div id="editor-context-controls" class="grid min-w-0 grid-cols-2 items-start gap-[16px] [@media(max-width:850px)]:grid-cols-1"></div>
+      </div>
+    </section>
+
+    <div class="wrap min-w-0">
+      {guideSections.map((section, index) => (
+        <section id={section.id} class="min-w-0 scroll-mt-[calc(var(--editor-header-height,86px)_+_20px)] border-b border-solai-border-subtle py-[42px] [@media(max-width:650px)]:py-[30px]" data-editor-section={section.id} aria-labelledby={`${section.id}-heading`}>
+          <header class="flex items-baseline gap-[14px]">
+            <span class="font-mono text-[12px] text-solai-text-muted" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <h2 id={`${section.id}-heading`} class="m-0 text-[clamp(26px,3.2vw,40px)] leading-[1.25] font-normal tracking-[-.045em] text-solai-text-emphasis">{section.title}</h2>
+          </header>
+          <p class="mt-[18px] mb-[24px] max-w-[900px] text-[14px] text-solai-text-secondary">{section.description}</p>
+          <div data-editor-ready hidden>
+            <div class="min-w-0 items-start gap-[28px] min-[1001px]:grid min-[1001px]:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)]">
+              <figure class="sticky top-[calc(var(--editor-header-height,86px)_+_8px)] z-10 m-0 mb-[20px] max-h-[36svh] min-w-0 overflow-auto overscroll-contain rounded-[2px] border border-solai-border-subtle bg-solai-surface-canvas p-[10px] min-[1001px]:top-[calc(var(--editor-header-height,86px)_+_20px)] min-[1001px]:mb-0 min-[1001px]:max-h-[calc(100svh_-_var(--editor-header-height,86px)_-_28px)]" tabindex="0" aria-label={`${section.title} live specimen, scroll to inspect`}>
+                <figcaption class="mb-[8px] font-mono text-[12px] leading-[1.5] text-solai-text-secondary">{section.title} · live specimen</figcaption>
+                <div class="guide-specimen min-w-0 overflow-hidden rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas text-solai-text-primary" data-editor-specimen></div>
+              </figure>
+              <div class="min-w-0">
+                <h3 class="mt-0 mb-[12px] font-mono text-[12px] font-normal text-solai-text-secondary">{section.roles.length} editable tokens · this variant only</h3>
+                <div class="grid min-w-0 gap-[16px]" data-editor-controls></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section id="proposal" class="wrap scroll-mt-[calc(var(--editor-header-height,86px)_+_20px)] pt-[36px]" aria-labelledby="proposal-heading">
+      <h2 id="proposal-heading" class="mt-0 mb-[14px] text-[28px] leading-[1.25] font-normal tracking-[-.04em] text-solai-text-emphasis">Export a guide-only proposal</h2>
+      <p class="mt-0 mb-[16px] max-w-[900px] text-[14px] text-solai-text-secondary">The JSON includes changed assignments from all ten variants. Each change identifies its flavour and mode, with the original and proposed source and before-and-after colours for that pair. Source references are authoritative unless you choose a fixed hex colour. This is a proposal for the guide, not a palette-generator update; exporting does not apply it.</p>
+      <p id="editor-change-count" class="mt-0 mb-[14px] font-mono text-[13px]">0 changed assignments</p>
+      <div class="flex flex-wrap items-center gap-[10px]">
+        <button id="editor-copy" class={buttonClass} type="button" disabled>Copy proposal JSON</button>
+        <button id="editor-download" class={buttonClass} type="button" disabled>Download proposal JSON</button>
+        <button id="editor-reset-variant" class={buttonClass} type="button" disabled>Reset current variant</button>
+      </div>
+      <p class="mt-[12px] mb-[20px] max-w-[900px] text-[12px] text-solai-text-secondary">Reset restores only the selected flavour/mode’s canonical assignments. The other nine variants’ edits are retained. A proposal with no changed assignments is valid.</p>
+      <details class="min-w-0 rounded-[2px] border border-solai-border-subtle px-[16px]">
+        <summary class="min-h-[44px] cursor-pointer py-[11px] text-[13px] text-solai-text-emphasis focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight">Inspect the JSON proposal</summary>
+        <label class="mb-[8px] block text-[13px] text-solai-text-secondary" for="editor-export">JSON proposal (read-only; last valid assignments)</label>
+        <textarea id="editor-export" class="mb-[16px] block min-h-[240px] w-full min-w-0 resize-y rounded-[2px] border border-solai-border-strong bg-solai-surface-panel p-[12px] font-mono text-[16px] leading-[1.6] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight" rows="12" readonly spellcheck="false" placeholder="Proposal available after palette data loads."></textarea>
+      </details>
+    </section>
+  </main>
+
+  <template id="editor-token-template">
+    <fieldset class="m-0 min-w-0 rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel px-[16px] pt-[10px] pb-[16px] data-[edited=true]:border-solai-accent-primary [@media(max-width:650px)]:px-[12px]" data-token-row data-edited="false">
+      <legend class="max-w-full px-[4px] text-[14px] font-medium text-solai-text-emphasis">
+        <span data-token-label></span>
+        <code class="ml-[6px] break-all font-mono text-[11px] font-normal text-solai-text-secondary" data-token-key></code>
+      </legend>
+      <div class="mb-[10px] flex min-w-0 items-start justify-between gap-[12px]">
+        <p class="m-0 min-w-0 text-[12px] text-solai-text-secondary" data-token-meaning></p>
+        <button class="min-h-[44px] shrink-0 rounded-[2px] border border-solai-border-strong bg-transparent px-[10px] py-[8px] text-[12px] text-solai-text-primary hover:bg-solai-surface-raised focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight disabled:opacity-50" type="button" data-token-reset>Reset</button>
+      </div>
+      <label class="mb-[12px] block min-w-0">
+        <span class="mb-[5px] block text-[12px] text-solai-text-secondary">Source reference or hex</span>
+        <input class="block min-h-[44px] w-full min-w-0 rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas px-[10px] py-[8px] font-mono text-[16px] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight aria-invalid:border-solai-status-danger" type="text" data-token-source list="editor-source-options" spellcheck="false" autocapitalize="off" autocomplete="off" />
+      </label>
+      <div class="grid min-w-0 grid-cols-[64px_minmax(0,1fr)] items-start gap-[16px]">
+        <label class="block min-w-0">
+          <span class="mb-[5px] block text-[12px] text-solai-text-secondary">Fixed hex</span>
+          <input class="block min-h-[44px] w-[64px] cursor-pointer rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[3px] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight" type="color" data-token-colour />
+        </label>
+        <label class="block min-w-0">
+          <span class="mb-[5px] flex min-w-0 items-baseline justify-between gap-[8px] text-[12px] text-solai-text-secondary"><span>Primitive grade</span><span class="font-mono" data-token-grade-value>—</span></span>
+          <input class="block min-h-[44px] w-full min-w-0 cursor-pointer appearance-none rounded-[2px] bg-transparent bg-[length:100%_12px] bg-center bg-no-repeat focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-slider-runnable-track]:h-[12px] [&::-webkit-slider-runnable-track]:bg-transparent [&::-webkit-slider-thumb]:mt-[-8px] [&::-webkit-slider-thumb]:h-[28px] [&::-webkit-slider-thumb]:w-[16px] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-[2px] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-solai-text-primary [&::-webkit-slider-thumb]:bg-solai-surface-canvas [&::-moz-range-track]:h-[12px] [&::-moz-range-track]:bg-transparent [&::-moz-range-thumb]:h-[24px] [&::-moz-range-thumb]:w-[12px] [&::-moz-range-thumb]:rounded-[2px] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-solai-text-primary [&::-moz-range-thumb]:bg-solai-surface-canvas" type="range" min="0" max="10" step="1" data-token-grade />
+        </label>
+      </div>
+      <dl class="mt-[12px] mb-0 grid min-w-0 grid-cols-[auto_minmax(0,1fr)] gap-x-[10px] gap-y-[6px] text-[11px] leading-[1.6]">
+        <dt class="text-solai-text-secondary">Resolved</dt>
+        <dd class="m-0 min-w-0"><code class="break-all font-mono" data-token-resolved></code></dd>
+        <dt class="text-solai-text-secondary">Original</dt>
+        <dd class="m-0 min-w-0"><code class="break-all font-mono text-solai-text-secondary" data-token-original></code></dd>
+      </dl>
+      <p class="mt-[10px] mb-0 text-[12px] text-solai-status-danger" data-token-error hidden></p>
+    </fieldset>
+  </template>
+  <datalist id="editor-source-options"></datalist>
+
+  <div id="toast" class="pointer-events-none fixed bottom-[25px] left-1/2 z-50 max-w-[90vw] -translate-x-1/2 translate-y-[20px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[20px] py-[12px] text-center text-[12px] leading-[normal] text-solai-accent-ink opacity-0 transition-[opacity,translate] duration-200 [&.visible]:translate-y-0 [&.visible]:opacity-100 motion-reduce:transition-none" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" class="m-auto w-[min(600px,90vw)] rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[25px] text-solai-text-primary backdrop:bg-[#0009]" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description">
+    <form method="dialog">
+      <button class="float-right min-h-[44px] min-w-[44px] rounded-[2px] border border-solai-border-strong bg-transparent text-[23px] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight" aria-label="Close copy dialog">×</button>
+      <h2 id="copy-dialog-title" class="mt-[12px] mb-[16px] text-[21px] font-normal tracking-[-.03em]">Copy the guide proposal</h2>
+      <p id="copy-dialog-description" class="my-[16px] text-[13px]">Your browser couldn’t copy automatically. Select the JSON below and copy it manually.</p>
+      <label class="mb-[8px] block text-[13px] text-solai-text-secondary" for="copy-fallback">Proposal JSON to copy</label>
+      <textarea id="copy-fallback" class="mb-[20px] min-h-[200px] w-full min-w-0 rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[12px] font-mono text-[16px] leading-[1.6] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-solai-accent-highlight" readonly spellcheck="false"></textarea>
+      <button class={buttonClass}>Done</button>
+    </form>
+  </dialog>
+  <script>
+    import '../../scripts/guide-editor.js';
+  </script>
+</Page>
