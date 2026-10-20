@@ -13,6 +13,11 @@
 
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  /* Clear content anchors; visible navbar controls cancel this inset with a negative scroll margin. */
+  html:has(.site-header) {
+    --site-header-clearance: calc(var(--site-header-height, 240px) + 12px);
+    scroll-padding-top: var(--site-header-clearance);
+  }
   ::selection { background: var(--selection); color: var(--emphasis); }
   button, input, select, textarea { font: inherit; }
   button, a, input, select, textarea { touch-action: manipulation; }

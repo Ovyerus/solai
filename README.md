@@ -25,6 +25,7 @@ To build and preview the production site:
 
 ```sh
 node --check src/scripts/app.js
+node --check src/scripts/site-header.js
 node --check src/scripts/palette.js
 node --check src/scripts/palette-ramp.js
 node --check src/scripts/guide.js
@@ -42,6 +43,8 @@ Preview also defaults to port 4321, so stop the development server first or pass
 ## Temporary guide token editor
 
 Open **http://localhost:4321/guide-editor/** to tune the eight real guide examples. It starts in Tide Light; `?theme=Bloom&mode=dark#editor` selects another preview and section. The page is unlinked and marked `noindex,nofollow`, not access-controlled; it remains part of static builds while present.
+
+Keep this editor available for future tuning. The current guide colours remain unchanged; retaining the tool does not approve or apply any draft proposal.
 
 - Edit all 71 section tokens and five inherited specimen-context colours using palette/syntax references, primitive grade sliders or exact six/eight-digit hex values. The colour picker preserves existing alpha; moving a grade slider selects an opaque primitive directly. Action and ANSI label ink is derived from the composited background.
 - Each **flavour × mode** has an independent draft: Tide Light, Tide Dark, Ember Light, and so on through all ten variants. The header selects which draft to edit; token and inherited-context changes affect only that pair. Reset restores only the selected variant. Editor chrome and main-site appearance preferences are unaffected.
@@ -79,7 +82,9 @@ This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj
 
 ## Current baseline
 
-The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation. The full-width hero and transparent overlaid header are retained. The native theme dropdown and Dark/Light toggle are paired at the header's right edge, synchronized with the lower flavour cards; there is no palette bar below the hero.
+The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation.
+
+Navigation stays at the viewport top on Home, Palette and Guide. The home header remains transparent over the full-width hero at the top, then gains a solid theme surface while scrolling; Palette and Guide use a solid sticky header throughout. Anchor offsets follow the actual wrapped header height, and focusing visible navbar controls does not move the page. Without JavaScript, the header stays solid and uses a conservative anchor offset. The native theme dropdown and Dark/Light toggle remain paired at the header’s right edge and synchronized with the lower flavour cards; there is no palette bar below the hero.
 
 The home page contains Flavours, Previews and Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
 
@@ -142,6 +147,7 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/scripts/app.js`: home flavour cards, samples, downloads and canvas rendering
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
+- `src/scripts/site-header.js`: observer-driven navbar measurement and home transparency; no continuous scroll loop
 - `src/data/guide.js`: eight usage contexts and their fixed, unexported semantic studies
 - `src/scripts/guide.js`: canonical guide role ledger, theme updates and section deep links
 - `src/scripts/guide-renderer.js`: shared source resolution and real guide specimens
