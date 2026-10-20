@@ -50,6 +50,8 @@ The home page contains Flavours, Previews and Downloads. `/palette/` describes t
 
 The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
 
+The shared wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation, footer and type-page return link. Its Sora Medium lettering is outlined at weight 500 with the hero's tight spacing, and the raised eight-ray star is geometric rather than a Unicode glyph. All instances use the same proportions, inherit the active theme's ink/accent colours and render without fonts or emoji fallback. Edit this master rather than recreating the logo with text; the Sora font notice remains in `public/assets/fonts/Sora-OFL.txt`.
+
 Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. The `/type/` controls stay local to that page. Sora is the interface/display face, Iosevka Solai is the monospace face, and the type comparison also includes Space Grotesk. Demo preferences are illustrative; exports are palette data and CSS variables, not installed app themes.
 
 ### Palette interaction
@@ -90,6 +92,7 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/components/AppSamples.astro`: editor, terminal and interface specimens
 - `src/components/AppearanceControl.astro`: shared keyboard-operable Dark/Light controls
 - `src/components/SiteHeader.astro`, `SiteFooter.astro` and `ThemeHead.astro`: shared navigation, attribution and prepaint theme restoration
+- `src/assets/solai-wordmark.svg` and `src/components/Wordmark.astro`: canonical outlined brand artwork and shared inline SVG presentation
 - `src/styles/main.css`: shared site styles and home-page artwork/layout; `src/styles/type.css`: independent type-page styles
 - `src/styles/themes.css`: generated site tokens for every flavour/mode, applied before palette JSON loads
 - `src/styles/palette.css` and `palette-ramps.css`: palette-page layout, gradient markers and sliding preview

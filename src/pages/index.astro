@@ -4,6 +4,7 @@ import AppSamples from '../components/AppSamples.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ThemeHead from '../components/ThemeHead.astro';
+import Wordmark from '../components/Wordmark.astro';
 import '../styles/main.css';
 import '../styles/themes.css';
 ---
@@ -22,7 +23,7 @@ import '../styles/themes.css';
         <canvas id="landscape" width="1440" height="760" aria-label="An abstract mountain lake, rendered in the selected theme colours">A mountain lake rendered in the current theme.</canvas>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-heading wrap">
-          <h1>solai<span>✳</span></h1>
+          <h1 aria-label="Solai"><Wordmark /></h1>
           <p>Light on water.<br />Colour on screen.</p>
         </div>
         <div class="effect-controls" role="group" aria-label="Image treatment">

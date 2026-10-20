@@ -1,12 +1,13 @@
 ---
 import Page from '../../layouts/Page.astro';
 import AppearanceControl from '../../components/AppearanceControl.astro';
+import Wordmark from '../../components/Wordmark.astro';
 import '../../styles/type.css';
 ---
 
 <Page title="Solai · type comparison">
   <header>
-    <a href="/">← Solai</a>
+    <a class="type-home" href="/" aria-label="Back to Solai"><span aria-hidden="true">←</span><Wordmark /></a>
     <span>TYPE COMPARISON</span>
     <span id="font-status" role="status">Loading fonts…</span>
   </header>

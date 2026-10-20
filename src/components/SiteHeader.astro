@@ -1,5 +1,6 @@
 ---
 import AppearanceControl from './AppearanceControl.astro';
+import Wordmark from './Wordmark.astro';
 
 interface Props {
   home?: boolean;
@@ -11,7 +12,7 @@ const page = Astro.url.pathname.split('/')[1];
 
 <a class="skip" href="#main">Skip to content</a>
 <header class:list={['site-header', { 'site-header--page': !home }]}>
-  <a class="wordmark" href={home ? '#' : '/'} data-theme-link={home ? undefined : true} aria-label="Solai home">solai<span class="mark">✳</span></a>
+  <a class="wordmark" href={home ? '#' : '/'} data-theme-link={home ? undefined : true} aria-label="Solai home"><Wordmark /></a>
   <nav aria-label="Main">
     <div class="nav-links">
       <a href={home ? '#flavours' : '/#flavours'} data-theme-link={home ? undefined : true}>Flavours</a>

@@ -11,6 +11,7 @@ Use Conventional Commit descriptions for named changes, such as `feat: ...`, `fi
 - Full-width mountain/lake hero with a transparent overlaid header and small static left-shore skyline
 - Soft, Dither and ASCII treatments, plus pointer ASCII reveal; render on changes, without a perpetual animation loop
 - Sora for the main interface, Iosevka Solai for technical/monospace content
+- Use the canonical outlined wordmark in `src/assets/solai-wordmark.svg` through `src/components/Wordmark.astro` for hero/header/footer/type-page branding. Preserve the hero's Sora 500 composition and raised geometric eight-ray star; never reconstruct it with live text or a Unicode star, which iOS can render as emoji. Keep theme-aware ink/accent, proportional scaling and accessible labels on the containing headings/links.
 - Five flavours and stable internal IDs: Tide=`blue`, Ember=`alter`, Dusk=`violet`, Viridian=`green`, Bloom=`rose`; each has Dark and Light variants
 - Native header theme dropdown paired with the Dark/Light toggle at the right edge and synchronized with the home flavour cards; no palette bar below the hero; Home, Palette and Guide share flavour/mode persistence and navigation context; `/type/` preferences remain local
 - Responsive layout, keyboard-operable tabs and controls, accessible labels, reduced-motion behavior, clipboard fallback and working downloads
