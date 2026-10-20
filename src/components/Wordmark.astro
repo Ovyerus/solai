@@ -1,19 +1,9 @@
 ---
 import SolaiWordmark from '../assets/solai-wordmark.svg';
-
-interface Props {
-  small?: boolean;
-}
-
-const { small = false } = Astro.props;
 ---
 
 <SolaiWordmark
-  class:list={['solai-wordmark block h-auto w-full', { 'solai-wordmark--small': small }]}
-  width={small ? 478 : 462}
-  height={180}
-  viewBox={small ? '0 0 2390 900' : '0 0 2310 900'}
-  data-optical-size={small ? 'small' : undefined}
+  class="solai-wordmark block h-auto w-full"
   aria-hidden="true"
   focusable="false"
 />
@@ -21,12 +11,5 @@ const { small = false } = Astro.props;
 <style>
   .solai-wordmark {
     --wordmark-accent: var(--accent);
-  }
-
-  /* Scale around the master's star centre; the wider viewBox keeps its rays unclipped. */
-  .solai-wordmark--small :global([data-wordmark-part='star']) {
-    transform-origin: 2231px 139.5px;
-    transform: scale(1.8);
-    stroke-width: 10;
   }
 </style>
