@@ -52,8 +52,8 @@
     "light"
   ],
   "defaultMode": "dark",
-  "statusPolicy": "Tide and Ember preserve their exact upstream dark/light rings. Independent Dusk, Viridian and Bloom studies share the original Blue ring for each mode; status hues never rotate with the accent.",
-  "designNote": "Tide/Ember primitives are source-exact Dolch/Dolch Alter in each mode. All semantic aliases are Solai proposals. Dusk/Viridian/Bloom are independent studies using the original per-mode generation parameters and their own accent hues, not official Dolch releases or extracted Madoromi palettes.",
+  "statusPolicy": "All five flavours share the original Blue/Tide twelve-family base ring for each mode; status hues never rotate with the accent. Ember preserves its exact Dolch Alter custom ramps, not the upstream Alter base ring.",
+  "designNote": "Tide primitives are source-exact Dolch in each mode. Ember is adapted: its five custom ramps are source-exact Dolch Alter, while its twelve base families use the shared original Blue/Tide colours. All semantic aliases are Solai proposals. Dusk/Viridian/Bloom are independent studies using the original per-mode generation parameters and their own accent hues, not official Dolch releases or extracted Madoromi palettes.",
   "flavors": {
     "blue": {
       "id": "blue",
@@ -6081,9 +6081,10 @@
           "mode": "dark",
           "id": "alter",
           "name": "Ember",
-          "provenance": "upstream",
-          "upstreamVariant": "dolch-alter",
-          "ringPolicy": "exact upstream",
+          "provenance": "adapted",
+          "upstreamVariant": null,
+          "customUpstreamVariant": "dolch-alter",
+          "ringPolicy": "exact Alter custom ramps; shared original Blue base ring",
           "parameters": {
             "fg": {
               "luma": [
@@ -6145,7 +6146,7 @@
                 32,
                 56
               ],
-              "hue": 30,
+              "hue": 32,
               "power": 1
             },
             "orange": {
@@ -6157,7 +6158,7 @@
                 32,
                 56
               ],
-              "hue": 60,
+              "hue": 62,
               "power": 1
             },
             "yellow": {
@@ -6169,7 +6170,7 @@
                 32,
                 56
               ],
-              "hue": 90,
+              "hue": 92,
               "power": 1
             },
             "chartreuse": {
@@ -6181,7 +6182,7 @@
                 32,
                 56
               ],
-              "hue": 120,
+              "hue": 122,
               "power": 1
             },
             "green": {
@@ -6193,7 +6194,7 @@
                 32,
                 56
               ],
-              "hue": 150,
+              "hue": 152,
               "power": 1
             },
             "spring": {
@@ -6205,7 +6206,7 @@
                 32,
                 56
               ],
-              "hue": 180,
+              "hue": 182,
               "power": 1
             },
             "cyan": {
@@ -6217,7 +6218,7 @@
                 32,
                 56
               ],
-              "hue": 210,
+              "hue": 212,
               "power": 1
             },
             "azure": {
@@ -6229,7 +6230,7 @@
                 32,
                 56
               ],
-              "hue": 240,
+              "hue": 242,
               "power": 1
             },
             "blue": {
@@ -6241,7 +6242,7 @@
                 32,
                 56
               ],
-              "hue": 270,
+              "hue": 272,
               "power": 1
             },
             "violet": {
@@ -6253,7 +6254,7 @@
                 32,
                 56
               ],
-              "hue": 300,
+              "hue": 302,
               "power": 1
             },
             "magenta": {
@@ -6265,7 +6266,7 @@
                 32,
                 56
               ],
-              "hue": 330,
+              "hue": 332,
               "power": 1
             },
             "rose": {
@@ -6277,7 +6278,7 @@
                 32,
                 56
               ],
-              "hue": 360,
+              "hue": 362,
               "power": 1
             }
           },
@@ -6349,159 +6350,159 @@
             ],
             "red": [
               "#360000",
-              "#4C0B0C",
-              "#651E1D",
-              "#7E302D",
-              "#99423D",
-              "#B4554F",
-              "#D06961",
-              "#ED7D74",
-              "#FF9187",
-              "#FFA69B",
-              "#FFBCB0"
+              "#4C0C0A",
+              "#641E1B",
+              "#7E302B",
+              "#98433B",
+              "#B4564D",
+              "#CF695F",
+              "#EC7D71",
+              "#FF9285",
+              "#FFA798",
+              "#FFBDAC"
             ],
             "orange": [
-              "#300600",
-              "#421900",
-              "#582A02",
-              "#703C13",
-              "#894F22",
-              "#A36231",
-              "#BE7641",
-              "#D98B52",
-              "#F5A063",
-              "#FFB675",
-              "#FFCC87"
+              "#2F0700",
+              "#411A00",
+              "#572B00",
+              "#6F3D11",
+              "#885020",
+              "#A26330",
+              "#BC7740",
+              "#D78C50",
+              "#F3A161",
+              "#FFB773",
+              "#FFCD85"
             ],
             "yellow": [
-              "#241100",
-              "#312300",
-              "#433500",
-              "#594802",
-              "#6F5C13",
-              "#867023",
-              "#9E8533",
-              "#B79B43",
-              "#D0B153",
-              "#E9C864",
-              "#FFDF75"
+              "#231200",
+              "#302400",
+              "#423600",
+              "#574902",
+              "#6D5C12",
+              "#847123",
+              "#9C8633",
+              "#B49C43",
+              "#CDB253",
+              "#E6C964",
+              "#FFE075"
             ],
             "chartreuse": [
-              "#0C1900",
-              "#1A2A00",
-              "#283D00",
-              "#3A500E",
-              "#4D651E",
-              "#617B2E",
-              "#75913E",
-              "#8AA74E",
-              "#A0BF5F",
-              "#B6D771",
-              "#CCEF83"
+              "#091900",
+              "#182A00",
+              "#263D00",
+              "#38510F",
+              "#4B661F",
+              "#5E7B2F",
+              "#72913F",
+              "#87A850",
+              "#9CC061",
+              "#B2D773",
+              "#C8F085"
             ],
             "green": [
               "#001E00",
-              "#002D08",
-              "#004119",
-              "#015529",
-              "#1A6B3A",
-              "#2D814B",
-              "#3F985D",
-              "#52AF70",
-              "#64C883",
-              "#77E097",
-              "#8AF9AB"
+              "#002D0A",
+              "#00411B",
+              "#00562B",
+              "#136B3C",
+              "#28814D",
+              "#3A9860",
+              "#4DB073",
+              "#5FC886",
+              "#72E19A",
+              "#85FAAE"
             ],
             "spring": [
-              "#002012",
-              "#002F24",
-              "#004336",
-              "#005848",
-              "#006D5C",
-              "#008471",
-              "#009B86",
-              "#00B39C",
-              "#00CCB2",
-              "#00E5C9",
-              "#02FEE1"
+              "#002014",
+              "#002F25",
+              "#004338",
+              "#00584B",
+              "#006E5F",
+              "#008473",
+              "#009B89",
+              "#00B39F",
+              "#00CCB5",
+              "#00E5CD",
+              "#00FEE4"
             ],
             "cyan": [
-              "#001F28",
-              "#002F3C",
-              "#004351",
-              "#005767",
-              "#006D7E",
-              "#008496",
-              "#009BAE",
-              "#00B2C8",
-              "#00CBE1",
-              "#00E4FB",
+              "#001F29",
+              "#002F3E",
+              "#004253",
+              "#005769",
+              "#006D80",
+              "#008398",
+              "#009BB1",
+              "#00B2CA",
+              "#00CBE4",
+              "#00E3FE",
               "#00FDFF"
             ],
             "azure": [
-              "#001C38",
-              "#002D4E",
-              "#004066",
-              "#00547E",
-              "#006998",
-              "#007FB2",
-              "#0096CC",
-              "#00ADE8",
-              "#00C5FF",
-              "#00DDFF",
-              "#00F6FF"
+              "#001C39",
+              "#002D4F",
+              "#004067",
+              "#00547F",
+              "#006999",
+              "#007FB3",
+              "#0095CE",
+              "#00ACE9",
+              "#00C4FF",
+              "#00DCFF",
+              "#00F5FF"
             ],
             "blue": [
               "#00163E",
-              "#002855",
-              "#003A6E",
-              "#004D87",
-              "#0061A1",
-              "#1976BC",
-              "#348CD8",
-              "#4BA2F4",
-              "#60B9FF",
-              "#75D0FF",
-              "#8AE8FF"
+              "#002755",
+              "#00396E",
+              "#004C87",
+              "#0060A1",
+              "#2575BC",
+              "#3D8BD8",
+              "#52A1F4",
+              "#67B8FF",
+              "#7CCFFF",
+              "#91E7FF"
             ],
             "violet": [
-              "#0D0D38",
-              "#211E4F",
-              "#342F66",
-              "#49417F",
-              "#5D5498",
-              "#7368B2",
-              "#897DCD",
-              "#A092E9",
-              "#B7A7FF",
-              "#CFBEFF",
-              "#E7D4FF"
+              "#110C37",
+              "#241D4E",
+              "#372E65",
+              "#4C407E",
+              "#615397",
+              "#7767B1",
+              "#8D7CCC",
+              "#A491E7",
+              "#BBA6FF",
+              "#D3BCFF",
+              "#ECD3FF"
             ],
             "magenta": [
-              "#2B0029",
-              "#40103D",
-              "#572152",
-              "#6E3369",
-              "#864680",
-              "#9F5998",
-              "#B96DB0",
-              "#D381CA",
-              "#EE96E3",
-              "#FFABFE",
-              "#FFC1FF"
+              "#2C0028",
+              "#420F3C",
+              "#582151",
+              "#703367",
+              "#88457E",
+              "#A15895",
+              "#BB6CAE",
+              "#D580C7",
+              "#F095E1",
+              "#FFAAFB",
+              "#FFC0FF"
             ],
             "rose": [
-              "#360014",
-              "#4D0426",
-              "#651838",
-              "#7F2B4B",
-              "#993E5F",
-              "#B45173",
-              "#D06489",
-              "#EC789F",
-              "#FF8CB6",
-              "#FFA1CD",
-              "#FFB7E4"
+              "#360013",
+              "#4D0424",
+              "#661836",
+              "#7F2B49",
+              "#9A3E5C",
+              "#B55171",
+              "#D06486",
+              "#ED789C",
+              "#FF8CB2",
+              "#FFA1C9",
+              "#FFB7E1"
             ]
           },
           "ramps": {
@@ -7072,107 +7073,107 @@
                 "lch": [
                   6.0,
                   32.0,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#4C0B0C",
+                "hex": "#4C0C0A",
                 "lch": [
                   14.4,
                   34.4,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#651E1D",
+                "hex": "#641E1B",
                 "lch": [
                   22.8,
                   36.8,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#7E302D",
+                "hex": "#7E302B",
                 "lch": [
                   31.2,
                   39.2,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#99423D",
+                "hex": "#98433B",
                 "lch": [
                   39.6,
                   41.6,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#B4554F",
+                "hex": "#B4564D",
                 "lch": [
                   48.0,
                   44.0,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#D06961",
+                "hex": "#CF695F",
                 "lch": [
                   56.4,
                   46.4,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#ED7D74",
+                "hex": "#EC7D71",
                 "lch": [
                   64.8,
                   48.8,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#FF9187",
+                "hex": "#FF9285",
                 "lch": [
                   73.2,
                   51.2,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#FFA69B",
+                "hex": "#FFA798",
                 "lch": [
                   81.6,
                   53.6,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#FFBCB0",
+                "hex": "#FFBDAC",
                 "lch": [
                   90.0,
                   56.0,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               }
@@ -7180,111 +7181,111 @@
             "orange": [
               {
                 "grade": 0,
-                "hex": "#300600",
+                "hex": "#2F0700",
                 "lch": [
                   6.0,
                   32.0,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#421900",
+                "hex": "#411A00",
                 "lch": [
                   14.4,
                   34.4,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#582A02",
+                "hex": "#572B00",
                 "lch": [
                   22.8,
                   36.8,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#703C13",
+                "hex": "#6F3D11",
                 "lch": [
                   31.2,
                   39.2,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#894F22",
+                "hex": "#885020",
                 "lch": [
                   39.6,
                   41.6,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#A36231",
+                "hex": "#A26330",
                 "lch": [
                   48.0,
                   44.0,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#BE7641",
+                "hex": "#BC7740",
                 "lch": [
                   56.4,
                   46.4,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#D98B52",
+                "hex": "#D78C50",
                 "lch": [
                   64.8,
                   48.8,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#F5A063",
+                "hex": "#F3A161",
                 "lch": [
                   73.2,
                   51.2,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#FFB675",
+                "hex": "#FFB773",
                 "lch": [
                   81.6,
                   53.6,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#FFCC87",
+                "hex": "#FFCD85",
                 "lch": [
                   90.0,
                   56.0,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               }
@@ -7292,111 +7293,111 @@
             "yellow": [
               {
                 "grade": 0,
-                "hex": "#241100",
+                "hex": "#231200",
                 "lch": [
                   6.0,
                   32.0,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#312300",
+                "hex": "#302400",
                 "lch": [
                   14.4,
                   34.4,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#433500",
+                "hex": "#423600",
                 "lch": [
                   22.8,
                   36.8,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#594802",
+                "hex": "#574902",
                 "lch": [
                   31.2,
                   39.2,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#6F5C13",
+                "hex": "#6D5C12",
                 "lch": [
                   39.6,
                   41.6,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#867023",
+                "hex": "#847123",
                 "lch": [
                   48.0,
                   44.0,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#9E8533",
+                "hex": "#9C8633",
                 "lch": [
                   56.4,
                   46.4,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#B79B43",
+                "hex": "#B49C43",
                 "lch": [
                   64.8,
                   48.8,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#D0B153",
+                "hex": "#CDB253",
                 "lch": [
                   73.2,
                   51.2,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#E9C864",
+                "hex": "#E6C964",
                 "lch": [
                   81.6,
                   53.6,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#FFDF75",
+                "hex": "#FFE075",
                 "lch": [
                   90.0,
                   56.0,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               }
@@ -7404,111 +7405,111 @@
             "chartreuse": [
               {
                 "grade": 0,
-                "hex": "#0C1900",
+                "hex": "#091900",
                 "lch": [
                   6.0,
                   32.0,
-                  120
+                  122
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#1A2A00",
+                "hex": "#182A00",
                 "lch": [
                   14.4,
                   34.4,
-                  120
+                  122
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#283D00",
+                "hex": "#263D00",
                 "lch": [
                   22.8,
                   36.8,
-                  120
+                  122
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#3A500E",
+                "hex": "#38510F",
                 "lch": [
                   31.2,
                   39.2,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#4D651E",
+                "hex": "#4B661F",
                 "lch": [
                   39.6,
                   41.6,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#617B2E",
+                "hex": "#5E7B2F",
                 "lch": [
                   48.0,
                   44.0,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#75913E",
+                "hex": "#72913F",
                 "lch": [
                   56.4,
                   46.4,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#8AA74E",
+                "hex": "#87A850",
                 "lch": [
                   64.8,
                   48.8,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#A0BF5F",
+                "hex": "#9CC061",
                 "lch": [
                   73.2,
                   51.2,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#B6D771",
+                "hex": "#B2D773",
                 "lch": [
                   81.6,
                   53.6,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#CCEF83",
+                "hex": "#C8F085",
                 "lch": [
                   90.0,
                   56.0,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               }
@@ -7520,107 +7521,107 @@
                 "lch": [
                   6.0,
                   32.0,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#002D08",
+                "hex": "#002D0A",
                 "lch": [
                   14.4,
                   34.4,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#004119",
+                "hex": "#00411B",
                 "lch": [
                   22.8,
                   36.8,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#015529",
+                "hex": "#00562B",
                 "lch": [
                   31.2,
                   39.2,
-                  150
+                  152
                 ],
-                "gamutClipped": false
+                "gamutClipped": true
               },
               {
                 "grade": 4,
-                "hex": "#1A6B3A",
+                "hex": "#136B3C",
                 "lch": [
                   39.6,
                   41.6,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#2D814B",
+                "hex": "#28814D",
                 "lch": [
                   48.0,
                   44.0,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#3F985D",
+                "hex": "#3A9860",
                 "lch": [
                   56.4,
                   46.4,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#52AF70",
+                "hex": "#4DB073",
                 "lch": [
                   64.8,
                   48.8,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#64C883",
+                "hex": "#5FC886",
                 "lch": [
                   73.2,
                   51.2,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#77E097",
+                "hex": "#72E19A",
                 "lch": [
                   81.6,
                   53.6,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#8AF9AB",
+                "hex": "#85FAAE",
                 "lch": [
                   90.0,
                   56.0,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               }
@@ -7628,213 +7629,213 @@
             "spring": [
               {
                 "grade": 0,
-                "hex": "#002012",
+                "hex": "#002014",
                 "lch": [
                   6.0,
                   32.0,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#002F24",
+                "hex": "#002F25",
                 "lch": [
                   14.4,
                   34.4,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#004336",
+                "hex": "#004338",
                 "lch": [
                   22.8,
                   36.8,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#005848",
+                "hex": "#00584B",
                 "lch": [
                   31.2,
                   39.2,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 4,
-                "hex": "#006D5C",
+                "hex": "#006E5F",
                 "lch": [
                   39.6,
                   41.6,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#008471",
+                "hex": "#008473",
                 "lch": [
                   48.0,
                   44.0,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#009B86",
+                "hex": "#009B89",
                 "lch": [
                   56.4,
                   46.4,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#00B39C",
+                "hex": "#00B39F",
                 "lch": [
                   64.8,
                   48.8,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#00CCB2",
+                "hex": "#00CCB5",
                 "lch": [
                   73.2,
                   51.2,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#00E5C9",
+                "hex": "#00E5CD",
                 "lch": [
                   81.6,
                   53.6,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#02FEE1",
+                "hex": "#00FEE4",
                 "lch": [
                   90.0,
                   56.0,
-                  180
+                  182
                 ],
-                "gamutClipped": false
+                "gamutClipped": true
               }
             ],
             "cyan": [
               {
                 "grade": 0,
-                "hex": "#001F28",
+                "hex": "#001F29",
                 "lch": [
                   6.0,
                   32.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#002F3C",
+                "hex": "#002F3E",
                 "lch": [
                   14.4,
                   34.4,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#004351",
+                "hex": "#004253",
                 "lch": [
                   22.8,
                   36.8,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#005767",
+                "hex": "#005769",
                 "lch": [
                   31.2,
                   39.2,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 4,
-                "hex": "#006D7E",
+                "hex": "#006D80",
                 "lch": [
                   39.6,
                   41.6,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#008496",
+                "hex": "#008398",
                 "lch": [
                   48.0,
                   44.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#009BAE",
+                "hex": "#009BB1",
                 "lch": [
                   56.4,
                   46.4,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#00B2C8",
+                "hex": "#00B2CA",
                 "lch": [
                   64.8,
                   48.8,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#00CBE1",
+                "hex": "#00CBE4",
                 "lch": [
                   73.2,
                   51.2,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#00E4FB",
+                "hex": "#00E3FE",
                 "lch": [
                   81.6,
                   53.6,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
@@ -7844,7 +7845,7 @@
                 "lch": [
                   90.0,
                   56.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               }
@@ -7852,111 +7853,111 @@
             "azure": [
               {
                 "grade": 0,
-                "hex": "#001C38",
+                "hex": "#001C39",
                 "lch": [
                   6.0,
                   32.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#002D4E",
+                "hex": "#002D4F",
                 "lch": [
                   14.4,
                   34.4,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#004066",
+                "hex": "#004067",
                 "lch": [
                   22.8,
                   36.8,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#00547E",
+                "hex": "#00547F",
                 "lch": [
                   31.2,
                   39.2,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 4,
-                "hex": "#006998",
+                "hex": "#006999",
                 "lch": [
                   39.6,
                   41.6,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#007FB2",
+                "hex": "#007FB3",
                 "lch": [
                   48.0,
                   44.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#0096CC",
+                "hex": "#0095CE",
                 "lch": [
                   56.4,
                   46.4,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#00ADE8",
+                "hex": "#00ACE9",
                 "lch": [
                   64.8,
                   48.8,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#00C5FF",
+                "hex": "#00C4FF",
                 "lch": [
                   73.2,
                   51.2,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#00DDFF",
+                "hex": "#00DCFF",
                 "lch": [
                   81.6,
                   53.6,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#00F6FF",
+                "hex": "#00F5FF",
                 "lch": [
                   90.0,
                   56.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               }
@@ -7968,107 +7969,107 @@
                 "lch": [
                   6.0,
                   32.0,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#002855",
+                "hex": "#002755",
                 "lch": [
                   14.4,
                   34.4,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#003A6E",
+                "hex": "#00396E",
                 "lch": [
                   22.8,
                   36.8,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#004D87",
+                "hex": "#004C87",
                 "lch": [
                   31.2,
                   39.2,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 4,
-                "hex": "#0061A1",
+                "hex": "#0060A1",
                 "lch": [
                   39.6,
                   41.6,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#1976BC",
+                "hex": "#2575BC",
                 "lch": [
                   48.0,
                   44.0,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#348CD8",
+                "hex": "#3D8BD8",
                 "lch": [
                   56.4,
                   46.4,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#4BA2F4",
+                "hex": "#52A1F4",
                 "lch": [
                   64.8,
                   48.8,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#60B9FF",
+                "hex": "#67B8FF",
                 "lch": [
                   73.2,
                   51.2,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#75D0FF",
+                "hex": "#7CCFFF",
                 "lch": [
                   81.6,
                   53.6,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#8AE8FF",
+                "hex": "#91E7FF",
                 "lch": [
                   90.0,
                   56.0,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               }
@@ -8076,111 +8077,111 @@
             "violet": [
               {
                 "grade": 0,
-                "hex": "#0D0D38",
+                "hex": "#110C37",
                 "lch": [
                   6.0,
                   32.0,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 1,
-                "hex": "#211E4F",
+                "hex": "#241D4E",
                 "lch": [
                   14.4,
                   34.4,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#342F66",
+                "hex": "#372E65",
                 "lch": [
                   22.8,
                   36.8,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#49417F",
+                "hex": "#4C407E",
                 "lch": [
                   31.2,
                   39.2,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#5D5498",
+                "hex": "#615397",
                 "lch": [
                   39.6,
                   41.6,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#7368B2",
+                "hex": "#7767B1",
                 "lch": [
                   48.0,
                   44.0,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#897DCD",
+                "hex": "#8D7CCC",
                 "lch": [
                   56.4,
                   46.4,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#A092E9",
+                "hex": "#A491E7",
                 "lch": [
                   64.8,
                   48.8,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#B7A7FF",
+                "hex": "#BBA6FF",
                 "lch": [
                   73.2,
                   51.2,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#CFBEFF",
+                "hex": "#D3BCFF",
                 "lch": [
                   81.6,
                   53.6,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#E7D4FF",
+                "hex": "#ECD3FF",
                 "lch": [
                   90.0,
                   56.0,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               }
@@ -8188,111 +8189,111 @@
             "magenta": [
               {
                 "grade": 0,
-                "hex": "#2B0029",
+                "hex": "#2C0028",
                 "lch": [
                   6.0,
                   32.0,
-                  330
+                  332
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#40103D",
+                "hex": "#420F3C",
                 "lch": [
                   14.4,
                   34.4,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#572152",
+                "hex": "#582151",
                 "lch": [
                   22.8,
                   36.8,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#6E3369",
+                "hex": "#703367",
                 "lch": [
                   31.2,
                   39.2,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#864680",
+                "hex": "#88457E",
                 "lch": [
                   39.6,
                   41.6,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#9F5998",
+                "hex": "#A15895",
                 "lch": [
                   48.0,
                   44.0,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#B96DB0",
+                "hex": "#BB6CAE",
                 "lch": [
                   56.4,
                   46.4,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#D381CA",
+                "hex": "#D580C7",
                 "lch": [
                   64.8,
                   48.8,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#EE96E3",
+                "hex": "#F095E1",
                 "lch": [
                   73.2,
                   51.2,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#FFABFE",
+                "hex": "#FFAAFB",
                 "lch": [
                   81.6,
                   53.6,
-                  330
+                  332
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#FFC1FF",
+                "hex": "#FFC0FF",
                 "lch": [
                   90.0,
                   56.0,
-                  330
+                  332
                 ],
                 "gamutClipped": true
               }
@@ -8300,111 +8301,111 @@
             "rose": [
               {
                 "grade": 0,
-                "hex": "#360014",
+                "hex": "#360013",
                 "lch": [
                   6.0,
                   32.0,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#4D0426",
+                "hex": "#4D0424",
                 "lch": [
                   14.4,
                   34.4,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#651838",
+                "hex": "#661836",
                 "lch": [
                   22.8,
                   36.8,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#7F2B4B",
+                "hex": "#7F2B49",
                 "lch": [
                   31.2,
                   39.2,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#993E5F",
+                "hex": "#9A3E5C",
                 "lch": [
                   39.6,
                   41.6,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#B45173",
+                "hex": "#B55171",
                 "lch": [
                   48.0,
                   44.0,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#D06489",
+                "hex": "#D06486",
                 "lch": [
                   56.4,
                   46.4,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#EC789F",
+                "hex": "#ED789C",
                 "lch": [
                   64.8,
                   48.8,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#FF8CB6",
+                "hex": "#FF8CB2",
                 "lch": [
                   73.2,
                   51.2,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#FFA1CD",
+                "hex": "#FFA1C9",
                 "lch": [
                   81.6,
                   53.6,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#FFB7E4",
+                "hex": "#FFB7E1",
                 "lch": [
                   90.0,
                   56.0,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               }
@@ -8595,168 +8596,168 @@
               "sourceAlphaBeforeSerialization": 0.3125
             },
             "status.success": {
-              "value": "#64C883",
+              "value": "#5FC886",
               "sourceKey": "green[8]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 8.9283,
-                "panel": 7.4401,
-                "raised": 5.7853,
-                "hover": 4.3088
+                "canvas": 8.8941,
+                "panel": 7.4116,
+                "raised": 5.7631,
+                "hover": 4.2923
               }
             },
             "status.successBackground": {
-              "value": "#004119",
+              "value": "#00411B",
               "sourceKey": "green[2]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.56,
-                "panel": 1.2999,
-                "raised": 1.0108,
-                "hover": 1.3283
+                "canvas": 1.5615,
+                "panel": 1.3013,
+                "raised": 1.0118,
+                "hover": 1.327
               }
             },
             "status.warning": {
-              "value": "#D0B153",
+              "value": "#CDB253",
               "sourceKey": "yellow[8]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 8.8969,
-                "panel": 7.414,
-                "raised": 5.765,
-                "hover": 4.2937
+                "canvas": 8.8909,
+                "panel": 7.409,
+                "raised": 5.761,
+                "hover": 4.2908
               }
             },
             "status.warningBackground": {
-              "value": "#433500",
+              "value": "#423600",
               "sourceKey": "yellow[2]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.5403,
-                "panel": 1.2836,
-                "raised": 1.0019,
-                "hover": 1.3452
+                "canvas": 1.5504,
+                "panel": 1.292,
+                "raised": 1.0046,
+                "hover": 1.3365
               }
             },
             "status.danger": {
-              "value": "#FF9187",
+              "value": "#FF9285",
               "sourceKey": "red[8]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 8.5059,
-                "panel": 7.0881,
-                "raised": 5.5116,
-                "hover": 4.105
+                "canvas": 8.5501,
+                "panel": 7.125,
+                "raised": 5.5403,
+                "hover": 4.1263
               }
             },
             "status.dangerBackground": {
-              "value": "#651E1D",
+              "value": "#641E1B",
               "sourceKey": "red[2]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.5482,
-                "panel": 1.2901,
-                "raised": 1.0032,
-                "hover": 1.3384
+                "canvas": 1.5364,
+                "panel": 1.2803,
+                "raised": 1.0045,
+                "hover": 1.3487
               }
             },
             "status.info": {
-              "value": "#60B9FF",
+              "value": "#67B8FF",
               "sourceKey": "blue[8]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 8.7076,
-                "panel": 7.2562,
-                "raised": 5.6423,
-                "hover": 4.2023
+                "canvas": 8.7041,
+                "panel": 7.2533,
+                "raised": 5.64,
+                "hover": 4.2006
               }
             },
             "status.infoBackground": {
-              "value": "#003A6E",
+              "value": "#00396E",
               "sourceKey": "blue[2]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.613,
-                "panel": 1.3442,
-                "raised": 1.0452,
-                "hover": 1.2846
+                "canvas": 1.5954,
+                "panel": 1.3295,
+                "raised": 1.0338,
+                "hover": 1.2988
               }
             },
             "support.orange": {
-              "value": "#F5A063",
+              "value": "#F3A161",
               "sourceKey": "orange[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 8.8927,
-                "panel": 7.4105,
-                "raised": 5.7622,
-                "hover": 4.2917
+                "canvas": 8.8844,
+                "panel": 7.4035,
+                "raised": 5.7568,
+                "hover": 4.2876
               }
             },
             "support.chartreuse": {
-              "value": "#A0BF5F",
+              "value": "#9CC061",
               "sourceKey": "chartreuse[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 8.9115,
-                "panel": 7.4261,
-                "raised": 5.7744,
-                "hover": 4.3007
+                "canvas": 8.9236,
+                "panel": 7.4362,
+                "raised": 5.7823,
+                "hover": 4.3066
               }
             },
             "support.spring": {
-              "value": "#00CCB2",
+              "value": "#00CCB5",
               "sourceKey": "spring[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 9.0593,
-                "panel": 7.5493,
-                "raised": 5.8702,
-                "hover": 4.372
+                "canvas": 9.0808,
+                "panel": 7.5672,
+                "raised": 5.8841,
+                "hover": 4.3824
               }
             },
             "support.cyan": {
-              "value": "#00CBE1",
+              "value": "#00CBE4",
               "sourceKey": "cyan[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 9.3674,
-                "panel": 7.806,
-                "raised": 6.0698,
-                "hover": 4.5207
+                "canvas": 9.3965,
+                "panel": 7.8303,
+                "raised": 6.0887,
+                "hover": 4.5348
               }
             },
             "support.violet": {
-              "value": "#B7A7FF",
+              "value": "#BBA6FF",
               "sourceKey": "violet[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 8.7993,
-                "panel": 7.3326,
-                "raised": 5.7017,
-                "hover": 4.2466
+                "canvas": 8.8226,
+                "panel": 7.3521,
+                "raised": 5.7168,
+                "hover": 4.2578
               }
             },
             "support.magenta": {
-              "value": "#EE96E3",
+              "value": "#F095E1",
               "sourceKey": "magenta[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 8.907,
-                "panel": 7.4224,
-                "raised": 5.7715,
-                "hover": 4.2985
+                "canvas": 8.893,
+                "panel": 7.4107,
+                "raised": 5.7624,
+                "hover": 4.2918
               }
             },
             "support.rose": {
-              "value": "#FF8CB6",
+              "value": "#FF8CB2",
               "sourceKey": "rose[8]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 8.5294,
-                "panel": 7.1077,
-                "raised": 5.5268,
-                "hover": 4.1163
+                "canvas": 8.5007,
+                "panel": 7.0838,
+                "raised": 5.5082,
+                "hover": 4.1024
               }
             }
           },
@@ -8778,21 +8779,21 @@
             "accent.ink": "#161310",
             "accent.secondary": "#FF9874",
             "selection.background": "#CA933C50",
-            "status.success": "#64C883",
-            "status.successBackground": "#004119",
-            "status.warning": "#D0B153",
-            "status.warningBackground": "#433500",
-            "status.danger": "#FF9187",
-            "status.dangerBackground": "#651E1D",
-            "status.info": "#60B9FF",
-            "status.infoBackground": "#003A6E",
-            "support.orange": "#F5A063",
-            "support.chartreuse": "#A0BF5F",
-            "support.spring": "#00CCB2",
-            "support.cyan": "#00CBE1",
-            "support.violet": "#B7A7FF",
-            "support.magenta": "#EE96E3",
-            "support.rose": "#FF8CB6"
+            "status.success": "#5FC886",
+            "status.successBackground": "#00411B",
+            "status.warning": "#CDB253",
+            "status.warningBackground": "#423600",
+            "status.danger": "#FF9285",
+            "status.dangerBackground": "#641E1B",
+            "status.info": "#67B8FF",
+            "status.infoBackground": "#00396E",
+            "support.orange": "#F3A161",
+            "support.chartreuse": "#9CC061",
+            "support.spring": "#00CCB5",
+            "support.cyan": "#00CBE4",
+            "support.violet": "#BBA6FF",
+            "support.magenta": "#F095E1",
+            "support.rose": "#FF8CB2"
           },
           "syntaxRoles": {
             "identifier": {
@@ -8845,7 +8846,7 @@
             },
             "invalid": {
               "sourceKey": "red[7]",
-              "value": "#ED7D74"
+              "value": "#EC7D71"
             }
           },
           "contrastChecks": [
@@ -8965,7 +8966,7 @@
               "name": "success badge",
               "foreground": "status.success",
               "background": "status.successBackground",
-              "ratio": 5.7234,
+              "ratio": 5.6957,
               "minimum": 4.5,
               "passes": true
             },
@@ -8973,7 +8974,7 @@
               "name": "warning badge",
               "foreground": "status.warning",
               "background": "status.warningBackground",
-              "ratio": 5.7759,
+              "ratio": 5.7346,
               "minimum": 4.5,
               "passes": true
             },
@@ -8981,7 +8982,7 @@
               "name": "danger badge",
               "foreground": "status.danger",
               "background": "status.dangerBackground",
-              "ratio": 5.4941,
+              "ratio": 5.5651,
               "minimum": 4.5,
               "passes": true
             },
@@ -8989,7 +8990,7 @@
               "name": "info badge",
               "foreground": "status.info",
               "background": "status.infoBackground",
-              "ratio": 5.3983,
+              "ratio": 5.4556,
               "minimum": 4.5,
               "passes": true
             },
@@ -9020,6 +9021,7 @@
           ],
           "allEssentialPairsPass": true,
           "notes": [
+            "Adapted from dolch-alter: fg, bg, coShades, accent and coAccent preserve the exact upstream custom ramps; the twelve base families use the shared original Blue/Tide colours for this mode.",
             "Muted text stays on canvas/panel; on raised use text.secondary or brighter.",
             "On hover surfaces, use text.primary or text.emphasis.",
             "Reference/syntax comment grade5 preserves upstream assignment but does not reach 4.5:1; use fg7 if legibility is the priority.",
@@ -9030,9 +9032,10 @@
           "mode": "light",
           "id": "alter",
           "name": "Ember",
-          "provenance": "upstream",
-          "upstreamVariant": "dolch-light-alter",
-          "ringPolicy": "exact upstream",
+          "provenance": "adapted",
+          "upstreamVariant": null,
+          "customUpstreamVariant": "dolch-light-alter",
+          "ringPolicy": "exact Alter custom ramps; shared original Blue light base ring",
           "parameters": {
             "fg": {
               "luma": [
@@ -9094,7 +9097,7 @@
                 32,
                 56
               ],
-              "hue": 30,
+              "hue": 32,
               "power": 1
             },
             "orange": {
@@ -9106,7 +9109,7 @@
                 32,
                 56
               ],
-              "hue": 60,
+              "hue": 62,
               "power": 1
             },
             "yellow": {
@@ -9118,7 +9121,7 @@
                 32,
                 56
               ],
-              "hue": 90,
+              "hue": 92,
               "power": 1
             },
             "chartreuse": {
@@ -9130,7 +9133,7 @@
                 32,
                 56
               ],
-              "hue": 120,
+              "hue": 122,
               "power": 1
             },
             "green": {
@@ -9142,7 +9145,7 @@
                 32,
                 56
               ],
-              "hue": 150,
+              "hue": 152,
               "power": 1
             },
             "spring": {
@@ -9154,7 +9157,7 @@
                 32,
                 56
               ],
-              "hue": 180,
+              "hue": 182,
               "power": 1
             },
             "cyan": {
@@ -9166,7 +9169,7 @@
                 32,
                 56
               ],
-              "hue": 210,
+              "hue": 212,
               "power": 1
             },
             "azure": {
@@ -9178,7 +9181,7 @@
                 32,
                 56
               ],
-              "hue": 240,
+              "hue": 242,
               "power": 1
             },
             "blue": {
@@ -9190,7 +9193,7 @@
                 32,
                 56
               ],
-              "hue": 270,
+              "hue": 272,
               "power": 1
             },
             "violet": {
@@ -9202,7 +9205,7 @@
                 32,
                 56
               ],
-              "hue": 300,
+              "hue": 302,
               "power": 1
             },
             "magenta": {
@@ -9214,7 +9217,7 @@
                 32,
                 56
               ],
-              "hue": 330,
+              "hue": 332,
               "power": 1
             },
             "rose": {
@@ -9226,7 +9229,7 @@
                 32,
                 56
               ],
-              "hue": 360,
+              "hue": 362,
               "power": 1
             }
           },
@@ -9297,160 +9300,160 @@
               "#980000"
             ],
             "red": [
-              "#FFD4CB",
-              "#FFC1B8",
-              "#FFAEA5",
-              "#F99B92",
-              "#EA8980",
-              "#DB776E",
-              "#CB645D",
-              "#BC524D",
-              "#AC403C",
-              "#9D2C2D",
-              "#8D141E"
+              "#FFD4C9",
+              "#FFC1B6",
+              "#FFAEA3",
+              "#F89C90",
+              "#E9897E",
+              "#DA776C",
+              "#CB655B",
+              "#BB534A",
+              "#AC413A",
+              "#9C2D2A",
+              "#8C171B"
             ],
             "orange": [
-              "#FFDCB4",
-              "#FFC99F",
-              "#F9B78B",
-              "#E9A677",
-              "#D99464",
-              "#C98350",
-              "#B9723E",
-              "#A9622B",
-              "#995117",
-              "#884200",
-              "#783200"
+              "#FFDCB3",
+              "#FFCA9E",
+              "#F7B88A",
+              "#E7A676",
+              "#D79562",
+              "#C7844F",
+              "#B7733C",
+              "#A76329",
+              "#975315",
+              "#874300",
+              "#763300"
             ],
             "yellow": [
-              "#FFE6AB",
-              "#EED495",
-              "#DDC380",
-              "#CCB26C",
-              "#BBA157",
-              "#AA9143",
-              "#9A812F",
-              "#897118",
-              "#786200",
-              "#685300",
-              "#584500"
+              "#FDE7AB",
+              "#ECD595",
+              "#DBC480",
+              "#CAB36C",
+              "#B9A257",
+              "#A89243",
+              "#97822E",
+              "#867218",
+              "#766300",
+              "#655400",
+              "#564600"
             ],
             "chartreuse": [
-              "#DEEFB2",
-              "#CBDE9D",
-              "#B9CD89",
-              "#A7BD75",
-              "#95AC61",
-              "#839C4D",
-              "#718D3A",
-              "#607D26",
-              "#4E6E0F",
-              "#3D5F00",
-              "#2B5000"
+              "#DBF0B3",
+              "#C9DF9F",
+              "#B6CE8A",
+              "#A4BD76",
+              "#92AD62",
+              "#809D4F",
+              "#6E8D3B",
+              "#5D7E28",
+              "#4B6E11",
+              "#395F00",
+              "#285100"
             ],
             "green": [
-              "#BAF6C8",
-              "#A5E5B5",
-              "#90D5A2",
-              "#7CC48F",
-              "#67B47D",
-              "#51A46B",
-              "#3B9459",
-              "#208448",
-              "#007437",
-              "#006527",
-              "#005616"
+              "#B8F7CA",
+              "#A3E6B7",
+              "#8ED5A4",
+              "#79C491",
+              "#63B47F",
+              "#4DA46D",
+              "#36945C",
+              "#17844B",
+              "#00753A",
+              "#00652A",
+              "#00561A"
             ],
             "spring": [
-              "#9BF9E7",
-              "#82E9D5",
-              "#68D8C4",
-              "#4BC7B3",
-              "#24B7A2",
-              "#00A792",
-              "#009782",
-              "#008772",
-              "#007763",
-              "#006854",
-              "#005845"
+              "#9AF9E9",
+              "#80E9D8",
+              "#65D8C6",
+              "#47C7B6",
+              "#1CB7A5",
+              "#00A795",
+              "#009785",
+              "#008775",
+              "#007766",
+              "#006857",
+              "#005948"
             ],
             "cyan": [
               "#8DF8FF",
-              "#70E8F6",
-              "#4ED7E6",
-              "#19C7D7",
-              "#00B6C8",
-              "#00A6B9",
-              "#0096AA",
-              "#00879C",
-              "#00778D",
-              "#00687F",
-              "#005971"
+              "#70E7F8",
+              "#4ED7E8",
+              "#17C6D9",
+              "#00B6CA",
+              "#00A6BB",
+              "#0096AD",
+              "#00879E",
+              "#007790",
+              "#006882",
+              "#005974"
             ],
             "azure": [
-              "#9CF3FF",
-              "#81E3FF",
-              "#64D2FF",
-              "#3FC1F2",
-              "#00B1E4",
-              "#00A1D6",
-              "#0092C8",
-              "#0082BA",
-              "#0073AD",
-              "#0064A0",
-              "#005693"
+              "#9EF3FF",
+              "#84E2FF",
+              "#67D1FF",
+              "#44C1F3",
+              "#00B1E5",
+              "#00A1D7",
+              "#0091C9",
+              "#0082BC",
+              "#0073AE",
+              "#0064A1",
+              "#005594"
             ],
             "blue": [
-              "#C2EBFF",
-              "#ACDAFF",
-              "#97C8FF",
-              "#80B8FC",
-              "#68A7EE",
-              "#4E97E1",
-              "#2D87D3",
-              "#0078C6",
-              "#0069B9",
-              "#005BAC",
-              "#004D9F"
+              "#C5EAFF",
+              "#B0D9FF",
+              "#9AC8FF",
+              "#84B7FC",
+              "#6DA7EE",
+              "#5496E1",
+              "#3787D3",
+              "#0077C6",
+              "#0068B9",
+              "#005AAC",
+              "#004C9F"
             ],
             "violet": [
-              "#EDE0FF",
-              "#DBCEFF",
-              "#CABCFF",
-              "#B8ABF2",
-              "#A79AE4",
-              "#9689D7",
-              "#8579C9",
-              "#7368BB",
-              "#6259AE",
-              "#504AA0",
-              "#3E3B93"
+              "#F0DFFF",
+              "#DECDFF",
+              "#CDBCFF",
+              "#BCAAF1",
+              "#AA99E3",
+              "#9A88D5",
+              "#8977C7",
+              "#7867BA",
+              "#6758AC",
+              "#56489F",
+              "#443992"
             ],
             "magenta": [
-              "#FFD7FF",
-              "#FFC4F8",
-              "#F1B1E8",
-              "#E29FD9",
-              "#D28DCA",
-              "#C37BBB",
-              "#B469AC",
-              "#A5579D",
-              "#96458F",
-              "#883381",
-              "#791E73"
+              "#FFD6FF",
+              "#FFC3F6",
+              "#F3B0E6",
+              "#E49ED7",
+              "#D48CC7",
+              "#C57AB8",
+              "#B668AA",
+              "#A8569B",
+              "#99448C",
+              "#8A317E",
+              "#7B1C70"
             ],
             "rose": [
-              "#FFD2E9",
-              "#FFBED8",
-              "#FFABC7",
-              "#F798B6",
-              "#E986A5",
-              "#DA7395",
-              "#CB6085",
-              "#BC4D75",
-              "#AD3966",
-              "#9E2257",
-              "#8F0049"
+              "#FFD2E7",
+              "#FFBED6",
+              "#FFABC4",
+              "#F898B3",
+              "#E985A2",
+              "#DB7392",
+              "#CC6082",
+              "#BD4D72",
+              "#AE3863",
+              "#9F2154",
+              "#900046"
             ]
           },
           "ramps": {
@@ -10017,111 +10020,111 @@
             "red": [
               {
                 "grade": 0,
-                "hex": "#FFD4CB",
+                "hex": "#FFD4C9",
                 "lch": [
                   92.0,
                   32.0,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#FFC1B8",
+                "hex": "#FFC1B6",
                 "lch": [
                   85.8,
                   34.4,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#FFAEA5",
+                "hex": "#FFAEA3",
                 "lch": [
                   79.6,
                   36.8,
-                  30
+                  32
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#F99B92",
+                "hex": "#F89C90",
                 "lch": [
                   73.4,
                   39.2,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#EA8980",
+                "hex": "#E9897E",
                 "lch": [
                   67.2,
                   41.6,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#DB776E",
+                "hex": "#DA776C",
                 "lch": [
                   61.0,
                   44.0,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#CB645D",
+                "hex": "#CB655B",
                 "lch": [
                   54.8,
                   46.4,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#BC524D",
+                "hex": "#BB534A",
                 "lch": [
                   48.6,
                   48.8,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#AC403C",
+                "hex": "#AC413A",
                 "lch": [
                   42.4,
                   51.2,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#9D2C2D",
+                "hex": "#9C2D2A",
                 "lch": [
                   36.2,
                   53.6,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#8D141E",
+                "hex": "#8C171B",
                 "lch": [
                   30.0,
                   56.0,
-                  30
+                  32
                 ],
                 "gamutClipped": false
               }
@@ -10129,111 +10132,111 @@
             "orange": [
               {
                 "grade": 0,
-                "hex": "#FFDCB4",
+                "hex": "#FFDCB3",
                 "lch": [
                   92.0,
                   32.0,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#FFC99F",
+                "hex": "#FFCA9E",
                 "lch": [
                   85.8,
                   34.4,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#F9B78B",
+                "hex": "#F7B88A",
                 "lch": [
                   79.6,
                   36.8,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#E9A677",
+                "hex": "#E7A676",
                 "lch": [
                   73.4,
                   39.2,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#D99464",
+                "hex": "#D79562",
                 "lch": [
                   67.2,
                   41.6,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#C98350",
+                "hex": "#C7844F",
                 "lch": [
                   61.0,
                   44.0,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#B9723E",
+                "hex": "#B7733C",
                 "lch": [
                   54.8,
                   46.4,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#A9622B",
+                "hex": "#A76329",
                 "lch": [
                   48.6,
                   48.8,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#995117",
+                "hex": "#975315",
                 "lch": [
                   42.4,
                   51.2,
-                  60
+                  62
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#884200",
+                "hex": "#874300",
                 "lch": [
                   36.2,
                   53.6,
-                  60
+                  62
                 ],
-                "gamutClipped": false
+                "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#783200",
+                "hex": "#763300",
                 "lch": [
                   30.0,
                   56.0,
-                  60
+                  62
                 ],
                 "gamutClipped": true
               }
@@ -10241,111 +10244,111 @@
             "yellow": [
               {
                 "grade": 0,
-                "hex": "#FFE6AB",
+                "hex": "#FDE7AB",
                 "lch": [
                   92.0,
                   32.0,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 1,
-                "hex": "#EED495",
+                "hex": "#ECD595",
                 "lch": [
                   85.8,
                   34.4,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#DDC380",
+                "hex": "#DBC480",
                 "lch": [
                   79.6,
                   36.8,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#CCB26C",
+                "hex": "#CAB36C",
                 "lch": [
                   73.4,
                   39.2,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#BBA157",
+                "hex": "#B9A257",
                 "lch": [
                   67.2,
                   41.6,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#AA9143",
+                "hex": "#A89243",
                 "lch": [
                   61.0,
                   44.0,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#9A812F",
+                "hex": "#97822E",
                 "lch": [
                   54.8,
                   46.4,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#897118",
+                "hex": "#867218",
                 "lch": [
                   48.6,
                   48.8,
-                  90
+                  92
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#786200",
+                "hex": "#766300",
                 "lch": [
                   42.4,
                   51.2,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#685300",
+                "hex": "#655400",
                 "lch": [
                   36.2,
                   53.6,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#584500",
+                "hex": "#564600",
                 "lch": [
                   30.0,
                   56.0,
-                  90
+                  92
                 ],
                 "gamutClipped": true
               }
@@ -10353,111 +10356,111 @@
             "chartreuse": [
               {
                 "grade": 0,
-                "hex": "#DEEFB2",
+                "hex": "#DBF0B3",
                 "lch": [
                   92.0,
                   32.0,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 1,
-                "hex": "#CBDE9D",
+                "hex": "#C9DF9F",
                 "lch": [
                   85.8,
                   34.4,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#B9CD89",
+                "hex": "#B6CE8A",
                 "lch": [
                   79.6,
                   36.8,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#A7BD75",
+                "hex": "#A4BD76",
                 "lch": [
                   73.4,
                   39.2,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#95AC61",
+                "hex": "#92AD62",
                 "lch": [
                   67.2,
                   41.6,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#839C4D",
+                "hex": "#809D4F",
                 "lch": [
                   61.0,
                   44.0,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#718D3A",
+                "hex": "#6E8D3B",
                 "lch": [
                   54.8,
                   46.4,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#607D26",
+                "hex": "#5D7E28",
                 "lch": [
                   48.6,
                   48.8,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#4E6E0F",
+                "hex": "#4B6E11",
                 "lch": [
                   42.4,
                   51.2,
-                  120
+                  122
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#3D5F00",
+                "hex": "#395F00",
                 "lch": [
                   36.2,
                   53.6,
-                  120
+                  122
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#2B5000",
+                "hex": "#285100",
                 "lch": [
                   30.0,
                   56.0,
-                  120
+                  122
                 ],
                 "gamutClipped": true
               }
@@ -10465,111 +10468,111 @@
             "green": [
               {
                 "grade": 0,
-                "hex": "#BAF6C8",
+                "hex": "#B8F7CA",
                 "lch": [
                   92.0,
                   32.0,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 1,
-                "hex": "#A5E5B5",
+                "hex": "#A3E6B7",
                 "lch": [
                   85.8,
                   34.4,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#90D5A2",
+                "hex": "#8ED5A4",
                 "lch": [
                   79.6,
                   36.8,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#7CC48F",
+                "hex": "#79C491",
                 "lch": [
                   73.4,
                   39.2,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#67B47D",
+                "hex": "#63B47F",
                 "lch": [
                   67.2,
                   41.6,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#51A46B",
+                "hex": "#4DA46D",
                 "lch": [
                   61.0,
                   44.0,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#3B9459",
+                "hex": "#36945C",
                 "lch": [
                   54.8,
                   46.4,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#208448",
+                "hex": "#17844B",
                 "lch": [
                   48.6,
                   48.8,
-                  150
+                  152
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#007437",
+                "hex": "#00753A",
                 "lch": [
                   42.4,
                   51.2,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#006527",
+                "hex": "#00652A",
                 "lch": [
                   36.2,
                   53.6,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#005616",
+                "hex": "#00561A",
                 "lch": [
                   30.0,
                   56.0,
-                  150
+                  152
                 ],
                 "gamutClipped": true
               }
@@ -10577,111 +10580,111 @@
             "spring": [
               {
                 "grade": 0,
-                "hex": "#9BF9E7",
+                "hex": "#9AF9E9",
                 "lch": [
                   92.0,
                   32.0,
-                  180
+                  182
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 1,
-                "hex": "#82E9D5",
+                "hex": "#80E9D8",
                 "lch": [
                   85.8,
                   34.4,
-                  180
+                  182
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#68D8C4",
+                "hex": "#65D8C6",
                 "lch": [
                   79.6,
                   36.8,
-                  180
+                  182
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#4BC7B3",
+                "hex": "#47C7B6",
                 "lch": [
                   73.4,
                   39.2,
-                  180
+                  182
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#24B7A2",
+                "hex": "#1CB7A5",
                 "lch": [
                   67.2,
                   41.6,
-                  180
+                  182
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#00A792",
+                "hex": "#00A795",
                 "lch": [
                   61.0,
                   44.0,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#009782",
+                "hex": "#009785",
                 "lch": [
                   54.8,
                   46.4,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#008772",
+                "hex": "#008775",
                 "lch": [
                   48.6,
                   48.8,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#007763",
+                "hex": "#007766",
                 "lch": [
                   42.4,
                   51.2,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#006854",
+                "hex": "#006857",
                 "lch": [
                   36.2,
                   53.6,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#005845",
+                "hex": "#005948",
                 "lch": [
                   30.0,
                   56.0,
-                  180
+                  182
                 ],
                 "gamutClipped": true
               }
@@ -10693,107 +10696,107 @@
                 "lch": [
                   92.0,
                   32.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#70E8F6",
+                "hex": "#70E7F8",
                 "lch": [
                   85.8,
                   34.4,
-                  210
+                  212
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 2,
-                "hex": "#4ED7E6",
+                "hex": "#4ED7E8",
                 "lch": [
                   79.6,
                   36.8,
-                  210
+                  212
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#19C7D7",
+                "hex": "#17C6D9",
                 "lch": [
                   73.4,
                   39.2,
-                  210
+                  212
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#00B6C8",
+                "hex": "#00B6CA",
                 "lch": [
                   67.2,
                   41.6,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#00A6B9",
+                "hex": "#00A6BB",
                 "lch": [
                   61.0,
                   44.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#0096AA",
+                "hex": "#0096AD",
                 "lch": [
                   54.8,
                   46.4,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#00879C",
+                "hex": "#00879E",
                 "lch": [
                   48.6,
                   48.8,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#00778D",
+                "hex": "#007790",
                 "lch": [
                   42.4,
                   51.2,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#00687F",
+                "hex": "#006882",
                 "lch": [
                   36.2,
                   53.6,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#005971",
+                "hex": "#005974",
                 "lch": [
                   30.0,
                   56.0,
-                  210
+                  212
                 ],
                 "gamutClipped": true
               }
@@ -10801,111 +10804,111 @@
             "azure": [
               {
                 "grade": 0,
-                "hex": "#9CF3FF",
+                "hex": "#9EF3FF",
                 "lch": [
                   92.0,
                   32.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#81E3FF",
+                "hex": "#84E2FF",
                 "lch": [
                   85.8,
                   34.4,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#64D2FF",
+                "hex": "#67D1FF",
                 "lch": [
                   79.6,
                   36.8,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#3FC1F2",
+                "hex": "#44C1F3",
                 "lch": [
                   73.4,
                   39.2,
-                  240
+                  242
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#00B1E4",
+                "hex": "#00B1E5",
                 "lch": [
                   67.2,
                   41.6,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 5,
-                "hex": "#00A1D6",
+                "hex": "#00A1D7",
                 "lch": [
                   61.0,
                   44.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 6,
-                "hex": "#0092C8",
+                "hex": "#0091C9",
                 "lch": [
                   54.8,
                   46.4,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 7,
-                "hex": "#0082BA",
+                "hex": "#0082BC",
                 "lch": [
                   48.6,
                   48.8,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#0073AD",
+                "hex": "#0073AE",
                 "lch": [
                   42.4,
                   51.2,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#0064A0",
+                "hex": "#0064A1",
                 "lch": [
                   36.2,
                   53.6,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#005693",
+                "hex": "#005594",
                 "lch": [
                   30.0,
                   56.0,
-                  240
+                  242
                 ],
                 "gamutClipped": true
               }
@@ -10913,111 +10916,111 @@
             "blue": [
               {
                 "grade": 0,
-                "hex": "#C2EBFF",
+                "hex": "#C5EAFF",
                 "lch": [
                   92.0,
                   32.0,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#ACDAFF",
+                "hex": "#B0D9FF",
                 "lch": [
                   85.8,
                   34.4,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#97C8FF",
+                "hex": "#9AC8FF",
                 "lch": [
                   79.6,
                   36.8,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#80B8FC",
+                "hex": "#84B7FC",
                 "lch": [
                   73.4,
                   39.2,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#68A7EE",
+                "hex": "#6DA7EE",
                 "lch": [
                   67.2,
                   41.6,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#4E97E1",
+                "hex": "#5496E1",
                 "lch": [
                   61.0,
                   44.0,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#2D87D3",
+                "hex": "#3787D3",
                 "lch": [
                   54.8,
                   46.4,
-                  270
+                  272
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#0078C6",
+                "hex": "#0077C6",
                 "lch": [
                   48.6,
                   48.8,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 8,
-                "hex": "#0069B9",
+                "hex": "#0068B9",
                 "lch": [
                   42.4,
                   51.2,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 9,
-                "hex": "#005BAC",
+                "hex": "#005AAC",
                 "lch": [
                   36.2,
                   53.6,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 10,
-                "hex": "#004D9F",
+                "hex": "#004C9F",
                 "lch": [
                   30.0,
                   56.0,
-                  270
+                  272
                 ],
                 "gamutClipped": true
               }
@@ -11025,111 +11028,111 @@
             "violet": [
               {
                 "grade": 0,
-                "hex": "#EDE0FF",
+                "hex": "#F0DFFF",
                 "lch": [
                   92.0,
                   32.0,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#DBCEFF",
+                "hex": "#DECDFF",
                 "lch": [
                   85.8,
                   34.4,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#CABCFF",
+                "hex": "#CDBCFF",
                 "lch": [
                   79.6,
                   36.8,
-                  300
+                  302
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#B8ABF2",
+                "hex": "#BCAAF1",
                 "lch": [
                   73.4,
                   39.2,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#A79AE4",
+                "hex": "#AA99E3",
                 "lch": [
                   67.2,
                   41.6,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#9689D7",
+                "hex": "#9A88D5",
                 "lch": [
                   61.0,
                   44.0,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#8579C9",
+                "hex": "#8977C7",
                 "lch": [
                   54.8,
                   46.4,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#7368BB",
+                "hex": "#7867BA",
                 "lch": [
                   48.6,
                   48.8,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#6259AE",
+                "hex": "#6758AC",
                 "lch": [
                   42.4,
                   51.2,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#504AA0",
+                "hex": "#56489F",
                 "lch": [
                   36.2,
                   53.6,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#3E3B93",
+                "hex": "#443992",
                 "lch": [
                   30.0,
                   56.0,
-                  300
+                  302
                 ],
                 "gamutClipped": false
               }
@@ -11137,111 +11140,111 @@
             "magenta": [
               {
                 "grade": 0,
-                "hex": "#FFD7FF",
+                "hex": "#FFD6FF",
                 "lch": [
                   92.0,
                   32.0,
-                  330
+                  332
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#FFC4F8",
+                "hex": "#FFC3F6",
                 "lch": [
                   85.8,
                   34.4,
-                  330
+                  332
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#F1B1E8",
+                "hex": "#F3B0E6",
                 "lch": [
                   79.6,
                   36.8,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 3,
-                "hex": "#E29FD9",
+                "hex": "#E49ED7",
                 "lch": [
                   73.4,
                   39.2,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#D28DCA",
+                "hex": "#D48CC7",
                 "lch": [
                   67.2,
                   41.6,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#C37BBB",
+                "hex": "#C57AB8",
                 "lch": [
                   61.0,
                   44.0,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#B469AC",
+                "hex": "#B668AA",
                 "lch": [
                   54.8,
                   46.4,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#A5579D",
+                "hex": "#A8569B",
                 "lch": [
                   48.6,
                   48.8,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#96458F",
+                "hex": "#99448C",
                 "lch": [
                   42.4,
                   51.2,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#883381",
+                "hex": "#8A317E",
                 "lch": [
                   36.2,
                   53.6,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#791E73",
+                "hex": "#7B1C70",
                 "lch": [
                   30.0,
                   56.0,
-                  330
+                  332
                 ],
                 "gamutClipped": false
               }
@@ -11249,111 +11252,111 @@
             "rose": [
               {
                 "grade": 0,
-                "hex": "#FFD2E9",
+                "hex": "#FFD2E7",
                 "lch": [
                   92.0,
                   32.0,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 1,
-                "hex": "#FFBED8",
+                "hex": "#FFBED6",
                 "lch": [
                   85.8,
                   34.4,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 2,
-                "hex": "#FFABC7",
+                "hex": "#FFABC4",
                 "lch": [
                   79.6,
                   36.8,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               },
               {
                 "grade": 3,
-                "hex": "#F798B6",
+                "hex": "#F898B3",
                 "lch": [
                   73.4,
                   39.2,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 4,
-                "hex": "#E986A5",
+                "hex": "#E985A2",
                 "lch": [
                   67.2,
                   41.6,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 5,
-                "hex": "#DA7395",
+                "hex": "#DB7392",
                 "lch": [
                   61.0,
                   44.0,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 6,
-                "hex": "#CB6085",
+                "hex": "#CC6082",
                 "lch": [
                   54.8,
                   46.4,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 7,
-                "hex": "#BC4D75",
+                "hex": "#BD4D72",
                 "lch": [
                   48.6,
                   48.8,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 8,
-                "hex": "#AD3966",
+                "hex": "#AE3863",
                 "lch": [
                   42.4,
                   51.2,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 9,
-                "hex": "#9E2257",
+                "hex": "#9F2154",
                 "lch": [
                   36.2,
                   53.6,
-                  360
+                  362
                 ],
                 "gamutClipped": false
               },
               {
                 "grade": 10,
-                "hex": "#8F0049",
+                "hex": "#900046",
                 "lch": [
                   30.0,
                   56.0,
-                  360
+                  362
                 ],
                 "gamutClipped": true
               }
@@ -11544,168 +11547,168 @@
               "sourceAlphaBeforeSerialization": 0.3125
             },
             "status.success": {
-              "value": "#006527",
+              "value": "#00652A",
               "sourceKey": "green[9]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 6.4113,
-                "panel": 5.6454,
-                "raised": 4.7404,
-                "hover": 3.8135
+                "canvas": 6.4021,
+                "panel": 5.6373,
+                "raised": 4.7336,
+                "hover": 3.8081
               }
             },
             "status.successBackground": {
-              "value": "#A5E5B5",
+              "value": "#A3E6B7",
               "sourceKey": "green[1]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.2804,
-                "panel": 1.1274,
-                "raised": 1.0563,
-                "hover": 1.313
+                "canvas": 1.2729,
+                "panel": 1.1209,
+                "raised": 1.0625,
+                "hover": 1.3207
               }
             },
             "status.warning": {
-              "value": "#685300",
+              "value": "#655400",
               "sourceKey": "yellow[9]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 6.5584,
-                "panel": 5.7749,
-                "raised": 4.8492,
-                "hover": 3.901
+                "canvas": 6.5688,
+                "panel": 5.784,
+                "raised": 4.8568,
+                "hover": 3.9072
               }
             },
             "status.warningBackground": {
-              "value": "#EED495",
+              "value": "#ECD595",
               "sourceKey": "yellow[1]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.2793,
-                "panel": 1.1265,
-                "raised": 1.0572,
-                "hover": 1.3141
+                "canvas": 1.2766,
+                "panel": 1.1241,
+                "raised": 1.0595,
+                "hover": 1.317
               }
             },
             "status.danger": {
-              "value": "#9D2C2D",
+              "value": "#9C2D2A",
               "sourceKey": "red[9]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 6.5448,
-                "panel": 5.763,
-                "raised": 4.8391,
-                "hover": 3.8929
+                "canvas": 6.5667,
+                "panel": 5.7822,
+                "raised": 4.8552,
+                "hover": 3.9059
               }
             },
             "status.dangerBackground": {
-              "value": "#FFC1B8",
+              "value": "#FFC1B6",
               "sourceKey": "red[1]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.3656,
-                "panel": 1.2024,
-                "raised": 1.0097,
-                "hover": 1.2311
+                "canvas": 1.3672,
+                "panel": 1.2039,
+                "raised": 1.0109,
+                "hover": 1.2296
               }
             },
             "status.info": {
-              "value": "#004D9F",
+              "value": "#004C9F",
               "sourceKey": "blue[10]",
               "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
               "contrastOnSurfaces": {
-                "canvas": 7.2335,
-                "panel": 6.3694,
-                "raised": 5.3483,
-                "hover": 4.3026
+                "canvas": 7.3127,
+                "panel": 6.4392,
+                "raised": 5.4069,
+                "hover": 4.3497
               }
             },
             "status.infoBackground": {
-              "value": "#ACDAFF",
+              "value": "#B0D9FF",
               "sourceKey": "blue[1]",
               "usage": "Tinted status-container fill; use matching status foreground",
               "contrastOnSurfaces": {
-                "canvas": 1.3027,
-                "panel": 1.1471,
-                "raised": 1.0382,
-                "hover": 1.2905
+                "canvas": 1.3038,
+                "panel": 1.148,
+                "raised": 1.0374,
+                "hover": 1.2895
               }
             },
             "support.orange": {
-              "value": "#884200",
+              "value": "#874300",
               "sourceKey": "orange[9]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.5579,
-                "panel": 5.7745,
-                "raised": 4.8488,
-                "hover": 3.9007
+                "canvas": 6.5419,
+                "panel": 5.7604,
+                "raised": 4.837,
+                "hover": 3.8912
               }
             },
             "support.chartreuse": {
-              "value": "#3D5F00",
+              "value": "#395F00",
               "sourceKey": "chartreuse[9]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.5367,
-                "panel": 5.7558,
-                "raised": 4.8331,
-                "hover": 3.8881
+                "canvas": 6.5936,
+                "panel": 5.8059,
+                "raised": 4.8751,
+                "hover": 3.9219
               }
             },
             "support.spring": {
-              "value": "#005845",
+              "value": "#005948",
               "sourceKey": "spring[10]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 7.4677,
-                "panel": 6.5756,
-                "raised": 5.5215,
-                "hover": 4.4419
+                "canvas": 7.3472,
+                "panel": 6.4695,
+                "raised": 5.4324,
+                "hover": 4.3702
               }
             },
             "support.cyan": {
-              "value": "#005971",
+              "value": "#005974",
               "sourceKey": "cyan[10]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.9482,
-                "panel": 6.1181,
-                "raised": 5.1373,
-                "hover": 4.1328
+                "canvas": 6.9126,
+                "panel": 6.0868,
+                "raised": 5.111,
+                "hover": 4.1117
               }
             },
             "support.violet": {
-              "value": "#504AA0",
+              "value": "#56489F",
               "sourceKey": "violet[9]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.5531,
-                "panel": 5.7702,
-                "raised": 4.8452,
-                "hover": 3.8978
+                "canvas": 6.5646,
+                "panel": 5.7803,
+                "raised": 4.8537,
+                "hover": 3.9047
               }
             },
             "support.magenta": {
-              "value": "#883381",
+              "value": "#8A317E",
               "sourceKey": "magenta[9]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.5319,
-                "panel": 5.7516,
-                "raised": 4.8296,
-                "hover": 3.8853
+                "canvas": 6.5693,
+                "panel": 5.7845,
+                "raised": 4.8572,
+                "hover": 3.9075
               }
             },
             "support.rose": {
-              "value": "#9E2257",
+              "value": "#9F2154",
               "sourceKey": "rose[9]",
               "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
               "contrastOnSurfaces": {
-                "canvas": 6.5716,
-                "panel": 5.7865,
-                "raised": 4.8589,
-                "hover": 3.9089
+                "canvas": 6.5728,
+                "panel": 5.7876,
+                "raised": 4.8598,
+                "hover": 3.9096
               }
             }
           },
@@ -11727,21 +11730,21 @@
             "accent.ink": "#ECE7E5",
             "accent.secondary": "#A81B00",
             "selection.background": "#90580050",
-            "status.success": "#006527",
-            "status.successBackground": "#A5E5B5",
-            "status.warning": "#685300",
-            "status.warningBackground": "#EED495",
-            "status.danger": "#9D2C2D",
-            "status.dangerBackground": "#FFC1B8",
-            "status.info": "#004D9F",
-            "status.infoBackground": "#ACDAFF",
-            "support.orange": "#884200",
-            "support.chartreuse": "#3D5F00",
-            "support.spring": "#005845",
-            "support.cyan": "#005971",
-            "support.violet": "#504AA0",
-            "support.magenta": "#883381",
-            "support.rose": "#9E2257"
+            "status.success": "#00652A",
+            "status.successBackground": "#A3E6B7",
+            "status.warning": "#655400",
+            "status.warningBackground": "#ECD595",
+            "status.danger": "#9C2D2A",
+            "status.dangerBackground": "#FFC1B6",
+            "status.info": "#004C9F",
+            "status.infoBackground": "#B0D9FF",
+            "support.orange": "#874300",
+            "support.chartreuse": "#395F00",
+            "support.spring": "#005948",
+            "support.cyan": "#005974",
+            "support.violet": "#56489F",
+            "support.magenta": "#8A317E",
+            "support.rose": "#9F2154"
           },
           "syntaxRoles": {
             "identifier": {
@@ -11794,7 +11797,7 @@
             },
             "invalid": {
               "sourceKey": "red[8]",
-              "value": "#AC403C"
+              "value": "#AC413A"
             }
           },
           "contrastChecks": [
@@ -11914,7 +11917,7 @@
               "name": "success badge",
               "foreground": "status.success",
               "background": "status.successBackground",
-              "ratio": 5.0073,
+              "ratio": 5.0295,
               "minimum": 4.5,
               "passes": true
             },
@@ -11922,7 +11925,7 @@
               "name": "warning badge",
               "foreground": "status.warning",
               "background": "status.warningBackground",
-              "ratio": 5.1264,
+              "ratio": 5.1456,
               "minimum": 4.5,
               "passes": true
             },
@@ -11930,7 +11933,7 @@
               "name": "danger badge",
               "foreground": "status.danger",
               "background": "status.dangerBackground",
-              "ratio": 4.7928,
+              "ratio": 4.8029,
               "minimum": 4.5,
               "passes": true
             },
@@ -11938,7 +11941,7 @@
               "name": "info badge",
               "foreground": "status.info",
               "background": "status.infoBackground",
-              "ratio": 5.5525,
+              "ratio": 5.6088,
               "minimum": 4.5,
               "passes": true
             },
@@ -11978,7 +11981,7 @@
               "name": "success text on canvas",
               "foreground": "status.success",
               "background": "surface.canvas",
-              "ratio": 6.4113,
+              "ratio": 6.4021,
               "minimum": 4.5,
               "passes": true
             },
@@ -11986,7 +11989,7 @@
               "name": "success text on panel",
               "foreground": "status.success",
               "background": "surface.panel",
-              "ratio": 5.6454,
+              "ratio": 5.6373,
               "minimum": 4.5,
               "passes": true
             },
@@ -11994,7 +11997,7 @@
               "name": "success text on raised",
               "foreground": "status.success",
               "background": "surface.raised",
-              "ratio": 4.7404,
+              "ratio": 4.7336,
               "minimum": 4.5,
               "passes": true
             },
@@ -12002,7 +12005,7 @@
               "name": "warning text on canvas",
               "foreground": "status.warning",
               "background": "surface.canvas",
-              "ratio": 6.5584,
+              "ratio": 6.5688,
               "minimum": 4.5,
               "passes": true
             },
@@ -12010,7 +12013,7 @@
               "name": "warning text on panel",
               "foreground": "status.warning",
               "background": "surface.panel",
-              "ratio": 5.7749,
+              "ratio": 5.784,
               "minimum": 4.5,
               "passes": true
             },
@@ -12018,7 +12021,7 @@
               "name": "warning text on raised",
               "foreground": "status.warning",
               "background": "surface.raised",
-              "ratio": 4.8492,
+              "ratio": 4.8568,
               "minimum": 4.5,
               "passes": true
             },
@@ -12026,7 +12029,7 @@
               "name": "danger text on canvas",
               "foreground": "status.danger",
               "background": "surface.canvas",
-              "ratio": 6.5448,
+              "ratio": 6.5667,
               "minimum": 4.5,
               "passes": true
             },
@@ -12034,7 +12037,7 @@
               "name": "danger text on panel",
               "foreground": "status.danger",
               "background": "surface.panel",
-              "ratio": 5.763,
+              "ratio": 5.7822,
               "minimum": 4.5,
               "passes": true
             },
@@ -12042,7 +12045,7 @@
               "name": "danger text on raised",
               "foreground": "status.danger",
               "background": "surface.raised",
-              "ratio": 4.8391,
+              "ratio": 4.8552,
               "minimum": 4.5,
               "passes": true
             },
@@ -12050,7 +12053,7 @@
               "name": "info text on canvas",
               "foreground": "status.info",
               "background": "surface.canvas",
-              "ratio": 7.2335,
+              "ratio": 7.3127,
               "minimum": 4.5,
               "passes": true
             },
@@ -12058,7 +12061,7 @@
               "name": "info text on panel",
               "foreground": "status.info",
               "background": "surface.panel",
-              "ratio": 6.3694,
+              "ratio": 6.4392,
               "minimum": 4.5,
               "passes": true
             },
@@ -12066,7 +12069,7 @@
               "name": "info text on raised",
               "foreground": "status.info",
               "background": "surface.raised",
-              "ratio": 5.3483,
+              "ratio": 5.4069,
               "minimum": 4.5,
               "passes": true
             },
@@ -12081,6 +12084,7 @@
           ],
           "allEssentialPairsPass": true,
           "notes": [
+            "Adapted from dolch-light-alter: fg, bg, coShades, accent and coAccent preserve the exact upstream custom ramps; the twelve base families use the shared original Blue/Tide colours for this mode.",
             "Light primitives preserve the source lightness direction: higher grades are darker.",
             "Semantic aliases are Solai proposals, not upstream role assignments. Grades are selected against their actual paired surfaces.",
             "Muted text stays on canvas/panel; on raised use text.secondary or darker.",

@@ -35,18 +35,22 @@ function cssName(value) {
 
 export function exportCSS(palette, flavorName, mode) {
   const modeName = mode === 'light' ? 'Light' : 'Dark';
-  const provenance = palette.upstreamVariant
-    ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
-    : 'Independent colour study using the Dolch generation method.';
+  const provenance = palette.customUpstreamVariant
+    ? `Dolch Alter custom ramps (${palette.customUpstreamVariant}) with shared Dolch Blue base colours: Renzhi Li, MIT.`
+    : palette.upstreamVariant
+      ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
+      : 'Independent colour study using the Dolch generation method.';
   return `/* Solai ${flavorName} ${modeName} · ${provenance} Semantic UI roles are proposed. */\n:root {\n  color-scheme: ${mode};\n` +
     Object.entries(palette.roleValues).map(([key, value]) => `  --solai-${cssName(key)}: ${value};`).join('\n') + '\n}\n';
 }
 
 export function exportTailwindCSS(palette, flavorName, mode) {
   const modeName = mode === 'light' ? 'Light' : 'Dark';
-  const provenance = palette.upstreamVariant
-    ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
-    : 'Independent colour study using the Dolch generation method by Renzhi Li (MIT).';
+  const provenance = palette.customUpstreamVariant
+    ? `Dolch Alter custom ramps (${palette.customUpstreamVariant}) with shared Dolch Blue base colours: Renzhi Li, MIT.`
+    : palette.upstreamVariant
+      ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
+      : 'Independent colour study using the Dolch generation method by Renzhi Li (MIT).';
   const primitives = Object.entries(palette.primitives).flatMap(([family, colors]) =>
     colors.map((value, grade) => `  --color-solai-${cssName(family)}-${grade}: ${value};`));
   const roles = Object.entries(palette.roleValues)

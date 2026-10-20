@@ -1,101 +1,52 @@
 import { initTheme } from './theme.js';
-import { copy, contrastInk, exportCSS } from './palette-shared.js';
+import { copy, exportCSS } from './palette-shared.js';
 import { createRamp } from './palette-ramp.js';
 
 const selection = document.querySelector('#palette-selection');
 const status = document.querySelector('#palette-status');
 const content = document.querySelector('#palette-content');
 const copyCSSButton = document.querySelector('#copy-css');
-const rampList = document.querySelector('#palette-ramp-list');
-const neutralSwatches = document.querySelector('#neutral-swatches');
-const accentSwatches = document.querySelector('#accent-swatches');
-const buttonRatio = document.querySelector('#button-ratio');
-const contrastCount = document.querySelector('#contrast-count');
-
-const neutralRoles = [
-  ['Canvas', 'surface.canvas'],
-  ['Panel', 'surface.panel'],
-  ['Raised', 'surface.raised'],
-  ['Border', 'border.subtle'],
-  ['Text', 'text.secondary'],
-  ['Emphasis', 'text.emphasis'],
-];
-const accentFamilies = [
-  ['Red', 'red'],
-  ['Orange', 'orange'],
-  ['Yellow', 'yellow'],
-  ['Chartreuse', 'chartreuse'],
-  ['Green', 'green'],
-  ['Spring green', 'spring'],
-  ['Cyan', 'cyan'],
-  ['Azure', 'azure'],
-  ['Blue', 'blue'],
-  ['Violet', 'violet'],
-  ['Magenta', 'magenta'],
-  ['Rose', 'rose'],
-];
+const rampTables = [...document.querySelectorAll('[data-ramp-table]')].map(section => ({
+  id: section.dataset.rampTable,
+  region: section.querySelector('[role="region"]'),
+  list: section.querySelector('[data-ramp-list]'),
+}));
+const customFamilies = ['fg', 'bg', 'coShades', 'accent', 'coAccent'];
 
 let currentSelection;
+let renderedRampMode;
 
-function createSwatch(label, hex, source, role) {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'swatch group min-w-0 rounded-[2px] border-0 bg-transparent p-0 text-left';
-  const origin = role ? `${role} · ${source}` : source;
-  button.title = `${label} · ${origin} · copy ${hex}`;
-  button.setAttribute('aria-label', `Copy ${label}, ${hex}, ${origin}`);
+function renderRampTables(data, mode, modeName) {
+  if (renderedRampMode === mode) return;
 
-  const colour = document.createElement('span');
-  colour.className = 'swatch-color flex h-[92px] items-center justify-center rounded-[2px] border border-solai-border-strong font-mono text-[12px] leading-[normal] text-(--swatch-ink) [@media(max-width:650px)]:h-[74px]';
-  colour.style.backgroundColor = hex;
-  colour.style.setProperty('--swatch-ink', contrastInk(hex));
-  const hint = document.createElement('span');
-  hint.className = 'opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100';
-  hint.textContent = '↗ COPY';
-  hint.setAttribute('aria-hidden', 'true');
-  colour.append(hint);
-
-  const name = document.createElement('span');
-  name.className = 'swatch-name mt-[9px] block font-sans text-[12px] leading-[normal] whitespace-nowrap';
-  name.textContent = label;
-  const value = document.createElement('span');
-  value.className = 'swatch-hex mt-[3px] mb-[16px] block font-mono text-[12px] leading-[normal] text-solai-text-muted';
-  value.textContent = hex;
-
-  button.append(colour, name, value);
-  button.addEventListener('click', () => copy(hex, `${label} · ${hex} copied`));
-  return button;
-}
-
-function createRoleSwatch(palette, label, key) {
-  return createSwatch(label, palette.roleValues[key], palette.roles[key].sourceKey, key);
+  const basePalette = data.flavors.blue.modes[mode];
+  const baseFamilies = Object.keys(basePalette.primitives).filter(family => !customFamilies.includes(family));
+  for (const table of rampTables) {
+    const isBase = table.id === 'base';
+    const palette = isBase ? basePalette : data.flavors[table.id].modes[mode];
+    const name = isBase ? 'Base colours' : data.flavors[table.id].name;
+    const context = `${name} · ${modeName}`;
+    const families = isBase ? baseFamilies : customFamilies;
+    const onCopy = (hex, message) => copy(hex, `${context} · ${message}`);
+    const ramps = families.map(family => {
+      const ramp = createRamp(family, palette.primitives[family], onCopy);
+      ramp.setAttribute('aria-label', `${context} · ${family} colour ramp`);
+      return ramp;
+    });
+    table.region.setAttribute('aria-label', `${context} ramps`);
+    table.list.replaceChildren(...ramps);
+  }
+  renderedRampMode = mode;
 }
 
 function renderPalette({ data, flavour, mode, palette }) {
   const flavorName = data.flavors[flavour].name;
   const modeName = mode === 'light' ? 'Light' : 'Dark';
-  const ramps = Object.entries(palette.primitives).map(([family, colors]) =>
-    createRamp(family, colors, copy),
-  );
-  const neutrals = neutralRoles.map(([label, key]) => createRoleSwatch(palette, label, key));
-  const accents = [
-    createRoleSwatch(palette, 'Lead', 'accent.primary'),
-    createRoleSwatch(palette, 'Companion', 'accent.secondary'),
-    ...accentFamilies.map(([label, family]) =>
-      createSwatch(label, palette.primitives[family][8], `${family}[8]`),
-    ),
-  ];
-  const primaryButton = palette.contrastChecks.find(check => check.name === 'Primary button');
-
-  rampList.replaceChildren(...ramps);
-  neutralSwatches.replaceChildren(...neutrals);
-  accentSwatches.replaceChildren(...accents);
-  buttonRatio.textContent = `${primaryButton.ratio.toFixed(2)}:1`;
-  buttonRatio.title = `${primaryButton.foreground} on ${primaryButton.background}; target ${primaryButton.minimum}:1`;
-  contrastCount.textContent = String(palette.contrastChecks.length);
-  selection.textContent = `${flavorName} · ${modeName}`;
+  renderRampTables(data, mode, modeName);
+  selection.textContent = `${flavorName} · ${modeName} selected theme`;
   document.title = `${flavorName} ${modeName} palette — Solai`;
   currentSelection = { palette, flavorName, mode, modeName };
+  copyCSSButton.setAttribute('aria-label', `Copy selected theme CSS, ${flavorName} ${modeName}`);
   copyCSSButton.disabled = false;
   content.hidden = false;
   status.hidden = true;

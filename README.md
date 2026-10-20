@@ -58,7 +58,7 @@ Use classes such as `bg-solai-surface-canvas`, `text-solai-text-primary`, `borde
 
 The family defaults to Tide Dark. Set `data-flavor="blue|alter|violet|green|rose"` and `data-mode="dark|light"` on the same root or nested container to select a variant. Its `@theme inline` aliases resolve at the consuming element, including nested themes. The single-variant download uses literal `@theme static` values and does not require theme attributes. Import either the family or one fixed variant, not both.
 
-These exports require Tailwind v4 and contain colours only—not fonts, layout, guide-only mappings or additional syntax aliases. Original primitive values, alpha selection and proposed semantic roles are preserved. Contrast still depends on the actual foreground/background pairing.
+These exports require Tailwind v4 and contain colours only—not fonts, layout, guide-only mappings or additional syntax aliases. Canonical primitive values, alpha selection and proposed semantic roles are preserved by the serializers. Contrast still depends on the actual foreground/background pairing.
 
 ## Version control
 
@@ -68,7 +68,7 @@ This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj
 
 The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation. The full-width hero and transparent overlaid header are retained. The native theme dropdown and Dark/Light toggle are paired at the header's right edge, synchronized with the lower flavour cards; there is no palette bar below the hero.
 
-The home page contains Flavours, Previews and Downloads. `/palette/` describes the colour families and contains the ramps, role swatches and selected contrast checks; copying/keyboard instructions are optional, collapsed help. `/guide/` explores semantic meanings in eight usage contexts.
+The home page contains Flavours, Previews and Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
 
 The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls, artwork treatments and preview tabs use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
 
@@ -80,7 +80,9 @@ Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light
 
 ### Palette interaction
 
-The generated ramps use compact pseudo-table rows with a shared 0–10 grade header. Each bar is a continuous OKLab-interpolated gradient with dots at the original stops. Each row has its own colour-filled preview, overlaid on the bar for hover or keyboard focus. On entry, it is placed at the current stop before fading in; it never slides in from that row's cached column. Leaving the row fades its window out over 120 ms without intercepting pointer input. Movement within the row slides between stops. Clicking the bar, window or a dot copies the original hex value, never an interpolated sample.
+The explorer shows six tables at once: twelve shared base families at the top, then Tide, Ember, Dusk, Viridian and Bloom, each with `fg`, `bg`, `coShades`, `accent` and `coAccent`. Dark/Light switches every table to that mode. The site flavour changes the surrounding interface and selected-theme CSS copy target without rebuilding or hiding tables, so inspected grades, keyboard focus and horizontal scroll positions remain intact.
+
+Each table uses compact pseudo-table rows with its own 0–10 grade header and horizontal scroll region. Every bar is a continuous OKLab-interpolated gradient with dots at the canonical stops. Each row has its own colour-filled preview, overlaid on the bar for hover or keyboard focus. On entry, it is placed at the current stop before fading in; it never slides in from that row's cached column. Leaving the row fades its window out over 120 ms without intercepting pointer input. Movement within the row slides between stops. Clicking a bar, window or dot copies the exact hex value, with the table's flavour/mode identified in the feedback.
 
 Horizontal motion is fixed to **Glide: 150 ms with `cubic-bezier(.22, .68, 0, 1)`**, with no motion selector. Reduced motion disables both slides and fades. Keyboard users get one tab stop per row: Left/Right and Home/End choose a grade; Enter or Space copies. Narrow screens scroll the table horizontally with sticky family labels, while touch copying and scrolling remain native.
 
@@ -100,7 +102,7 @@ These are **guide-only proposals** resolved from canonical palette roles, syntax
 
 `public/assets/palettes.json` uses schema version 2: select a variant with `flavors[id].modes.dark` or `flavors[id].modes.light`. Each variant includes its primitive ramps, proposed semantic roles, provenance and selected contrast checks. Current-palette JSON/CSS filenames include the mode, such as `solai-tide-light.json`; the whole-family export contains all ten variants. The static family CSS uses `[data-flavor="blue"][data-mode="light"]` selectors and `--solai-*` variables.
 
-The explorer's OKLab interpolation is display-only. The source ramp generation, primitive colours, semantic mappings and existing JSON/CSS exports are unchanged; the Tailwind exports serialize those same values.
+The explorer's OKLab interpolation is display-only. All five flavours share Tide's twelve base families in each mode. Ember's former base families have been replaced with those Tide values; its five custom ramps remain source-exact Dolch Alter. The generator recalculates affected semantic/syntax values and contrast checks and updates every live export together.
 
 To regenerate the live data and exports, using Python 3's standard library:
 
@@ -145,6 +147,6 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 
 ## Provenance and licenses
 
-Tide preserves Dolch Blue primitives in both modes (`dolch` and `dolch-light`); Ember preserves Dolch Alter primitives (`dolch-alter` and `dolch-light-alter`). Dusk, Viridian and Bloom are independent color studies using each mode's original generation approach and an unrotated status ring. The semantic UI role mappings are proposed in every variant, including Tide and Ember. Light roles choose darker grades where needed for their actual text, control and badge pairings. The selected checks are not a complete accessibility audit.
+Tide preserves Dolch Blue primitives in both modes (`dolch` and `dolch-light`). Ember is adapted: its `fg`, `bg`, `coShades`, `accent` and `coAccent` ramps preserve Dolch Alter (`dolch-alter` and `dolch-light-alter`), while its twelve base families use Tide's corresponding-mode values. Ember's metadata uses `provenance: "adapted"`, `upstreamVariant: null` and `customUpstreamVariant` to identify the original Alter source without claiming a complete upstream-exact palette. Dusk, Viridian and Bloom are independent colour studies. All five flavours share the same base/status ring per mode. Semantic UI mappings remain proposed in every variant. Light roles choose darker grades where needed for their actual text, control and badge pairings. Selected checks remain in the data and generator, but are not a complete accessibility audit.
 
 Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. Preserve `public/downloads/LICENSE-Dolch.txt` and all font notices. The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.

@@ -16,7 +16,7 @@ function updateTheme(){
   $('.canvas-hex').textContent="'"+r['surface.canvas']+"'";
   $('.accent-hex').textContent="'"+r['accent.primary']+"'";
   $('#flavour-description').textContent=descriptions[flavour];
-  $('#flavour-origin').textContent=f.upstreamVariant?'UPSTREAM PALETTE · PROPOSED UI ROLES':'NEW COLOUR STUDY';
+  $('#flavour-origin').textContent=f.customUpstreamVariant?'ADAPTED PALETTE · PROPOSED UI ROLES':f.upstreamVariant?'UPSTREAM PALETTE · PROPOSED UI ROLES':'NEW COLOUR STUDY';
   $$('.flavour-button').forEach(b=>{
     const active=b.dataset.flavour===flavour;
     const colors=data.flavors[b.dataset.flavour].modes[mode].roleValues;
