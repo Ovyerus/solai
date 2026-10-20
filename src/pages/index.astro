@@ -19,17 +19,12 @@ const downloadRow = 'group flex w-full items-center justify-between gap-[20px] b
 
   <main id="main">
     <section class="hero m-0 w-full max-w-none pt-0" aria-label="Solai introduction">
-      <div class="hero-art relative isolate h-[clamp(420px,72svh,760px)] w-full overflow-hidden border-0 border-b border-solai-border-subtle bg-solai-surface-panel bg-[url('/assets/landscape.png')] bg-cover bg-center [@media(max-width:650px)]:h-[clamp(390px,70svh,620px)]">
-        <canvas class="absolute inset-0 z-0 block h-full w-full [image-rendering:auto]" id="landscape" width="1440" height="760" aria-label="An abstract mountain lake, rendered in the selected theme colours">A mountain lake rendered in the current theme.</canvas>
+      <div class="hero-art relative isolate h-[clamp(420px,72svh,760px)] w-full overflow-hidden border-0 border-b border-solai-border-subtle bg-solai-surface-canvas bg-[url('/assets/balcony-dither.png')] bg-cover bg-center [@media(max-width:650px)]:h-[clamp(390px,70svh,620px)] [@media(max-width:650px)]:bg-[position:8%_center]">
+        <canvas class="absolute inset-0 z-0 block h-full w-full opacity-0 data-[ready=true]:opacity-100 [image-rendering:pixelated]" id="hero-canvas" width="1440" height="760" role="img" aria-label="A planted high-rise balcony overlooking a mountain lake, the sun and ridge wind turbines, in ordered-dithered theme colours">A planted balcony above a mountain lake. Static Tide Dark dithering is shown when live rendering is unavailable.</canvas>
         <div class="hero-shade pointer-events-none absolute inset-0 z-[1]" aria-hidden="true"></div>
-        <div class="hero-heading wrap pointer-events-none absolute bottom-[55px] left-1/2 z-[2] m-0 flex -translate-x-1/2 flex-col items-start gap-[24px] [@media(max-width:650px)]:bottom-[90px] [@media(max-width:650px)]:gap-[19px]">
+        <div class="hero-heading wrap pointer-events-none absolute bottom-[55px] left-1/2 z-[2] m-0 flex -translate-x-1/2 flex-col items-start gap-[24px] [@media(max-width:650px)]:bottom-[32px] [@media(max-width:650px)]:gap-[19px]">
           <h1 class="m-0 -ml-[7px] w-[2.31em] text-[clamp(105px,13vw,190px)] leading-[0] text-solai-text-emphasis [@media(max-width:650px)]:-ml-[4px] [@media(max-width:650px)]:text-[clamp(88px,24vw,145px)]" aria-label="Solai"><Wordmark /></h1>
           <p class="m-0 max-w-[70%] font-sans text-[clamp(20px,2.2vw,29px)] font-normal leading-[1.4] tracking-[-.03em] text-solai-text-emphasis [@media(max-width:650px)]:max-w-full [@media(max-width:650px)]:text-[20px]">Light on water.<br />Colour on screen.</p>
-        </div>
-        <div class="effect-controls pointer-events-auto absolute right-[max(48px,calc((100vw_-_1280px)/2))] bottom-[28px] z-[3] flex gap-[4px] rounded-[2px] border border-solai-border-strong bg-solai-surface-panel p-[3px] [@media(max-width:1000px)]:right-[28px] [@media(max-width:650px)]:right-[18px] [@media(max-width:650px)]:bottom-[20px] [&_button]:min-h-[44px] [&_button]:rounded-[2px] [&_button]:border-0 [&_button]:bg-transparent [&_button]:px-[12px] [&_button]:py-[8px] [&_button]:font-sans [&_button]:text-[12px] [&_button]:text-solai-text-primary [&_button.active]:bg-solai-accent-primary [&_button.active]:text-solai-accent-ink [&_button:not(.active):hover]:bg-solai-surface-raised [&_button:not(.active):hover]:text-solai-text-emphasis" role="group" aria-label="Image treatment">
-          <button data-effect="soft" aria-pressed="false">Soft</button>
-          <button data-effect="dither" class="active" aria-pressed="true">Dither</button>
-          <button data-effect="ascii" aria-pressed="false">ASCII</button>
         </div>
       </div>
     </section>

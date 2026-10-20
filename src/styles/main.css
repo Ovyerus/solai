@@ -45,18 +45,18 @@
   @media (max-width: 650px) { width: calc(100% - 36px); }
 }
 
-/* The layered landscape gradients remain native artwork, not interface surfaces. */
+/* Theme-aware shade keeps branding readable over the dithered balcony. */
 @layer components {
   .hero-shade {
     background: linear-gradient(0deg, color-mix(in srgb, var(--canvas) 94%, transparent) 0%, color-mix(in srgb, var(--canvas) 75%, transparent) 24%, transparent 70%);
   }
   .hero-art::before {
-    content: ''; position: absolute; inset: 0 0 auto; height: 155px; z-index: 1;
+    content: ''; position: absolute; inset: 0 0 auto;
+    height: calc(var(--site-header-height, 240px) + 64px); z-index: 1;
     pointer-events: none;
-    background: linear-gradient(to bottom, color-mix(in srgb, var(--canvas) 82%, transparent), transparent);
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--canvas) 78%, transparent) 0%, color-mix(in srgb, var(--canvas) 78%, transparent) calc(100% - 64px), transparent);
   }
   @media (max-width: 650px) {
     .hero-shade { background: linear-gradient(0deg, color-mix(in srgb, var(--canvas) 96%, transparent), color-mix(in srgb, var(--canvas) 76%, transparent) 38%, transparent 85%); }
-    .hero-art::before { height: 130px; }
   }
 }

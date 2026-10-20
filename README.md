@@ -26,6 +26,8 @@ To build and preview the production site:
 ```sh
 node --check src/scripts/app.js
 node --check src/scripts/site-header.js
+node --check src/scripts/hero-settings.js
+node --check src/scripts/hero-art.js
 node --check src/scripts/palette.js
 node --check src/scripts/palette-ramp.js
 node --check src/scripts/guide.js
@@ -82,13 +84,19 @@ This folder is a colocated Jujutsu/Git repository (`.jj/` and `.git/`). Both `jj
 
 ## Current baseline
 
-The hero is a grayscale mountain-and-lake landscape with a small static skyline composited on the left shore. Soft, Dither and ASCII treatments recolor that image; moving the pointer reveals ASCII in a circular area. There is no continuous scene animation.
+The hero uses the AI-generated planted-balcony scene from `art-source/balcony/balcony-generated-reference.png`, copied unchanged to `public/assets/balcony.png`. It is always rendered with two-colour dithering; the old skyline overlay, Soft/ASCII variants and cursor reveal are removed. Desktop framing keeps the lake and sun in view; phone framing favours the planted facade and balcony rather than cropping them out.
+
+**Bayer fine** is the fixed dither treatment in both the live WebGL renderer and static Canvas2D fallback. The approved settings are 1.5px cells, 0.25 spread, 0.54 threshold, 1.1× contrast, 1 drift and 0.65 cursor strength, with **Ripple** as the sole pointer effect. Ripple rolls around the pointer; faster gestures add energy, while the dither grid stays fixed and the image retains the selected theme's two inks.
+
+The hero has no image-tweaking controls or PNG export. Its rendering settings are fixed in `src/scripts/hero-settings.js`; the normal site flavour and Dark/Light controls still recolour the artwork.
+
+WebGL handles the live image. Animation stops offscreen, in a hidden document or with reduced motion. Touch movement does not drive the image or capture scrolling. A static Canvas2D Bayer fine renderer supports browsers without WebGL and context loss. Without JavaScript, or if the source cannot load, the baked `public/assets/balcony-dither.png` Tide Dark poster remains visible. The poster is a separate full-scene fallback; keep it in sync when replacing the source.
 
 Navigation stays at the viewport top on Home, Palette and Guide. The home header remains transparent over the full-width hero at the top, then gains a solid theme surface while scrolling; Palette and Guide use a solid sticky header throughout. Anchor offsets follow the actual wrapped header height, and focusing visible navbar controls does not move the page. Without JavaScript, the header stays solid and uses a conservative anchor offset. The native theme dropdown and Dark/Light toggle remain paired at the header’s right edge and synchronized with the lower flavour cards; there is no palette bar below the hero.
 
 The home page contains Flavours, Previews and Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
 
-The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls, artwork treatments and preview tabs use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
+The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls and preview tabs use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
 
 The hero and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
 
@@ -144,7 +152,9 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/styles/main.css`: single Tailwind entry, font definitions, shared base rules and landscape gradients
 - `src/styles/themes.css`: generated UI colour variables and Tailwind aliases for every flavour/mode, applied before palette JSON loads
 - `src/styles/palette-ramps.css`: registered preview position and independent row motion/fades; ordinary palette and guide styling uses utilities in Astro/JavaScript
-- `src/scripts/app.js`: home flavour cards, samples, downloads and canvas rendering
+- `src/scripts/app.js`: home flavour cards, samples, downloads and hero/theme integration
+- `src/scripts/hero-art.js`: reactive WebGL ordered dithering with a static Canvas2D fallback
+- `src/scripts/hero-settings.js`: fixed Bayer fine matrix and approved rendering settings
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
 - `src/scripts/site-header.js`: observer-driven navbar measurement and home transparency; no continuous scroll loop
@@ -153,19 +163,19 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/scripts/guide-renderer.js`: shared source resolution and real guide specimens
 - `src/scripts/guide-editor.js`: isolated flavour/mode drafts, token controls and JSON proposals
 - `public/assets/palettes.json`: current canonical palette data and provenance
-- `public/assets/landscape.png`: current grayscale landscape source
+- `public/assets/balcony.png` and `balcony-dither.png`: active grayscale source and static Tide Dark dither poster
 - `public/assets/fonts/`: self-hosted font files and their license notices
 - `public/downloads/`: current family JSON/CSS, Tailwind colour tokens, original reference data, licenses and the untouched Dolch reference ZIP
 - `astro.config.mjs`: static output, trailing-slash routes and Tailwind's Vite plugin
 - `flake.nix` and `flake.lock`: pinned Node.js/pnpm development shell for Apple Silicon macOS and ARM64/x86-64 Linux
 - `.envrc`: optional nix-direnv integration
 - `pnpm-lock.yaml`: locked application dependencies; use pnpm rather than npm
-- `art-source/`: optional landscape generator and proposed balcony artwork
+- `art-source/`: preserved landscape, active balcony source and separate editable vector studies
 - `palette-source/`: optional Python palette generators and their complete inputs
 
-## Proposed balcony artwork
+## Balcony artwork
 
-`art-source/balcony/` contains an **editable vector SVG** balcony study, its PNG preview, the earlier grayscale scene SVG/preview, and a separate **AI-generated raster PNG reference**. The reference is a visual direction, not a vector source or an exact rendering of the SVG. None of these alternatives is wired into the current site. See `art-source/README.md` before changing the hero.
+The active scene is the **AI-generated raster PNG** `art-source/balcony/balcony-generated-reference.png`, not an exported version of the vector study. `art-source/balcony/` also retains the editable SVG, its PNG preview and the earlier grayscale scene SVG/preview; those remain inactive. The retired procedural PNG is preserved as `art-source/landscape-original.png`, with its optional generator alongside it. See `art-source/README.md` before replacing artwork. The live dither and motion treatment takes inspiration from [doll.systems](https://doll.systems/) and [fauux](https://fauux.neocities.org/), particularly the ordered texture in [promo9th.gif](https://fauux.neocities.org/promo9th.gif); their artwork is not bundled.
 
 ## Provenance and licenses
 

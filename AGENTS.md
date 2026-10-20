@@ -10,8 +10,8 @@ Styling uses Tailwind CSS v4 and `@tailwindcss/vite`. `Page.astro` imports the s
 
 ## Baseline to preserve
 
-- Full-width mountain/lake hero with a transparent overlaid header and small static left-shore skyline
-- Soft, Dither and ASCII treatments, plus pointer ASCII reveal; render on changes, without a perpetual animation loop
+- Full-width planted-balcony/mountain-lake hero using the user-selected `art-source/balcony/balcony-generated-reference.png`, copied unchanged to `public/assets/balcony.png`; no added skyline
+- Dither-only artwork locked to Bayer fine and Ripple: gentle drift, pointer parallax and a fading ripple—not a reveal circle. Keep the approved fixed settings; image controls, alternate cursor effects, pause/reset and PNG export are removed. Reduced motion disables movement; animation must stop offscreen and while the document is hidden. Keep native touch scrolling and the static renderer/poster fallback.
 - Sora for the main interface, Iosevka Solai for technical/monospace content
 - Use the single canonical outlined wordmark in `src/assets/solai-wordmark.svg` through `<Wordmark />` in `src/components/Wordmark.astro` for hero/header/footer branding. Preserve the Sora 500 lettering and enlarged, raised geometric eight-ray star with heavier rays, baked into the master under its `2390×900` viewBox. There are no size variants or selector props; do not restore the smaller star or `small` prop. Keep existing placement widths, theme-aware ink/accent and accessible labels on containing headings/links. Never reconstruct it with live text or a Unicode star, which iOS can render as emoji.
 - Five flavours and stable internal IDs: Tide=`blue`, Ember=`alter`, Dusk=`violet`, Viridian=`green`, Bloom=`rose`; each has Dark and Light variants
@@ -23,7 +23,7 @@ Styling uses Tailwind CSS v4 and `@tailwindcss/vite`. `Page.astro` imports the s
 - `/guide/` explains colour meanings across eight contexts with fixed approved mappings in `src/data/guide.js`. Each section has one title and a consolidated description; do not restore named treatment subheadings, separate summaries or repeated proposal disclaimers. The page-level export/provenance note remains. Keep the example beside the colour-role ledger on wide screens and stack vertically on narrow screens. Code is clean and mostly monotone, using contrast for definition and limited accents for meaning. Editor chrome keeps its neutral active line/caret/gutter, violet search text plus underlines, and six-colour rainbow bracket pairing by nesting depth. Preserve readable glyph/background contrast, theme selection, section deep links and truthful unavailable-data/no-script states. Treatment selectors, alternatives and per-section treatment URL handling are removed. Mappings remain unexported; do not publish aliases without updating the generator/data/exports together.
 - Retain `/guide-editor/` for future colour tuning. Its ten flavour/mode drafts and version-2 proposal export remain independent of the canonical guide and published palettes. Keep it unlinked; do not remove the tool as cleanup or apply its drafts without an explicit request.
 
-The proposed high-rise balcony is NOT integrated. Do not silently substitute it when making unrelated changes.
+The balcony raster is now explicitly selected and integrated. The editable vector balcony remains a separate inactive study; do not substitute it without a new request. The original procedural landscape is preserved in `art-source/landscape-original.png`, not served as an alternate live treatment.
 
 ## Palette integrity
 
@@ -35,25 +35,23 @@ Preserve the Dolch MIT notice and all font licenses. Do not describe the whole p
 
 ## Artwork pipeline
 
-The active pipeline in `src/scripts/app.js` is:
+`src/scripts/app.js` connects the home theme to `src/scripts/hero-art.js`:
 
-1. Load `/assets/landscape.png` from `public/assets/`
-2. Draw and crop it to an offscreen canvas
-3. Composite `drawSkyline(...)` in grayscale
-4. Calculate luminance and render Soft, ordered Dither and glyph-based ASCII caches for the active variant; light mode reverses ink coverage to keep the sky bright and silhouettes dark
-5. Paint the selected treatment and optional pointer reveal
+1. Load `/assets/balcony.png` from `public/assets/`; never composite the old skyline.
+2. Cover-crop with safe overscan for motion; use a leftward phone focus to preserve the planted facade and balcony.
+3. Apply luminance/contrast and a screen-fixed ordered threshold pattern, colouring each pixel with the active canvas/accent inks. Light mode reverses coverage for bright sky and dark silhouettes.
+4. WebGL moves the sampled image beneath the raster, with bounded drift/parallax and a fading pointer ripple. Do not add random threshold noise, flashing, glyphs or a reveal mask. Reuse GPU resources; cap logical resolution.
+5. Suspend motion when reduced, offscreen or hidden; retain static theme updates. Mouse/pen alone drive pointer effects. A lost/unavailable WebGL context switches to real static Canvas2D Bayer fine dithering.
 
-`art-source/generate_landscape.py` is the original deterministic landscape generator. It is optional and requires NumPy and Pillow; serving or editing the site does not. The supplied PNG is already ready to use.
+`src/scripts/hero-settings.js` owns the fixed Bayer fine matrix and rendering settings: 1.5px cells, 0.25 spread, 0.54 threshold, 1.1 contrast, 1 drift and 0.65 cursor strength. Ripple is the sole pointer effect. There are no hero controls, mutable tuning state, subscriptions or PNG-capture API; do not restore them without a request. Theme selection remains independent. If live rendering fails, retain the baked Tide Dark `public/assets/balcony-dither.png` poster. No-script uses that poster too.
 
-`art-source/balcony/solai-balcony-study.svg` is editable vector artwork with named groups. `balcony-generated-reference.png` is a separate raster reference. The other PNGs are previews, and the grayscale SVG is the balcony generator's input. None is an active asset. The SVG builder is optional Python standard-library code; its paths were made relative for this package.
-
-If explicitly asked to switch to balcony art: copy/export the chosen source into `public/assets/`, change the image path, and remove both the `drawSkyline` call and function. Otherwise the old towers will be drawn over the new balcony. Keep the grayscale-to-luminance recoloring pipeline. Check the wide balcony composition at desktop, tablet and phone sizes; the current centered cover-crop may need adjustment to preserve key elements. Update the canvas description if the scene changes. Keep the editable source separate from any exported raster.
+`art-source/generate_landscape.py` remains the optional historical generator (NumPy/Pillow); the original PNG is archived in `art-source/landscape-original.png`. The editable balcony SVG and previews remain separate from the active AI-generated raster. Neither optional artwork builder is part of Astro builds. See `art-source/README.md`.
 
 ## Verify edits
 
 - Run `node --check` on changed `src/scripts/*.js` and `src/data/*.js` files, check the home entry point, and run `pnpm build`
 - Use `pnpm dev` for development and `pnpm preview` to check the built site; check `/`, `/palette/`, `/guide/`, fonts, JSON and downloads without missing requests
-- Test all five flavours in both modes with each hero treatment, synchronized selectors, pointer enter/leave, resize, keyboard tabs/mode controls, reduced motion and narrow layouts
+- Test all five flavours in both modes with the fixed Bayer fine/Ripple hero, synchronized theme selectors, pointer enter/leave, resize and narrow layouts. Check live reduced-motion changes, offscreen/hidden suspension, touch scrolling, missing-image/no-script states and unavailable/lost WebGL fallback. The hero must remain free of image-tweaking controls.
 - Test copy/download actions and localStorage behavior when affected
 - On `/palette/`, check stop/gradient alignment, nearest-stop snapping through the overlay, diagonal entry into cached rows (including rapid re-entry during fade-out), independent row crossfades, idle preview hiding, first/last containment during Glide motion, exact clipboard values, one-tab-stop-per-row keyboard navigation, horizontal/vertical touch scrolling and cross-page theme persistence
 - On `/guide/`, exercise the eight fixed mappings in all five flavours and both modes; legacy per-section treatment queries must not change them. Check actual role/source/value resolution, coloured search and matching rainbow pairs on their real backgrounds, consistent wide/narrow layouts, section deep links, theme preservation, keyboard traversal and JSON/no-script failure states. Interface statuses stay green/yellow/red/blue; do not imply ANSI indices or syntax categories have universal status meanings.
