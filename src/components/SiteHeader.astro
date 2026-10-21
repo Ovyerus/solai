@@ -21,7 +21,7 @@ const navLink = 'inline-flex min-h-[44px] items-center border-b-2 border-transpa
       <a class={navLink} href={home ? '#examples' : '/#examples'} data-theme-link={home ? undefined : true}>Previews</a>
       <a class={navLink} href={page === 'palette' ? '#main' : '/palette/'} data-theme-link={page === 'palette' ? undefined : true} aria-current={page === 'palette' ? 'page' : undefined}>Palette</a>
       <a class={navLink} href={page === 'guide' ? '#main' : '/guide/'} data-theme-link={page === 'guide' ? undefined : true} aria-current={page === 'guide' ? 'page' : undefined}>Guide</a>
-      <a class={navLink} href={home ? '#take-it' : '/#take-it'} data-theme-link={home ? undefined : true}>Downloads <span class="text-solai-accent-primary">↗</span></a>
+      <a class={navLink} href={page === 'downloads' ? '#main' : '/downloads/'} data-theme-link={page === 'downloads' ? undefined : true} aria-current={page === 'downloads' ? 'page' : undefined}>Downloads</a>
     </div>
   </nav>
   <div class="theme-controls flex shrink-0 items-stretch gap-[10px] font-sans text-[12px] leading-[normal] [@media(max-width:900px)]:ml-auto [@media(max-width:650px)]:gap-[6px] [@media(max-width:650px)]:text-[11px]" role="group" aria-label="Appearance">

@@ -1,0 +1,23 @@
+{
+  "name": "Solai Viridian Light",
+  "background": "#EEF2EF",
+  "foreground": "#2A2D2B",
+  "cursorColor": "#005324",
+  "selectionBackground": "#B2CABA",
+  "black": "#1A1C1A",
+  "red": "#AC413A",
+  "green": "#00753A",
+  "yellow": "#766300",
+  "blue": "#0068B9",
+  "purple": "#99448C",
+  "cyan": "#007790",
+  "white": "#B8BBB8",
+  "brightBlack": "#636663",
+  "brightRed": "#9C2D2A",
+  "brightGreen": "#00652A",
+  "brightYellow": "#655400",
+  "brightBlue": "#005AAC",
+  "brightPurple": "#8A317E",
+  "brightCyan": "#006882",
+  "brightWhite": "#E5E9E6"
+}

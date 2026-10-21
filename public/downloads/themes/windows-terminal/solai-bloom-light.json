@@ -1,0 +1,23 @@
+{
+  "name": "Solai Bloom Light",
+  "background": "#F5EFF1",
+  "foreground": "#2F2B2C",
+  "cursorColor": "#7F2448",
+  "selectionBackground": "#D8BBC5",
+  "black": "#1E1B1C",
+  "red": "#AC413A",
+  "green": "#00753A",
+  "yellow": "#766300",
+  "blue": "#0068B9",
+  "purple": "#99448C",
+  "cyan": "#007790",
+  "white": "#BEB9BA",
+  "brightBlack": "#686465",
+  "brightRed": "#9C2D2A",
+  "brightGreen": "#00652A",
+  "brightYellow": "#655400",
+  "brightBlue": "#005AAC",
+  "brightPurple": "#8A317E",
+  "brightCyan": "#006882",
+  "brightWhite": "#ECE7E8"
+}

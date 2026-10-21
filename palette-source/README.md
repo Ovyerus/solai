@@ -1,6 +1,6 @@
-# Optional palette generators
+# Optional palette and theme generators
 
-These standalone Python scripts use only the standard library. They are optional tools, not an Astro build step. `build_flavors.py` regenerates live Solai data; the other tools below preserve the historical Dolch reference workflow.
+These generators are optional tools, not Astro build steps. `build_flavors.py` uses Python’s standard library to regenerate canonical Solai data. `build_ports.mjs` uses built-in Node.js modules to generate application themes and the download catalog. The other tools below preserve the historical Dolch reference workflow.
 
 ## Live Solai palettes
 
@@ -26,7 +26,38 @@ Generation asserts exact shared base parameters, LCH ramps and hex values for ev
 
 The Tailwind export serializes the canonical 17 × 11 primitive stops and 32 `roleValues` entries per variant into 219 `--color-solai-*` tokens. Names are kebab-cased consistently with the existing CSS export. `@theme inline` maps utilities to scoped `--solai-*` values so nested themes resolve correctly. Import it after `@import "tailwindcss"` in a Tailwind v4 consumer; it does not bundle Tailwind, fonts or layout.
 
-The home page's single-variant download is produced by `exportTailwindCSS` in `src/scripts/palette-shared.js`, using the same canonical primitive/role inventory and naming rule, with literal `@theme static` values. Keep both serializations in sync. Neither exports the guide-only mappings or adds syntax aliases.
+The selected-variant files on `/downloads/` are generated with `exportCSS` and `exportTailwindCSS` from `src/scripts/palette-shared.js`, using the existing canonical inventory and naming rules. Selected CSS contains the semantic custom properties; selected Tailwind contains all 219 primitive/semantic tokens with literal `@theme static` values. Keep both serializations in sync with family exports. Neither adds guide-only aliases to web exports.
+
+## Application ports and download catalog
+
+After changing canonical palettes, approved guide mappings or application formatters, run from the project root:
+
+```sh
+nix develop --command node palette-source/build_ports.mjs
+```
+
+This reads `public/assets/palettes.json`, the approved `src/data/guide.js` definitions and the existing `resolveRole` resolver. It does not read or apply guide-editor drafts. It writes:
+
+- `public/downloads/themes/`: VS Code/VSCodium VSIX and JSON sources, Zed family/individual JSON, eight terminal formats, selected Windows Terminal ZIPs and per-format/combined terminal bundles.
+- `public/downloads/variants/`: the thirty selected JSON/CSS/Tailwind exports using the existing serializers, not a parallel implementation.
+- `public/downloads/theme-manifest.json`: the catalog consumed by the Astro downloads page and its shared-theme controller.
+- `public/downloads/LICENSE-Themes.txt`: the scoped MIT notice for new application themes and port mappings; the original Dolch notice remains unchanged.
+
+`ports/model.mjs` resolves the shared colours; `vscode.mjs`, `zed.mjs` and `terminals.mjs` implement host-specific bindings. Terminal selection is composited over the actual terminal canvas once so formats without alpha reproduce the same fill. The sixteen ANSI entries retain the approved mode-aware mapping, including conventional black/white identities. Do not replace them with status colours or claim every slot is readable as foreground text.
+
+Editor frame dividers use the guide's quieter `surfaces.border` mapping. Zed's default `border` follows that subtle tier, not the canonical `border.strong` token; VS Code's main frame already uses it. Focus, selection, diagnostics and active indent guides retain their distinct stronger colours. This port-specific choice does not change canonical palette roles or website styling.
+
+Ghostty downloads use `.conf` filenames, which its theme lookup accepts verbatim, so Astro’s static preview serves them as files rather than extensionless routes. Keep that suffix in the page, archive entries and example `theme` setting; use the exact downloaded filename. See the [Ghostty theme reference](https://ghostty.org/docs/config/reference#theme).
+
+`ports/archive.mjs` builds deterministic UTF-8 ZIP32 archives using Node’s `crc32` and deflate support, with fixed 1980 timestamps. VSIX packages contain a real extension manifest, theme contributions and both license notices. JSON ports carry full notices in permitted root metadata; Windows Terminal’s strict scheme schema does not permit that metadata, so its selected download is a ZIP containing pure scheme JSON plus the notices. XML/text formats carry comment notices. Never put unsupported colour fields into native schemas or add commands/fonts/layout to a colour scheme.
+
+Check the popup contrast regressions after mapping changes:
+
+```sh
+node --test palette-source/ports/ports.test.mjs
+```
+
+These tests cover readable normal/hover/selected popup text in every editor variant, not a complete application accessibility audit. Native host overrides, syntax in selected text, contrast-adjustment settings and emitted terminal colours still need real-consumer inspection. Zed cannot reproduce separate search-match text/underline colours; its six nesting accents require the user’s bracket-colour setting. Keep these limits visible in download instructions.
 
 ## Historical tools
 
@@ -42,7 +73,7 @@ python3 palette-source/build_tokens.py
 python3 palette-source/reference/reproduce_palette.py
 ```
 
-Live data retains the Solai names Tide, Ember, Dusk, Viridian and Bloom. The reference snapshot and historical tools retain Dolch's original labels. Do not copy historical output over live Solai metadata. The original downloadable bundle remains untouched at `public/downloads/dolch-reference-starter.zip`.
+Live data retains the Solai names Tide, Ember, Dusk, Viridian and Bloom. The reference snapshot and historical tools retain Dolch's original labels. Do not copy historical output over live Solai metadata. The former reference/generators download is preserved unchanged at `palette-source/reference/dolch-reference-starter.zip`, outside `public/`; do not restore it to the site without a request.
 
 Source repository: https://github.com/be5invis/vscode-theme-dolch
 Source commit: `cf3817311b30d3c21a60ebb0b250d18386e66a30`

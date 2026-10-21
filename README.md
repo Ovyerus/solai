@@ -19,7 +19,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open **http://localhost:4321/**. The palette explorer is at **http://localhost:4321/palette/** and the colour guide at **http://localhost:4321/guide/**. Edit `src/` or `public/` and Astro refreshes the development page. Use HTTP rather than opening HTML directly, because the pages fetch local JSON.
+Open **http://localhost:4321/**. The palette explorer is at **http://localhost:4321/palette/**, the colour guide at **http://localhost:4321/guide/** and application themes/data at **http://localhost:4321/downloads/**. Edit `src/` or `public/` and Astro refreshes the development page. Use HTTP rather than opening HTML directly, because the pages fetch local JSON.
 
 To build and preview the production site:
 
@@ -33,6 +33,8 @@ node --check src/scripts/palette-ramp.js
 node --check src/scripts/guide.js
 node --check src/scripts/guide-renderer.js
 node --check src/scripts/guide-editor.js
+node --check src/scripts/downloads.js
+node --test palette-source/ports/ports.test.mjs
 node --check src/data/guide.js
 pnpm build
 pnpm preview
@@ -55,6 +57,29 @@ Keep this editor available for future tuning. The current guide colours remain u
 
 The temporary UI lives in `src/pages/guide-editor/index.astro` and `src/scripts/guide-editor.js`. Its specimens share `src/scripts/guide-renderer.js` with the canonical guide, rather than maintaining a second set of examples. The canonical mappings in `src/data/guide.js` remain unchanged.
 
+## Application themes and downloads
+
+`/downloads/` contains all five flavours in Dark and Light:
+
+- **VS Code / VSCodium:** an installable local VSIX containing all ten themes, plus individual theme-source JSON files.
+- **Zed:** a native JSON family containing all ten themes, plus individual one-theme families.
+- **Terminals:** Ghostty, Kitty, Alacritty, WezTerm, iTerm2, macOS Terminal, Windows Terminal and Xresources/xterm. Download the selected variant, a per-format all-ten ZIP, or the combined terminal bundle.
+- **Web/data:** the existing selected-palette JSON, semantic CSS variables and Tailwind colour tokens, plus complete-family JSON, CSS and Tailwind files.
+
+The shared header selects the download variant and preserves navigation context. Packages that contain all ten variants do not depend on the selected appearance. Without JavaScript or if palette loading fails, individual links explicitly remain Tide Dark; all-theme packages still work. Installation instructions are on the page and in archive bundles. These packages are local downloads, not marketplace listings, and do not install fonts or configure shell prompts.
+
+Ports resolve the approved guide mappings through the existing resolver rather than maintaining a second set of colour choices. Host-specific popup bindings use readable existing neutral/accent grades and restrained selection fills; regression tests cover their foreground/background combinations in all ten variants. Host APIs have limits: Zed exposes search backgrounds rather than match foregrounds/underlines, bracket colouring depends on editor settings, and terminal applications decide how to use ANSI slots. The conventional normal/bright banks and light-mode black/white identities are preserved; some ANSI slots intentionally are not readable as small foreground text.
+
+To regenerate packages, selected web exports and the download manifest, using only built-in Node.js modules:
+
+```sh
+nix develop --command node palette-source/build_ports.mjs
+```
+
+Run this after palette regeneration or approved guide/port mapping changes. Generated files live under `public/downloads/themes/`, `public/downloads/variants/` and `public/downloads/theme-manifest.json`; generation is separate from the Astro build. See `palette-source/README.md`.
+
+The **new application theme packages and port mappings only** are MIT-licensed under `public/downloads/LICENSE-Themes.txt`, with Dolch’s original notice retained. This does not relicense the website, artwork, fonts or existing raw palette exports. Strict Windows Terminal scheme JSON is distributed in a selected-variant ZIP with both notices; other standalone port files carry the notices as comments or root JSON metadata. The former reference/generators ZIP is preserved at `palette-source/reference/dolch-reference-starter.zip`, outside the served site.
+
 ## Styling with Tailwind
 
 The site uses **Tailwind CSS 4** through the official `@tailwindcss/vite` integration. `src/layouts/Page.astro` imports `src/styles/main.css` once. Keep complete utility class names in Astro markup and JavaScript-rendered elements so Tailwind can discover them; do not construct class names from colour or state fragments.
@@ -63,7 +88,7 @@ The site uses **Tailwind CSS 4** through the official `@tailwindcss/vite` integr
 
 ### Downloadable Tailwind colour tokens
 
-The home page's Downloads section offers the **current variant** as `solai-tide-dark.tailwind.css` (with the selected flavour and mode in the filename), plus [`flavors.tailwind.css`](public/downloads/flavors.tailwind.css) for the whole family. Each variant contains **219 colour tokens**: 17 primitive ramps × 11 grades and 32 existing semantic roles. Names use the `solai-` namespace and kebab case: `accent[7]` becomes `accent-7`, `coAccent[8]` becomes `co-accent-8`, and `status.dangerBackground` becomes `status-danger-background`.
+The Downloads page offers the **current variant** as `solai-tide-dark.tailwind.css` (with the selected flavour and mode in the filename), plus [`flavors.tailwind.css`](public/downloads/flavors.tailwind.css) for the whole family. Each variant contains **219 colour tokens**: 17 primitive ramps × 11 grades and 32 existing semantic roles. Names use the `solai-` namespace and kebab case: `accent[7]` becomes `accent-7`, `coAccent[8]` becomes `co-accent-8`, and `status.dangerBackground` becomes `status-danger-background`.
 
 Import the downloaded file after Tailwind in your project's stylesheet:
 
@@ -92,9 +117,9 @@ The hero has no image-tweaking controls or PNG export. Its rendering settings ar
 
 WebGL handles the live image. Animation stops offscreen, in a hidden document or with reduced motion. Touch movement does not drive the image or capture scrolling. A static Canvas2D Bayer fine renderer supports browsers without WebGL and context loss. Without JavaScript, or if the source cannot load, the baked `public/assets/balcony-dither.png` Tide Dark poster remains visible. The poster is a separate full-scene fallback; keep it in sync when replacing the source.
 
-Navigation stays at the viewport top on Home, Palette and Guide. The home header remains transparent over the full-width hero at the top, then gains a solid theme surface while scrolling; Palette and Guide use a solid sticky header throughout. Anchor offsets follow the actual wrapped header height, and focusing visible navbar controls does not move the page. Without JavaScript, the header stays solid and uses a conservative anchor offset. The native theme dropdown and Dark/Light toggle remain paired at the header’s right edge and synchronized with the lower flavour cards; there is no palette bar below the hero.
+Navigation stays at the viewport top on Home, Palette, Guide and Downloads. The home header remains transparent over the full-width hero at the top, then gains a solid theme surface while scrolling; the inner pages use a solid sticky header throughout. Anchor offsets follow the actual wrapped header height, and focusing visible navbar controls does not move the page. Without JavaScript, the header stays solid and uses a conservative anchor offset. The native theme dropdown and Dark/Light toggle remain paired at the header’s right edge and synchronized with the lower flavour cards; there is no palette bar below the hero.
 
-The home page introduces Solai’s Dolch origins and solarpunk-after-sunset mood between the hero and Flavours. Flavour cards retain their scene captions without upstream/study badges. Seven labelled preview windows are stacked vertically with no selector or tab panels, followed by Downloads. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
+The home page introduces Solai’s Dolch origins and solarpunk-after-sunset mood between the hero and Flavours. Flavour cards retain their scene captions without upstream/study badges. Seven labelled preview windows are stacked vertically with no selector or tab panels. Downloads live on `/downloads/`, not in a home-page section. `/palette/` shows the shared base colours followed by all five flavours' custom ramps, with exact-value copying and optional, collapsed keyboard help. Semantic roles and their usage are explained on `/guide/`, not duplicated on the palette page.
 
 The working interface uses **Linework**: flat neutral surfaces, fine dividers and **2px corners** on controls and frames. Appearance controls use inset segmented groups with accent-filled active choices; current-page navigation uses a thin accent underline. Restrained selection fills and separate keyboard-focus outlines have different jobs. Technical labels and values use Iosevka Solai; prose and control labels remain Sora. Circular stop dots and pill switches retain their shapes, and the full-bleed hero stays flush.
 
@@ -102,11 +127,11 @@ The hero, introduction and flavour captions use a synthwave/solarpunk-after-dark
 
 The single canonical wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation and footer. Its Sora Medium lettering is outlined at weight 500 with tight spacing. The enlarged, raised eight-ray star, heavier rays and unclipped `2390×900` viewBox are baked into the master SVG; there are no alternate size variants or selector props. All placements use `<Wordmark />`, inherit the active theme's ink/accent colours and retain their existing layout widths and accessible containing labels. The artwork renders without fonts or emoji fallback. Edit this master rather than recreating the logo with text. The Sora font notice remains in `public/assets/fonts/Sora-OFL.txt`.
 
-Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette and Guide share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Demo preferences are illustrative; exports are palette data, CSS variables and Tailwind colour tokens, not installed app themes.
+Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette, Guide and Downloads share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Preview controls are illustrative; downloadable application themes are separate from the specimens.
 
 ### Preview specimens
 
-The previews are fixed colour specimens, not live applications or installed ports:
+The previews are fixed colour specimens, not live applications or application screenshots:
 
 - **Editor:** mostly neutral TypeScript, a file tree, current line, violet search matches, a posed completion menu, change markers and explicit diagnostics.
 - **Terminal:** directory/file/symlink/executable colours, Git output, a process table, resource meters and the guide’s normal/bright ANSI mappings.
@@ -136,7 +161,7 @@ Code uses a clean, mostly monotone foundation whose limited accents carry meanin
 
 Flavour and mode still follow the shared header controls and theme query. Section links can be bookmarked or shared, for example `/guide/?theme=Tide&mode=light#editor`. Legacy per-section treatment parameters no longer alter the fixed mappings.
 
-These are **guide-only proposals** resolved from canonical palette roles, syntax assignments and primitive ramps. The fixed selections do not change the published aliases, source colours or downloads. Interface statuses retain their meanings; a syntax colour or ANSI slot is not inherently a status. Low-contrast ANSI slots are shown as labelled colour tiles, not recommended as universal foreground text. Selected prototype pairings were checked, but the guide is not a complete accessibility audit. If a study is adopted into published aliases, update the generator and exports together.
+These fixed mappings resolve canonical palette roles, syntax assignments and primitive ramps, and now also supply the application ports where host APIs support them. They do not add generic aliases to the canonical palette JSON, CSS or Tailwind exports. Interface statuses retain their meanings; a syntax colour or ANSI slot is not inherently a status. Low-contrast ANSI slots are shown as labelled colour tiles, not recommended as universal foreground text. Selected prototype pairings were checked, but the guide is not a complete accessibility audit. After changing an approved mapping, regenerate the ports and check their real consumer surfaces; guide-editor drafts do not apply themselves.
 
 ## Palette data
 
@@ -150,13 +175,14 @@ To regenerate the live data and exports, using Python 3's standard library:
 python3 palette-source/build_flavors.py
 ```
 
-This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css`, `public/downloads/flavors.tailwind.css` and `src/styles/themes.css`. It verifies upstream primitive equality and actual contrast pairings, and guards against unintended changes to the existing dark variants. Regeneration is optional and is not part of the Astro build. See `palette-source/README.md` for the separate historical tools.
+This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public/downloads/flavors.css`, `public/downloads/flavors.tailwind.css` and `src/styles/themes.css`. It verifies upstream primitive equality and actual contrast pairings, and guards against unintended changes to the existing dark variants. Then run `node palette-source/build_ports.mjs` to refresh application themes, selected web files and the download manifest. Both generators are optional and separate from the Astro build. See `palette-source/README.md` for the live and historical workflows.
 
 ## File map
 
 - `src/pages/index.astro`: main page structure and copy
 - `src/pages/palette/index.astro`: standalone palette explorer
 - `src/pages/guide/index.astro`: collaborative semantic-colour guide
+- `src/pages/downloads/index.astro` and `src/scripts/downloads.js`: static download catalog, installation guidance and shared-theme link selection
 - `src/pages/guide-editor/index.astro`: temporary, unlinked live token editor and proposal export UI
 - `src/layouts/Page.astro`: shared document metadata and page slots
 - `src/components/AppSamples.astro` and `PreviewWindow.astro`: seven-window preview composition, build-time scoped colour mappings and shared Linework frame
@@ -168,26 +194,26 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 - `src/styles/main.css`: single Tailwind entry, font definitions, shared base rules and landscape gradients
 - `src/styles/themes.css`: generated UI colour variables and Tailwind aliases for every flavour/mode, applied before palette JSON loads
 - `src/styles/palette-ramps.css`: registered preview position and independent row motion/fades; ordinary palette and guide styling uses utilities in Astro/JavaScript
-- `src/scripts/app.js`: home flavour cards, samples, downloads and hero/theme integration
+- `src/scripts/app.js`: home flavour cards, samples and hero/theme integration
 - `src/scripts/hero-art.js`: reactive WebGL ordered dithering with a static Canvas2D fallback
 - `src/scripts/hero-settings.js`: fixed Bayer fine matrix and approved rendering settings
 - `src/scripts/palette.js` and `palette-ramp.js`: semantic palette rendering and snapped ramp interaction
 - `src/scripts/theme.js` and `palette-shared.js`: shared theme controls, navigation context, copy feedback and exports
 - `src/scripts/site-header.js`: observer-driven navbar measurement and home transparency; no continuous scroll loop
-- `src/data/guide.js`: eight usage contexts and their fixed, unexported semantic studies
+- `src/data/guide.js`: eight usage contexts and their approved mappings, shared with application-port generation
 - `src/scripts/guide.js`: canonical guide role ledger, theme updates and section deep links
 - `src/scripts/guide-renderer.js`: shared source resolution and real guide specimens
 - `src/scripts/guide-editor.js`: isolated flavour/mode drafts, token controls and JSON proposals
 - `public/assets/palettes.json`: current canonical palette data and provenance
 - `public/assets/balcony.png` and `balcony-dither.png`: active grayscale source and static Tide Dark dither poster
 - `public/assets/fonts/`: self-hosted font files and their license notices
-- `public/downloads/`: current family JSON/CSS, Tailwind colour tokens, original reference data, licenses and the untouched Dolch reference ZIP
+- `public/downloads/`: application themes/packages, selected and family JSON/CSS/Tailwind exports, manifest and scoped license notices
 - `astro.config.mjs`: static output, trailing-slash routes and Tailwind's Vite plugin
 - `flake.nix` and `flake.lock`: pinned Node.js/pnpm development shell for Apple Silicon macOS and ARM64/x86-64 Linux
 - `.envrc`: optional nix-direnv integration
 - `pnpm-lock.yaml`: locked application dependencies; use pnpm rather than npm
 - `art-source/`: preserved landscape, active balcony source and separate editable vector studies
-- `palette-source/`: optional Python palette generators and their complete inputs
+- `palette-source/`: optional Python palette generation, built-in-Node application-port generation, formatters and preserved historical inputs
 
 ## Balcony artwork
 
@@ -198,3 +224,5 @@ The active scene is the **AI-generated raster PNG** `art-source/balcony/balcony-
 Tide preserves Dolch Blue primitives in both modes (`dolch` and `dolch-light`). Ember is adapted: its `fg`, `bg`, `coShades`, `accent` and `coAccent` ramps preserve Dolch Alter (`dolch-alter` and `dolch-light-alter`), while its twelve base families use Tide's corresponding-mode values. Ember's metadata uses `provenance: "adapted"`, `upstreamVariant: null` and `customUpstreamVariant` to identify the original Alter source without claiming a complete upstream-exact palette. Dusk, Viridian and Bloom are independent colour studies. All five flavours share the same base/status ring per mode. Semantic UI mappings remain proposed in every variant. Light roles choose darker grades where needed for their actual text, control and badge pairings. Selected checks remain in the data and generator, but are not a complete accessibility audit.
 
 Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. Preserve `public/downloads/LICENSE-Dolch.txt` and all font notices. The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.
+
+The new application theme packages and port mappings are separately MIT-licensed, © 2026 Solai contributors, under `public/downloads/LICENSE-Themes.txt`. Their archives preserve the complete Dolch notice. That permission does not extend to the remaining website, artwork, fonts or prior palette-export licensing.

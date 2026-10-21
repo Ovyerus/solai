@@ -1,0 +1,42 @@
+# This MIT license covers the Solai application theme ports and their port mappings only. It does not relicense the website, artwork, fonts or other palette exports.
+# 
+# MIT License
+# 
+# Copyright (c) 2026 Solai contributors
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# 
+# 
+# Dolch upstream notice:
+# 
+# Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# 
+# 
+# Original Dolch palettes: Renzhi Li (Belleve Invis). https://github.com/be5invis/vscode-theme-dolch
+# Tide retains upstream Blue primitives; Ember uses original Alter custom ramps with the shared Blue base. Dusk, Viridian, Bloom and the application mappings are Solai studies.
+
+# Solai Viridian Dark
+
+[colors]
+background = "#111412"
+foreground = "#C8CCC9"
+cursor_bg = "#AEF2BF"
+cursor_fg = "#000000"
+cursor_border = "#AEF2BF"
+selection_bg = "#2C4433"
+selection_fg = "#C8CCC9"
+ansi = ["#111412", "#EC7D71", "#4DB073", "#B49C43", "#52A1F4", "#D580C7", "#00B2CA", "#B1B5B2"]
+brights = ["#707370", "#FFA798", "#72E19A", "#E6C964", "#7CCFFF", "#FFAAFB", "#00E3FE", "#E0E3E0"]
+
+[metadata]
+name = "Solai Viridian Dark"

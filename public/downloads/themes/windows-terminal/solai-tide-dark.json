@@ -1,0 +1,23 @@
+{
+  "name": "Solai Tide Dark",
+  "background": "#101416",
+  "foreground": "#C7CBCE",
+  "cursorColor": "#7BF2FF",
+  "selectionBackground": "#0B4450",
+  "black": "#101416",
+  "red": "#EC7D71",
+  "green": "#4DB073",
+  "yellow": "#B49C43",
+  "blue": "#52A1F4",
+  "purple": "#D580C7",
+  "cyan": "#00B2CA",
+  "white": "#B0B4B7",
+  "brightBlack": "#6F7375",
+  "brightRed": "#FFA798",
+  "brightGreen": "#72E19A",
+  "brightYellow": "#E6C964",
+  "brightBlue": "#7CCFFF",
+  "brightPurple": "#FFAAFB",
+  "brightCyan": "#00E3FE",
+  "brightWhite": "#DFE3E6"
+}

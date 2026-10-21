@@ -1,0 +1,23 @@
+{
+  "name": "Solai Dusk Light",
+  "background": "#F1F0F4",
+  "foreground": "#2D2C2F",
+  "cursorColor": "#453E80",
+  "selectionBackground": "#C5C2D7",
+  "black": "#1C1B1E",
+  "red": "#AC413A",
+  "green": "#00753A",
+  "yellow": "#766300",
+  "blue": "#0068B9",
+  "purple": "#99448C",
+  "cyan": "#007790",
+  "white": "#BBBABD",
+  "brightBlack": "#656568",
+  "brightRed": "#9C2D2A",
+  "brightGreen": "#00652A",
+  "brightYellow": "#655400",
+  "brightBlue": "#005AAC",
+  "brightPurple": "#8A317E",
+  "brightCyan": "#006882",
+  "brightWhite": "#E8E8EB"
+}

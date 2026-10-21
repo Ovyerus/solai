@@ -1,0 +1,350 @@
+{
+  "$comment": "This MIT license covers the Solai application theme ports and their port mappings only. It does not relicense the website, artwork, fonts or other palette exports.\n\nMIT License\n\nCopyright (c) 2026 Solai contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\nDolch upstream notice:\n\nCopyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\nOriginal Dolch palettes: Renzhi Li (Belleve Invis). https://github.com/be5invis/vscode-theme-dolch\nTide retains upstream Blue primitives; Ember uses original Alter custom ramps with the shared Blue base. Dusk, Viridian, Bloom and the application mappings are Solai studies.",
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "name": "Solai",
+  "author": "Solai contributors",
+  "themes": [
+    {
+      "name": "Solai Dusk Dark",
+      "appearance": "dark",
+      "style": {
+        "border": "#4A494C",
+        "border.variant": "#4A494C",
+        "border.focused": "#E7DAFF",
+        "border.selected": "#A194D8",
+        "border.transparent": "#00000000",
+        "border.disabled": "#4A494C",
+        "background": "#141316",
+        "surface.background": "#252427",
+        "elevated_surface.background": "#373639",
+        "element.background": "#252427",
+        "element.hover": "#373639",
+        "element.active": "#373639",
+        "element.selected": "#312F38",
+        "element.disabled": "#252427",
+        "drop_target.background": "#A194D850",
+        "ghost_element.background": "#00000000",
+        "ghost_element.hover": "#252427",
+        "ghost_element.active": "#373639",
+        "ghost_element.selected": "#312F38",
+        "ghost_element.disabled": "#00000000",
+        "text": "#CBCACE",
+        "text.muted": "#B4B3B7",
+        "text.placeholder": "#B4B3B7",
+        "text.disabled": "#727175",
+        "text.accent": "#B8ABEF",
+        "icon": "#CBCACE",
+        "icon.muted": "#9E9DA0",
+        "icon.placeholder": "#9E9DA0",
+        "icon.disabled": "#727175",
+        "icon.accent": "#A194D8",
+        "link_text.hover": "#B8ABEF",
+        "status_bar.background": "#252427",
+        "title_bar.background": "#252427",
+        "title_bar.inactive_background": "#141316",
+        "toolbar.background": "#252427",
+        "tab_bar.background": "#252427",
+        "tab.inactive_background": "#252427",
+        "tab.active_background": "#141316",
+        "panel.background": "#252427",
+        "panel.focused_border": "#E7DAFF",
+        "panel.indent_guide": "#4A494C",
+        "panel.indent_guide_active": "#88878A",
+        "panel.indent_guide_hover": "#88878A",
+        "pane.focused_border": "#E7DAFF",
+        "pane_group.border": "#4A494C",
+        "scrollbar.thumb.background": "#9E9DA066",
+        "scrollbar.thumb.hover_background": "#9E9DA099",
+        "scrollbar.thumb.border": "#4A494C",
+        "scrollbar.track.background": "#00000000",
+        "scrollbar.track.border": "#4A494C",
+        "editor.background": "#141316",
+        "editor.foreground": "#B4B3B7",
+        "editor.gutter.background": "#141316",
+        "editor.subheader.background": "#252427",
+        "editor.active_line.background": "#252427",
+        "editor.highlighted_line.background": "#252427",
+        "editor.line_number": "#9E9DA0",
+        "editor.active_line_number": "#CBCACE",
+        "editor.invisible": "#4A494C",
+        "editor.wrap_guide": "#4A494C",
+        "editor.active_wrap_guide": "#88878A",
+        "editor.indent_guide": "#4A494C",
+        "editor.indent_guide_active": "#88878A",
+        "editor.document_highlight.read_background": "#A194D850",
+        "editor.document_highlight.write_background": "#A194D850",
+        "editor.document_highlight.bracket_background": "#4A494C",
+        "search.match_background": "#BBA6FF18",
+        "search.active_match_background": "#BBA6FF28",
+        "version_control.added": "#5FC886",
+        "version_control.deleted": "#FF9285",
+        "version_control.modified": "#A194D8",
+        "version_control.renamed": "#A194D8",
+        "version_control.conflict": "#FF9285",
+        "version_control.ignored": "#9E9DA0",
+        "version_control.word_added": "#5FC88630",
+        "version_control.word_deleted": "#FF928530",
+        "version_control.conflict_marker.ours": "#FF928512",
+        "version_control.conflict_marker.theirs": "#FF92851C",
+        "editor.diff_hunk.added.background": "#5FC88612",
+        "editor.diff_hunk.added.hollow_background": "#00000000",
+        "editor.diff_hunk.added.hollow_border": "#5FC886",
+        "editor.diff_hunk.deleted.background": "#FF928512",
+        "editor.diff_hunk.deleted.hollow_background": "#00000000",
+        "editor.diff_hunk.deleted.hollow_border": "#FF9285",
+        "terminal.background": "#141316",
+        "terminal.ansi.background": "#141316",
+        "terminal.foreground": "#CBCACE",
+        "terminal.bright_foreground": "#E3E2E6",
+        "terminal.dim_foreground": "#9E9DA0",
+        "accents": [
+          "#F3A161",
+          "#9CC061",
+          "#00CCB5",
+          "#00CBE4",
+          "#BBA6FF",
+          "#FF8CB2"
+        ],
+        "players": [
+          {
+            "cursor": "#E7DAFF",
+            "background": "#E7DAFF",
+            "selection": "#403B53"
+          },
+          {
+            "cursor": "#F3A161",
+            "background": "#F3A161",
+            "selection": "#F3A16130"
+          },
+          {
+            "cursor": "#9CC061",
+            "background": "#9CC061",
+            "selection": "#9CC06130"
+          },
+          {
+            "cursor": "#00CCB5",
+            "background": "#00CCB5",
+            "selection": "#00CCB530"
+          },
+          {
+            "cursor": "#00CBE4",
+            "background": "#00CBE4",
+            "selection": "#00CBE430"
+          },
+          {
+            "cursor": "#BBA6FF",
+            "background": "#BBA6FF",
+            "selection": "#BBA6FF30"
+          },
+          {
+            "cursor": "#FF8CB2",
+            "background": "#FF8CB2",
+            "selection": "#FF8CB230"
+          }
+        ],
+        "syntax": {
+          "attribute": {
+            "color": "#B4B3B7"
+          },
+          "boolean": {
+            "color": "#CFC2FF"
+          },
+          "comment": {
+            "color": "#9E9DA0"
+          },
+          "comment.doc": {
+            "color": "#9E9DA0"
+          },
+          "constant": {
+            "color": "#CFC2FF"
+          },
+          "constant.builtin": {
+            "color": "#CFC2FF"
+          },
+          "constructor": {
+            "color": "#E19FD4"
+          },
+          "embedded": {
+            "color": "#B4B3B7"
+          },
+          "emphasis": {
+            "color": "#CBCACE",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#E3E2E6",
+            "font_weight": 700
+          },
+          "enum": {
+            "color": "#E19FD4"
+          },
+          "function": {
+            "color": "#CBCACE"
+          },
+          "hint": {
+            "color": "#9E9DA0"
+          },
+          "keyword": {
+            "color": "#E3E2E6",
+            "font_weight": 700
+          },
+          "label": {
+            "color": "#B4B3B7"
+          },
+          "link_text": {
+            "color": "#A194D8"
+          },
+          "link_uri": {
+            "color": "#A194D8"
+          },
+          "number": {
+            "color": "#CFC2FF"
+          },
+          "operator": {
+            "color": "#E7DAFF"
+          },
+          "predictive": {
+            "color": "#9E9DA0"
+          },
+          "preproc": {
+            "color": "#E3E2E6",
+            "font_weight": 700
+          },
+          "primary": {
+            "color": "#CBCACE"
+          },
+          "property": {
+            "color": "#B4B3B7"
+          },
+          "punctuation": {
+            "color": "#9E9DA0"
+          },
+          "punctuation.bracket": {
+            "color": "#9E9DA0"
+          },
+          "punctuation.delimiter": {
+            "color": "#9E9DA0"
+          },
+          "punctuation.list_marker": {
+            "color": "#A194D8"
+          },
+          "punctuation.special": {
+            "color": "#9E9DA0"
+          },
+          "string": {
+            "color": "#A194D8"
+          },
+          "string.escape": {
+            "color": "#CFC2FF"
+          },
+          "string.regex": {
+            "color": "#A194D8"
+          },
+          "string.special": {
+            "color": "#A194D8"
+          },
+          "string.special.symbol": {
+            "color": "#CFC2FF"
+          },
+          "tag": {
+            "color": "#E3E2E6"
+          },
+          "tag.doctype": {
+            "color": "#E3E2E6"
+          },
+          "text.literal": {
+            "color": "#E19FD4"
+          },
+          "title": {
+            "color": "#E3E2E6",
+            "font_weight": 700
+          },
+          "type": {
+            "color": "#E19FD4"
+          },
+          "type.builtin": {
+            "color": "#E19FD4"
+          },
+          "variable": {
+            "color": "#B4B3B7"
+          },
+          "variable.special": {
+            "color": "#B4B3B7"
+          },
+          "variable.parameter": {
+            "color": "#B4B3B7"
+          },
+          "variant": {
+            "color": "#CFC2FF"
+          }
+        },
+        "conflict": "#FF9285",
+        "conflict.background": "#641E1B",
+        "conflict.border": "#FF9285",
+        "created": "#5FC886",
+        "created.background": "#00411B",
+        "created.border": "#5FC886",
+        "deleted": "#FF9285",
+        "deleted.background": "#641E1B",
+        "deleted.border": "#FF9285",
+        "error": "#FF9285",
+        "error.background": "#641E1B",
+        "error.border": "#FF9285",
+        "hidden": "#9E9DA0",
+        "hidden.background": "#252427",
+        "hidden.border": "#9E9DA0",
+        "hint": "#9E9DA0",
+        "hint.background": "#252427",
+        "hint.border": "#9E9DA0",
+        "ignored": "#9E9DA0",
+        "ignored.background": "#252427",
+        "ignored.border": "#9E9DA0",
+        "info": "#67B8FF",
+        "info.background": "#00396E",
+        "info.border": "#67B8FF",
+        "modified": "#A194D8",
+        "modified.background": "#A194D812",
+        "modified.border": "#A194D8",
+        "predictive": "#9E9DA0",
+        "predictive.background": "#252427",
+        "predictive.border": "#9E9DA0",
+        "renamed": "#A194D8",
+        "renamed.background": "#A194D812",
+        "renamed.border": "#A194D8",
+        "success": "#5FC886",
+        "success.background": "#00411B",
+        "success.border": "#5FC886",
+        "unreachable": "#9E9DA0",
+        "unreachable.background": "#252427",
+        "unreachable.border": "#9E9DA0",
+        "warning": "#CDB253",
+        "warning.background": "#423600",
+        "warning.border": "#CDB253",
+        "terminal.ansi.black": "#141316",
+        "terminal.ansi.bright_black": "#727175",
+        "terminal.ansi.dim_black": "#141316",
+        "terminal.ansi.red": "#EC7D71",
+        "terminal.ansi.bright_red": "#FFA798",
+        "terminal.ansi.dim_red": "#A15851",
+        "terminal.ansi.green": "#4DB073",
+        "terminal.ansi.bright_green": "#72E19A",
+        "terminal.ansi.dim_green": "#397953",
+        "terminal.ansi.yellow": "#B49C43",
+        "terminal.ansi.bright_yellow": "#E6C964",
+        "terminal.ansi.dim_yellow": "#7C6C33",
+        "terminal.ansi.blue": "#52A1F4",
+        "terminal.ansi.bright_blue": "#7CCFFF",
+        "terminal.ansi.dim_blue": "#3C6FA7",
+        "terminal.ansi.magenta": "#D580C7",
+        "terminal.ansi.bright_magenta": "#FFAAFB",
+        "terminal.ansi.dim_magenta": "#925A89",
+        "terminal.ansi.cyan": "#00B2CA",
+        "terminal.ansi.bright_cyan": "#00E3FE",
+        "terminal.ansi.dim_cyan": "#077B8B",
+        "terminal.ansi.white": "#B4B3B7",
+        "terminal.ansi.bright_white": "#E3E2E6",
+        "terminal.ansi.dim_white": "#7C7B7F"
+      }
+    }
+  ]
+}

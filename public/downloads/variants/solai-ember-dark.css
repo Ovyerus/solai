@@ -1,0 +1,36 @@
+/* Solai Ember Dark · Dolch Alter custom ramps (dolch-alter) with shared Dolch Blue base colours: Renzhi Li, MIT. Semantic UI roles are proposed. */
+:root {
+  color-scheme: dark;
+  --solai-surface-canvas: #161310;
+  --solai-surface-panel: #272422;
+  --solai-surface-raised: #393634;
+  --solai-surface-hover: #4C4947;
+  --solai-border-subtle: #4C4947;
+  --solai-border-strong: #8A8784;
+  --solai-text-primary: #CECAC8;
+  --solai-text-emphasis: #E6E2DF;
+  --solai-text-secondary: #B7B3B1;
+  --solai-text-muted: #A09C9A;
+  --solai-text-disabled: #75716F;
+  --solai-accent-primary: #CA933C;
+  --solai-accent-hover: #E1AA57;
+  --solai-accent-highlight: #FFD98F;
+  --solai-accent-ink: #161310;
+  --solai-accent-secondary: #FF9874;
+  --solai-selection-background: #CA933C50;
+  --solai-status-success: #5FC886;
+  --solai-status-success-background: #00411B;
+  --solai-status-warning: #CDB253;
+  --solai-status-warning-background: #423600;
+  --solai-status-danger: #FF9285;
+  --solai-status-danger-background: #641E1B;
+  --solai-status-info: #67B8FF;
+  --solai-status-info-background: #00396E;
+  --solai-support-orange: #F3A161;
+  --solai-support-chartreuse: #9CC061;
+  --solai-support-spring: #00CCB5;
+  --solai-support-cyan: #00CBE4;
+  --solai-support-violet: #BBA6FF;
+  --solai-support-magenta: #F095E1;
+  --solai-support-rose: #FF8CB2;
+}

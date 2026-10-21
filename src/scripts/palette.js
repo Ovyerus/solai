@@ -65,7 +65,7 @@ initTheme({
     copyCSSButton.disabled = true;
     content.hidden = true;
     selection.textContent = 'Palette unavailable';
-    status.textContent = 'Palette data could not be loaded. Reload this page to try again, or use the downloads on the home page.';
+    status.textContent = 'Palette data could not be loaded. Reload this page to try again, or use the Downloads page.';
     status.hidden = false;
   },
 });

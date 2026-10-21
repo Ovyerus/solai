@@ -1,0 +1,36 @@
+/* Solai Bloom Light · Independent colour study using the Dolch generation method. Semantic UI roles are proposed. */
+:root {
+  color-scheme: light;
+  --solai-surface-canvas: #F5EFF1;
+  --solai-surface-panel: #E7E2E3;
+  --solai-surface-raised: #D4CFD0;
+  --solai-surface-hover: #C0BBBC;
+  --solai-border-subtle: #A8A3A4;
+  --solai-border-strong: #686465;
+  --solai-text-primary: #2F2B2C;
+  --solai-text-emphasis: #1E1B1C;
+  --solai-text-secondary: #423D3E;
+  --solai-text-muted: #555051;
+  --solai-text-disabled: #7D7879;
+  --solai-accent-primary: #9A4A65;
+  --solai-accent-hover: #8D3856;
+  --solai-accent-highlight: #7F2448;
+  --solai-accent-ink: #ECE7E8;
+  --solai-accent-secondary: #8C3C36;
+  --solai-selection-background: #9A4A6550;
+  --solai-status-success: #00652A;
+  --solai-status-success-background: #A3E6B7;
+  --solai-status-warning: #655400;
+  --solai-status-warning-background: #ECD595;
+  --solai-status-danger: #9C2D2A;
+  --solai-status-danger-background: #FFC1B6;
+  --solai-status-info: #004C9F;
+  --solai-status-info-background: #B0D9FF;
+  --solai-support-orange: #874300;
+  --solai-support-chartreuse: #395F00;
+  --solai-support-spring: #005948;
+  --solai-support-cyan: #005974;
+  --solai-support-violet: #56489F;
+  --solai-support-magenta: #8A317E;
+  --solai-support-rose: #9F2154;
+}

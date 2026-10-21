@@ -6,12 +6,11 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ThemeHead from '../components/ThemeHead.astro';
 import Wordmark from '../components/Wordmark.astro';
 const sectionHeading = 'section-top section-heading my-[27px] mb-[38px] flex items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:my-[22px] [@media(max-width:650px)]:mb-[25px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]';
-const downloadRow = 'group flex w-full items-center justify-between gap-[20px] border-0 border-b border-solai-border-subtle bg-transparent py-[24px] text-left [&_strong]:block [&_strong]:text-[18px] [&_strong]:font-[450] [&:hover_strong]:text-solai-accent-primary [&_small]:mt-[4px] [&_small]:block [&_small]:text-[12px] [&_small]:text-solai-text-secondary [&>span:last-child]:whitespace-nowrap [&>span:last-child]:font-mono [&>span:last-child]:text-[12px] [&>span:last-child]:leading-[normal] [&>span:last-child]:text-solai-accent-primary [@media(max-width:650px)]:[&_strong]:text-[16px] [@media(max-width:650px)]:[&_small]:max-w-[250px]';
 ---
 
 <Page
   title="Solai — colour themes"
-  description="Five colour themes in light and dark, with palette previews, CSS and JSON downloads, and Tailwind colour tokens."
+  description="Five colour themes in light and dark, with editor and terminal ports, palette previews, CSS, JSON and Tailwind colour tokens."
   flavor="blue"
 >
   <ThemeHead slot="head" />
@@ -44,53 +43,11 @@ const downloadRow = 'group flex w-full items-center justify-between gap-[20px] b
 
     <AppSamples />
 
-    <section id="take-it" class="wrap section downloads pt-[80px] [@media(max-width:650px)]:pt-[50px]">
-      <div class={sectionHeading}>
-        <h2 class="m-0 font-sans text-[clamp(36px,5vw,64px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[39px]">Downloads</h2>
-        <span class="tag self-start whitespace-nowrap rounded-[2px] border border-solai-border-strong px-[8px] py-[3px] font-mono text-[12px] leading-[normal] tracking-[.06em]">EXPERIMENTAL / v0.1</span>
-      </div>
-      <p class="muted my-[1em] text-solai-text-muted">Palette data, CSS variables and Tailwind v4 colour tokens; no app installers.</p>
-      <div class="download-list border-t border-solai-border-subtle">
-        <button class={downloadRow} data-download="json">
-          <span><strong>Current palette</strong><small><span class="current-name">Tide</span> <span class="current-mode">Dark</span> · primitives, semantic roles &amp; provenance</small></span>
-          <span>JSON ↗</span>
-        </button>
-        <button class={downloadRow} data-download="css">
-          <span><strong>Current theme variables</strong><small>Copy into a web project and map to your components</small></span>
-          <span>CSS ↗</span>
-        </button>
-        <button class={downloadRow} data-download="tailwind">
-          <span><strong>Current Tailwind tokens</strong><small><span class="current-name">Tide</span> <span class="current-mode">Dark</span> · primitive ramps &amp; proposed semantic roles</small></span>
-          <span>CSS ↗</span>
-        </button>
-        <button class={downloadRow} data-download="all">
-          <span><strong>All palettes</strong><small>Five flavours · light &amp; dark · source parameters · contrast checks</small></span>
-          <span>JSON ↗</span>
-        </button>
-        <a class={downloadRow} href="/downloads/flavors.tailwind.css" download>
-          <span><strong>All Tailwind themes</strong><small>Five flavours · light &amp; dark · switchable colour tokens</small></span>
-          <span>CSS ↗</span>
-        </a>
-        <a class={downloadRow} href="/downloads/dolch-reference-starter.zip" download>
-          <span><strong>Original reference &amp; generators</strong><small>Earlier Dolch-labelled starter · MIT notice · Python scripts</small></span>
-          <span>ZIP ↗</span>
-        </a>
-      </div>
-      <details class="mt-[20px] text-[13px] text-solai-text-secondary">
-        <summary class="min-h-[44px] cursor-pointer py-[10px] text-solai-text-emphasis">Using the Tailwind tokens</summary>
-        <p class="my-[1em]">Import the downloaded CSS after Tailwind v4 in your project’s stylesheet. For the complete family:</p>
-        <pre class="overflow-auto rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel p-[16px] font-mono text-[13px]"><code>{'@import "tailwindcss";\n@import "./flavors.tailwind.css";'}</code></pre>
-        <p class="my-[1em]">Use classes such as <code class="font-mono">bg-solai-surface-canvas</code>, <code class="font-mono">text-solai-text-primary</code> and <code class="font-mono">border-solai-border-strong</code>. Primitive grades are available too, such as <code class="font-mono">bg-solai-accent-7</code>.</p>
-        <p class="my-[1em]">The family defaults to Tide Dark. Set <code class="font-mono">data-flavor</code> to <code class="font-mono">blue</code>, <code class="font-mono">alter</code>, <code class="font-mono">violet</code>, <code class="font-mono">green</code> or <code class="font-mono">rose</code>, and <code class="font-mono">data-mode</code> to <code class="font-mono">dark</code> or <code class="font-mono">light</code> on your root or a themed container. For a single fixed variant, import the current-token download instead.</p>
-        <p class="my-[1em]">These are colour tokens only—not the website’s layout, fonts or guide-only mappings. Check contrast on your own surfaces.</p>
-      </details>
-    </section>
-
     <SiteFooter />
   </main>
 
   <div id="toast" class="pointer-events-none fixed bottom-[25px] left-1/2 z-50 max-w-[90vw] -translate-x-1/2 translate-y-[20px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[20px] py-[12px] text-center font-sans text-[12px] leading-[normal] text-solai-accent-ink opacity-0 transition-[opacity,transform,translate] duration-200 ease-[ease] [&.visible]:translate-y-0 [&.visible]:opacity-100" role="status" aria-live="polite"></div>
-  <noscript><p class="wrap my-[1em]">Enable JavaScript to switch palettes, explore colours and download theme data.</p></noscript>
+  <noscript><p class="wrap my-[1em]">Enable JavaScript to switch palettes and load the flavour cards. <a class="underline underline-offset-[4px] hover:text-solai-accent-hover" href="/downloads/">Theme downloads</a> remain available without JavaScript.</p></noscript>
   <script>
     import '../scripts/app.js';
   </script>

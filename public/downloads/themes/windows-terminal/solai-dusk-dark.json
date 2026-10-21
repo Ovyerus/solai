@@ -1,0 +1,23 @@
+{
+  "name": "Solai Dusk Dark",
+  "background": "#141316",
+  "foreground": "#CBCACE",
+  "cursorColor": "#E7DAFF",
+  "selectionBackground": "#403B53",
+  "black": "#141316",
+  "red": "#EC7D71",
+  "green": "#4DB073",
+  "yellow": "#B49C43",
+  "blue": "#52A1F4",
+  "purple": "#D580C7",
+  "cyan": "#00B2CA",
+  "white": "#B4B3B7",
+  "brightBlack": "#727175",
+  "brightRed": "#FFA798",
+  "brightGreen": "#72E19A",
+  "brightYellow": "#E6C964",
+  "brightBlue": "#7CCFFF",
+  "brightPurple": "#FFAAFB",
+  "brightCyan": "#00E3FE",
+  "brightWhite": "#E3E2E6"
+}

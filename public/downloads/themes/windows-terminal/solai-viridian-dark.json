@@ -1,0 +1,23 @@
+{
+  "name": "Solai Viridian Dark",
+  "background": "#111412",
+  "foreground": "#C8CCC9",
+  "cursorColor": "#AEF2BF",
+  "selectionBackground": "#2C4433",
+  "black": "#111412",
+  "red": "#EC7D71",
+  "green": "#4DB073",
+  "yellow": "#B49C43",
+  "blue": "#52A1F4",
+  "purple": "#D580C7",
+  "cyan": "#00B2CA",
+  "white": "#B1B5B2",
+  "brightBlack": "#707370",
+  "brightRed": "#FFA798",
+  "brightGreen": "#72E19A",
+  "brightYellow": "#E6C964",
+  "brightBlue": "#7CCFFF",
+  "brightPurple": "#FFAAFB",
+  "brightCyan": "#00E3FE",
+  "brightWhite": "#E0E3E0"
+}

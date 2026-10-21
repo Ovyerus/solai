@@ -1,0 +1,182 @@
+---
+import Page from '../../layouts/Page.astro';
+import ThemeHead from '../../components/ThemeHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import manifest from '../../../public/downloads/theme-manifest.json';
+
+const initialVariant = manifest.variants.find(variant => variant.flavor === 'blue' && variant.mode === 'dark')!;
+const editors = manifest.formats.filter(format => format.id === 'vscode' || format.id === 'zed');
+const terminals = manifest.formats.filter(format => format.id !== 'vscode' && format.id !== 'zed');
+const selectedFile = (format: typeof manifest.formats[number]): typeof format.variants[number] & { label?: string } => format.variants.find(variant => variant.flavor === 'blue' && variant.mode === 'dark')!;
+const sectionHeading = 'mb-[24px] flex flex-wrap items-end justify-between gap-[16px] border-t border-solai-border-subtle pt-[20px]';
+const heading = 'm-0 text-[clamp(30px,4vw,48px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis';
+const link = 'inline-flex min-h-[44px] max-w-full items-center gap-[8px] rounded-[2px] py-[10px] text-solai-accent-primary underline decoration-solai-border-strong underline-offset-[5px] hover:text-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary';
+const packageLink = `${link} font-medium`;
+const detail = 'mt-[16px] border-t border-solai-border-subtle text-[13px] text-solai-text-secondary';
+const summary = 'min-h-[44px] cursor-pointer rounded-[2px] py-[11px] text-solai-text-emphasis hover:text-solai-accent-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary';
+const webFormats = [
+  { id: 'json', title: 'Palette JSON', description: 'Primitive ramps, semantic roles and source provenance.', extension: 'JSON' },
+  { id: 'css', title: 'CSS variables', description: 'Semantic custom properties for one fixed variant.', extension: 'CSS' },
+  { id: 'tailwind', title: 'Tailwind v4 tokens', description: 'Colour utilities for one fixed variant; no layout or fonts.', extension: 'CSS' },
+] as const;
+const familyFiles = [
+  { href: '/downloads/flavor-studies.json', title: 'All palette data', description: 'Five flavours × light and dark · ramps, roles and provenance', extension: 'JSON' },
+  { href: '/downloads/flavors.css', title: 'All CSS themes', description: 'Five flavours × light and dark · switchable custom properties', extension: 'CSS' },
+  { href: '/downloads/flavors.tailwind.css', title: 'All Tailwind themes', description: 'Five flavours × light and dark · switchable colour utilities', extension: 'CSS' },
+];
+const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
+---
+
+<Page
+  title="Downloads — Solai"
+  description="Download all ten Solai themes for VS Code, Zed and eight terminal formats, plus palette JSON, CSS variables and Tailwind v4 colour tokens."
+  flavor="blue"
+>
+  <ThemeHead slot="head" />
+  <SiteHeader />
+
+  <main id="main">
+    <header class="wrap pt-[64px] [@media(max-width:650px)]:pt-[36px]">
+      <div class="flex flex-wrap items-end justify-between gap-[20px]">
+        <h1 class="m-0 text-[clamp(48px,7vw,88px)] font-[450] leading-[1.1] tracking-[-.055em] text-solai-text-emphasis">Downloads</h1>
+        <span class="rounded-[2px] border border-solai-border-strong px-[8px] py-[3px] font-mono text-[12px] leading-[normal] tracking-[.06em]">v{manifest.version}</span>
+      </div>
+      <p class="mt-[24px] mb-0 max-w-[66ch] text-solai-text-secondary">Five flavours, each in light and dark. Install an application theme, or bring the same colours into your own project with CSS, Tailwind tokens and palette data.</p>
+      <div class="mt-[28px] border-y border-solai-border-subtle py-[18px]">
+        <p class="m-0 font-mono text-[13px] text-solai-text-emphasis">Selected-variant files: <strong class="font-medium" data-download-variant>{initialVariant.name}</strong></p>
+        <p id="downloads-status" class="mt-[8px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary" role="status">Selected-file links are fixed to Tide Dark until the appearance controls load. All-theme packages below contain every flavour and mode.</p>
+      </div>
+      <noscript><p class="mt-[16px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary">Without JavaScript, selected-file links stay on Tide Dark, regardless of the page’s appearance. Every all-theme package remains available and contains all ten variants.</p></noscript>
+      <nav class="mt-[12px] flex flex-wrap gap-x-[28px] gap-y-[4px] text-[13px]" aria-label="Download sections">
+        <a class={link} href="#editors">Editors ↓</a>
+        <a class={link} href="#terminals">Terminals ↓</a>
+        <a class={link} href="#web-data">Web &amp; palette data ↓</a>
+        <a class={link} href="#licensing">Licensing &amp; limits ↓</a>
+      </nav>
+    </header>
+
+    <section id="editors" class="wrap pt-[56px] [@media(max-width:650px)]:pt-[36px]" aria-labelledby="editors-title">
+      <div class={sectionHeading}>
+        <h2 id="editors-title" class={heading}>Editors</h2>
+        <span class="font-mono text-[12px] text-solai-text-secondary">Local packages · all ten themes</span>
+      </div>
+      <p class="mt-0 mb-[24px] max-w-[75ch] text-solai-text-secondary">These are downloadable local themes, not marketplace listings. The main package for each editor contains all five flavours in both modes; the selected JSON is available separately.</p>
+      <div class="grid grid-cols-2 gap-[28px] [@media(max-width:900px)]:grid-cols-1">
+        {editors.map(format => (
+          <article id={`format-${format.id}`} class="min-w-0 rounded-[2px] border border-solai-border-subtle p-[24px] [@media(max-width:650px)]:p-[18px]" aria-labelledby={`title-${format.id}`}>
+            <h3 id={`title-${format.id}`} class="m-0 text-[23px] font-normal leading-[1.3] tracking-[-.02em] text-solai-text-emphasis">{format.title}</h3>
+            <p class="mt-[12px] mb-[16px] text-[13px] text-solai-text-secondary">{format.description}</p>
+            <a class={packageLink} href={format.bundle.href} download>{format.bundle.label} <span aria-hidden="true">↓</span></a>
+            <div class="mt-[4px] text-[12px]">
+              <a class={link} href={selectedFile(format).href} download data-download-format={format.id}>
+                <span>Selected source: <span data-download-variant>{initialVariant.name}</span><span data-download-file-label data-download-label-fallback="JSON"> · {selectedFile(format).label || 'JSON'}</span> <span aria-hidden="true">↓</span></span>
+              </a>
+            </div>
+            <details class={detail}>
+              <summary class={summary}>Install in {format.title}</summary>
+              <ol class="mt-[8px] mb-[4px] list-decimal space-y-[12px] pl-[22px]">
+                {format.installation.map(step => <li class="pl-[3px] [overflow-wrap:anywhere]">{step}</li>)}
+              </ol>
+            </details>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="terminals" class="wrap pt-[64px] [@media(max-width:650px)]:pt-[40px]" aria-labelledby="terminals-title">
+      <div class={sectionHeading}>
+        <h2 id="terminals-title" class={heading}>Terminals</h2>
+        <a class={`${link} text-[13px]`} href={manifest.terminalBundle.href} download>{manifest.terminalBundle.label} <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="mt-0 mb-[24px] max-w-[75ch] text-solai-text-secondary">Choose your terminal’s native format. Each selected download contains one theme; Windows Terminal’s selected ZIP also includes its licence notices. Each all-theme ZIP contains all ten variants and the theme licence notices. The combined ZIP includes all eight formats.</p>
+      <div class="grid grid-cols-2 gap-x-[36px] [@media(max-width:900px)]:grid-cols-1">
+        {terminals.map(format => (
+          <article id={`format-${format.id}`} class="min-w-0 border-b border-solai-border-subtle py-[24px]" aria-labelledby={`title-${format.id}`}>
+            <h3 id={`title-${format.id}`} class="m-0 text-[23px] font-normal leading-[1.3] tracking-[-.02em] text-solai-text-emphasis">{format.title}</h3>
+            <p class="mt-[12px] mb-[12px] max-w-[65ch] text-[13px] text-solai-text-secondary">{format.description}</p>
+            <div class="flex flex-wrap items-start gap-x-[24px] gap-y-[2px] text-[13px]">
+              <a class={link} href={selectedFile(format).href} download data-download-format={format.id}>
+                <span><span data-download-variant>{initialVariant.name}</span><span data-download-file-label data-download-label-fallback="">{selectedFile(format).label ? ` · ${selectedFile(format).label}` : ''}</span> <span aria-hidden="true">↓</span></span>
+              </a>
+              <a class={link} href={format.bundle.href} download>{format.bundle.label} <span aria-hidden="true">↓</span></a>
+            </div>
+            <details class={detail}>
+              <summary class={summary}>Install in {format.title}</summary>
+              <ol class="mt-[8px] mb-[4px] list-decimal space-y-[12px] pl-[22px]">
+                {format.installation.map(step => <li class="pl-[3px] [overflow-wrap:anywhere]">{step}</li>)}
+              </ol>
+            </details>
+          </article>
+        ))}
+      </div>
+      <aside class="mt-[24px] max-w-[80ch] border-l-2 border-solai-border-strong pl-[18px] text-[13px] text-solai-text-secondary" aria-label="Terminal colour limitations">
+        <p class="m-0">ANSI slots preserve their conventional identities, including black and white in light mode. Not every ANSI colour is readable against every background: applications choose which slots and combinations to use. These colour schemes do not install fonts, configure a shell prompt or change your terminal’s default profile.</p>
+      </aside>
+    </section>
+
+    <section id="web-data" class="wrap pt-[64px] [@media(max-width:650px)]:pt-[40px]" aria-labelledby="web-data-title">
+      <div class={sectionHeading}>
+        <h2 id="web-data-title" class={heading}>Web &amp; palette data</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-[36px] [@media(max-width:900px)]:grid-cols-1 [@media(max-width:900px)]:gap-[28px]">
+        <div class="min-w-0">
+          <h3 class="m-0 border-b border-solai-border-subtle pb-[12px] text-[18px] font-normal text-solai-text-emphasis">Selected variant</h3>
+          {webFormats.map(format => (
+            <a class="group flex min-h-[88px] items-center justify-between gap-[16px] rounded-[2px] border-b border-solai-border-subtle py-[20px] hover:text-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary" href={initialVariant.downloads[format.id]} download data-download-web={format.id}>
+              <span class="min-w-0">
+                <strong class="block text-[17px] font-normal text-solai-text-emphasis group-hover:text-solai-accent-primary">{format.title}</strong>
+                <span class="mt-[4px] block text-[12px] text-solai-text-secondary"><span data-download-variant>{initialVariant.name}</span> · {format.description}</span>
+              </span>
+              <span class="shrink-0 font-mono text-[12px] text-solai-accent-primary">{format.extension} <span aria-hidden="true">↓</span></span>
+            </a>
+          ))}
+        </div>
+        <div class="min-w-0">
+          <h3 class="m-0 border-b border-solai-border-subtle pb-[12px] text-[18px] font-normal text-solai-text-emphasis">Complete family</h3>
+          {familyFiles.map(file => (
+            <a class="group flex min-h-[88px] items-center justify-between gap-[16px] rounded-[2px] border-b border-solai-border-subtle py-[20px] hover:text-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-primary" href={file.href} download>
+              <span class="min-w-0">
+                <strong class="block text-[17px] font-normal text-solai-text-emphasis group-hover:text-solai-accent-primary">{file.title}</strong>
+                <span class="mt-[4px] block text-[12px] text-solai-text-secondary">{file.description}</span>
+              </span>
+              <span class="shrink-0 font-mono text-[12px] text-solai-accent-primary">{file.extension} <span aria-hidden="true">↓</span></span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <details id="tailwind-usage" class="mt-[28px] max-w-[85ch] text-[13px] text-solai-text-secondary">
+        <summary class={summary}>Using the Tailwind tokens</summary>
+        <p class="my-[16px]">Import the downloaded CSS after Tailwind v4 in your project’s stylesheet. For the complete family:</p>
+        <pre class="my-[16px] overflow-x-auto rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel p-[16px] font-mono text-[13px] text-solai-text-primary"><code>{'@import "tailwindcss";\n@import "./flavors.tailwind.css";'}</code></pre>
+        <p class="my-[16px]">Use classes such as <code class="font-mono [overflow-wrap:anywhere]">bg-solai-surface-canvas</code>, <code class="font-mono [overflow-wrap:anywhere]">text-solai-text-primary</code> and <code class="font-mono [overflow-wrap:anywhere]">border-solai-border-strong</code>. Primitive grades are available too, such as <code class="font-mono [overflow-wrap:anywhere]">bg-solai-accent-7</code>.</p>
+        <p class="my-[16px]">The family defaults to Tide Dark. Set <code class="font-mono">data-flavor</code> to <code class="font-mono">blue</code> (Tide), <code class="font-mono">alter</code> (Ember), <code class="font-mono">violet</code> (Dusk), <code class="font-mono">green</code> (Viridian) or <code class="font-mono">rose</code> (Bloom), and <code class="font-mono">data-mode</code> to <code class="font-mono">dark</code> or <code class="font-mono">light</code> on your root or a themed container. For a single fixed variant, import the selected-token download instead.</p>
+        <pre class="my-[16px] overflow-x-auto rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel p-[16px] font-mono text-[13px] text-solai-text-primary"><code>{'<html data-flavor="blue" data-mode="dark">'}</code></pre>
+        <p class="my-[16px]">These are colour tokens only—not the website’s layout, fonts or guide-only mappings. Check contrast on your own surfaces.</p>
+      </details>
+    </section>
+
+    <section id="licensing" class="wrap pt-[64px] [@media(max-width:650px)]:pt-[40px]" aria-labelledby="licensing-title">
+      <div class={sectionHeading}>
+        <h2 id="licensing-title" class={heading}>Licensing &amp; provenance</h2>
+      </div>
+      <div class="max-w-[80ch] text-[14px] text-solai-text-secondary">
+        <p class="mt-0 mb-[16px]">The new application theme packages and port mappings are MIT licensed, © 2026 Solai contributors. Package archives include the theme licence and the preserved Dolch MIT notice; individual theme files are covered by the notices linked below.</p>
+        <p class="my-[16px]">Tide and Ember derive from Dolch by Renzhi Li. Dusk, Viridian and Bloom are Solai colour studies. Palette JSON retains source provenance; the application-package licence does not relicense existing raw palette exports, this website, artwork or fonts.</p>
+        <div class="flex flex-wrap gap-x-[28px] gap-y-[4px]">
+          <a class={link} href="https://github.com/be5invis/vscode-theme-dolch">Dolch by Renzhi Li ↗</a>
+          <a class={link} href={manifest.licenses.themes} download>Theme packages · MIT notice ↓</a>
+          <a class={link} href={manifest.licenses.dolch} download>Dolch · MIT notice ↓</a>
+          <a class={link} href="/guide/" data-theme-link>Colour usage guide ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <SiteFooter />
+  </main>
+
+  <script id="download-manifest" type="application/json" is:inline set:html={manifestJSON} />
+  <script>
+    import '../../scripts/downloads.js';
+  </script>
+</Page>

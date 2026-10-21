@@ -1,0 +1,36 @@
+/* Solai Viridian Dark · Independent colour study using the Dolch generation method. Semantic UI roles are proposed. */
+:root {
+  color-scheme: dark;
+  --solai-surface-canvas: #111412;
+  --solai-surface-panel: #222523;
+  --solai-surface-raised: #343735;
+  --solai-surface-hover: #474A48;
+  --solai-border-subtle: #474A48;
+  --solai-border-strong: #858885;
+  --solai-text-primary: #C8CCC9;
+  --solai-text-emphasis: #E0E3E0;
+  --solai-text-secondary: #B1B5B2;
+  --solai-text-muted: #9B9E9B;
+  --solai-text-disabled: #707370;
+  --solai-accent-primary: #67AC7A;
+  --solai-accent-hover: #7FC391;
+  --solai-accent-highlight: #AEF2BF;
+  --solai-accent-ink: #111412;
+  --solai-accent-secondary: #50C6B5;
+  --solai-selection-background: #67AC7A50;
+  --solai-status-success: #5FC886;
+  --solai-status-success-background: #00411B;
+  --solai-status-warning: #CDB253;
+  --solai-status-warning-background: #423600;
+  --solai-status-danger: #FF9285;
+  --solai-status-danger-background: #641E1B;
+  --solai-status-info: #67B8FF;
+  --solai-status-info-background: #00396E;
+  --solai-support-orange: #F3A161;
+  --solai-support-chartreuse: #9CC061;
+  --solai-support-spring: #00CCB5;
+  --solai-support-cyan: #00CBE4;
+  --solai-support-violet: #BBA6FF;
+  --solai-support-magenta: #F095E1;
+  --solai-support-rose: #FF8CB2;
+}

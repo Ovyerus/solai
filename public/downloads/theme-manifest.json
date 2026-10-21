@@ -1,0 +1,929 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "variants": [
+    {
+      "flavor": "blue",
+      "flavorName": "Tide",
+      "mode": "dark",
+      "modeName": "Dark",
+      "name": "Solai Tide Dark",
+      "slug": "solai-tide-dark",
+      "downloads": {
+        "json": "/downloads/variants/solai-tide-dark.json",
+        "css": "/downloads/variants/solai-tide-dark.css",
+        "tailwind": "/downloads/variants/solai-tide-dark.tailwind.css"
+      }
+    },
+    {
+      "flavor": "blue",
+      "flavorName": "Tide",
+      "mode": "light",
+      "modeName": "Light",
+      "name": "Solai Tide Light",
+      "slug": "solai-tide-light",
+      "downloads": {
+        "json": "/downloads/variants/solai-tide-light.json",
+        "css": "/downloads/variants/solai-tide-light.css",
+        "tailwind": "/downloads/variants/solai-tide-light.tailwind.css"
+      }
+    },
+    {
+      "flavor": "alter",
+      "flavorName": "Ember",
+      "mode": "dark",
+      "modeName": "Dark",
+      "name": "Solai Ember Dark",
+      "slug": "solai-ember-dark",
+      "downloads": {
+        "json": "/downloads/variants/solai-ember-dark.json",
+        "css": "/downloads/variants/solai-ember-dark.css",
+        "tailwind": "/downloads/variants/solai-ember-dark.tailwind.css"
+      }
+    },
+    {
+      "flavor": "alter",
+      "flavorName": "Ember",
+      "mode": "light",
+      "modeName": "Light",
+      "name": "Solai Ember Light",
+      "slug": "solai-ember-light",
+      "downloads": {
+        "json": "/downloads/variants/solai-ember-light.json",
+        "css": "/downloads/variants/solai-ember-light.css",
+        "tailwind": "/downloads/variants/solai-ember-light.tailwind.css"
+      }
+    },
+    {
+      "flavor": "violet",
+      "flavorName": "Dusk",
+      "mode": "dark",
+      "modeName": "Dark",
+      "name": "Solai Dusk Dark",
+      "slug": "solai-dusk-dark",
+      "downloads": {
+        "json": "/downloads/variants/solai-dusk-dark.json",
+        "css": "/downloads/variants/solai-dusk-dark.css",
+        "tailwind": "/downloads/variants/solai-dusk-dark.tailwind.css"
+      }
+    },
+    {
+      "flavor": "violet",
+      "flavorName": "Dusk",
+      "mode": "light",
+      "modeName": "Light",
+      "name": "Solai Dusk Light",
+      "slug": "solai-dusk-light",
+      "downloads": {
+        "json": "/downloads/variants/solai-dusk-light.json",
+        "css": "/downloads/variants/solai-dusk-light.css",
+        "tailwind": "/downloads/variants/solai-dusk-light.tailwind.css"
+      }
+    },
+    {
+      "flavor": "green",
+      "flavorName": "Viridian",
+      "mode": "dark",
+      "modeName": "Dark",
+      "name": "Solai Viridian Dark",
+      "slug": "solai-viridian-dark",
+      "downloads": {
+        "json": "/downloads/variants/solai-viridian-dark.json",
+        "css": "/downloads/variants/solai-viridian-dark.css",
+        "tailwind": "/downloads/variants/solai-viridian-dark.tailwind.css"
+      }
+    },
+    {
+      "flavor": "green",
+      "flavorName": "Viridian",
+      "mode": "light",
+      "modeName": "Light",
+      "name": "Solai Viridian Light",
+      "slug": "solai-viridian-light",
+      "downloads": {
+        "json": "/downloads/variants/solai-viridian-light.json",
+        "css": "/downloads/variants/solai-viridian-light.css",
+        "tailwind": "/downloads/variants/solai-viridian-light.tailwind.css"
+      }
+    },
+    {
+      "flavor": "rose",
+      "flavorName": "Bloom",
+      "mode": "dark",
+      "modeName": "Dark",
+      "name": "Solai Bloom Dark",
+      "slug": "solai-bloom-dark",
+      "downloads": {
+        "json": "/downloads/variants/solai-bloom-dark.json",
+        "css": "/downloads/variants/solai-bloom-dark.css",
+        "tailwind": "/downloads/variants/solai-bloom-dark.tailwind.css"
+      }
+    },
+    {
+      "flavor": "rose",
+      "flavorName": "Bloom",
+      "mode": "light",
+      "modeName": "Light",
+      "name": "Solai Bloom Light",
+      "slug": "solai-bloom-light",
+      "downloads": {
+        "json": "/downloads/variants/solai-bloom-light.json",
+        "css": "/downloads/variants/solai-bloom-light.css",
+        "tailwind": "/downloads/variants/solai-bloom-light.tailwind.css"
+      }
+    }
+  ],
+  "formats": [
+    {
+      "id": "vscode",
+      "title": "VS Code / VSCodium",
+      "extension": "json",
+      "description": "A local extension with all ten Solai themes, restrained syntax, workbench colours and the approved 16-colour integrated terminal palette.",
+      "installation": [
+        "Download the VSIX. In VS Code or VSCodium, run Extensions: Install from VSIX… from the Command Palette and choose solai-vscode.vsix. This is a local package, not a Marketplace installation.",
+        "Run Preferences: Color Theme and choose Solai followed by a flavour and Light or Dark. Installing the extension does not select a theme, install fonts or change your editor settings.",
+        "The individual JSON is theme source, not a settings.json replacement. To package it yourself, reference it from contributes.themes in an extension manifest; use uiTheme vs-dark for Dark or vs for Light.",
+        "Semantic token rules apply when semantic highlighting is allowed by your settings. Bracket-pair colours apply only when your editor has bracket-pair colourization enabled. Language extensions and personal colour customizations can override theme colours.",
+        "Integrated terminal ANSI indices are preserved exactly, including pale white slots in Light themes. VS Code may adjust rendered terminal contrast according to your existing minimum-contrast setting; applications may emit their own true colours."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/vscode/solai-tide-dark.json"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/vscode/solai-tide-light.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/vscode/solai-ember-dark.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/vscode/solai-ember-light.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/vscode/solai-dusk-dark.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/vscode/solai-dusk-light.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/vscode/solai-viridian-dark.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/vscode/solai-viridian-light.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/vscode/solai-bloom-dark.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/vscode/solai-bloom-light.json"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-vscode.vsix",
+        "label": "Install all ten themes · VSIX"
+      }
+    },
+    {
+      "id": "zed",
+      "title": "Zed",
+      "extension": "json",
+      "description": "A local Zed theme family with restrained syntax, six nesting accents and the approved ANSI banks.",
+      "installation": [
+        "Place the all-ten solai.json file, or one selected variant JSON, in ~/.config/zed/themes/ on macOS or Linux; on Windows use %APPDATA%\\Zed\\themes\\. Use your custom configuration directory if you run Zed with --user-data-dir.",
+        "Restart Zed, run “theme selector: toggle” from the command palette, and choose a Solai flavour and mode. These are local themes, not marketplace extensions.",
+        "To use the six nesting colours, enable “colorize_brackets” in your Zed settings. Bracket colouring depends on each language’s bracket queries; the theme does not change this setting.",
+        "Zed themes expose search background fills, not separate match text or underline colours. Editor and terminal carets and selections share the local player colours; a terminal block cursor uses the terminal background for its character."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/zed/solai-tide-dark.json"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/zed/solai-tide-light.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/zed/solai-ember-dark.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/zed/solai-ember-light.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/zed/solai-dusk-dark.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/zed/solai-dusk-light.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/zed/solai-viridian-dark.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/zed/solai-viridian-light.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/zed/solai-bloom-dark.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/zed/solai-bloom-light.json"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/zed/solai.json",
+        "label": "All ten themes · JSON"
+      }
+    },
+    {
+      "id": "ghostty",
+      "title": "Ghostty",
+      "extension": "conf",
+      "description": "Native colour-only theme with cursor, opaque selection and the exact 16 ANSI slots.",
+      "installation": [
+        "Save the .conf file in $XDG_CONFIG_HOME/ghostty/themes/ (normally ~/.config/ghostty/themes/ on macOS and Linux). Create the themes directory if needed.",
+        "In your existing Ghostty config, set theme = solai-tide-dark.conf, replacing the name with the exact downloaded filename, including .conf. An absolute path also works. Do not replace the rest of your config.",
+        "Reload Ghostty configuration to apply. Existing explicit colour overrides in your config take precedence over theme values."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/ghostty/solai-tide-dark.conf"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/ghostty/solai-tide-light.conf"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/ghostty/solai-ember-dark.conf"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/ghostty/solai-ember-light.conf"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/ghostty/solai-dusk-dark.conf"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/ghostty/solai-dusk-light.conf"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/ghostty/solai-viridian-dark.conf"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/ghostty/solai-viridian-light.conf"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/ghostty/solai-bloom-dark.conf"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/ghostty/solai-bloom-light.conf"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-ghostty.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "kitty",
+      "title": "Kitty",
+      "extension": "conf",
+      "description": "Colour-only include for Kitty; fonts, tabs, layout and shell settings remain yours.",
+      "installation": [
+        "Save the file under ~/.config/kitty/themes/ on macOS or Linux (or the themes directory under your KITTY_CONFIG_DIRECTORY).",
+        "Add include themes/solai-tide-dark.conf to your existing kitty.conf, replacing the filename with your chosen variant. Place it after other colour settings you want it to override.",
+        "Reload the config with Ctrl+Shift+F5 on Linux or Control+Command+, on macOS. Other explicit colour settings after the include can override this theme."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/kitty/solai-tide-dark.conf"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/kitty/solai-tide-light.conf"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/kitty/solai-ember-dark.conf"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/kitty/solai-ember-light.conf"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/kitty/solai-dusk-dark.conf"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/kitty/solai-dusk-light.conf"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/kitty/solai-viridian-dark.conf"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/kitty/solai-viridian-light.conf"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/kitty/solai-bloom-dark.conf"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/kitty/solai-bloom-light.conf"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-kitty.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "alacritty",
+      "title": "Alacritty",
+      "extension": "toml",
+      "description": "Importable TOML containing only primary, cursor, selection and ANSI colours.",
+      "installation": [
+        "Save the file under ~/.config/alacritty/themes/ on macOS or Linux, or %APPDATA%\\alacritty\\themes\\ on Windows.",
+        "Add the chosen file to the import array in the existing [general] table of alacritty.toml, for example import = [\"themes/solai-tide-dark.toml\"]. Merge with existing imports; do not duplicate the table or replace the config.",
+        "Imports resolve relative to alacritty.toml; its own colour settings override imported values. Alacritty normally reloads changes automatically; otherwise restart it."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/alacritty/solai-tide-dark.toml"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/alacritty/solai-tide-light.toml"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/alacritty/solai-ember-dark.toml"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/alacritty/solai-ember-light.toml"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/alacritty/solai-dusk-dark.toml"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/alacritty/solai-dusk-light.toml"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/alacritty/solai-viridian-dark.toml"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/alacritty/solai-viridian-light.toml"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/alacritty/solai-bloom-dark.toml"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/alacritty/solai-bloom-light.toml"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-alacritty.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "wezterm",
+      "title": "WezTerm",
+      "extension": "toml",
+      "description": "Native colour-scheme TOML, not an executable Lua configuration.",
+      "installation": [
+        "On macOS or Linux save the file in ~/.config/wezterm/colors/. On Windows use the colors directory beside wezterm.exe, or a directory already listed in color_scheme_dirs.",
+        "In your existing wezterm.lua, set config.color_scheme = \"Solai Tide Dark\" using the exact name from the file’s [metadata] section, and retain your existing returned config table.",
+        "WezTerm reloads configuration automatically. Explicit config.colors overrides still take precedence; multiplexed sessions use the multiplexer server’s scheme configuration."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/wezterm/solai-tide-dark.toml"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/wezterm/solai-tide-light.toml"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/wezterm/solai-ember-dark.toml"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/wezterm/solai-ember-light.toml"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/wezterm/solai-dusk-dark.toml"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/wezterm/solai-dusk-light.toml"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/wezterm/solai-viridian-dark.toml"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/wezterm/solai-viridian-light.toml"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/wezterm/solai-bloom-dark.toml"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/wezterm/solai-bloom-light.toml"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-wezterm.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "iterm2",
+      "title": "iTerm2",
+      "extension": "itermcolors",
+      "description": "Native sRGB colour preset; does not replace a profile or its fonts and commands.",
+      "installation": [
+        "Keep the .itermcolors file anywhere convenient on your Mac. In iTerm2 open Settings → Profiles, choose your existing profile, then Colors → Color Presets… → Import….",
+        "Select the downloaded file, then choose its filename-based preset from Color Presets…. If separate light/dark colours are enabled, first choose the mode you want to edit.",
+        "Enable Use custom color for selected text to use the exported selected-text colour. Existing minimum-contrast, cursor-boost and context-aware cursor options can alter displayed colours; the preset does not change those preferences."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/iterm2/solai-tide-dark.itermcolors"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/iterm2/solai-tide-light.itermcolors"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/iterm2/solai-ember-dark.itermcolors"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/iterm2/solai-ember-light.itermcolors"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/iterm2/solai-dusk-dark.itermcolors"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/iterm2/solai-dusk-light.itermcolors"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/iterm2/solai-viridian-dark.itermcolors"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/iterm2/solai-viridian-light.itermcolors"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/iterm2/solai-bloom-dark.itermcolors"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/iterm2/solai-bloom-light.itermcolors"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-iterm2.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "terminal",
+      "title": "macOS Terminal",
+      "extension": "terminal",
+      "description": "Colour-only native profile with real sRGB NSColor keyed archives. Terminal controls selected-text and cursor-text colours itself.",
+      "installation": [
+        "Keep the .terminal file anywhere convenient on your Mac. In Terminal → Settings → Profiles, use the action menu → Import… and select it, or drag it from Finder into the profile list.",
+        "Choose the imported Solai profile from Shell → New Window or Shell → New Tab. Importing does not make it the default profile and does not modify your existing profiles.",
+        "The imported profile supplies colours only; other properties inherit Terminal’s defaults, not custom settings from another profile. Adjust those in the new profile if needed. No shell command, font or window dimensions are included."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/terminal/solai-tide-dark.terminal"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/terminal/solai-tide-light.terminal"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/terminal/solai-ember-dark.terminal"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/terminal/solai-ember-light.terminal"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/terminal/solai-dusk-dark.terminal"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/terminal/solai-dusk-light.terminal"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/terminal/solai-viridian-dark.terminal"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/terminal/solai-viridian-light.terminal"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/terminal/solai-bloom-dark.terminal"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/terminal/solai-bloom-light.terminal"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-terminal.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "windows-terminal",
+      "title": "Windows Terminal",
+      "extension": "json",
+      "description": "One native scheme object, not a replacement settings.json. This format has no independent selected-text or cursor-text colour.",
+      "installation": [
+        "Unzip the download and locate its scheme .json file; keep the accompanying license notices. Open Windows Terminal → Settings → Open JSON file. Store installations normally use %LOCALAPPDATA%\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; unpackaged installations use %LOCALAPPDATA%\\Microsoft\\Windows Terminal\\settings.json.",
+        "Copy the downloaded object into the existing top-level schemes array, keeping other schemes and valid commas. Do not replace settings.json with this file.",
+        "In Settings choose the desired profile → Appearance → Color scheme → Solai Tide Dark (or your imported name), then Save. Alternatively set that profile’s colorScheme to the exact scheme name. Your default profile and command line remain unchanged."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/windows-terminal/solai-tide-dark.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/windows-terminal/solai-tide-light.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/windows-terminal/solai-ember-dark.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/windows-terminal/solai-ember-light.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/windows-terminal/solai-dusk-dark.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/windows-terminal/solai-dusk-light.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/windows-terminal/solai-viridian-dark.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/windows-terminal/solai-viridian-light.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/windows-terminal/solai-bloom-dark.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/windows-terminal/solai-bloom-light.zip",
+          "label": "Scheme JSON + licenses · ZIP"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-windows-terminal.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
+      "id": "xresources",
+      "title": "Xresources / xterm",
+      "extension": "Xresources",
+      "description": "XTerm-scoped X11 resources with the exact ANSI palette and opaque selection. Other terminal emulators may use different resource names; xterm controls cursor text itself.",
+      "installation": [
+        "Save the file under ~/.config/solai/ on an X11 system, then add #include \".config/solai/solai-tide-dark.Xresources\" to ~/.Xresources, using your chosen filename. The quoted path resolves relative to ~/.Xresources.",
+        "Merge your existing resource file with xrdb -merge ~/.Xresources, then open a new xterm. Keep other resources; do not use xrdb -load, which replaces the resource database.",
+        "These resources target the XTerm application class only. More-specific existing XTerm resources and application-set colours may override them. A Wayland-native terminal does not consume Xresources."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/xresources/solai-tide-dark.Xresources"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/xresources/solai-tide-light.Xresources"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/xresources/solai-ember-dark.Xresources"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/xresources/solai-ember-light.Xresources"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/xresources/solai-dusk-dark.Xresources"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/xresources/solai-dusk-light.Xresources"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/xresources/solai-viridian-dark.Xresources"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/xresources/solai-viridian-light.Xresources"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/xresources/solai-bloom-dark.Xresources"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/xresources/solai-bloom-light.Xresources"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-xresources.zip",
+        "label": "All ten themes · ZIP"
+      }
+    }
+  ],
+  "terminalBundle": {
+    "href": "/downloads/themes/solai-terminals.zip",
+    "label": "Every terminal format · all ten variants · ZIP"
+  },
+  "licenses": {
+    "themes": "/downloads/LICENSE-Themes.txt",
+    "dolch": "/downloads/LICENSE-Dolch.txt"
+  }
+}

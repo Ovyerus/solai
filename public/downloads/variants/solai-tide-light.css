@@ -1,0 +1,36 @@
+/* Solai Tide Light · Original Dolch primitives (dolch-light): Renzhi Li, MIT. Semantic UI roles are proposed. */
+:root {
+  color-scheme: light;
+  --solai-surface-canvas: #EDF1F4;
+  --solai-surface-panel: #DFE4E6;
+  --solai-surface-raised: #CDD1D4;
+  --solai-surface-hover: #B8BCBF;
+  --solai-border-subtle: #A1A5A7;
+  --solai-border-strong: #626668;
+  --solai-text-primary: #2A2D2F;
+  --solai-text-emphasis: #191C1E;
+  --solai-text-secondary: #3B3F41;
+  --solai-text-muted: #4E5254;
+  --solai-text-disabled: #767A7C;
+  --solai-accent-primary: #006283;
+  --solai-accent-hover: #005476;
+  --solai-accent-highlight: #005476;
+  --solai-accent-ink: #E4E9EB;
+  --solai-accent-secondary: #006465;
+  --solai-selection-background: #00628350;
+  --solai-status-success: #00652A;
+  --solai-status-success-background: #A3E6B7;
+  --solai-status-warning: #655400;
+  --solai-status-warning-background: #ECD595;
+  --solai-status-danger: #9C2D2A;
+  --solai-status-danger-background: #FFC1B6;
+  --solai-status-info: #004C9F;
+  --solai-status-info-background: #B0D9FF;
+  --solai-support-orange: #874300;
+  --solai-support-chartreuse: #395F00;
+  --solai-support-spring: #005948;
+  --solai-support-cyan: #005974;
+  --solai-support-violet: #56489F;
+  --solai-support-magenta: #8A317E;
+  --solai-support-rose: #9F2154;
+}

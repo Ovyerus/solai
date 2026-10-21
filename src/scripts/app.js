@@ -1,4 +1,4 @@
-import { announce, download, exportCSS, exportTailwindCSS } from './palette-shared.js';
+import { announce } from './palette-shared.js';
 import { initTheme } from './theme.js';
 import { createHeroArt } from './hero-art.js';
 const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
@@ -53,15 +53,6 @@ $('#reset-demo').addEventListener('click',()=>{
   toggles[1].checked=false;
   announce('Preview reset');
 });
-$$('[data-download]').forEach(button=>button.addEventListener('click',()=>{
-  if(!data)return;
-  const type=button.dataset.download;
-  const filename=`solai-${names[flavour].toLowerCase()}-${mode}`;
-  if(type==='css')download(exportCSS(currentPalette(),names[flavour],mode),'text/css',`${filename}.css`);
-  else if(type==='tailwind')download(exportTailwindCSS(currentPalette(),names[flavour],mode),'text/css',`${filename}.tailwind.css`);
-  else if(type==='json')download(JSON.stringify({...currentPalette(),name:`Solai ${names[flavour]} ${modeName()}`,source:data.source},null,2),'application/json',`${filename}.json`);
-  else download(JSON.stringify(data,null,2),'application/json','solai-palettes.json');
-}));
 const heroArt = createHeroArt($('#hero-canvas'));
 // The artwork remains usable if palette JSON is unavailable; CSS already has the active tokens.
 const initialColours = getComputedStyle(document.documentElement);

@@ -1,0 +1,23 @@
+{
+  "name": "Solai Bloom Dark",
+  "background": "#161213",
+  "foreground": "#CFCACB",
+  "cursorColor": "#FFC9E4",
+  "selectionBackground": "#54353F",
+  "black": "#161213",
+  "red": "#EC7D71",
+  "green": "#4DB073",
+  "yellow": "#B49C43",
+  "blue": "#52A1F4",
+  "purple": "#D580C7",
+  "cyan": "#00B2CA",
+  "white": "#B8B3B4",
+  "brightBlack": "#757172",
+  "brightRed": "#FFA798",
+  "brightGreen": "#72E19A",
+  "brightYellow": "#E6C964",
+  "brightBlue": "#7CCFFF",
+  "brightPurple": "#FFAAFB",
+  "brightCyan": "#00E3FE",
+  "brightWhite": "#E6E1E2"
+}

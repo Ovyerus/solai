@@ -19,8 +19,8 @@ const variables = [
   ...['orange', 'chartreuse', 'spring', 'cyan', 'violet', 'rose'].map((colour, index) => [colour, editor.roles.find(role => role.key === `bracket${index}`)]),
   ...ansi.roles.map((role, index) => [`ansi-${index}`, role]),
 ];
-// Specimen-only colours follow the approved guide mappings, even without client JSON.
-// These scoped variables do not add aliases to the canonical palette or downloads.
+// Specimens and application ports share the approved guide mappings.
+// These scoped variables do not add aliases to the canonical palette or web exports.
 const previewStyles = paletteData.flavorOrder.flatMap(flavour => paletteData.modeOrder.map(mode => {
   const palette = paletteData.flavors[flavour].modes[mode];
   const declarations = variables.map(([name, role]) => `--preview-${name}:${resolveRole(role, palette, mode).value}`).join(';');
@@ -32,10 +32,6 @@ const previewStyles = paletteData.flavorOrder.flatMap(flavour => paletteData.mod
 <section id="examples" class="wrap section pt-[80px] [@media(max-width:650px)]:pt-[50px]">
   <div class="section-top section-heading my-[27px] mb-[38px] flex items-end justify-between gap-[48px] border-t border-solai-border-subtle py-[19px] [@media(max-width:1000px)]:gap-[30px] [@media(max-width:650px)]:my-[22px] [@media(max-width:650px)]:mb-[25px] [@media(max-width:650px)]:block [@media(max-width:650px)]:py-[15px]">
     <h2 class="m-0 font-sans text-[clamp(29px,3.4vw,46px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis [@media(max-width:650px)]:text-[31px]">Previews</h2>
-  </div>
-  <div class="mb-[20px] flex flex-wrap items-baseline justify-between gap-[10px]">
-    <p class="m-0 text-[12px] leading-[1.7] text-solai-text-secondary">Fixed scenes and fictional readings—not live applications or installed ports.</p>
-    <p class="m-0 font-mono text-[11px] text-solai-text-secondary"><span class="current-name">Tide</span> <span class="current-mode">Dark</span></p>
   </div>
   <div class="preview-windows grid min-w-0 gap-[28px]">
     <EditorPreview />

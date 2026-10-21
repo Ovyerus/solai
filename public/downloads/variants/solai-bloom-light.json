@@ -1,0 +1,3072 @@
+{
+  "mode": "light",
+  "id": "rose",
+  "name": "Solai Bloom Light",
+  "provenance": "proposed",
+  "upstreamVariant": null,
+  "ringPolicy": "shared original Blue light ring",
+  "parameters": {
+    "fg": {
+      "luma": [
+        92,
+        10
+      ],
+      "chroma": 2,
+      "hue": 0,
+      "power": 1
+    },
+    "bg": {
+      "luma": [
+        95,
+        10
+      ],
+      "chroma": 2,
+      "hue": 0,
+      "power": 1.25
+    },
+    "coShades": {
+      "luma": [
+        92,
+        10
+      ],
+      "chroma": 16,
+      "hue": 0,
+      "power": 1
+    },
+    "accent": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        15,
+        42
+      ],
+      "hue": 0,
+      "power": 1
+    },
+    "coAccent": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        15,
+        42
+      ],
+      "hue": 32,
+      "power": 1
+    },
+    "red": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 32,
+      "power": 1
+    },
+    "orange": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 62,
+      "power": 1
+    },
+    "yellow": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 92,
+      "power": 1
+    },
+    "chartreuse": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 122,
+      "power": 1
+    },
+    "green": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 152,
+      "power": 1
+    },
+    "spring": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 182,
+      "power": 1
+    },
+    "cyan": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 212,
+      "power": 1
+    },
+    "azure": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 242,
+      "power": 1
+    },
+    "blue": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 272,
+      "power": 1
+    },
+    "violet": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 302,
+      "power": 1
+    },
+    "magenta": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 332,
+      "power": 1
+    },
+    "rose": {
+      "luma": [
+        92,
+        30
+      ],
+      "chroma": [
+        32,
+        56
+      ],
+      "hue": 362,
+      "power": 1
+    }
+  },
+  "primitives": {
+    "fg": [
+      "#ECE7E8",
+      "#D5D0D1",
+      "#BEB9BA",
+      "#A8A3A4",
+      "#928D8F",
+      "#7D7879",
+      "#686465",
+      "#555051",
+      "#423D3E",
+      "#2F2B2C",
+      "#1E1B1C"
+    ],
+    "bg": [
+      "#F5EFF1",
+      "#E7E2E3",
+      "#D4CFD0",
+      "#C0BBBC",
+      "#A9A4A6",
+      "#928E8F",
+      "#7B7677",
+      "#635F60",
+      "#4B4748",
+      "#343031",
+      "#1E1B1C"
+    ],
+    "coShades": [
+      "#FFDEE9",
+      "#EFC7D1",
+      "#D8B0BB",
+      "#C19AA5",
+      "#AA858F",
+      "#94707A",
+      "#7F5C66",
+      "#6A4852",
+      "#55353F",
+      "#42232D",
+      "#2F121C"
+    ],
+    "accent": [
+      "#FFDEE9",
+      "#F8CBD7",
+      "#EBB8C6",
+      "#DEA5B5",
+      "#D093A4",
+      "#C38094",
+      "#B56E84",
+      "#A85C75",
+      "#9A4A65",
+      "#8D3856",
+      "#7F2448"
+    ],
+    "coAccent": [
+      "#FFDFD9",
+      "#FACCC5",
+      "#ECB9B2",
+      "#DFA79F",
+      "#D2958C",
+      "#C4837A",
+      "#B67168",
+      "#A85F57",
+      "#9A4E46",
+      "#8C3C36",
+      "#7D2B26"
+    ],
+    "red": [
+      "#FFD4C9",
+      "#FFC1B6",
+      "#FFAEA3",
+      "#F89C90",
+      "#E9897E",
+      "#DA776C",
+      "#CB655B",
+      "#BB534A",
+      "#AC413A",
+      "#9C2D2A",
+      "#8C171B"
+    ],
+    "orange": [
+      "#FFDCB3",
+      "#FFCA9E",
+      "#F7B88A",
+      "#E7A676",
+      "#D79562",
+      "#C7844F",
+      "#B7733C",
+      "#A76329",
+      "#975315",
+      "#874300",
+      "#763300"
+    ],
+    "yellow": [
+      "#FDE7AB",
+      "#ECD595",
+      "#DBC480",
+      "#CAB36C",
+      "#B9A257",
+      "#A89243",
+      "#97822E",
+      "#867218",
+      "#766300",
+      "#655400",
+      "#564600"
+    ],
+    "chartreuse": [
+      "#DBF0B3",
+      "#C9DF9F",
+      "#B6CE8A",
+      "#A4BD76",
+      "#92AD62",
+      "#809D4F",
+      "#6E8D3B",
+      "#5D7E28",
+      "#4B6E11",
+      "#395F00",
+      "#285100"
+    ],
+    "green": [
+      "#B8F7CA",
+      "#A3E6B7",
+      "#8ED5A4",
+      "#79C491",
+      "#63B47F",
+      "#4DA46D",
+      "#36945C",
+      "#17844B",
+      "#00753A",
+      "#00652A",
+      "#00561A"
+    ],
+    "spring": [
+      "#9AF9E9",
+      "#80E9D8",
+      "#65D8C6",
+      "#47C7B6",
+      "#1CB7A5",
+      "#00A795",
+      "#009785",
+      "#008775",
+      "#007766",
+      "#006857",
+      "#005948"
+    ],
+    "cyan": [
+      "#8DF8FF",
+      "#70E7F8",
+      "#4ED7E8",
+      "#17C6D9",
+      "#00B6CA",
+      "#00A6BB",
+      "#0096AD",
+      "#00879E",
+      "#007790",
+      "#006882",
+      "#005974"
+    ],
+    "azure": [
+      "#9EF3FF",
+      "#84E2FF",
+      "#67D1FF",
+      "#44C1F3",
+      "#00B1E5",
+      "#00A1D7",
+      "#0091C9",
+      "#0082BC",
+      "#0073AE",
+      "#0064A1",
+      "#005594"
+    ],
+    "blue": [
+      "#C5EAFF",
+      "#B0D9FF",
+      "#9AC8FF",
+      "#84B7FC",
+      "#6DA7EE",
+      "#5496E1",
+      "#3787D3",
+      "#0077C6",
+      "#0068B9",
+      "#005AAC",
+      "#004C9F"
+    ],
+    "violet": [
+      "#F0DFFF",
+      "#DECDFF",
+      "#CDBCFF",
+      "#BCAAF1",
+      "#AA99E3",
+      "#9A88D5",
+      "#8977C7",
+      "#7867BA",
+      "#6758AC",
+      "#56489F",
+      "#443992"
+    ],
+    "magenta": [
+      "#FFD6FF",
+      "#FFC3F6",
+      "#F3B0E6",
+      "#E49ED7",
+      "#D48CC7",
+      "#C57AB8",
+      "#B668AA",
+      "#A8569B",
+      "#99448C",
+      "#8A317E",
+      "#7B1C70"
+    ],
+    "rose": [
+      "#FFD2E7",
+      "#FFBED6",
+      "#FFABC4",
+      "#F898B3",
+      "#E985A2",
+      "#DB7392",
+      "#CC6082",
+      "#BD4D72",
+      "#AE3863",
+      "#9F2154",
+      "#900046"
+    ]
+  },
+  "ramps": {
+    "fg": [
+      {
+        "grade": 0,
+        "hex": "#ECE7E8",
+        "lch": [
+          92,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#D5D0D1",
+        "lch": [
+          83.8,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#BEB9BA",
+        "lch": [
+          75.6,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#A8A3A4",
+        "lch": [
+          67.4,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#928D8F",
+        "lch": [
+          59.2,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#7D7879",
+        "lch": [
+          51,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#686465",
+        "lch": [
+          42.8,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#555051",
+        "lch": [
+          34.6,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#423D3E",
+        "lch": [
+          26.4,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#2F2B2C",
+        "lch": [
+          18.2,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#1E1B1C",
+        "lch": [
+          10,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "bg": [
+      {
+        "grade": 0,
+        "hex": "#F5EFF1",
+        "lch": [
+          95,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#E7E2E3",
+        "lch": [
+          90.220098736,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#D4CFD0",
+        "lch": [
+          83.631414815,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#C0BBBC",
+        "lch": [
+          76.127888485,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#A9A4A6",
+        "lch": [
+          67.960795222,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#928E8F",
+        "lch": [
+          59.261902352,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#7B7677",
+        "lch": [
+          50.114301424,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#635F60",
+        "lch": [
+          40.575872456,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#4B4748",
+        "lch": [
+          30.689570588,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#343031",
+        "lch": [
+          20.488713398,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#1E1B1C",
+        "lch": [
+          10,
+          2,
+          0
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "coShades": [
+      {
+        "grade": 0,
+        "hex": "#FFDEE9",
+        "lch": [
+          92,
+          16,
+          0
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#EFC7D1",
+        "lch": [
+          83.8,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#D8B0BB",
+        "lch": [
+          75.6,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#C19AA5",
+        "lch": [
+          67.4,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#AA858F",
+        "lch": [
+          59.2,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#94707A",
+        "lch": [
+          51,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#7F5C66",
+        "lch": [
+          42.8,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#6A4852",
+        "lch": [
+          34.6,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#55353F",
+        "lch": [
+          26.4,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#42232D",
+        "lch": [
+          18.2,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#2F121C",
+        "lch": [
+          10,
+          16,
+          0
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "accent": [
+      {
+        "grade": 0,
+        "hex": "#FFDEE9",
+        "lch": [
+          92,
+          15,
+          0
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#F8CBD7",
+        "lch": [
+          85.8,
+          17.7,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#EBB8C6",
+        "lch": [
+          79.6,
+          20.4,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#DEA5B5",
+        "lch": [
+          73.4,
+          23.1,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#D093A4",
+        "lch": [
+          67.2,
+          25.8,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#C38094",
+        "lch": [
+          61,
+          28.5,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#B56E84",
+        "lch": [
+          54.8,
+          31.2,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#A85C75",
+        "lch": [
+          48.6,
+          33.9,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#9A4A65",
+        "lch": [
+          42.4,
+          36.6,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#8D3856",
+        "lch": [
+          36.2,
+          39.3,
+          0
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#7F2448",
+        "lch": [
+          30,
+          42,
+          0
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "coAccent": [
+      {
+        "grade": 0,
+        "hex": "#FFDFD9",
+        "lch": [
+          92,
+          15,
+          32
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#FACCC5",
+        "lch": [
+          85.8,
+          17.7,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#ECB9B2",
+        "lch": [
+          79.6,
+          20.4,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#DFA79F",
+        "lch": [
+          73.4,
+          23.1,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#D2958C",
+        "lch": [
+          67.2,
+          25.8,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#C4837A",
+        "lch": [
+          61,
+          28.5,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#B67168",
+        "lch": [
+          54.8,
+          31.2,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#A85F57",
+        "lch": [
+          48.6,
+          33.9,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#9A4E46",
+        "lch": [
+          42.4,
+          36.6,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#8C3C36",
+        "lch": [
+          36.2,
+          39.3,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#7D2B26",
+        "lch": [
+          30,
+          42,
+          32
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "red": [
+      {
+        "grade": 0,
+        "hex": "#FFD4C9",
+        "lch": [
+          92,
+          32,
+          32
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#FFC1B6",
+        "lch": [
+          85.8,
+          34.4,
+          32
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#FFAEA3",
+        "lch": [
+          79.6,
+          36.8,
+          32
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 3,
+        "hex": "#F89C90",
+        "lch": [
+          73.4,
+          39.2,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#E9897E",
+        "lch": [
+          67.2,
+          41.6,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#DA776C",
+        "lch": [
+          61,
+          44,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#CB655B",
+        "lch": [
+          54.8,
+          46.4,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#BB534A",
+        "lch": [
+          48.6,
+          48.8,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#AC413A",
+        "lch": [
+          42.4,
+          51.2,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#9C2D2A",
+        "lch": [
+          36.2,
+          53.6,
+          32
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#8C171B",
+        "lch": [
+          30,
+          56,
+          32
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "orange": [
+      {
+        "grade": 0,
+        "hex": "#FFDCB3",
+        "lch": [
+          92,
+          32,
+          62
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#FFCA9E",
+        "lch": [
+          85.8,
+          34.4,
+          62
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#F7B88A",
+        "lch": [
+          79.6,
+          36.8,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#E7A676",
+        "lch": [
+          73.4,
+          39.2,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#D79562",
+        "lch": [
+          67.2,
+          41.6,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#C7844F",
+        "lch": [
+          61,
+          44,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#B7733C",
+        "lch": [
+          54.8,
+          46.4,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#A76329",
+        "lch": [
+          48.6,
+          48.8,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#975315",
+        "lch": [
+          42.4,
+          51.2,
+          62
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#874300",
+        "lch": [
+          36.2,
+          53.6,
+          62
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#763300",
+        "lch": [
+          30,
+          56,
+          62
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "yellow": [
+      {
+        "grade": 0,
+        "hex": "#FDE7AB",
+        "lch": [
+          92,
+          32,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#ECD595",
+        "lch": [
+          85.8,
+          34.4,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#DBC480",
+        "lch": [
+          79.6,
+          36.8,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#CAB36C",
+        "lch": [
+          73.4,
+          39.2,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#B9A257",
+        "lch": [
+          67.2,
+          41.6,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#A89243",
+        "lch": [
+          61,
+          44,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#97822E",
+        "lch": [
+          54.8,
+          46.4,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#867218",
+        "lch": [
+          48.6,
+          48.8,
+          92
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#766300",
+        "lch": [
+          42.4,
+          51.2,
+          92
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#655400",
+        "lch": [
+          36.2,
+          53.6,
+          92
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#564600",
+        "lch": [
+          30,
+          56,
+          92
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "chartreuse": [
+      {
+        "grade": 0,
+        "hex": "#DBF0B3",
+        "lch": [
+          92,
+          32,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#C9DF9F",
+        "lch": [
+          85.8,
+          34.4,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#B6CE8A",
+        "lch": [
+          79.6,
+          36.8,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#A4BD76",
+        "lch": [
+          73.4,
+          39.2,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#92AD62",
+        "lch": [
+          67.2,
+          41.6,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#809D4F",
+        "lch": [
+          61,
+          44,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#6E8D3B",
+        "lch": [
+          54.8,
+          46.4,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#5D7E28",
+        "lch": [
+          48.6,
+          48.8,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#4B6E11",
+        "lch": [
+          42.4,
+          51.2,
+          122
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#395F00",
+        "lch": [
+          36.2,
+          53.6,
+          122
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#285100",
+        "lch": [
+          30,
+          56,
+          122
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "green": [
+      {
+        "grade": 0,
+        "hex": "#B8F7CA",
+        "lch": [
+          92,
+          32,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#A3E6B7",
+        "lch": [
+          85.8,
+          34.4,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#8ED5A4",
+        "lch": [
+          79.6,
+          36.8,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#79C491",
+        "lch": [
+          73.4,
+          39.2,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#63B47F",
+        "lch": [
+          67.2,
+          41.6,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#4DA46D",
+        "lch": [
+          61,
+          44,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#36945C",
+        "lch": [
+          54.8,
+          46.4,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#17844B",
+        "lch": [
+          48.6,
+          48.8,
+          152
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#00753A",
+        "lch": [
+          42.4,
+          51.2,
+          152
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#00652A",
+        "lch": [
+          36.2,
+          53.6,
+          152
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#00561A",
+        "lch": [
+          30,
+          56,
+          152
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "spring": [
+      {
+        "grade": 0,
+        "hex": "#9AF9E9",
+        "lch": [
+          92,
+          32,
+          182
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 1,
+        "hex": "#80E9D8",
+        "lch": [
+          85.8,
+          34.4,
+          182
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#65D8C6",
+        "lch": [
+          79.6,
+          36.8,
+          182
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#47C7B6",
+        "lch": [
+          73.4,
+          39.2,
+          182
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#1CB7A5",
+        "lch": [
+          67.2,
+          41.6,
+          182
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#00A795",
+        "lch": [
+          61,
+          44,
+          182
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 6,
+        "hex": "#009785",
+        "lch": [
+          54.8,
+          46.4,
+          182
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 7,
+        "hex": "#008775",
+        "lch": [
+          48.6,
+          48.8,
+          182
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 8,
+        "hex": "#007766",
+        "lch": [
+          42.4,
+          51.2,
+          182
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#006857",
+        "lch": [
+          36.2,
+          53.6,
+          182
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#005948",
+        "lch": [
+          30,
+          56,
+          182
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "cyan": [
+      {
+        "grade": 0,
+        "hex": "#8DF8FF",
+        "lch": [
+          92,
+          32,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#70E7F8",
+        "lch": [
+          85.8,
+          34.4,
+          212
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 2,
+        "hex": "#4ED7E8",
+        "lch": [
+          79.6,
+          36.8,
+          212
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#17C6D9",
+        "lch": [
+          73.4,
+          39.2,
+          212
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#00B6CA",
+        "lch": [
+          67.2,
+          41.6,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 5,
+        "hex": "#00A6BB",
+        "lch": [
+          61,
+          44,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 6,
+        "hex": "#0096AD",
+        "lch": [
+          54.8,
+          46.4,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 7,
+        "hex": "#00879E",
+        "lch": [
+          48.6,
+          48.8,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 8,
+        "hex": "#007790",
+        "lch": [
+          42.4,
+          51.2,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#006882",
+        "lch": [
+          36.2,
+          53.6,
+          212
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#005974",
+        "lch": [
+          30,
+          56,
+          212
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "azure": [
+      {
+        "grade": 0,
+        "hex": "#9EF3FF",
+        "lch": [
+          92,
+          32,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#84E2FF",
+        "lch": [
+          85.8,
+          34.4,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#67D1FF",
+        "lch": [
+          79.6,
+          36.8,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 3,
+        "hex": "#44C1F3",
+        "lch": [
+          73.4,
+          39.2,
+          242
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#00B1E5",
+        "lch": [
+          67.2,
+          41.6,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 5,
+        "hex": "#00A1D7",
+        "lch": [
+          61,
+          44,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 6,
+        "hex": "#0091C9",
+        "lch": [
+          54.8,
+          46.4,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 7,
+        "hex": "#0082BC",
+        "lch": [
+          48.6,
+          48.8,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 8,
+        "hex": "#0073AE",
+        "lch": [
+          42.4,
+          51.2,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#0064A1",
+        "lch": [
+          36.2,
+          53.6,
+          242
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#005594",
+        "lch": [
+          30,
+          56,
+          242
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "blue": [
+      {
+        "grade": 0,
+        "hex": "#C5EAFF",
+        "lch": [
+          92,
+          32,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#B0D9FF",
+        "lch": [
+          85.8,
+          34.4,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#9AC8FF",
+        "lch": [
+          79.6,
+          36.8,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 3,
+        "hex": "#84B7FC",
+        "lch": [
+          73.4,
+          39.2,
+          272
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#6DA7EE",
+        "lch": [
+          67.2,
+          41.6,
+          272
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#5496E1",
+        "lch": [
+          61,
+          44,
+          272
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#3787D3",
+        "lch": [
+          54.8,
+          46.4,
+          272
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#0077C6",
+        "lch": [
+          48.6,
+          48.8,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 8,
+        "hex": "#0068B9",
+        "lch": [
+          42.4,
+          51.2,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 9,
+        "hex": "#005AAC",
+        "lch": [
+          36.2,
+          53.6,
+          272
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 10,
+        "hex": "#004C9F",
+        "lch": [
+          30,
+          56,
+          272
+        ],
+        "gamutClipped": true
+      }
+    ],
+    "violet": [
+      {
+        "grade": 0,
+        "hex": "#F0DFFF",
+        "lch": [
+          92,
+          32,
+          302
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#DECDFF",
+        "lch": [
+          85.8,
+          34.4,
+          302
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#CDBCFF",
+        "lch": [
+          79.6,
+          36.8,
+          302
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 3,
+        "hex": "#BCAAF1",
+        "lch": [
+          73.4,
+          39.2,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#AA99E3",
+        "lch": [
+          67.2,
+          41.6,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#9A88D5",
+        "lch": [
+          61,
+          44,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#8977C7",
+        "lch": [
+          54.8,
+          46.4,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#7867BA",
+        "lch": [
+          48.6,
+          48.8,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#6758AC",
+        "lch": [
+          42.4,
+          51.2,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#56489F",
+        "lch": [
+          36.2,
+          53.6,
+          302
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#443992",
+        "lch": [
+          30,
+          56,
+          302
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "magenta": [
+      {
+        "grade": 0,
+        "hex": "#FFD6FF",
+        "lch": [
+          92,
+          32,
+          332
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#FFC3F6",
+        "lch": [
+          85.8,
+          34.4,
+          332
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#F3B0E6",
+        "lch": [
+          79.6,
+          36.8,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 3,
+        "hex": "#E49ED7",
+        "lch": [
+          73.4,
+          39.2,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#D48CC7",
+        "lch": [
+          67.2,
+          41.6,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#C57AB8",
+        "lch": [
+          61,
+          44,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#B668AA",
+        "lch": [
+          54.8,
+          46.4,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#A8569B",
+        "lch": [
+          48.6,
+          48.8,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#99448C",
+        "lch": [
+          42.4,
+          51.2,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#8A317E",
+        "lch": [
+          36.2,
+          53.6,
+          332
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#7B1C70",
+        "lch": [
+          30,
+          56,
+          332
+        ],
+        "gamutClipped": false
+      }
+    ],
+    "rose": [
+      {
+        "grade": 0,
+        "hex": "#FFD2E7",
+        "lch": [
+          92,
+          32,
+          362
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 1,
+        "hex": "#FFBED6",
+        "lch": [
+          85.8,
+          34.4,
+          362
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 2,
+        "hex": "#FFABC4",
+        "lch": [
+          79.6,
+          36.8,
+          362
+        ],
+        "gamutClipped": true
+      },
+      {
+        "grade": 3,
+        "hex": "#F898B3",
+        "lch": [
+          73.4,
+          39.2,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 4,
+        "hex": "#E985A2",
+        "lch": [
+          67.2,
+          41.6,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 5,
+        "hex": "#DB7392",
+        "lch": [
+          61,
+          44,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 6,
+        "hex": "#CC6082",
+        "lch": [
+          54.8,
+          46.4,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 7,
+        "hex": "#BD4D72",
+        "lch": [
+          48.6,
+          48.8,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 8,
+        "hex": "#AE3863",
+        "lch": [
+          42.4,
+          51.2,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 9,
+        "hex": "#9F2154",
+        "lch": [
+          36.2,
+          53.6,
+          362
+        ],
+        "gamutClipped": false
+      },
+      {
+        "grade": 10,
+        "hex": "#900046",
+        "lch": [
+          30,
+          56,
+          362
+        ],
+        "gamutClipped": true
+      }
+    ]
+  },
+  "roles": {
+    "surface.canvas": {
+      "value": "#F5EFF1",
+      "sourceKey": "bg[0]",
+      "usage": "Main canvas",
+      "contrastOnSurfaces": {
+        "canvas": 1,
+        "panel": 1.129,
+        "raised": 1.3567,
+        "hover": 1.6703
+      }
+    },
+    "surface.panel": {
+      "value": "#E7E2E3",
+      "sourceKey": "bg[1]",
+      "usage": "Cards, sidebar, inputs and dialogs",
+      "contrastOnSurfaces": {
+        "canvas": 1.129,
+        "panel": 1,
+        "raised": 1.2017,
+        "hover": 1.4794
+      }
+    },
+    "surface.raised": {
+      "value": "#D4CFD0",
+      "sourceKey": "bg[2]",
+      "usage": "Raised containers; use text.secondary or darker",
+      "contrastOnSurfaces": {
+        "canvas": 1.3567,
+        "panel": 1.2017,
+        "raised": 1,
+        "hover": 1.2311
+      }
+    },
+    "surface.hover": {
+      "value": "#C0BBBC",
+      "sourceKey": "bg[3]",
+      "usage": "Hover or pressed fill; use text.primary or text.emphasis",
+      "contrastOnSurfaces": {
+        "canvas": 1.6703,
+        "panel": 1.4794,
+        "raised": 1.2311,
+        "hover": 1
+      }
+    },
+    "border.subtle": {
+      "value": "#A8A3A4",
+      "sourceKey": "fg[3]",
+      "usage": "Decorative dividers; do not rely on this alone to identify a control",
+      "contrastOnSurfaces": {
+        "canvas": 2.1919,
+        "panel": 1.9414,
+        "raised": 1.6156,
+        "hover": 1.3123
+      }
+    },
+    "border.strong": {
+      "value": "#686465",
+      "sourceKey": "fg[6]",
+      "usage": "Essential control outlines on canvas, panel, raised and hover surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 5.1395,
+        "panel": 4.5523,
+        "raised": 3.7882,
+        "hover": 3.0771
+      }
+    },
+    "text.primary": {
+      "value": "#2F2B2C",
+      "sourceKey": "fg[9]",
+      "usage": "Primary readable text on all four neutral surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 12.31,
+        "panel": 10.9034,
+        "raised": 9.0734,
+        "hover": 7.37
+      }
+    },
+    "text.emphasis": {
+      "value": "#1E1B1C",
+      "sourceKey": "fg[10]",
+      "usage": "Headings and strongest text emphasis",
+      "contrastOnSurfaces": {
+        "canvas": 15.0554,
+        "panel": 13.3352,
+        "raised": 11.097,
+        "hover": 9.0137
+      }
+    },
+    "text.secondary": {
+      "value": "#423D3E",
+      "sourceKey": "fg[8]",
+      "usage": "Body-color role; normal-sized text on canvas, panel and raised surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 9.3967,
+        "panel": 8.323,
+        "raised": 6.926,
+        "hover": 5.6258
+      }
+    },
+    "text.muted": {
+      "value": "#555051",
+      "sourceKey": "fg[7]",
+      "usage": "Muted readable text on canvas and panel; use a darker grade on raised or hover surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 6.9742,
+        "panel": 6.1773,
+        "raised": 5.1405,
+        "hover": 4.1755
+      }
+    },
+    "text.disabled": {
+      "value": "#7D7879",
+      "sourceKey": "fg[5]",
+      "usage": "Inactive or decorative text only; not a normal-text role",
+      "contrastOnSurfaces": {
+        "canvas": 3.8264,
+        "panel": 3.3892,
+        "raised": 2.8203,
+        "hover": 2.2909
+      }
+    },
+    "accent.primary": {
+      "value": "#9A4A65",
+      "sourceKey": "accent[8]",
+      "usage": "Primary identity: links on canvas/panel; filled primary controls with accent.ink labels",
+      "contrastOnSurfaces": {
+        "canvas": 5.2237,
+        "panel": 4.6268,
+        "raised": 3.8502,
+        "hover": 3.1274
+      }
+    },
+    "accent.hover": {
+      "value": "#8D3856",
+      "sourceKey": "accent[9]",
+      "usage": "Hover/active accent and links on raised surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 6.5309,
+        "panel": 5.7846,
+        "raised": 4.8137,
+        "hover": 3.9101
+      }
+    },
+    "accent.highlight": {
+      "value": "#7F2448",
+      "sourceKey": "accent[10]",
+      "usage": "High emphasis, cursor and small highlight details; reserve sparingly",
+      "contrastOnSurfaces": {
+        "canvas": 8.228,
+        "panel": 7.2879,
+        "raised": 6.0647,
+        "hover": 4.9261
+      }
+    },
+    "accent.ink": {
+      "value": "#ECE7E8",
+      "sourceKey": "fg[0]",
+      "usage": "Light labels and icons on primary or hover accent fills",
+      "contrastOnSurfaces": {
+        "canvas": 1.0779,
+        "panel": 1.0474,
+        "raised": 1.2587,
+        "hover": 1.5495
+      }
+    },
+    "accent.secondary": {
+      "value": "#8C3C36",
+      "sourceKey": "coAccent[9]",
+      "usage": "Secondary accent; readable on canvas, panel and raised surfaces",
+      "contrastOnSurfaces": {
+        "canvas": 6.5724,
+        "panel": 5.8214,
+        "raised": 4.8443,
+        "hover": 3.9349
+      }
+    },
+    "selection.background": {
+      "value": "#9A4A6550",
+      "sourceKey": "accent[8]",
+      "usage": "Translucent accent selection, serialized to an 8-bit alpha of 80/255; composite over the current surface",
+      "alpha": 0.3137254901960784,
+      "sourceAlphaBeforeSerialization": 0.3125
+    },
+    "status.success": {
+      "value": "#00652A",
+      "sourceKey": "green[9]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 6.3903,
+        "panel": 5.6601,
+        "raised": 4.7101,
+        "hover": 3.8259
+      }
+    },
+    "status.successBackground": {
+      "value": "#A3E6B7",
+      "sourceKey": "green[1]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.2706,
+        "panel": 1.1254,
+        "raised": 1.0678,
+        "hover": 1.3146
+      }
+    },
+    "status.warning": {
+      "value": "#655400",
+      "sourceKey": "yellow[9]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 6.5566,
+        "panel": 5.8074,
+        "raised": 4.8327,
+        "hover": 3.9255
+      }
+    },
+    "status.warningBackground": {
+      "value": "#ECD595",
+      "sourceKey": "yellow[1]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.2742,
+        "panel": 1.1286,
+        "raised": 1.0648,
+        "hover": 1.3108
+      }
+    },
+    "status.danger": {
+      "value": "#9C2D2A",
+      "sourceKey": "red[9]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 6.5545,
+        "panel": 5.8056,
+        "raised": 4.8312,
+        "hover": 3.9242
+      }
+    },
+    "status.dangerBackground": {
+      "value": "#FFC1B6",
+      "sourceKey": "red[1]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.3647,
+        "panel": 1.2088,
+        "raised": 1.0059,
+        "hover": 1.2239
+      }
+    },
+    "status.info": {
+      "value": "#004C9F",
+      "sourceKey": "blue[10]",
+      "usage": "Status foreground, icon or outline; pair with text or symbol to convey meaning",
+      "contrastOnSurfaces": {
+        "canvas": 7.2992,
+        "panel": 6.4652,
+        "raised": 5.3801,
+        "hover": 4.3701
+      }
+    },
+    "status.infoBackground": {
+      "value": "#B0D9FF",
+      "sourceKey": "blue[1]",
+      "usage": "Tinted status-container fill; use matching status foreground",
+      "contrastOnSurfaces": {
+        "canvas": 1.3014,
+        "panel": 1.1527,
+        "raised": 1.0425,
+        "hover": 1.2835
+      }
+    },
+    "support.orange": {
+      "value": "#874300",
+      "sourceKey": "orange[9]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.5298,
+        "panel": 5.7837,
+        "raised": 4.813,
+        "hover": 3.9094
+      }
+    },
+    "support.chartreuse": {
+      "value": "#395F00",
+      "sourceKey": "chartreuse[9]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.5814,
+        "panel": 5.8294,
+        "raised": 4.851,
+        "hover": 3.9403
+      }
+    },
+    "support.spring": {
+      "value": "#005948",
+      "sourceKey": "spring[10]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 7.3336,
+        "panel": 6.4957,
+        "raised": 5.4054,
+        "hover": 4.3907
+      }
+    },
+    "support.cyan": {
+      "value": "#005974",
+      "sourceKey": "cyan[10]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.8998,
+        "panel": 6.1114,
+        "raised": 5.0857,
+        "hover": 4.1309
+      }
+    },
+    "support.violet": {
+      "value": "#56489F",
+      "sourceKey": "violet[9]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.5524,
+        "panel": 5.8037,
+        "raised": 4.8296,
+        "hover": 3.923
+      }
+    },
+    "support.magenta": {
+      "value": "#8A317E",
+      "sourceKey": "magenta[9]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.5571,
+        "panel": 5.8079,
+        "raised": 4.8331,
+        "hover": 3.9258
+      }
+    },
+    "support.rose": {
+      "value": "#9F2154",
+      "sourceKey": "rose[9]",
+      "usage": "Optional data-series or category accent; use selectively, with labels/shapes for distinctions",
+      "contrastOnSurfaces": {
+        "canvas": 6.5606,
+        "panel": 5.811,
+        "raised": 4.8357,
+        "hover": 3.9279
+      }
+    }
+  },
+  "roleValues": {
+    "surface.canvas": "#F5EFF1",
+    "surface.panel": "#E7E2E3",
+    "surface.raised": "#D4CFD0",
+    "surface.hover": "#C0BBBC",
+    "border.subtle": "#A8A3A4",
+    "border.strong": "#686465",
+    "text.primary": "#2F2B2C",
+    "text.emphasis": "#1E1B1C",
+    "text.secondary": "#423D3E",
+    "text.muted": "#555051",
+    "text.disabled": "#7D7879",
+    "accent.primary": "#9A4A65",
+    "accent.hover": "#8D3856",
+    "accent.highlight": "#7F2448",
+    "accent.ink": "#ECE7E8",
+    "accent.secondary": "#8C3C36",
+    "selection.background": "#9A4A6550",
+    "status.success": "#00652A",
+    "status.successBackground": "#A3E6B7",
+    "status.warning": "#655400",
+    "status.warningBackground": "#ECD595",
+    "status.danger": "#9C2D2A",
+    "status.dangerBackground": "#FFC1B6",
+    "status.info": "#004C9F",
+    "status.infoBackground": "#B0D9FF",
+    "support.orange": "#874300",
+    "support.chartreuse": "#395F00",
+    "support.spring": "#005948",
+    "support.cyan": "#005974",
+    "support.violet": "#56489F",
+    "support.magenta": "#8A317E",
+    "support.rose": "#9F2154"
+  },
+  "syntaxRoles": {
+    "identifier": {
+      "sourceKey": "fg[8]",
+      "value": "#423D3E"
+    },
+    "keyword": {
+      "sourceKey": "fg[10]",
+      "value": "#1E1B1C"
+    },
+    "operator": {
+      "sourceKey": "accent[10]",
+      "value": "#7F2448"
+    },
+    "string": {
+      "sourceKey": "accent[8]",
+      "value": "#9A4A65"
+    },
+    "literal": {
+      "sourceKey": "accent[9]",
+      "value": "#8D3856"
+    },
+    "function": {
+      "sourceKey": "fg[9]",
+      "value": "#2F2B2C"
+    },
+    "comment": {
+      "sourceKey": "fg[6]",
+      "value": "#686465"
+    },
+    "punctuation": {
+      "sourceKey": "fg[6]",
+      "value": "#686465"
+    },
+    "member": {
+      "sourceKey": "coShades[7]",
+      "value": "#6A4852"
+    },
+    "namespace": {
+      "sourceKey": "coShades[9]",
+      "value": "#42232D"
+    },
+    "type": {
+      "sourceKey": "coAccent[8]",
+      "value": "#9A4E46"
+    },
+    "builtInType": {
+      "sourceKey": "coAccent[9]",
+      "value": "#8C3C36"
+    },
+    "invalid": {
+      "sourceKey": "red[8]",
+      "value": "#AC413A"
+    }
+  },
+  "contrastChecks": [
+    {
+      "name": "Primary text on canvas",
+      "foreground": "text.primary",
+      "background": "surface.canvas",
+      "ratio": 12.31,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary text on panel",
+      "foreground": "text.primary",
+      "background": "surface.panel",
+      "ratio": 10.9034,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary text on raised",
+      "foreground": "text.primary",
+      "background": "surface.raised",
+      "ratio": 9.0734,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary text on hover",
+      "foreground": "text.primary",
+      "background": "surface.hover",
+      "ratio": 7.37,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Secondary text on canvas",
+      "foreground": "text.secondary",
+      "background": "surface.canvas",
+      "ratio": 9.3967,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Secondary text on panel",
+      "foreground": "text.secondary",
+      "background": "surface.panel",
+      "ratio": 8.323,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Secondary text on raised",
+      "foreground": "text.secondary",
+      "background": "surface.raised",
+      "ratio": 6.926,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Muted text on canvas",
+      "foreground": "text.muted",
+      "background": "surface.canvas",
+      "ratio": 6.9742,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Muted text on panel",
+      "foreground": "text.muted",
+      "background": "surface.panel",
+      "ratio": 6.1773,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary link on canvas",
+      "foreground": "accent.primary",
+      "background": "surface.canvas",
+      "ratio": 5.2237,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary link on panel",
+      "foreground": "accent.primary",
+      "background": "surface.panel",
+      "ratio": 4.6268,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Link on raised",
+      "foreground": "accent.hover",
+      "background": "surface.raised",
+      "ratio": 4.8137,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Primary button",
+      "foreground": "accent.ink",
+      "background": "accent.primary",
+      "ratio": 4.8461,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Hover button",
+      "foreground": "accent.ink",
+      "background": "accent.hover",
+      "ratio": 6.0588,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "success badge",
+      "foreground": "status.success",
+      "background": "status.successBackground",
+      "ratio": 5.0295,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "warning badge",
+      "foreground": "status.warning",
+      "background": "status.warningBackground",
+      "ratio": 5.1456,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "danger badge",
+      "foreground": "status.danger",
+      "background": "status.dangerBackground",
+      "ratio": 4.8029,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "info badge",
+      "foreground": "status.info",
+      "background": "status.infoBackground",
+      "ratio": 5.6088,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Essential border on canvas",
+      "foreground": "border.strong",
+      "background": "surface.canvas",
+      "ratio": 5.1395,
+      "minimum": 3,
+      "passes": true
+    },
+    {
+      "name": "Essential border on panel",
+      "foreground": "border.strong",
+      "background": "surface.panel",
+      "ratio": 4.5523,
+      "minimum": 3,
+      "passes": true
+    },
+    {
+      "name": "Essential border on raised",
+      "foreground": "border.strong",
+      "background": "surface.raised",
+      "ratio": 3.7882,
+      "minimum": 3,
+      "passes": true
+    },
+    {
+      "name": "Essential border on hover",
+      "foreground": "border.strong",
+      "background": "surface.hover",
+      "ratio": 3.0771,
+      "minimum": 3,
+      "passes": true
+    },
+    {
+      "name": "success text on canvas",
+      "foreground": "status.success",
+      "background": "surface.canvas",
+      "ratio": 6.3903,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "success text on panel",
+      "foreground": "status.success",
+      "background": "surface.panel",
+      "ratio": 5.6601,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "success text on raised",
+      "foreground": "status.success",
+      "background": "surface.raised",
+      "ratio": 4.7101,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "warning text on canvas",
+      "foreground": "status.warning",
+      "background": "surface.canvas",
+      "ratio": 6.5566,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "warning text on panel",
+      "foreground": "status.warning",
+      "background": "surface.panel",
+      "ratio": 5.8074,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "warning text on raised",
+      "foreground": "status.warning",
+      "background": "surface.raised",
+      "ratio": 4.8327,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "danger text on canvas",
+      "foreground": "status.danger",
+      "background": "surface.canvas",
+      "ratio": 6.5545,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "danger text on panel",
+      "foreground": "status.danger",
+      "background": "surface.panel",
+      "ratio": 5.8056,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "danger text on raised",
+      "foreground": "status.danger",
+      "background": "surface.raised",
+      "ratio": 4.8312,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "info text on canvas",
+      "foreground": "status.info",
+      "background": "surface.canvas",
+      "ratio": 7.2992,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "info text on panel",
+      "foreground": "status.info",
+      "background": "surface.panel",
+      "ratio": 6.4652,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "info text on raised",
+      "foreground": "status.info",
+      "background": "surface.raised",
+      "ratio": 5.3801,
+      "minimum": 4.5,
+      "passes": true
+    },
+    {
+      "name": "Companion on raised",
+      "foreground": "accent.secondary",
+      "background": "surface.raised",
+      "ratio": 4.8443,
+      "minimum": 4.5,
+      "passes": true
+    }
+  ],
+  "allEssentialPairsPass": true,
+  "notes": [
+    "Light primitives preserve the source lightness direction: higher grades are darker.",
+    "Semantic aliases are Solai proposals, not upstream role assignments. Grades are selected against their actual paired surfaces.",
+    "Muted text stays on canvas/panel; on raised use text.secondary or darker.",
+    "Status backgrounds use grade1; matching status text is checked at 4.5:1 on its badge and canvas, panel and raised surfaces.",
+    "Syntax roles are independently mapped for at least 4.5:1 on the canvas; recheck other surfaces.",
+    "Selection uses serialized alpha 80/255; composite over the current surface before evaluating contrast."
+  ],
+  "source": {
+    "repository": "https://github.com/be5invis/vscode-theme-dolch",
+    "commit": "cf3817311b30d3c21a60ebb0b250d18386e66a30",
+    "commitDate": "2023-11-26T06:17:36Z",
+    "extensionVersion": "0.4.0",
+    "license": "MIT",
+    "copyright": "Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)",
+    "method": "Independent calculation from inspected source parameters and D65 CIELAB conversion; repository code was not executed"
+  }
+}

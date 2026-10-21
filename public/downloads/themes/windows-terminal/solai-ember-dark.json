@@ -1,0 +1,23 @@
+{
+  "name": "Solai Ember Dark",
+  "background": "#161310",
+  "foreground": "#CECAC8",
+  "cursorColor": "#FFD98F",
+  "selectionBackground": "#4E3B1E",
+  "black": "#161310",
+  "red": "#EC7D71",
+  "green": "#4DB073",
+  "yellow": "#B49C43",
+  "blue": "#52A1F4",
+  "purple": "#D580C7",
+  "cyan": "#00B2CA",
+  "white": "#B7B3B1",
+  "brightBlack": "#75716F",
+  "brightRed": "#FFA798",
+  "brightGreen": "#72E19A",
+  "brightYellow": "#E6C964",
+  "brightBlue": "#7CCFFF",
+  "brightPurple": "#FFAAFB",
+  "brightCyan": "#00E3FE",
+  "brightWhite": "#E6E2DF"
+}

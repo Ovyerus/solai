@@ -1,0 +1,23 @@
+{
+  "name": "Solai Tide Light",
+  "background": "#EDF1F4",
+  "foreground": "#2A2D2F",
+  "cursorColor": "#005476",
+  "selectionBackground": "#A3C4D1",
+  "black": "#191C1E",
+  "red": "#AC413A",
+  "green": "#00753A",
+  "yellow": "#766300",
+  "blue": "#0068B9",
+  "purple": "#99448C",
+  "cyan": "#007790",
+  "white": "#B7BBBD",
+  "brightBlack": "#626668",
+  "brightRed": "#9C2D2A",
+  "brightGreen": "#00652A",
+  "brightYellow": "#655400",
+  "brightBlue": "#005AAC",
+  "brightPurple": "#8A317E",
+  "brightCyan": "#006882",
+  "brightWhite": "#E4E9EB"
+}
