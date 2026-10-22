@@ -1,4 +1,4 @@
-import { artPattern, artSettings } from './hero-settings.js';
+import { artPattern, artSettings } from "./hero-settings.js";
 
 const vertexSource = `
   attribute vec2 a_position;
@@ -73,39 +73,58 @@ const fragmentSource = `
 `;
 
 function rgb(hex) {
-  return [1, 3, 5].map(index => parseInt(hex.slice(index, index + 2), 16));
+  return [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16));
 }
 
 function createWebGL(canvas) {
-  const gl = canvas.getContext('webgl', { alpha: false, antialias: false, depth: false, stencil: false });
+  const gl = canvas.getContext("webgl", {
+    alpha: false,
+    antialias: false,
+    depth: false,
+    stencil: false,
+  });
   if (!gl) return null;
   const shaders = [];
   let program, vertices, source, ranks;
   const destroy = () => {
-    shaders.forEach(shader => gl.deleteShader(shader));
+    shaders.forEach((shader) => gl.deleteShader(shader));
     if (program) gl.deleteProgram(program);
     if (vertices) gl.deleteBuffer(vertices);
     if (source) gl.deleteTexture(source);
     if (ranks) gl.deleteTexture(ranks);
   };
   try {
-    const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT).precision ? 'highp' : 'mediump';
-    for (const [type, text] of [[gl.VERTEX_SHADER, vertexSource], [gl.FRAGMENT_SHADER, `precision ${precision} float;\n${fragmentSource}`]]) {
+    const precision = gl.getShaderPrecisionFormat(
+      gl.FRAGMENT_SHADER,
+      gl.HIGH_FLOAT,
+    ).precision
+      ? "highp"
+      : "mediump";
+    for (const [type, text] of [
+      [gl.VERTEX_SHADER, vertexSource],
+      [gl.FRAGMENT_SHADER, `precision ${precision} float;\n${fragmentSource}`],
+    ]) {
       const shader = gl.createShader(type);
       shaders.push(shader);
       gl.shaderSource(shader, text);
       gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error('The image shader could not compile.');
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
+        throw new Error("The image shader could not compile.");
     }
     program = gl.createProgram();
-    shaders.forEach(shader => gl.attachShader(program, shader));
+    shaders.forEach((shader) => gl.attachShader(program, shader));
     gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error('The image shader could not link.');
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS))
+      throw new Error("The image shader could not link.");
     gl.useProgram(program);
     vertices = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
-    const position = gl.getAttribLocation(program, 'a_position');
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW,
+    );
+    const position = gl.getAttribLocation(program, "a_position");
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
     const texture = (unit, filter) => {
@@ -120,12 +139,39 @@ function createWebGL(canvas) {
     };
     source = texture(gl.TEXTURE0, gl.LINEAR);
     ranks = texture(gl.TEXTURE1, gl.NEAREST);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, artPattern.size, artPattern.size, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, artPattern.values);
-    const uniforms = Object.fromEntries([
-      'source', 'ranks', 'resolution', 'screen', 'crop', 'background', 'ink',
-      'spread', 'threshold', 'contrast', 'light', 'motion', 'time', 'parallax',
-      'cursorCenter', 'cursorPhase', 'cursorEnergy', 'cursorStrength',
-    ].map(name => [name, gl.getUniformLocation(program, `u_${name}`)]));
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.LUMINANCE,
+      artPattern.size,
+      artPattern.size,
+      0,
+      gl.LUMINANCE,
+      gl.UNSIGNED_BYTE,
+      artPattern.values,
+    );
+    const uniforms = Object.fromEntries(
+      [
+        "source",
+        "ranks",
+        "resolution",
+        "screen",
+        "crop",
+        "background",
+        "ink",
+        "spread",
+        "threshold",
+        "contrast",
+        "light",
+        "motion",
+        "time",
+        "parallax",
+        "cursorCenter",
+        "cursorPhase",
+        "cursorEnergy",
+        "cursorStrength",
+      ].map((name) => [name, gl.getUniformLocation(program, `u_${name}`)]),
+    );
     gl.uniform1i(uniforms.source, 0);
     gl.uniform1i(uniforms.ranks, 1);
     gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
@@ -140,30 +186,56 @@ function createWebGL(canvas) {
 
 export function createHeroArt(initialCanvas) {
   let canvas = initialCanvas;
-  const root = canvas.closest('.hero-art') || canvas.parentElement;
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const root = canvas.closest(".hero-art") || canvas.parentElement;
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const settings = artSettings;
   const css = getComputedStyle(document.documentElement);
-  let background = rgb(css.getPropertyValue('--canvas').trim());
-  let ink = rgb(css.getPropertyValue('--accent').trim());
-  let light = document.documentElement.dataset.mode === 'light';
-  let gpu = null, context = null, backend = '';
-  let loaded = false, failed = false, ready = false, dirty = true;
+  let background = rgb(css.getPropertyValue("--canvas").trim());
+  let ink = rgb(css.getPropertyValue("--accent").trim());
+  let light = document.documentElement.dataset.mode === "light";
+  let gpu = null,
+    context = null,
+    backend = "";
+  let loaded = false,
+    failed = false,
+    ready = false,
+    dirty = true;
   let geometryDirty = true;
-  let width = 0, height = 0, screenWidth = 0, screenHeight = 0;
-  let cropX = 0, cropY = 0, cropWidth = 1, cropHeight = 1;
-  let sourceTone = null, sampledTone = null, output = null;
-  let sourceWidth = 0, sourceHeight = 0;
-  let frame = 0, lastTick = 0, time = 0;
-  let pointerX = 0, pointerY = 0, targetX = 0, targetY = 0;
-  let cursorX = 0.5, cursorY = 0.5, cursorEnergy = 0, cursorPhase = 0;
+  let width = 0,
+    height = 0,
+    screenWidth = 0,
+    screenHeight = 0;
+  let cropX = 0,
+    cropY = 0,
+    cropWidth = 1,
+    cropHeight = 1;
+  let sourceTone = null,
+    sampledTone = null,
+    output = null;
+  let sourceWidth = 0,
+    sourceHeight = 0;
+  let frame = 0,
+    lastTick = 0,
+    time = 0;
+  let pointerX = 0,
+    pointerY = 0,
+    targetX = 0,
+    targetY = 0;
+  let cursorX = 0.5,
+    cursorY = 0.5,
+    cursorEnergy = 0,
+    cursorPhase = 0;
   let lastMoveTime = 0;
   const bounds = root.getBoundingClientRect();
-  let visible = bounds.bottom > 0 && bounds.top < innerHeight && bounds.right > 0 && bounds.left < innerWidth;
+  let visible =
+    bounds.bottom > 0 &&
+    bounds.top < innerHeight &&
+    bounds.right > 0 &&
+    bounds.left < innerWidth;
   const image = new Image();
-  canvas.style.imageRendering = 'pixelated';
-  canvas.style.visibility = 'hidden';
-  canvas.dataset.ready = 'false';
+  canvas.style.imageRendering = "pixelated";
+  canvas.style.visibility = "hidden";
+  canvas.dataset.ready = "false";
 
   function stopFrame() {
     if (frame) cancelAnimationFrame(frame);
@@ -184,11 +256,16 @@ export function createHeroArt(initialCanvas) {
   }
 
   function motionAllowed() {
-    return backend === 'webgl' && ready && !reduced.matches;
+    return backend === "webgl" && ready && !reduced.matches;
   }
 
   function needsFrame() {
-    return motionAllowed() && visible && !document.hidden && (settings.motion > 0 || cursorEnergy > 0);
+    return (
+      motionAllowed() &&
+      visible &&
+      !document.hidden &&
+      (settings.motion > 0 || cursorEnergy > 0)
+    );
   }
 
   function schedule() {
@@ -199,7 +276,10 @@ export function createHeroArt(initialCanvas) {
 
   function tick(stamp) {
     frame = 0;
-    if (!needsFrame()) { lastTick = 0; return; }
+    if (!needsFrame()) {
+      lastTick = 0;
+      return;
+    }
     const elapsed = lastTick ? Math.min((stamp - lastTick) / 1000, 0.05) : 0;
     lastTick = stamp;
     if (settings.motion > 0) time += elapsed;
@@ -218,8 +298,8 @@ export function createHeroArt(initialCanvas) {
   function fail() {
     failed = true;
     ready = false;
-    canvas.dataset.ready = 'false';
-    canvas.style.visibility = 'hidden';
+    canvas.dataset.ready = "false";
+    canvas.style.visibility = "hidden";
     stopFrame();
   }
 
@@ -231,12 +311,12 @@ export function createHeroArt(initialCanvas) {
     const replacement = canvas.cloneNode(false);
     canvas.replaceWith(replacement);
     canvas = replacement;
-    backend = 'canvas2d';
+    backend = "canvas2d";
     canvas.dataset.renderer = backend;
     ready = false;
-    canvas.dataset.ready = 'false';
-    canvas.style.visibility = 'hidden';
-    context = canvas.getContext('2d', { alpha: false });
+    canvas.dataset.ready = "false";
+    canvas.style.visibility = "hidden";
+    context = canvas.getContext("2d", { alpha: false });
     sampledTone = output = null;
     width = height = 0;
     geometryDirty = true;
@@ -246,25 +326,40 @@ export function createHeroArt(initialCanvas) {
     }
     dirty = true;
     if (loaded) {
-      try { prepareSource(); }
-      catch (error) { fail(); return; }
+      try {
+        prepareSource();
+      } catch (error) {
+        fail();
+        return;
+      }
     }
     draw();
   }
 
   function prepareSource() {
     if (sourceTone) return;
-    const scratch = document.createElement('canvas');
+    const scratch = document.createElement("canvas");
     scratch.width = sourceWidth;
     scratch.height = sourceHeight;
-    const scratchContext = scratch.getContext('2d', { willReadFrequently: true });
-    if (!scratchContext) throw new Error('Canvas pixels are unavailable.');
+    const scratchContext = scratch.getContext("2d", {
+      willReadFrequently: true,
+    });
+    if (!scratchContext) throw new Error("Canvas pixels are unavailable.");
     scratchContext.drawImage(image, 0, 0);
-    const pixels = scratchContext.getImageData(0, 0, sourceWidth, sourceHeight).data;
+    const pixels = scratchContext.getImageData(
+      0,
+      0,
+      sourceWidth,
+      sourceHeight,
+    ).data;
     sourceTone = new Float32Array(sourceWidth * sourceHeight);
     for (let i = 0; i < sourceTone.length; i++) {
       const offset = i * 4;
-      sourceTone[i] = (pixels[offset] * 0.2126 + pixels[offset + 1] * 0.7152 + pixels[offset + 2] * 0.0722) / 255;
+      sourceTone[i] =
+        (pixels[offset] * 0.2126 +
+          pixels[offset + 1] * 0.7152 +
+          pixels[offset + 2] * 0.0722) /
+        255;
     }
   }
 
@@ -273,11 +368,18 @@ export function createHeroArt(initialCanvas) {
     const nextScreenHeight = root.clientHeight;
     if (!nextScreenWidth || !nextScreenHeight) return false;
     const nextWidth = Math.max(1, Math.round(nextScreenWidth / settings.scale));
-    const nextHeight = Math.max(1, Math.round(nextScreenHeight / settings.scale));
+    const nextHeight = Math.max(
+      1,
+      Math.round(nextScreenHeight / settings.scale),
+    );
     const limit = Math.min(1, 1440 / nextWidth, 1000 / nextHeight);
     const boundedWidth = Math.max(1, Math.round(nextWidth * limit));
     const boundedHeight = Math.max(1, Math.round(nextHeight * limit));
-    const changed = boundedWidth !== width || boundedHeight !== height || nextScreenWidth !== screenWidth || nextScreenHeight !== screenHeight;
+    const changed =
+      boundedWidth !== width ||
+      boundedHeight !== height ||
+      nextScreenWidth !== screenWidth ||
+      nextScreenHeight !== screenHeight;
     if (!changed) return true;
     screenWidth = nextScreenWidth;
     screenHeight = nextScreenHeight;
@@ -285,13 +387,18 @@ export function createHeroArt(initialCanvas) {
     height = boundedHeight;
     if (canvas.width !== width) canvas.width = width;
     if (canvas.height !== height) canvas.height = height;
-    const cover = Math.max(screenWidth / sourceWidth, screenHeight / sourceHeight);
+    const cover = Math.max(
+      screenWidth / sourceWidth,
+      screenHeight / sourceHeight,
+    );
     const baseWidth = screenWidth / (sourceWidth * cover);
     const baseHeight = screenHeight / (sourceHeight * cover);
     // Focus the cover crop first, then add a safety margin on every edge.
     cropWidth = baseWidth / 1.12;
     cropHeight = baseHeight / 1.12;
-    cropX = (1 - baseWidth) * (screenWidth <= 650 ? 0.08 : 0.5) + (baseWidth - cropWidth) / 2;
+    cropX =
+      (1 - baseWidth) * (screenWidth <= 650 ? 0.08 : 0.5) +
+      (baseWidth - cropWidth) / 2;
     cropY = (1 - baseHeight) * 0.5 + (baseHeight - cropHeight) / 2;
     sampledTone = null;
     dirty = true;
@@ -302,21 +409,28 @@ export function createHeroArt(initialCanvas) {
   function sampleStaticSource() {
     if (sampledTone) return;
     sampledTone = new Float32Array(width * height);
-    if (!output || output.width !== width || output.height !== height) output = context.createImageData(width, height);
+    if (!output || output.width !== width || output.height !== height)
+      output = context.createImageData(width, height);
     // Explicit bilinear sampling matches the GPU texture, rather than relying on
     // browser-specific drawImage downsampling kernels in the static fallback.
     for (let y = 0; y < height; y++) {
-      const sy = (cropY + (y + 0.5) / height * cropHeight) * sourceHeight - 0.5;
+      const sy =
+        (cropY + ((y + 0.5) / height) * cropHeight) * sourceHeight - 0.5;
       const y0 = Math.max(0, Math.min(sourceHeight - 1, Math.floor(sy)));
       const y1 = Math.min(sourceHeight - 1, y0 + 1);
       const fy = Math.max(0, Math.min(1, sy - y0));
       for (let x = 0; x < width; x++) {
-        const sx = (cropX + (x + 0.5) / width * cropWidth) * sourceWidth - 0.5;
+        const sx =
+          (cropX + ((x + 0.5) / width) * cropWidth) * sourceWidth - 0.5;
         const x0 = Math.max(0, Math.min(sourceWidth - 1, Math.floor(sx)));
         const x1 = Math.min(sourceWidth - 1, x0 + 1);
         const fx = Math.max(0, Math.min(1, sx - x0));
-        const top = sourceTone[y0 * sourceWidth + x0] * (1 - fx) + sourceTone[y0 * sourceWidth + x1] * fx;
-        const bottom = sourceTone[y1 * sourceWidth + x0] * (1 - fx) + sourceTone[y1 * sourceWidth + x1] * fx;
+        const top =
+          sourceTone[y0 * sourceWidth + x0] * (1 - fx) +
+          sourceTone[y0 * sourceWidth + x1] * fx;
+        const bottom =
+          sourceTone[y1 * sourceWidth + x0] * (1 - fx) +
+          sourceTone[y1 * sourceWidth + x1] * fx;
         sampledTone[y * width + x] = top * (1 - fy) + bottom * fy;
       }
     }
@@ -328,10 +442,18 @@ export function createHeroArt(initialCanvas) {
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {
         const index = y * width + x;
-        let tone = Math.max(0, Math.min(1, (sampledTone[index] - 0.5) * settings.contrast + 0.5));
+        let tone = Math.max(
+          0,
+          Math.min(1, (sampledTone[index] - 0.5) * settings.contrast + 0.5),
+        );
         if (light) tone = 1 - tone;
-        const rank = artPattern.values[(y % artPattern.size) * artPattern.size + x % artPattern.size];
-        const cutoff = settings.threshold + ((rank + 0.5) / artPattern.values.length - 0.5) * settings.spread;
+        const rank =
+          artPattern.values[
+            (y % artPattern.size) * artPattern.size + (x % artPattern.size)
+          ];
+        const cutoff =
+          settings.threshold +
+          ((rank + 0.5) / artPattern.values.length - 0.5) * settings.spread;
         const colour = tone >= cutoff ? ink : background;
         const offset = index * 4;
         pixels[offset] = colour[0];
@@ -349,14 +471,22 @@ export function createHeroArt(initialCanvas) {
     gl.uniform2f(u.resolution, width, height);
     gl.uniform2f(u.screen, screenWidth, screenHeight);
     gl.uniform4f(u.crop, cropX, cropY, cropWidth, cropHeight);
-    gl.uniform3f(u.background, background[0] / 255, background[1] / 255, background[2] / 255);
+    gl.uniform3f(
+      u.background,
+      background[0] / 255,
+      background[1] / 255,
+      background[2] / 255,
+    );
     gl.uniform3f(u.ink, ink[0] / 255, ink[1] / 255, ink[2] / 255);
     gl.uniform1f(u.spread, settings.spread);
     gl.uniform1f(u.threshold, settings.threshold);
     gl.uniform1f(u.contrast, settings.contrast);
     gl.uniform1f(u.light, light ? 1 : 0);
     const moving = !reduced.matches;
-    const movementLimit = Math.min(1, Math.min(screenWidth, screenHeight) / 400);
+    const movementLimit = Math.min(
+      1,
+      Math.min(screenWidth, screenHeight) / 400,
+    );
     const drift = moving ? settings.motion * movementLimit : 0;
     gl.uniform1f(u.motion, drift);
     gl.uniform1f(u.time, time);
@@ -364,7 +494,10 @@ export function createHeroArt(initialCanvas) {
     gl.uniform2f(u.cursorCenter, cursorX, cursorY);
     gl.uniform1f(u.cursorPhase, cursorPhase);
     gl.uniform1f(u.cursorEnergy, cursorEnergy);
-    gl.uniform1f(u.cursorStrength, moving && cursorEnergy > 0 ? settings.cursorStrength * movementLimit : 0);
+    gl.uniform1f(
+      u.cursorStrength,
+      moving && cursorEnergy > 0 ? settings.cursorStrength * movementLimit : 0,
+    );
     gl.drawArrays(gl.TRIANGLES, 0, 6);
   }
 
@@ -374,18 +507,18 @@ export function createHeroArt(initialCanvas) {
     geometryDirty = false;
     if (!dirty) return;
     try {
-      if (backend === 'webgl') drawWebGL();
+      if (backend === "webgl") drawWebGL();
       else drawStatic();
     } catch (error) {
-      if (backend === 'webgl') replaceWithFallback();
+      if (backend === "webgl") replaceWithFallback();
       else fail();
       return;
     }
     dirty = false;
     if (!ready) {
       ready = true;
-      canvas.dataset.ready = 'true';
-      canvas.style.removeProperty('visibility');
+      canvas.dataset.ready = "true";
+      canvas.style.removeProperty("visibility");
     }
   }
 
@@ -399,12 +532,17 @@ export function createHeroArt(initialCanvas) {
   try {
     gpu = createWebGL(canvas);
     if (gpu) {
-      backend = 'webgl';
+      backend = "webgl";
       canvas.dataset.renderer = backend;
-      canvas.addEventListener('webglcontextlost', event => {
-        event.preventDefault();
-        if (event.currentTarget === canvas && backend === 'webgl') replaceWithFallback();
-      }, { once: true });
+      canvas.addEventListener(
+        "webglcontextlost",
+        (event) => {
+          event.preventDefault();
+          if (event.currentTarget === canvas && backend === "webgl")
+            replaceWithFallback();
+        },
+        { once: true },
+      );
     } else replaceWithFallback();
   } catch (error) {
     replaceWithFallback();
@@ -415,64 +553,89 @@ export function createHeroArt(initialCanvas) {
     sourceWidth = image.naturalWidth;
     sourceHeight = image.naturalHeight;
     try {
-      if (backend === 'webgl') {
+      if (backend === "webgl") {
         const { gl, source } = gpu;
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, source);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-        if (gl.getError() !== gl.NO_ERROR) throw new Error('The source texture could not be uploaded.');
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          image,
+        );
+        if (gl.getError() !== gl.NO_ERROR)
+          throw new Error("The source texture could not be uploaded.");
       } else prepareSource();
       loaded = true;
       refresh();
     } catch (error) {
-      if (backend === 'webgl') {
+      if (backend === "webgl") {
         loaded = true;
         replaceWithFallback();
       } else fail();
     }
   };
   image.onerror = fail;
-  image.src = '/assets/balcony.png';
+  image.src = "/assets/balcony.png";
 
-  root.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch' || !motionAllowed() || !visible || document.hidden) return;
-    const rect = root.getBoundingClientRect();
-    if (!rect.width || !rect.height) return;
-    const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-    const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
-    const dx = x * 2 - 1, dy = y * 2 - 1;
-    const length = Math.max(1, Math.hypot(dx, dy));
-    targetX = dx / length;
-    targetY = dy / length;
-    if (settings.cursorStrength > 0) {
-      const now = performance.now();
-      const deltaX = lastMoveTime ? (x - cursorX) * rect.width : 0;
-      const deltaY = lastMoveTime ? (y - cursorY) * rect.height : 0;
-      const elapsed = Math.max(0.008, (now - lastMoveTime) / 1000);
-      const speed = Math.min(1, Math.hypot(deltaX, deltaY) / elapsed / 900);
-      const energy = 0.35 + speed * 0.65;
-      cursorEnergy = Math.max(cursorEnergy, energy);
-      cursorX = x;
-      cursorY = y;
-      lastMoveTime = now;
-    }
-    schedule();
-  }, { passive: true });
+  root.addEventListener(
+    "pointermove",
+    (event) => {
+      if (
+        event.pointerType === "touch" ||
+        !motionAllowed() ||
+        !visible ||
+        document.hidden
+      )
+        return;
+      const rect = root.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = Math.max(
+        0,
+        Math.min(1, (event.clientX - rect.left) / rect.width),
+      );
+      const y = Math.max(
+        0,
+        Math.min(1, (event.clientY - rect.top) / rect.height),
+      );
+      const dx = x * 2 - 1,
+        dy = y * 2 - 1;
+      const length = Math.max(1, Math.hypot(dx, dy));
+      targetX = dx / length;
+      targetY = dy / length;
+      if (settings.cursorStrength > 0) {
+        const now = performance.now();
+        const deltaX = lastMoveTime ? (x - cursorX) * rect.width : 0;
+        const deltaY = lastMoveTime ? (y - cursorY) * rect.height : 0;
+        const elapsed = Math.max(0.008, (now - lastMoveTime) / 1000);
+        const speed = Math.min(1, Math.hypot(deltaX, deltaY) / elapsed / 900);
+        const energy = 0.35 + speed * 0.65;
+        cursorEnergy = Math.max(cursorEnergy, energy);
+        cursorX = x;
+        cursorY = y;
+        lastMoveTime = now;
+      }
+      schedule();
+    },
+    { passive: true },
+  );
   function leave(event) {
-    if (event.pointerType === 'touch') return;
+    if (event.pointerType === "touch") return;
     targetX = targetY = 0;
     lastMoveTime = 0;
     dirty = true;
     draw();
     schedule();
   }
-  root.addEventListener('pointerleave', leave, { passive: true });
-  root.addEventListener('pointercancel', leave, { passive: true });
+  root.addEventListener("pointerleave", leave, { passive: true });
+  root.addEventListener("pointercancel", leave, { passive: true });
 
-  if ('ResizeObserver' in window) new ResizeObserver(refresh).observe(root);
-  else window.addEventListener('resize', refresh, { passive: true });
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(entries => {
+  if ("ResizeObserver" in window) new ResizeObserver(refresh).observe(root);
+  else window.addEventListener("resize", refresh, { passive: true });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
       visible = entries[0].isIntersecting;
       if (!visible) {
         stopFrame();
@@ -481,16 +644,16 @@ export function createHeroArt(initialCanvas) {
       } else refresh();
     }).observe(root);
   }
-  document.addEventListener('visibilitychange', () => {
+  document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stopFrame();
       targetX = targetY = pointerX = pointerY = 0;
       clearCursor();
     } else refresh();
   });
-  window.addEventListener('pagehide', stopFrame);
-  window.addEventListener('pageshow', refresh);
-  reduced.addEventListener('change', () => {
+  window.addEventListener("pagehide", stopFrame);
+  window.addEventListener("pageshow", refresh);
+  reduced.addEventListener("change", () => {
     stopFrame();
     neutral();
     refresh();
@@ -500,7 +663,7 @@ export function createHeroArt(initialCanvas) {
     setTheme(theme) {
       background = rgb(theme.background);
       ink = rgb(theme.ink);
-      light = theme.mode === 'light';
+      light = theme.mode === "light";
       refresh();
     },
   };

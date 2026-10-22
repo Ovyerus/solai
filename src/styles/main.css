@@ -1,39 +1,109 @@
 @import "tailwindcss" source("../");
 @import "./themes.css";
 
-@font-face{font-family:'Sora';src:url('/assets/fonts/Sora.woff2') format('woff2');font-weight:100 800;font-style:normal;font-display:swap}
-@font-face{font-family:'Iosevka Solai';src:url('/assets/fonts/IosevkaSolai-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Iosevka Solai';src:url('/assets/fonts/IosevkaSolai-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Iosevka Solai';src:url('/assets/fonts/IosevkaSolai-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Iosevka Solai";
+  src: url("/assets/fonts/IosevkaSolai-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Iosevka Solai";
+  src: url("/assets/fonts/IosevkaSolai-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Iosevka Solai";
+  src: url("/assets/fonts/IosevkaSolai-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
-  --font-sans: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'Iosevka Solai', ui-monospace, monospace;
+  --font-sans:
+    "Sora", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono: "Iosevka Solai", ui-monospace, monospace;
 }
 
 @layer base {
-  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
   /* Clear content anchors; visible navbar controls cancel this inset with a negative scroll margin. */
   html:has(.site-header) {
     --site-header-clearance: calc(var(--site-header-height, 240px) + 12px);
     scroll-padding-top: var(--site-header-clearance);
   }
-  ::selection { background: var(--selection); color: var(--emphasis); }
-  button, input, select, textarea { font: inherit; }
-  button, a, input, select, textarea { touch-action: manipulation; }
-  button { cursor: pointer; }
-  button:disabled { cursor: wait; }
-  a { color: inherit; text-decoration: none; }
-  a:hover { color: var(--accent-hover); }
-  button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible,
-  select:focus-visible, textarea:focus-visible, canvas:focus-visible {
-    outline: 2px solid var(--highlight); outline-offset: 3px;
+  ::selection {
+    background: var(--selection);
+    color: var(--emphasis);
   }
-  button, canvas { -webkit-tap-highlight-color: transparent; }
-  [hidden] { display: none !important; }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: wait;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--accent-hover);
+  }
+  button:focus-visible,
+  a:focus-visible,
+  summary:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  canvas:focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 3px;
+  }
+  button,
+  canvas {
+    -webkit-tap-highlight-color: transparent;
+  }
+  [hidden] {
+    display: none !important;
+  }
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
   }
 }
 
@@ -41,22 +111,46 @@
   max-width: 1280px;
   width: calc(100% - 96px);
   margin-inline: auto;
-  @media (max-width: 1000px) { width: calc(100% - 56px); }
-  @media (max-width: 650px) { width: calc(100% - 36px); }
+  @media (max-width: 1000px) {
+    width: calc(100% - 56px);
+  }
+  @media (max-width: 650px) {
+    width: calc(100% - 36px);
+  }
 }
 
 /* Theme-aware shade keeps branding readable over the dithered balcony. */
 @layer components {
   .hero-shade {
-    background: linear-gradient(0deg, color-mix(in srgb, var(--canvas) 94%, transparent) 0%, color-mix(in srgb, var(--canvas) 75%, transparent) 24%, transparent 70%);
+    background: linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--canvas) 94%, transparent) 0%,
+      color-mix(in srgb, var(--canvas) 75%, transparent) 24%,
+      transparent 70%
+    );
   }
   .hero-art::before {
-    content: ''; position: absolute; inset: 0 0 auto;
-    height: calc(var(--site-header-height, 240px) + 64px); z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: calc(var(--site-header-height, 240px) + 64px);
+    z-index: 1;
     pointer-events: none;
-    background: linear-gradient(to bottom, color-mix(in srgb, var(--canvas) 78%, transparent) 0%, color-mix(in srgb, var(--canvas) 78%, transparent) calc(100% - 64px), transparent);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--canvas) 78%, transparent) 0%,
+      color-mix(in srgb, var(--canvas) 78%, transparent) calc(100% - 64px),
+      transparent
+    );
   }
   @media (max-width: 650px) {
-    .hero-shade { background: linear-gradient(0deg, color-mix(in srgb, var(--canvas) 96%, transparent), color-mix(in srgb, var(--canvas) 76%, transparent) 38%, transparent 85%); }
+    .hero-shade {
+      background: linear-gradient(
+        0deg,
+        color-mix(in srgb, var(--canvas) 96%, transparent),
+        color-mix(in srgb, var(--canvas) 76%, transparent) 38%,
+        transparent 85%
+      );
+    }
   }
 }

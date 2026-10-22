@@ -8,197 +8,104 @@
   "ringPolicy": "exact Alter custom ramps; shared original Blue base ring",
   "parameters": {
     "fg": {
-      "luma": [
-        6,
-        90
-      ],
+      "luma": [6, 90],
       "chroma": 2,
       "hue": 60,
       "power": 1
     },
     "bg": {
-      "luma": [
-        6,
-        90
-      ],
+      "luma": [6, 90],
       "chroma": 2,
       "hue": 60,
       "power": 1
     },
     "coShades": {
-      "luma": [
-        6,
-        90
-      ],
+      "luma": [6, 90],
       "chroma": 16,
       "hue": 60,
       "power": 1
     },
     "accent": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        75,
-        45
-      ],
+      "luma": [6, 90],
+      "chroma": [75, 45],
       "hue": 77,
       "power": 1
     },
     "coAccent": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        75,
-        45
-      ],
+      "luma": [6, 90],
+      "chroma": [75, 45],
       "hue": 45,
       "power": 1
     },
     "red": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 32,
       "power": 1
     },
     "orange": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 62,
       "power": 1
     },
     "yellow": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 92,
       "power": 1
     },
     "chartreuse": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 122,
       "power": 1
     },
     "green": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 152,
       "power": 1
     },
     "spring": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 182,
       "power": 1
     },
     "cyan": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 212,
       "power": 1
     },
     "azure": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 242,
       "power": 1
     },
     "blue": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 272,
       "power": 1
     },
     "violet": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 302,
       "power": 1
     },
     "magenta": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 332,
       "power": 1
     },
     "rose": {
-      "luma": [
-        6,
-        90
-      ],
-      "chroma": [
-        32,
-        56
-      ],
+      "luma": [6, 90],
+      "chroma": [32, 56],
       "hue": 362,
       "power": 1
     }
@@ -431,111 +338,67 @@
       {
         "grade": 0,
         "hex": "#161310",
-        "lch": [
-          6,
-          2,
-          60
-        ],
+        "lch": [6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 1,
         "hex": "#272422",
-        "lch": [
-          14.4,
-          2,
-          60
-        ],
+        "lch": [14.4, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#393634",
-        "lch": [
-          22.8,
-          2,
-          60
-        ],
+        "lch": [22.8, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#4C4947",
-        "lch": [
-          31.2,
-          2,
-          60
-        ],
+        "lch": [31.2, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#605D5A",
-        "lch": [
-          39.6,
-          2,
-          60
-        ],
+        "lch": [39.6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#75716F",
-        "lch": [
-          48,
-          2,
-          60
-        ],
+        "lch": [48, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#8A8784",
-        "lch": [
-          56.4,
-          2,
-          60
-        ],
+        "lch": [56.4, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#A09C9A",
-        "lch": [
-          64.8,
-          2,
-          60
-        ],
+        "lch": [64.8, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#B7B3B1",
-        "lch": [
-          73.2,
-          2,
-          60
-        ],
+        "lch": [73.2, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#CECAC8",
-        "lch": [
-          81.6,
-          2,
-          60
-        ],
+        "lch": [81.6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#E6E2DF",
-        "lch": [
-          90,
-          2,
-          60
-        ],
+        "lch": [90, 2, 60],
         "gamutClipped": false
       }
     ],
@@ -543,111 +406,67 @@
       {
         "grade": 0,
         "hex": "#161310",
-        "lch": [
-          6,
-          2,
-          60
-        ],
+        "lch": [6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 1,
         "hex": "#272422",
-        "lch": [
-          14.4,
-          2,
-          60
-        ],
+        "lch": [14.4, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#393634",
-        "lch": [
-          22.8,
-          2,
-          60
-        ],
+        "lch": [22.8, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#4C4947",
-        "lch": [
-          31.2,
-          2,
-          60
-        ],
+        "lch": [31.2, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#605D5A",
-        "lch": [
-          39.6,
-          2,
-          60
-        ],
+        "lch": [39.6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#75716F",
-        "lch": [
-          48,
-          2,
-          60
-        ],
+        "lch": [48, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#8A8784",
-        "lch": [
-          56.4,
-          2,
-          60
-        ],
+        "lch": [56.4, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#A09C9A",
-        "lch": [
-          64.8,
-          2,
-          60
-        ],
+        "lch": [64.8, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#B7B3B1",
-        "lch": [
-          73.2,
-          2,
-          60
-        ],
+        "lch": [73.2, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#CECAC8",
-        "lch": [
-          81.6,
-          2,
-          60
-        ],
+        "lch": [81.6, 2, 60],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#E6E2DF",
-        "lch": [
-          90,
-          2,
-          60
-        ],
+        "lch": [90, 2, 60],
         "gamutClipped": false
       }
     ],
@@ -655,111 +474,67 @@
       {
         "grade": 0,
         "hex": "#240E00",
-        "lch": [
-          6,
-          16,
-          60
-        ],
+        "lch": [6, 16, 60],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#342011",
-        "lch": [
-          14.4,
-          16,
-          60
-        ],
+        "lch": [14.4, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#483222",
-        "lch": [
-          22.8,
-          16,
-          60
-        ],
+        "lch": [22.8, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#5D4434",
-        "lch": [
-          31.2,
-          16,
-          60
-        ],
+        "lch": [31.2, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#725847",
-        "lch": [
-          39.6,
-          16,
-          60
-        ],
+        "lch": [39.6, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#886D5B",
-        "lch": [
-          48,
-          16,
-          60
-        ],
+        "lch": [48, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#9E8270",
-        "lch": [
-          56.4,
-          16,
-          60
-        ],
+        "lch": [56.4, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#B59885",
-        "lch": [
-          64.8,
-          16,
-          60
-        ],
+        "lch": [64.8, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#CCAE9B",
-        "lch": [
-          73.2,
-          16,
-          60
-        ],
+        "lch": [73.2, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#E4C5B1",
-        "lch": [
-          81.6,
-          16,
-          60
-        ],
+        "lch": [81.6, 16, 60],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#FCDCC8",
-        "lch": [
-          90,
-          16,
-          60
-        ],
+        "lch": [90, 16, 60],
         "gamutClipped": false
       }
     ],
@@ -767,111 +542,67 @@
       {
         "grade": 0,
         "hex": "#3D0100",
-        "lch": [
-          6,
-          75,
-          77
-        ],
+        "lch": [6, 75, 77],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#491800",
-        "lch": [
-          14.4,
-          72,
-          77
-        ],
+        "lch": [14.4, 72, 77],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#5A2B00",
-        "lch": [
-          22.8,
-          69,
-          77
-        ],
+        "lch": [22.8, 69, 77],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#6E3F00",
-        "lch": [
-          31.2,
-          66,
-          77
-        ],
+        "lch": [31.2, 66, 77],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#845300",
-        "lch": [
-          39.6,
-          63,
-          77
-        ],
+        "lch": [39.6, 63, 77],
         "gamutClipped": true
       },
       {
         "grade": 5,
         "hex": "#9B6800",
-        "lch": [
-          48,
-          60,
-          77
-        ],
+        "lch": [48, 60, 77],
         "gamutClipped": true
       },
       {
         "grade": 6,
         "hex": "#B37D1E",
-        "lch": [
-          56.4,
-          57,
-          77
-        ],
+        "lch": [56.4, 57, 77],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#CA933C",
-        "lch": [
-          64.8,
-          54,
-          77
-        ],
+        "lch": [64.8, 54, 77],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#E1AA57",
-        "lch": [
-          73.2,
-          51,
-          77
-        ],
+        "lch": [73.2, 51, 77],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#F8C173",
-        "lch": [
-          81.6,
-          48,
-          77
-        ],
+        "lch": [81.6, 48, 77],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#FFD98F",
-        "lch": [
-          90,
-          45,
-          77
-        ],
+        "lch": [90, 45, 77],
         "gamutClipped": true
       }
     ],
@@ -879,111 +610,67 @@
       {
         "grade": 0,
         "hex": "#520000",
-        "lch": [
-          6,
-          75,
-          45
-        ],
+        "lch": [6, 75, 45],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#650000",
-        "lch": [
-          14.4,
-          72,
-          45
-        ],
+        "lch": [14.4, 72, 45],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#7A0000",
-        "lch": [
-          22.8,
-          69,
-          45
-        ],
+        "lch": [22.8, 69, 45],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#901C00",
-        "lch": [
-          31.2,
-          66,
-          45
-        ],
+        "lch": [31.2, 66, 45],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#A73713",
-        "lch": [
-          39.6,
-          63,
-          45
-        ],
+        "lch": [39.6, 63, 45],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#BE502B",
-        "lch": [
-          48,
-          60,
-          45
-        ],
+        "lch": [48, 60, 45],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#D56843",
-        "lch": [
-          56.4,
-          57,
-          45
-        ],
+        "lch": [56.4, 57, 45],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#EB805B",
-        "lch": [
-          64.8,
-          54,
-          45
-        ],
+        "lch": [64.8, 54, 45],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#FF9874",
-        "lch": [
-          73.2,
-          51,
-          45
-        ],
+        "lch": [73.2, 51, 45],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#FFB18D",
-        "lch": [
-          81.6,
-          48,
-          45
-        ],
+        "lch": [81.6, 48, 45],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#FFCAA7",
-        "lch": [
-          90,
-          45,
-          45
-        ],
+        "lch": [90, 45, 45],
         "gamutClipped": true
       }
     ],
@@ -991,111 +678,67 @@
       {
         "grade": 0,
         "hex": "#360000",
-        "lch": [
-          6,
-          32,
-          32
-        ],
+        "lch": [6, 32, 32],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#4C0C0A",
-        "lch": [
-          14.4,
-          34.4,
-          32
-        ],
+        "lch": [14.4, 34.4, 32],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#641E1B",
-        "lch": [
-          22.8,
-          36.8,
-          32
-        ],
+        "lch": [22.8, 36.8, 32],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#7E302B",
-        "lch": [
-          31.2,
-          39.2,
-          32
-        ],
+        "lch": [31.2, 39.2, 32],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#98433B",
-        "lch": [
-          39.6,
-          41.6,
-          32
-        ],
+        "lch": [39.6, 41.6, 32],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#B4564D",
-        "lch": [
-          48,
-          44,
-          32
-        ],
+        "lch": [48, 44, 32],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#CF695F",
-        "lch": [
-          56.4,
-          46.4,
-          32
-        ],
+        "lch": [56.4, 46.4, 32],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#EC7D71",
-        "lch": [
-          64.8,
-          48.8,
-          32
-        ],
+        "lch": [64.8, 48.8, 32],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#FF9285",
-        "lch": [
-          73.2,
-          51.2,
-          32
-        ],
+        "lch": [73.2, 51.2, 32],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#FFA798",
-        "lch": [
-          81.6,
-          53.6,
-          32
-        ],
+        "lch": [81.6, 53.6, 32],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#FFBDAC",
-        "lch": [
-          90,
-          56,
-          32
-        ],
+        "lch": [90, 56, 32],
         "gamutClipped": true
       }
     ],
@@ -1103,111 +746,67 @@
       {
         "grade": 0,
         "hex": "#2F0700",
-        "lch": [
-          6,
-          32,
-          62
-        ],
+        "lch": [6, 32, 62],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#411A00",
-        "lch": [
-          14.4,
-          34.4,
-          62
-        ],
+        "lch": [14.4, 34.4, 62],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#572B00",
-        "lch": [
-          22.8,
-          36.8,
-          62
-        ],
+        "lch": [22.8, 36.8, 62],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#6F3D11",
-        "lch": [
-          31.2,
-          39.2,
-          62
-        ],
+        "lch": [31.2, 39.2, 62],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#885020",
-        "lch": [
-          39.6,
-          41.6,
-          62
-        ],
+        "lch": [39.6, 41.6, 62],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#A26330",
-        "lch": [
-          48,
-          44,
-          62
-        ],
+        "lch": [48, 44, 62],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#BC7740",
-        "lch": [
-          56.4,
-          46.4,
-          62
-        ],
+        "lch": [56.4, 46.4, 62],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#D78C50",
-        "lch": [
-          64.8,
-          48.8,
-          62
-        ],
+        "lch": [64.8, 48.8, 62],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#F3A161",
-        "lch": [
-          73.2,
-          51.2,
-          62
-        ],
+        "lch": [73.2, 51.2, 62],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#FFB773",
-        "lch": [
-          81.6,
-          53.6,
-          62
-        ],
+        "lch": [81.6, 53.6, 62],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#FFCD85",
-        "lch": [
-          90,
-          56,
-          62
-        ],
+        "lch": [90, 56, 62],
         "gamutClipped": true
       }
     ],
@@ -1215,111 +814,67 @@
       {
         "grade": 0,
         "hex": "#231200",
-        "lch": [
-          6,
-          32,
-          92
-        ],
+        "lch": [6, 32, 92],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#302400",
-        "lch": [
-          14.4,
-          34.4,
-          92
-        ],
+        "lch": [14.4, 34.4, 92],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#423600",
-        "lch": [
-          22.8,
-          36.8,
-          92
-        ],
+        "lch": [22.8, 36.8, 92],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#574902",
-        "lch": [
-          31.2,
-          39.2,
-          92
-        ],
+        "lch": [31.2, 39.2, 92],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#6D5C12",
-        "lch": [
-          39.6,
-          41.6,
-          92
-        ],
+        "lch": [39.6, 41.6, 92],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#847123",
-        "lch": [
-          48,
-          44,
-          92
-        ],
+        "lch": [48, 44, 92],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#9C8633",
-        "lch": [
-          56.4,
-          46.4,
-          92
-        ],
+        "lch": [56.4, 46.4, 92],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#B49C43",
-        "lch": [
-          64.8,
-          48.8,
-          92
-        ],
+        "lch": [64.8, 48.8, 92],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#CDB253",
-        "lch": [
-          73.2,
-          51.2,
-          92
-        ],
+        "lch": [73.2, 51.2, 92],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#E6C964",
-        "lch": [
-          81.6,
-          53.6,
-          92
-        ],
+        "lch": [81.6, 53.6, 92],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#FFE075",
-        "lch": [
-          90,
-          56,
-          92
-        ],
+        "lch": [90, 56, 92],
         "gamutClipped": true
       }
     ],
@@ -1327,111 +882,67 @@
       {
         "grade": 0,
         "hex": "#091900",
-        "lch": [
-          6,
-          32,
-          122
-        ],
+        "lch": [6, 32, 122],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#182A00",
-        "lch": [
-          14.4,
-          34.4,
-          122
-        ],
+        "lch": [14.4, 34.4, 122],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#263D00",
-        "lch": [
-          22.8,
-          36.8,
-          122
-        ],
+        "lch": [22.8, 36.8, 122],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#38510F",
-        "lch": [
-          31.2,
-          39.2,
-          122
-        ],
+        "lch": [31.2, 39.2, 122],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#4B661F",
-        "lch": [
-          39.6,
-          41.6,
-          122
-        ],
+        "lch": [39.6, 41.6, 122],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#5E7B2F",
-        "lch": [
-          48,
-          44,
-          122
-        ],
+        "lch": [48, 44, 122],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#72913F",
-        "lch": [
-          56.4,
-          46.4,
-          122
-        ],
+        "lch": [56.4, 46.4, 122],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#87A850",
-        "lch": [
-          64.8,
-          48.8,
-          122
-        ],
+        "lch": [64.8, 48.8, 122],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#9CC061",
-        "lch": [
-          73.2,
-          51.2,
-          122
-        ],
+        "lch": [73.2, 51.2, 122],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#B2D773",
-        "lch": [
-          81.6,
-          53.6,
-          122
-        ],
+        "lch": [81.6, 53.6, 122],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#C8F085",
-        "lch": [
-          90,
-          56,
-          122
-        ],
+        "lch": [90, 56, 122],
         "gamutClipped": false
       }
     ],
@@ -1439,111 +950,67 @@
       {
         "grade": 0,
         "hex": "#001E00",
-        "lch": [
-          6,
-          32,
-          152
-        ],
+        "lch": [6, 32, 152],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#002D0A",
-        "lch": [
-          14.4,
-          34.4,
-          152
-        ],
+        "lch": [14.4, 34.4, 152],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#00411B",
-        "lch": [
-          22.8,
-          36.8,
-          152
-        ],
+        "lch": [22.8, 36.8, 152],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#00562B",
-        "lch": [
-          31.2,
-          39.2,
-          152
-        ],
+        "lch": [31.2, 39.2, 152],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#136B3C",
-        "lch": [
-          39.6,
-          41.6,
-          152
-        ],
+        "lch": [39.6, 41.6, 152],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#28814D",
-        "lch": [
-          48,
-          44,
-          152
-        ],
+        "lch": [48, 44, 152],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#3A9860",
-        "lch": [
-          56.4,
-          46.4,
-          152
-        ],
+        "lch": [56.4, 46.4, 152],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#4DB073",
-        "lch": [
-          64.8,
-          48.8,
-          152
-        ],
+        "lch": [64.8, 48.8, 152],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#5FC886",
-        "lch": [
-          73.2,
-          51.2,
-          152
-        ],
+        "lch": [73.2, 51.2, 152],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#72E19A",
-        "lch": [
-          81.6,
-          53.6,
-          152
-        ],
+        "lch": [81.6, 53.6, 152],
         "gamutClipped": false
       },
       {
         "grade": 10,
         "hex": "#85FAAE",
-        "lch": [
-          90,
-          56,
-          152
-        ],
+        "lch": [90, 56, 152],
         "gamutClipped": false
       }
     ],
@@ -1551,111 +1018,67 @@
       {
         "grade": 0,
         "hex": "#002014",
-        "lch": [
-          6,
-          32,
-          182
-        ],
+        "lch": [6, 32, 182],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#002F25",
-        "lch": [
-          14.4,
-          34.4,
-          182
-        ],
+        "lch": [14.4, 34.4, 182],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#004338",
-        "lch": [
-          22.8,
-          36.8,
-          182
-        ],
+        "lch": [22.8, 36.8, 182],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#00584B",
-        "lch": [
-          31.2,
-          39.2,
-          182
-        ],
+        "lch": [31.2, 39.2, 182],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#006E5F",
-        "lch": [
-          39.6,
-          41.6,
-          182
-        ],
+        "lch": [39.6, 41.6, 182],
         "gamutClipped": true
       },
       {
         "grade": 5,
         "hex": "#008473",
-        "lch": [
-          48,
-          44,
-          182
-        ],
+        "lch": [48, 44, 182],
         "gamutClipped": true
       },
       {
         "grade": 6,
         "hex": "#009B89",
-        "lch": [
-          56.4,
-          46.4,
-          182
-        ],
+        "lch": [56.4, 46.4, 182],
         "gamutClipped": true
       },
       {
         "grade": 7,
         "hex": "#00B39F",
-        "lch": [
-          64.8,
-          48.8,
-          182
-        ],
+        "lch": [64.8, 48.8, 182],
         "gamutClipped": true
       },
       {
         "grade": 8,
         "hex": "#00CCB5",
-        "lch": [
-          73.2,
-          51.2,
-          182
-        ],
+        "lch": [73.2, 51.2, 182],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#00E5CD",
-        "lch": [
-          81.6,
-          53.6,
-          182
-        ],
+        "lch": [81.6, 53.6, 182],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#00FEE4",
-        "lch": [
-          90,
-          56,
-          182
-        ],
+        "lch": [90, 56, 182],
         "gamutClipped": true
       }
     ],
@@ -1663,111 +1086,67 @@
       {
         "grade": 0,
         "hex": "#001F29",
-        "lch": [
-          6,
-          32,
-          212
-        ],
+        "lch": [6, 32, 212],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#002F3E",
-        "lch": [
-          14.4,
-          34.4,
-          212
-        ],
+        "lch": [14.4, 34.4, 212],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#004253",
-        "lch": [
-          22.8,
-          36.8,
-          212
-        ],
+        "lch": [22.8, 36.8, 212],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#005769",
-        "lch": [
-          31.2,
-          39.2,
-          212
-        ],
+        "lch": [31.2, 39.2, 212],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#006D80",
-        "lch": [
-          39.6,
-          41.6,
-          212
-        ],
+        "lch": [39.6, 41.6, 212],
         "gamutClipped": true
       },
       {
         "grade": 5,
         "hex": "#008398",
-        "lch": [
-          48,
-          44,
-          212
-        ],
+        "lch": [48, 44, 212],
         "gamutClipped": true
       },
       {
         "grade": 6,
         "hex": "#009BB1",
-        "lch": [
-          56.4,
-          46.4,
-          212
-        ],
+        "lch": [56.4, 46.4, 212],
         "gamutClipped": true
       },
       {
         "grade": 7,
         "hex": "#00B2CA",
-        "lch": [
-          64.8,
-          48.8,
-          212
-        ],
+        "lch": [64.8, 48.8, 212],
         "gamutClipped": true
       },
       {
         "grade": 8,
         "hex": "#00CBE4",
-        "lch": [
-          73.2,
-          51.2,
-          212
-        ],
+        "lch": [73.2, 51.2, 212],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#00E3FE",
-        "lch": [
-          81.6,
-          53.6,
-          212
-        ],
+        "lch": [81.6, 53.6, 212],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#00FDFF",
-        "lch": [
-          90,
-          56,
-          212
-        ],
+        "lch": [90, 56, 212],
         "gamutClipped": true
       }
     ],
@@ -1775,111 +1154,67 @@
       {
         "grade": 0,
         "hex": "#001C39",
-        "lch": [
-          6,
-          32,
-          242
-        ],
+        "lch": [6, 32, 242],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#002D4F",
-        "lch": [
-          14.4,
-          34.4,
-          242
-        ],
+        "lch": [14.4, 34.4, 242],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#004067",
-        "lch": [
-          22.8,
-          36.8,
-          242
-        ],
+        "lch": [22.8, 36.8, 242],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#00547F",
-        "lch": [
-          31.2,
-          39.2,
-          242
-        ],
+        "lch": [31.2, 39.2, 242],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#006999",
-        "lch": [
-          39.6,
-          41.6,
-          242
-        ],
+        "lch": [39.6, 41.6, 242],
         "gamutClipped": true
       },
       {
         "grade": 5,
         "hex": "#007FB3",
-        "lch": [
-          48,
-          44,
-          242
-        ],
+        "lch": [48, 44, 242],
         "gamutClipped": true
       },
       {
         "grade": 6,
         "hex": "#0095CE",
-        "lch": [
-          56.4,
-          46.4,
-          242
-        ],
+        "lch": [56.4, 46.4, 242],
         "gamutClipped": true
       },
       {
         "grade": 7,
         "hex": "#00ACE9",
-        "lch": [
-          64.8,
-          48.8,
-          242
-        ],
+        "lch": [64.8, 48.8, 242],
         "gamutClipped": true
       },
       {
         "grade": 8,
         "hex": "#00C4FF",
-        "lch": [
-          73.2,
-          51.2,
-          242
-        ],
+        "lch": [73.2, 51.2, 242],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#00DCFF",
-        "lch": [
-          81.6,
-          53.6,
-          242
-        ],
+        "lch": [81.6, 53.6, 242],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#00F5FF",
-        "lch": [
-          90,
-          56,
-          242
-        ],
+        "lch": [90, 56, 242],
         "gamutClipped": true
       }
     ],
@@ -1887,111 +1222,67 @@
       {
         "grade": 0,
         "hex": "#00163E",
-        "lch": [
-          6,
-          32,
-          272
-        ],
+        "lch": [6, 32, 272],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#002755",
-        "lch": [
-          14.4,
-          34.4,
-          272
-        ],
+        "lch": [14.4, 34.4, 272],
         "gamutClipped": true
       },
       {
         "grade": 2,
         "hex": "#00396E",
-        "lch": [
-          22.8,
-          36.8,
-          272
-        ],
+        "lch": [22.8, 36.8, 272],
         "gamutClipped": true
       },
       {
         "grade": 3,
         "hex": "#004C87",
-        "lch": [
-          31.2,
-          39.2,
-          272
-        ],
+        "lch": [31.2, 39.2, 272],
         "gamutClipped": true
       },
       {
         "grade": 4,
         "hex": "#0060A1",
-        "lch": [
-          39.6,
-          41.6,
-          272
-        ],
+        "lch": [39.6, 41.6, 272],
         "gamutClipped": true
       },
       {
         "grade": 5,
         "hex": "#2575BC",
-        "lch": [
-          48,
-          44,
-          272
-        ],
+        "lch": [48, 44, 272],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#3D8BD8",
-        "lch": [
-          56.4,
-          46.4,
-          272
-        ],
+        "lch": [56.4, 46.4, 272],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#52A1F4",
-        "lch": [
-          64.8,
-          48.8,
-          272
-        ],
+        "lch": [64.8, 48.8, 272],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#67B8FF",
-        "lch": [
-          73.2,
-          51.2,
-          272
-        ],
+        "lch": [73.2, 51.2, 272],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#7CCFFF",
-        "lch": [
-          81.6,
-          53.6,
-          272
-        ],
+        "lch": [81.6, 53.6, 272],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#91E7FF",
-        "lch": [
-          90,
-          56,
-          272
-        ],
+        "lch": [90, 56, 272],
         "gamutClipped": true
       }
     ],
@@ -1999,111 +1290,67 @@
       {
         "grade": 0,
         "hex": "#110C37",
-        "lch": [
-          6,
-          32,
-          302
-        ],
+        "lch": [6, 32, 302],
         "gamutClipped": false
       },
       {
         "grade": 1,
         "hex": "#241D4E",
-        "lch": [
-          14.4,
-          34.4,
-          302
-        ],
+        "lch": [14.4, 34.4, 302],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#372E65",
-        "lch": [
-          22.8,
-          36.8,
-          302
-        ],
+        "lch": [22.8, 36.8, 302],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#4C407E",
-        "lch": [
-          31.2,
-          39.2,
-          302
-        ],
+        "lch": [31.2, 39.2, 302],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#615397",
-        "lch": [
-          39.6,
-          41.6,
-          302
-        ],
+        "lch": [39.6, 41.6, 302],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#7767B1",
-        "lch": [
-          48,
-          44,
-          302
-        ],
+        "lch": [48, 44, 302],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#8D7CCC",
-        "lch": [
-          56.4,
-          46.4,
-          302
-        ],
+        "lch": [56.4, 46.4, 302],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#A491E7",
-        "lch": [
-          64.8,
-          48.8,
-          302
-        ],
+        "lch": [64.8, 48.8, 302],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#BBA6FF",
-        "lch": [
-          73.2,
-          51.2,
-          302
-        ],
+        "lch": [73.2, 51.2, 302],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#D3BCFF",
-        "lch": [
-          81.6,
-          53.6,
-          302
-        ],
+        "lch": [81.6, 53.6, 302],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#ECD3FF",
-        "lch": [
-          90,
-          56,
-          302
-        ],
+        "lch": [90, 56, 302],
         "gamutClipped": true
       }
     ],
@@ -2111,111 +1358,67 @@
       {
         "grade": 0,
         "hex": "#2C0028",
-        "lch": [
-          6,
-          32,
-          332
-        ],
+        "lch": [6, 32, 332],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#420F3C",
-        "lch": [
-          14.4,
-          34.4,
-          332
-        ],
+        "lch": [14.4, 34.4, 332],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#582151",
-        "lch": [
-          22.8,
-          36.8,
-          332
-        ],
+        "lch": [22.8, 36.8, 332],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#703367",
-        "lch": [
-          31.2,
-          39.2,
-          332
-        ],
+        "lch": [31.2, 39.2, 332],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#88457E",
-        "lch": [
-          39.6,
-          41.6,
-          332
-        ],
+        "lch": [39.6, 41.6, 332],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#A15895",
-        "lch": [
-          48,
-          44,
-          332
-        ],
+        "lch": [48, 44, 332],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#BB6CAE",
-        "lch": [
-          56.4,
-          46.4,
-          332
-        ],
+        "lch": [56.4, 46.4, 332],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#D580C7",
-        "lch": [
-          64.8,
-          48.8,
-          332
-        ],
+        "lch": [64.8, 48.8, 332],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#F095E1",
-        "lch": [
-          73.2,
-          51.2,
-          332
-        ],
+        "lch": [73.2, 51.2, 332],
         "gamutClipped": false
       },
       {
         "grade": 9,
         "hex": "#FFAAFB",
-        "lch": [
-          81.6,
-          53.6,
-          332
-        ],
+        "lch": [81.6, 53.6, 332],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#FFC0FF",
-        "lch": [
-          90,
-          56,
-          332
-        ],
+        "lch": [90, 56, 332],
         "gamutClipped": true
       }
     ],
@@ -2223,111 +1426,67 @@
       {
         "grade": 0,
         "hex": "#360013",
-        "lch": [
-          6,
-          32,
-          362
-        ],
+        "lch": [6, 32, 362],
         "gamutClipped": true
       },
       {
         "grade": 1,
         "hex": "#4D0424",
-        "lch": [
-          14.4,
-          34.4,
-          362
-        ],
+        "lch": [14.4, 34.4, 362],
         "gamutClipped": false
       },
       {
         "grade": 2,
         "hex": "#661836",
-        "lch": [
-          22.8,
-          36.8,
-          362
-        ],
+        "lch": [22.8, 36.8, 362],
         "gamutClipped": false
       },
       {
         "grade": 3,
         "hex": "#7F2B49",
-        "lch": [
-          31.2,
-          39.2,
-          362
-        ],
+        "lch": [31.2, 39.2, 362],
         "gamutClipped": false
       },
       {
         "grade": 4,
         "hex": "#9A3E5C",
-        "lch": [
-          39.6,
-          41.6,
-          362
-        ],
+        "lch": [39.6, 41.6, 362],
         "gamutClipped": false
       },
       {
         "grade": 5,
         "hex": "#B55171",
-        "lch": [
-          48,
-          44,
-          362
-        ],
+        "lch": [48, 44, 362],
         "gamutClipped": false
       },
       {
         "grade": 6,
         "hex": "#D06486",
-        "lch": [
-          56.4,
-          46.4,
-          362
-        ],
+        "lch": [56.4, 46.4, 362],
         "gamutClipped": false
       },
       {
         "grade": 7,
         "hex": "#ED789C",
-        "lch": [
-          64.8,
-          48.8,
-          362
-        ],
+        "lch": [64.8, 48.8, 362],
         "gamutClipped": false
       },
       {
         "grade": 8,
         "hex": "#FF8CB2",
-        "lch": [
-          73.2,
-          51.2,
-          362
-        ],
+        "lch": [73.2, 51.2, 362],
         "gamutClipped": true
       },
       {
         "grade": 9,
         "hex": "#FFA1C9",
-        "lch": [
-          81.6,
-          53.6,
-          362
-        ],
+        "lch": [81.6, 53.6, 362],
         "gamutClipped": true
       },
       {
         "grade": 10,
         "hex": "#FFB7E1",
-        "lch": [
-          90,
-          56,
-          362
-        ],
+        "lch": [90, 56, 362],
         "gamutClipped": true
       }
     ]

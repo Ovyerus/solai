@@ -639,10 +639,7 @@
   "tokenColors": [
     {
       "name": "Neutral source and embedded code",
-      "scope": [
-        "source",
-        "meta.embedded"
-      ],
+      "scope": ["source", "meta.embedded"],
       "settings": {
         "foreground": "#423D3E",
         "fontStyle": ""
@@ -650,10 +647,7 @@
     },
     {
       "name": "Readable comments",
-      "scope": [
-        "comment",
-        "punctuation.definition.comment"
-      ],
+      "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
         "foreground": "#555051",
         "fontStyle": ""
@@ -661,11 +655,7 @@
     },
     {
       "name": "Neutral bold grammar",
-      "scope": [
-        "keyword",
-        "storage",
-        "variable.language"
-      ],
+      "scope": ["keyword", "storage", "variable.language"],
       "settings": {
         "foreground": "#1E1B1C",
         "fontStyle": "bold"
@@ -673,9 +663,7 @@
     },
     {
       "name": "Sparse operators",
-      "scope": [
-        "keyword.operator"
-      ],
+      "scope": ["keyword.operator"],
       "settings": {
         "foreground": "#7F2448",
         "fontStyle": ""
@@ -714,10 +702,7 @@
     },
     {
       "name": "Neutral callable names",
-      "scope": [
-        "entity.name.function",
-        "support.function"
-      ],
+      "scope": ["entity.name.function", "support.function"],
       "settings": {
         "foreground": "#2F2B2C",
         "fontStyle": ""
@@ -759,10 +744,7 @@
     },
     {
       "name": "Quoted data",
-      "scope": [
-        "string",
-        "punctuation.definition.string"
-      ],
+      "scope": ["string", "punctuation.definition.string"],
       "settings": {
         "foreground": "#9A4A65",
         "fontStyle": ""
@@ -784,10 +766,7 @@
     },
     {
       "name": "Readable delimiters",
-      "scope": [
-        "punctuation",
-        "meta.brace"
-      ],
+      "scope": ["punctuation", "meta.brace"],
       "settings": {
         "foreground": "#555051",
         "fontStyle": ""
@@ -795,9 +774,7 @@
     },
     {
       "name": "Quoted delimiters follow their data",
-      "scope": [
-        "punctuation.definition.string"
-      ],
+      "scope": ["punctuation.definition.string"],
       "settings": {
         "foreground": "#9A4A65",
         "fontStyle": ""
@@ -816,9 +793,7 @@
     },
     {
       "name": "Template interpolation code",
-      "scope": [
-        "meta.template.expression"
-      ],
+      "scope": ["meta.template.expression"],
       "settings": {
         "foreground": "#423D3E",
         "fontStyle": ""
@@ -826,9 +801,7 @@
     },
     {
       "name": "Markup tags",
-      "scope": [
-        "entity.name.tag"
-      ],
+      "scope": ["entity.name.tag"],
       "settings": {
         "foreground": "#1E1B1C",
         "fontStyle": ""
@@ -836,9 +809,7 @@
     },
     {
       "name": "Markup attributes",
-      "scope": [
-        "entity.other.attribute-name"
-      ],
+      "scope": ["entity.other.attribute-name"],
       "settings": {
         "foreground": "#423D3E",
         "fontStyle": ""
@@ -846,10 +817,7 @@
     },
     {
       "name": "CSS properties",
-      "scope": [
-        "support.type.property-name",
-        "meta.property-name"
-      ],
+      "scope": ["support.type.property-name", "meta.property-name"],
       "settings": {
         "foreground": "#423D3E",
         "fontStyle": ""
@@ -868,9 +836,7 @@
     },
     {
       "name": "Markdown body",
-      "scope": [
-        "text.html.markdown"
-      ],
+      "scope": ["text.html.markdown"],
       "settings": {
         "foreground": "#2F2B2C",
         "fontStyle": ""
@@ -878,10 +844,7 @@
     },
     {
       "name": "Markdown headings",
-      "scope": [
-        "markup.heading",
-        "entity.name.section.markdown"
-      ],
+      "scope": ["markup.heading", "entity.name.section.markdown"],
       "settings": {
         "foreground": "#1E1B1C",
         "fontStyle": "bold"
@@ -889,9 +852,7 @@
     },
     {
       "name": "Markdown strong",
-      "scope": [
-        "markup.bold"
-      ],
+      "scope": ["markup.bold"],
       "settings": {
         "foreground": "#2F2B2C",
         "fontStyle": "bold"
@@ -899,9 +860,7 @@
     },
     {
       "name": "Markdown emphasis",
-      "scope": [
-        "markup.italic"
-      ],
+      "scope": ["markup.italic"],
       "settings": {
         "foreground": "#2F2B2C",
         "fontStyle": "italic"
@@ -909,10 +868,7 @@
     },
     {
       "name": "Markdown strong emphasis",
-      "scope": [
-        "markup.bold markup.italic",
-        "markup.italic markup.bold"
-      ],
+      "scope": ["markup.bold markup.italic", "markup.italic markup.bold"],
       "settings": {
         "foreground": "#2F2B2C",
         "fontStyle": "bold italic"
@@ -920,9 +876,7 @@
     },
     {
       "name": "Markdown quotations",
-      "scope": [
-        "markup.quote"
-      ],
+      "scope": ["markup.quote"],
       "settings": {
         "foreground": "#423D3E",
         "fontStyle": ""
@@ -930,9 +884,7 @@
     },
     {
       "name": "Markdown inline code",
-      "scope": [
-        "markup.inline.raw"
-      ],
+      "scope": ["markup.inline.raw"],
       "settings": {
         "foreground": "#8C3C36",
         "fontStyle": ""
@@ -952,9 +904,7 @@
     },
     {
       "name": "Markdown list markers",
-      "scope": [
-        "punctuation.definition.list.begin.markdown"
-      ],
+      "scope": ["punctuation.definition.list.begin.markdown"],
       "settings": {
         "foreground": "#9A4A65",
         "fontStyle": ""
@@ -973,9 +923,7 @@
     },
     {
       "name": "Inserted diff text",
-      "scope": [
-        "markup.inserted"
-      ],
+      "scope": ["markup.inserted"],
       "settings": {
         "foreground": "#00652A",
         "fontStyle": ""
@@ -983,9 +931,7 @@
     },
     {
       "name": "Removed diff text",
-      "scope": [
-        "markup.deleted"
-      ],
+      "scope": ["markup.deleted"],
       "settings": {
         "foreground": "#9C2D2A",
         "fontStyle": ""
@@ -993,9 +939,7 @@
     },
     {
       "name": "Changed diff text",
-      "scope": [
-        "markup.changed"
-      ],
+      "scope": ["markup.changed"],
       "settings": {
         "foreground": "#9A4A65",
         "fontStyle": ""
@@ -1003,10 +947,7 @@
     },
     {
       "name": "Diff headers",
-      "scope": [
-        "meta.diff.header",
-        "meta.diff.range"
-      ],
+      "scope": ["meta.diff.header", "meta.diff.range"],
       "settings": {
         "foreground": "#555051",
         "fontStyle": ""
@@ -1014,10 +955,7 @@
     },
     {
       "name": "Invalid syntax",
-      "scope": [
-        "invalid",
-        "invalid.illegal"
-      ],
+      "scope": ["invalid", "invalid.illegal"],
       "settings": {
         "foreground": "#9C2D2A",
         "fontStyle": ""
@@ -1025,9 +963,7 @@
     },
     {
       "name": "Deprecated syntax",
-      "scope": [
-        "invalid.deprecated"
-      ],
+      "scope": ["invalid.deprecated"],
       "settings": {
         "foreground": "#555051",
         "fontStyle": ""

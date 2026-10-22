@@ -12,13 +12,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy:wisp": "sh scripts/deploy-wisp.sh"
+    "deploy:wisp": "sh scripts/deploy-wisp.sh",
+    "format": "prettier -w ."
   },
   "dependencies": {
     "astro": "7.4.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.3",
+    "prettier": "^3.9.10",
     "tailwindcss": "4.3.3"
   }
 }
