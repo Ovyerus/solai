@@ -12,6 +12,7 @@ Solai is a static Astro site with Tailwind CSS and vanilla browser JavaScript. E
 - [Guide token editor](#guide-token-editor)
 - [Artwork](#balcony-artwork) and [provenance](#provenance-and-licenses)
 - [Deploy to Wisp](#deploy-to-wisp)
+- [Analytics](#analytics)
 
 ## Run locally
 
@@ -268,3 +269,10 @@ The deploy command does not build for you: always build first. It preserves ordi
 The same install/build/deploy commands and environment variables can move to a Tangled Spindle once one is available; no Spindle configuration is assumed here. Keep GitHub and Spindle from deploying the production site concurrently during a cutover.
 
 After publishing, check HTTPS, direct page loads for `/`, `/palette/`, `/guide/` and `/downloads/`, and actual downloads on the public host. Canonical/social metadata and deployed-host browser verification are separate from wiring up this workflow.
+
+## Analytics
+
+`src/layouts/Page.astro` includes the deferred [Umami tracker](https://docs.umami.is/docs/tracker-configuration) from `https://stats.ovy.sh/script.js` in production builds, using website ID `bad70cb9-2574-4746-80bc-f7baaeb56d0c`. This is a public tracking identifier, not an API credential. No additional dependency, environment variable or deployment secret is required.
+
+The tracker runs only on `solai.style`. The development server omits it, and local production previews send no page views. URL query strings and fragments are excluded, so flavour/mode choices and section navigation do not inflate page-view counts. No custom interaction events are added. Change the tracker configuration in the shared layout if the instance, website ID or production domain changes.
+

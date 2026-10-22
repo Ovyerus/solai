@@ -19,6 +19,17 @@ const { title, description, flavor, mode = 'dark' } = Astro.props;
     {description && <meta name="description" content={description} />}
     <title>{title}</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    {import.meta.env.PROD && (
+      <script
+        is:inline
+        defer
+        src="https://stats.ovy.sh/script.js"
+        data-website-id="bad70cb9-2574-4746-80bc-f7baaeb56d0c"
+        data-domains="solai.style"
+        data-exclude-search="true"
+        data-exclude-hash="true"
+      ></script>
+    )}
     <slot name="head" />
   </head>
   <body class="m-0 bg-solai-surface-canvas font-sans text-[16px] leading-[1.6] text-solai-text-primary [@media(max-width:650px)]:text-[14px]">
