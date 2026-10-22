@@ -8,6 +8,10 @@ Five colour themes for editors, terminals and the web, each in light and dark. Q
 
 **[Explore the palettes](https://solai.style/palette/)** · **[Previews](https://solai.style/#examples)** · **[Colour guide](https://solai.style/guide/)** · **[Downloads](https://solai.style/downloads/)**
 
+[![Editor colour specimen in Tide Dark, showing TypeScript, search matches, completion suggestions and diagnostics.](docs/preview-editor.png)](https://solai.style/#examples)
+
+[![Terminal colour specimen in Tide Dark, showing directory listings, Git output, resource meters and ANSI colours.](docs/preview-terminal.png)](https://solai.style/#examples)
+
 ## Flavours
 
 | Flavour | Accent |
