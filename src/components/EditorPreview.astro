@@ -23,6 +23,7 @@ const lines = [
   '<span class="keyword">const</span> <span class="warn">spare</span> = <span class="literal">4</span>;',
   'lightWindows<span class="bracket0">(</span><span class="error string">"after sunset"</span><span class="bracket0">)</span>;',
 ];
+const caretMarkup = '<span class="cursor">▏</span>';
 const candidates = [
   { kind: 'ƒ', name: 'lightWindows', detail: '(hour: number)', selected: true },
   { kind: '◇', name: 'scene', detail: 'Scene', selected: false },
@@ -49,15 +50,15 @@ const candidates = [
       </div>
       <div class="relative">
         <div class="overflow-x-auto" tabindex="0" role="region" aria-label="TypeScript colour specimen; scroll horizontally to read">
-          <pre class="m-0 min-w-[660px] py-[18px] font-mono text-[13px] leading-[1.8] text-solai-text-primary [@media(max-width:650px)]:text-[12px] [&_code]:font-mono [&_.line]:block [&_.line]:min-h-[24px] [&_.line]:pr-[18px] [&_i]:inline-block [&_i]:w-[46px] [&_i]:select-none [&_i]:text-center [&_i]:not-italic [&_i]:text-solai-text-muted [&_.keyword]:font-medium [&_.keyword]:text-solai-text-emphasis [&_.string]:text-solai-accent-primary [&_.type]:text-solai-accent-secondary [&_.literal]:text-[color:var(--preview-literal)] [&_.comment]:text-solai-text-muted [&_.bracket0]:text-[color:var(--preview-orange)] [&_.search]:text-[color:var(--preview-search)] [&_.search]:underline [&_.search]:underline-offset-[3px] [&_.cursor]:text-solai-accent-highlight [&_.warn]:decoration-solai-status-warning [&_.warn]:underline [&_.warn]:decoration-wavy [&_.warn]:underline-offset-[4px] [&_.error]:decoration-solai-status-danger [&_.error]:underline [&_.error]:decoration-wavy [&_.error]:underline-offset-[4px]"><code>{lines.map((line, index) => <span class:list={['line', { 'bg-solai-surface-panel': index === 18, 'border-l-2 border-solai-status-success': index === 6, 'border-l-2 border-solai-status-warning': index === 9 }]}><i>{String(index + 1).padStart(2, '0')}</i><span set:html={line || ' '} /></span>)}</code></pre>
+          <pre class="m-0 min-w-[660px] py-[18px] font-mono text-[13px] leading-[1.8] text-solai-text-primary [@media(max-width:650px)]:text-[12px] [&_code]:font-mono [&_.line]:block [&_.line]:min-h-[24px] [&_.line]:pr-[18px] [&_i]:inline-block [&_i]:w-[46px] [&_i]:select-none [&_i]:text-center [&_i]:not-italic [&_i]:text-solai-text-muted [&_.keyword]:font-medium [&_.keyword]:text-solai-text-emphasis [&_.string]:text-solai-accent-primary [&_.type]:text-solai-accent-secondary [&_.literal]:text-[color:var(--preview-literal)] [&_.comment]:text-solai-text-muted [&_.bracket0]:text-[color:var(--preview-orange)] [&_.search]:text-[color:var(--preview-search)] [&_.search]:underline [&_.search]:underline-offset-[3px] [&_.cursor]:text-solai-accent-highlight [&_.warn]:decoration-solai-status-warning [&_.warn]:underline [&_.warn]:decoration-wavy [&_.warn]:underline-offset-[4px] [&_.error]:decoration-solai-status-danger [&_.error]:underline [&_.error]:decoration-wavy [&_.error]:underline-offset-[4px]"><code>{lines.map((line, index) => {
+            const [beforeCaret, afterCaret] = line.split(caretMarkup);
+            return <span class:list={['line', { 'bg-solai-surface-panel': index === 18, 'border-l-2 border-solai-status-success': index === 6, 'border-l-2 border-solai-status-warning': index === 9 }]}><i>{String(index + 1).padStart(2, '0')}</i><span set:html={beforeCaret || ' '} />{afterCaret !== undefined && <Fragment><span class="relative inline-block"><span class="cursor">▏</span><span class="absolute right-full bottom-full z-[1] mb-[4px] block w-[240px] rounded-[2px] border border-solai-border-strong bg-solai-surface-raised font-mono text-[11px] leading-[1.6] font-normal whitespace-normal text-solai-text-primary" role="note" aria-label="Fixed completion menu example">
+              <span class="block p-[3px] whitespace-nowrap" role="list">
+                {candidates.map(item => <span role="listitem" class:list={['flex items-center gap-[8px] px-[9px] py-[4px]', { 'border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))]': item.selected }]}><span class="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[2px] bg-solai-accent-primary text-solai-accent-ink" aria-hidden="true">{item.kind}</span><span>{item.name}</span><span class="text-[10px] text-solai-text-secondary">{item.detail}</span></span>)}
+              </span>
+            </span></span><span set:html={afterCaret} /></Fragment>}</span>;
+          })}</code></pre>
         </div>
-        <aside class="absolute top-[105px] right-[22px] w-[270px] rounded-[2px] border border-solai-border-strong bg-solai-surface-raised text-solai-text-primary [@media(max-width:1000px)]:static [@media(max-width:1000px)]:mx-[18px] [@media(max-width:1000px)]:mb-[18px] [@media(max-width:1000px)]:w-auto" aria-label="Fixed completion menu example">
-          <p class="m-0 border-b border-solai-border-subtle px-[12px] py-[9px] font-mono text-[10px] tracking-[.06em] text-solai-text-primary">COMPLETIONS</p>
-          <ul class="m-0 list-none p-[3px] font-mono text-[11px]">
-            {candidates.map(item => <li class:list={['flex items-center gap-[10px] px-[9px] py-[8px]', { 'border-l-2 border-solai-accent-primary bg-[color-mix(in_srgb,var(--accent)_12%,var(--canvas))]': item.selected }]}><span class="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[2px] bg-solai-accent-primary text-solai-accent-ink" aria-hidden="true">{item.kind}</span><span class="min-w-0"><span class="block">{item.name}</span><span class="block text-[10px]">{item.detail}</span></span>{item.selected && <span class="ml-auto text-[10px]">Selected</span>}</li>)}
-          </ul>
-          <p class="m-0 border-t border-solai-border-subtle px-[12px] py-[10px] text-[12px] leading-[1.6]">Choose the destination for the evening round.</p>
-        </aside>
       </div>
       <div class="grid gap-[6px] border-t border-solai-border-subtle px-[18px] py-[12px] font-mono text-[11px] leading-[1.6]">
         <p class="m-0 text-solai-status-warning">! Line 20 · ‘spare’ is declared but never read.</p>

@@ -185,7 +185,7 @@ Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light
 
 The previews are fixed colour specimens, not live applications or application screenshots:
 
-- **Editor:** mostly neutral TypeScript, a file tree, current line, violet search matches, a posed completion menu, change markers and explicit diagnostics.
+- **Editor:** mostly neutral TypeScript, a file tree, current line, violet search matches, a compact three-row completion list anchored above the caret and moving with native code scrolling, change markers and explicit diagnostics.
 - **Terminal:** directory/file/symlink/executable colours, Git output, a process table, resource meters and the guide’s normal/bright ANSI mappings.
 - **Interface:** selected and archived rows, the existing switches/name field and Save/Reset actions, a fixed read-only invalid-field example, a disabled action and a notice.
 - **Night Radio:** original tape-cover artwork, paused waveform, track metadata and a fixed 16-step pattern with active/off/muted states.
