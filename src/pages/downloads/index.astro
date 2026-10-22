@@ -161,10 +161,11 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
         <h2 id="licensing-title" class={heading}>Licensing &amp; provenance</h2>
       </div>
       <div class="max-w-[80ch] text-[14px] text-solai-text-secondary">
-        <p class="mt-0 mb-[16px]">The new application theme packages and port mappings are MIT licensed, © 2026 Solai contributors. Package archives include the theme licence and the preserved Dolch MIT notice; individual theme files are covered by the notices linked below.</p>
-        <p class="my-[16px]">Tide and Ember derive from Dolch by Renzhi Li. Dusk, Viridian and Bloom are Solai colour studies. Palette JSON retains source provenance; the application-package licence does not relicense existing raw palette exports, this website, artwork or fonts.</p>
+        <p class="mt-0 mb-[16px]">Solai’s original code and documentation, including the application theme packages and port mappings, are MIT licensed, © 2026 Solai contributors. Package archives include the theme licence and the preserved Dolch MIT notice; individual theme files are covered by the notices linked below.</p>
+        <p class="my-[16px]">Tide and Ember derive from Dolch by Renzhi Li. Dusk, Viridian and Bloom are Solai colour studies. Palette exports retain their own notices and provenance. Artwork, third-party fonts and upstream material retain their existing terms; artwork is not covered by Solai’s source-code licence.</p>
         <div class="flex flex-wrap gap-x-[28px] gap-y-[4px]">
           <a class={link} href="https://github.com/be5invis/vscode-theme-dolch">Dolch by Renzhi Li ↗</a>
+          <a class={link} href="https://github.com/Ovyerus/solai/blob/main/LICENSE">Solai source · MIT licence ↗</a>
           <a class={link} href={manifest.licenses.themes}>Theme packages · MIT notice ↗</a>
           <a class={link} href={manifest.licenses.dolch}>Dolch · MIT notice ↗</a>
           <a class={link} href="/guide/" data-theme-link>Colour usage guide ↗</a>

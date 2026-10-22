@@ -41,9 +41,9 @@ The website uses [Sora](https://github.com/sora-xor/sora-font) and [Iosevka Sola
 
 ### Licensing
 
-The application theme packages and their port mappings are [MIT-licensed](palette-source/README.md#application-theme-license), with the original [Dolch MIT notice](https://github.com/be5invis/vscode-theme-dolch/blob/master/LICENSE) retained. Font notices are preserved alongside the font definitions in the website’s CSS.
+Solai’s original code and documentation, including the application themes and port mappings, are [MIT-licensed](LICENSE), © 2026 Solai contributors.
 
-There is no blanket license for the website or artwork. The application-theme license does not relicense the fonts or existing palette exports; those retain their own notices and provenance.
+Artwork is not covered by this license. Third-party fonts, upstream palettes and other third-party material retain their existing terms, including the original [Dolch MIT notice](https://github.com/be5invis/vscode-theme-dolch/blob/master/LICENSE). Font notices are preserved alongside the font definitions in the website’s CSS; palette exports retain their own notices and provenance.
 
 ## Working on Solai
 
