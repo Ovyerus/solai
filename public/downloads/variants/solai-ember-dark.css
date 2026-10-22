@@ -1,36 +1,45 @@
+/*! Original Dolch notice:
+Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 /* Solai Ember Dark · Dolch Alter custom ramps (dolch-alter) with shared Dolch Blue base colours: Renzhi Li, MIT. Semantic UI roles are proposed. */
 :root {
   color-scheme: dark;
   --solai-surface-canvas: #161310;
   --solai-surface-panel: #272422;
   --solai-surface-raised: #393634;
-  --solai-surface-hover: #4c4947;
-  --solai-border-subtle: #4c4947;
-  --solai-border-strong: #8a8784;
-  --solai-text-primary: #cecac8;
-  --solai-text-emphasis: #e6e2df;
-  --solai-text-secondary: #b7b3b1;
-  --solai-text-muted: #a09c9a;
-  --solai-text-disabled: #75716f;
-  --solai-accent-primary: #ca933c;
-  --solai-accent-hover: #e1aa57;
-  --solai-accent-highlight: #ffd98f;
+  --solai-surface-hover: #4C4947;
+  --solai-border-subtle: #4C4947;
+  --solai-border-strong: #8A8784;
+  --solai-text-primary: #CECAC8;
+  --solai-text-emphasis: #E6E2DF;
+  --solai-text-secondary: #B7B3B1;
+  --solai-text-muted: #A09C9A;
+  --solai-text-disabled: #75716F;
+  --solai-accent-primary: #CA933C;
+  --solai-accent-hover: #E1AA57;
+  --solai-accent-highlight: #FFD98F;
   --solai-accent-ink: #161310;
-  --solai-accent-secondary: #ff9874;
-  --solai-selection-background: #ca933c50;
-  --solai-status-success: #5fc886;
-  --solai-status-success-background: #00411b;
-  --solai-status-warning: #cdb253;
+  --solai-accent-secondary: #FF9874;
+  --solai-selection-background: #CA933C50;
+  --solai-status-success: #5FC886;
+  --solai-status-success-background: #00411B;
+  --solai-status-warning: #CDB253;
   --solai-status-warning-background: #423600;
-  --solai-status-danger: #ff9285;
-  --solai-status-danger-background: #641e1b;
-  --solai-status-info: #67b8ff;
-  --solai-status-info-background: #00396e;
-  --solai-support-orange: #f3a161;
-  --solai-support-chartreuse: #9cc061;
-  --solai-support-spring: #00ccb5;
-  --solai-support-cyan: #00cbe4;
-  --solai-support-violet: #bba6ff;
-  --solai-support-magenta: #f095e1;
-  --solai-support-rose: #ff8cb2;
+  --solai-status-danger: #FF9285;
+  --solai-status-danger-background: #641E1B;
+  --solai-status-info: #67B8FF;
+  --solai-status-info-background: #00396E;
+  --solai-support-orange: #F3A161;
+  --solai-support-chartreuse: #9CC061;
+  --solai-support-spring: #00CCB5;
+  --solai-support-cyan: #00CBE4;
+  --solai-support-violet: #BBA6FF;
+  --solai-support-magenta: #F095E1;
+  --solai-support-rose: #FF8CB2;
 }

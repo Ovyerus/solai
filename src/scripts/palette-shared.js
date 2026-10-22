@@ -42,7 +42,7 @@ function cssName(value) {
     .replace(/[A-Z]/g, (letter) => "-" + letter.toLowerCase());
 }
 
-export function exportCSS(palette, flavorName, mode) {
+export function exportCSS(palette, flavorName, mode, source) {
   const modeName = mode === "light" ? "Light" : "Dark";
   const provenance = palette.customUpstreamVariant
     ? `Dolch Alter custom ramps (${palette.customUpstreamVariant}) with shared Dolch Blue base colours: Renzhi Li, MIT.`
@@ -50,7 +50,7 @@ export function exportCSS(palette, flavorName, mode) {
       ? `Original Dolch primitives (${palette.upstreamVariant}): Renzhi Li, MIT.`
       : "Independent colour study using the Dolch generation method.";
   return (
-    `/* Solai ${flavorName} ${modeName} · ${provenance} Semantic UI roles are proposed. */\n:root {\n  color-scheme: ${mode};\n` +
+    `/*! Original Dolch notice:\n${source.licenseText}*/\n/* Solai ${flavorName} ${modeName} · ${provenance} Semantic UI roles are proposed. */\n:root {\n  color-scheme: ${mode};\n` +
     Object.entries(palette.roleValues)
       .map(([key, value]) => `  --solai-${cssName(key)}: ${value};`)
       .join("\n") +
@@ -58,7 +58,7 @@ export function exportCSS(palette, flavorName, mode) {
   );
 }
 
-export function exportTailwindCSS(palette, flavorName, mode) {
+export function exportTailwindCSS(palette, flavorName, mode, source) {
   const modeName = mode === "light" ? "Light" : "Dark";
   const provenance = palette.customUpstreamVariant
     ? `Dolch Alter custom ramps (${palette.customUpstreamVariant}) with shared Dolch Blue base colours: Renzhi Li, MIT.`
@@ -75,7 +75,9 @@ export function exportTailwindCSS(palette, flavorName, mode) {
   const roles = Object.entries(palette.roleValues).map(
     ([key, value]) => `  --color-solai-${cssName(key)}: ${value};`,
   );
-  return `/* Solai ${flavorName} ${modeName} · ${provenance}
+  return `/*! Original Dolch notice:
+${source.licenseText}*/
+/* Solai ${flavorName} ${modeName} · ${provenance}
  * Source: https://github.com/be5invis/vscode-theme-dolch
  * Semantic UI roles are Solai proposals, not upstream assignments.
  * Contrast depends on the paired surface; recheck actual use, including alpha selection.

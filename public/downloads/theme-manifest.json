@@ -923,7 +923,7 @@
     "label": "Every terminal format · all ten variants · ZIP"
   },
   "licenses": {
-    "themes": "/downloads/LICENSE-Themes.txt",
-    "dolch": "/downloads/LICENSE-Dolch.txt"
+    "themes": "https://github.com/Ovyerus/solai/blob/main/palette-source/README.md#application-theme-license",
+    "dolch": "https://github.com/be5invis/vscode-theme-dolch/blob/master/LICENSE"
   }
 }

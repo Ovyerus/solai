@@ -2,6 +2,8 @@
 
 A static Astro site for the Solai theme explorer. Editable pages, styles and browser scripts live in `src/`; fonts, palette data, artwork and downloads live in `public/`. Astro builds deployable files into `dist/`. The deployed site needs no application server, API keys or runtime framework.
 
+Source: [Ovyerus/solai](https://github.com/Ovyerus/solai).
+
 ## Run locally
 
 With Nix, enter the pinned development shell, which provides only Node.js 24 and pnpm:
@@ -130,7 +132,7 @@ nix develop --command node palette-source/build_ports.mjs
 
 Run this after palette regeneration or approved guide/port mapping changes. Generated files live under `public/downloads/themes/`, `public/downloads/variants/` and `public/downloads/theme-manifest.json`; generation is separate from the Astro build. See `palette-source/README.md`.
 
-The **new application theme packages and port mappings only** are MIT-licensed under `public/downloads/LICENSE-Themes.txt`, with Dolch’s original notice retained. This does not relicense the website, artwork, fonts or existing raw palette exports. Strict Windows Terminal scheme JSON is distributed in a selected-variant ZIP with both notices; other standalone port files carry the notices as comments or root JSON metadata. The former reference/generators ZIP is preserved at `palette-source/reference/dolch-reference-starter.zip`, outside the served site.
+The **new application theme packages and port mappings only** are [MIT-licensed](palette-source/README.md#application-theme-license), with Dolch’s original notice retained. This does not relicense the website, artwork, fonts or existing raw palette exports. Strict Windows Terminal scheme JSON is distributed in a selected-variant ZIP with both notices; other standalone port files carry the notices as comments or root JSON metadata. The former reference/generators ZIP is preserved at `palette-source/reference/dolch-reference-starter.zip`, outside the served site.
 
 ## Styling with Tailwind
 
@@ -177,7 +179,7 @@ The working interface uses **Linework**: flat neutral surfaces, fine dividers an
 
 The hero, introduction and flavour captions use a synthwave/solarpunk-after-dark direction. Controls and technical notes stay plain.
 
-The single canonical wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation and footer. Its Sora Medium lettering is outlined at weight 500 with tight spacing. The enlarged, raised eight-ray star, heavier rays and unclipped `2390×900` viewBox are baked into the master SVG; there are no alternate size variants or selector props. All placements use `<Wordmark />`, inherit the active theme's ink/accent colours and retain their existing layout widths and accessible containing labels. The artwork renders without fonts or emoji fallback. Edit this master rather than recreating the logo with text. The Sora font notice remains in `public/assets/fonts/Sora-OFL.txt`.
+The single canonical wordmark is `src/assets/solai-wordmark.svg`, inlined by `src/components/Wordmark.astro` in the hero, navigation and footer. Its Sora Medium lettering is outlined at weight 500 with tight spacing. The enlarged, raised eight-ray star, heavier rays and unclipped `2390×900` viewBox are baked into the master SVG; there are no alternate size variants or selector props. All placements use `<Wordmark />`, inherit the active theme's ink/accent colours and retain their existing layout widths and accessible containing labels. The artwork renders without fonts or emoji fallback. Edit this master rather than recreating the logo with text. The Sora font notice is retained in the legal comments beside the font definitions in `src/styles/main.css`.
 
 Palettes: **Tide, Ember, Dusk, Viridian, Bloom**, each with **Dark** and **Light** variants. Dark remains the default. Home, Palette, Guide and Downloads share flavour/mode preferences in browser localStorage. Query parameters such as `?theme=Tide&mode=light` preview a combination without saving it; navigation carries that preview, while an explicit header choice updates preferences and any theme query so reloads keep the new selection. Sora is the interface/display face and Iosevka Solai is the monospace face. Preview controls are illustrative; downloadable application themes are separate from the specimens.
 
@@ -275,6 +277,6 @@ The active scene is the **AI-generated raster PNG** `art-source/balcony/balcony-
 
 Tide preserves Dolch Blue primitives in both modes (`dolch` and `dolch-light`). Ember is adapted: its `fg`, `bg`, `coShades`, `accent` and `coAccent` ramps preserve Dolch Alter (`dolch-alter` and `dolch-light-alter`), while its twelve base families use Tide's corresponding-mode values. Ember's metadata uses `provenance: "adapted"`, `upstreamVariant: null` and `customUpstreamVariant` to identify the original Alter source without claiming a complete upstream-exact palette. Dusk, Viridian and Bloom are independent colour studies. All five flavours share the same base/status ring per mode. Semantic UI mappings remain proposed in every variant. Light roles choose darker grades where needed for their actual text, control and badge pairings. Selected checks remain in the data and generator, but are not a complete accessibility audit.
 
-Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. Preserve `public/downloads/LICENSE-Dolch.txt` and all font notices. The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.
+Original Dolch colors: Renzhi Li (Belleve Invis), MIT, source commit `cf3817311b30d3c21a60ebb0b250d18386e66a30`: https://github.com/be5invis/vscode-theme-dolch. The footer links to the [upstream license](https://github.com/be5invis/vscode-theme-dolch/blob/master/LICENSE); its exact notice is preserved in the source snapshot and embedded in palette exports. Full font notices accompany their definitions in the generated CSS, rather than separate license files. Font links point to [Sora](https://github.com/sora-xor/sora-font) and [Iosevka Solai](https://github.com/Ovyerus/iosevka-solai). The original landscape is procedural artwork; the balcony reference is AI-generated. No blanket license is added for the remaining site/artwork.
 
-The new application theme packages and port mappings are separately MIT-licensed, © 2026 Solai contributors, under `public/downloads/LICENSE-Themes.txt`. Their archives preserve the complete Dolch notice. That permission does not extend to the remaining website, artwork, fonts or prior palette-export licensing.
+The new application theme packages and port mappings are separately MIT-licensed, © 2026 Solai contributors, under the [application theme license](palette-source/README.md#application-theme-license). Their archives preserve both complete notices internally; the download page links to their repository sources instead of separate license downloads. That permission does not extend to the remaining website, artwork, fonts or prior palette-export licensing.

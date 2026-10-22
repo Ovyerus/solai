@@ -49,7 +49,13 @@ function renderPalette({ data, flavour, mode, palette }) {
   renderRampTables(data, mode, modeName);
   selection.textContent = `${flavorName} · ${modeName} selected theme`;
   document.title = `${flavorName} ${modeName} palette — Solai`;
-  currentSelection = { palette, flavorName, mode, modeName };
+  currentSelection = {
+    palette,
+    flavorName,
+    mode,
+    modeName,
+    source: data.source,
+  };
   copyCSSButton.setAttribute(
     "aria-label",
     `Copy selected theme CSS, ${flavorName} ${modeName}`,
@@ -61,9 +67,9 @@ function renderPalette({ data, flavour, mode, palette }) {
 
 copyCSSButton.addEventListener("click", () => {
   if (!currentSelection) return;
-  const { palette, flavorName, mode, modeName } = currentSelection;
+  const { palette, flavorName, mode, modeName, source } = currentSelection;
   copy(
-    exportCSS(palette, flavorName, mode),
+    exportCSS(palette, flavorName, mode, source),
     `${flavorName} ${modeName} CSS copied`,
   );
 });

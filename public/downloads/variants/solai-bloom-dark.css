@@ -1,36 +1,45 @@
+/*! Original Dolch notice:
+Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 /* Solai Bloom Dark · Independent colour study using the Dolch generation method. Semantic UI roles are proposed. */
 :root {
   color-scheme: dark;
   --solai-surface-canvas: #161213;
   --solai-surface-panel: #272424;
   --solai-surface-raised: #393536;
-  --solai-surface-hover: #4d4849;
-  --solai-border-subtle: #4d4849;
-  --solai-border-strong: #8b8687;
-  --solai-text-primary: #cfcacb;
-  --solai-text-emphasis: #e6e1e2;
-  --solai-text-secondary: #b8b3b4;
-  --solai-text-muted: #a19c9d;
+  --solai-surface-hover: #4D4849;
+  --solai-border-subtle: #4D4849;
+  --solai-border-strong: #8B8687;
+  --solai-text-primary: #CFCACB;
+  --solai-text-emphasis: #E6E1E2;
+  --solai-text-secondary: #B8B3B4;
+  --solai-text-muted: #A19C9D;
   --solai-text-disabled: #757172;
-  --solai-accent-primary: #dc839f;
-  --solai-accent-hover: #f49ab5;
-  --solai-accent-highlight: #ffc9e4;
+  --solai-accent-primary: #DC839F;
+  --solai-accent-hover: #F49AB5;
+  --solai-accent-highlight: #FFC9E4;
   --solai-accent-ink: #161213;
-  --solai-accent-secondary: #f59d91;
-  --solai-selection-background: #dc839f50;
-  --solai-status-success: #5fc886;
-  --solai-status-success-background: #00411b;
-  --solai-status-warning: #cdb253;
+  --solai-accent-secondary: #F59D91;
+  --solai-selection-background: #DC839F50;
+  --solai-status-success: #5FC886;
+  --solai-status-success-background: #00411B;
+  --solai-status-warning: #CDB253;
   --solai-status-warning-background: #423600;
-  --solai-status-danger: #ff9285;
-  --solai-status-danger-background: #641e1b;
-  --solai-status-info: #67b8ff;
-  --solai-status-info-background: #00396e;
-  --solai-support-orange: #f3a161;
-  --solai-support-chartreuse: #9cc061;
-  --solai-support-spring: #00ccb5;
-  --solai-support-cyan: #00cbe4;
-  --solai-support-violet: #bba6ff;
-  --solai-support-magenta: #f095e1;
-  --solai-support-rose: #ff8cb2;
+  --solai-status-danger: #FF9285;
+  --solai-status-danger-background: #641E1B;
+  --solai-status-info: #67B8FF;
+  --solai-status-info-background: #00396E;
+  --solai-support-orange: #F3A161;
+  --solai-support-chartreuse: #9CC061;
+  --solai-support-spring: #00CCB5;
+  --solai-support-cyan: #00CBE4;
+  --solai-support-violet: #BBA6FF;
+  --solai-support-magenta: #F095E1;
+  --solai-support-rose: #FF8CB2;
 }

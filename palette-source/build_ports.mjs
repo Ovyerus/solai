@@ -18,9 +18,11 @@ const { version } = JSON.parse(
   await readFile(path.join(project, "package.json"), "utf8"),
 );
 const themes = makeThemes(data);
-const dolchLicense = await readFile(
-  path.join(downloads, "LICENSE-Dolch.txt"),
-  "utf8",
+const { LICENSE: dolchLicense } = JSON.parse(
+  await readFile(
+    path.join(project, "palette-source/reference/source-snapshot.json"),
+    "utf8",
+  ),
 );
 const themeLicense =
   "MIT License\n\n" +
@@ -94,7 +96,6 @@ function installation(format) {
   );
 }
 
-await emit("LICENSE-Themes.txt", themeLicense + "\n" + scope + "\n");
 const variants = [];
 for (const theme of themes) {
   const base = "variants/" + theme.slug;
@@ -116,11 +117,16 @@ for (const theme of themes) {
       ),
       css: await emit(
         base + ".css",
-        exportCSS(theme.palette, theme.flavorName, theme.mode),
+        exportCSS(theme.palette, theme.flavorName, theme.mode, data.source),
       ),
       tailwind: await emit(
         base + ".tailwind.css",
-        exportTailwindCSS(theme.palette, theme.flavorName, theme.mode),
+        exportTailwindCSS(
+          theme.palette,
+          theme.flavorName,
+          theme.mode,
+          data.source,
+        ),
       ),
     },
   });
@@ -277,8 +283,9 @@ const manifest = {
     label: "Every terminal format · all ten variants · ZIP",
   },
   licenses: {
-    themes: "/downloads/LICENSE-Themes.txt",
-    dolch: "/downloads/LICENSE-Dolch.txt",
+    themes:
+      "https://github.com/Ovyerus/solai/blob/main/palette-source/README.md#application-theme-license",
+    dolch: "https://github.com/be5invis/vscode-theme-dolch/blob/master/LICENSE",
   },
 };
 await emit("theme-manifest.json", json(manifest));

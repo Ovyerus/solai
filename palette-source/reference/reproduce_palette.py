@@ -44,6 +44,7 @@ def contrast(a,b):
 
 result={
   'provenance':{'repository':'https://github.com/be5invis/vscode-theme-dolch','commit':SHA,'commitDate':'2023-11-26T06:17:36Z','extensionVersion':'0.4.0','license':'MIT','copyright':'Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)','method':'Independent calculation from inspected source parameters and D65 CIELAB conversion; repository code was not executed'},
+  'licenseText':source['LICENSE'],
   'generation':{'colorSpace':'CIE LCh(ab), D65 whitepoint (not CSS lch D50 or OKLCH)','grades':[0,1,2,3,4,5,6,7,8,9,10],'lightnessInterpolation':'L0 + (L1-L0)*(grade/10)^power','chromaInterpolation':'C0+(C1-C0)*grade/10','hueInterpolation':'H0+(H1-H0)*grade/10 degrees','conversion':'LCh to Lab to D65 XYZ to sRGB, clip channels to [0,1], round to nearest 8-bit value','ringAngleFunction':'(angle % 30)+30, then hue + 30*k for k=0..11','note':'The source names luma, but the quantity is CIE Lab L*, not relative luminance. Grade direction is reversed for light variants; absGrade(g) returns 10-g there.'},
   'variants':{}
 }
@@ -66,5 +67,4 @@ for light,alter in [(False,False),(True,False),(False,True),(True,True)]:
     result['variants'][name]={'parameters':p,'ramps':ramps,'hexRamps':{k:[c['hex'] for c in a] for k,a in ramps.items()},'bracketFamilies':['yellow','green','cyan','blue','magenta','red'] if alter else ['azure','spring','chartreuse','orange','rose','violet'],'publishedThemeColors':mapping,'publishedTokenColors':tokenmapping,'verification':{'publishedUniqueRgbColors':len(used),'allPublishedColorsMatched':True,'unmatched':unmatched},'contrastOnMainBackground':contrastReport}
     (ROOT/(name+'-published.json')).write_text(json.dumps(actual,indent=2)+'\n')
 (ROOT/'dolch-palette.json').write_text(json.dumps(result,indent=2)+'\n')
-(ROOT/'LICENSE-Dolch.txt').write_text(source['LICENSE'])
 print(json.dumps({k:{'ramps':v['hexRamps'],'verification':v['verification'],'contrast':v['contrastOnMainBackground']} for k,v in result['variants'].items()},indent=2))
