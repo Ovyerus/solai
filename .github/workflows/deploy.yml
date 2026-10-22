@@ -1,0 +1,57 @@
+name: Check and deploy to Wisp
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wisp-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          cache: true
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check JavaScript syntax
+        run: |
+          for file in src/scripts/*.js src/data/*.js palette-source/build_ports.mjs palette-source/ports/*.mjs; do
+            node --check "$file"
+          done
+
+      - name: Check editor theme contrast
+        run: node --test palette-source/ports/ports.test.mjs
+
+      - name: Build the static site
+        run: pnpm build
+
+      - name: Deploy to Wisp
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          WISP_HANDLE: ${{ vars.WISP_HANDLE }}
+          WISPCTL_APP_PASSWORD: ${{ secrets.WISPCTL_APP_PASSWORD }}
+        run: pnpm deploy:wisp

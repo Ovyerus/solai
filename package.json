@@ -11,7 +11,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy:wisp": "sh scripts/deploy-wisp.sh"
   },
   "dependencies": {
     "astro": "7.4.0"

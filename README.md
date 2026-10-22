@@ -44,6 +44,58 @@ Preview also defaults to port 4321, so stop the development server first or pass
 
 `dist/` is generated output, not editable source. Deploy that directory to a static host after building; Node.js is required only for development and builds. No client framework or server adapter is used.
 
+## Deploy to Wisp
+
+The intended public address is **https://solai.style/**. Deployment uses the [Wisp CLI](https://docs.wisp.place/cli/) to publish the built `dist/` directory to the `solai` site in an AT Protocol account.
+
+### GitHub Actions
+
+`.github/workflows/deploy.yml` installs the package-manager version from `package.json`, checks JavaScript syntax and the existing editor contrast tests, then builds with Node.js 24. Pull requests only check and build; pushes to `main` also deploy. The workflow can be run manually from **Actions → Check and deploy to Wisp → Run workflow**; choose `main` to deploy. Runs on other branches never publish.
+
+Before enabling deployment:
+
+1. Create or choose the AT Protocol account that will own the site, and create a dedicated app password on its PDS.
+2. In the GitHub repository's **Settings → Secrets and variables → Actions**, add a repository **variable** named `WISP_HANDLE` containing that account's full handle or DID, and a repository **secret** named `WISPCTL_APP_PASSWORD` containing the app password. Never commit it or put it in command arguments.
+3. Add the GitHub remote, push `main`, and check the workflow run. Missing credentials fail the deployment step explicitly; they do not trigger an interactive login.
+
+Actions are pinned to commit hashes, checkout does not persist Git credentials, and the workflow has read-only repository permissions. Wisp credentials are exposed only to the final deployment step, never to PR builds. Production runs are serialized without cancelling an upload already in progress. PR runs can cancel superseded checks.
+
+The workflow publishes committed palette and theme assets; it does not regenerate them. Regenerate them locally with the documented palette tools before committing colour or port changes.
+
+### Custom domain: one-time setup
+
+After the first successful deployment, authenticate locally and claim the domain for the same account and site. Set `WISP_HANDLE` to that account's handle or DID first:
+
+```sh
+pnpm dlx wispctl@2.1.2 login "$WISP_HANDLE"
+pnpm dlx wispctl@2.1.2 domain claim "$WISP_HANDLE" --domain solai.style --site solai
+```
+
+Login uses OAuth by default. Follow the exact TXT and CNAME instructions returned by the claim; for the apex domain, use your DNS provider's supported CNAME-flattening or ALIAS equivalent. Then verify and check the claim:
+
+```sh
+pnpm dlx wispctl@2.1.2 domain verify "$WISP_HANDLE" --domain solai.style
+pnpm dlx wispctl@2.1.2 domain status "$WISP_HANDLE" --domain solai.style
+```
+
+If the domain was already claimed without a site, attach it with `pnpm dlx wispctl@2.1.2 domain add-site "$WISP_HANDLE" --domain solai.style --site solai`. Domain claiming and DNS changes are not part of CI.
+
+### Local deploy or a future Spindle
+
+`pnpm deploy:wisp` calls `scripts/deploy-wisp.sh`, which pins `wispctl` to `2.1.2` and reads `WISP_HANDLE` and `WISPCTL_APP_PASSWORD` from the environment. Supply those securely, then run:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+pnpm deploy:wisp
+```
+
+The deploy command does not build for you: always build first. It preserves ordinary static routing, without SPA fallback or directory listing. It publishes immediately; do not run it during routine verification.
+
+The same install/build/deploy commands and environment variables can move to a Tangled Spindle once one is available; no Spindle configuration is assumed here. Keep GitHub and Spindle from deploying the production site concurrently during a cutover.
+
+After publishing, check HTTPS, direct page loads for `/`, `/palette/`, `/guide/` and `/downloads/`, and actual downloads on the public host. Canonical/social metadata and deployed-host browser verification are separate from wiring up this workflow.
+
 ## Temporary guide token editor
 
 Open **http://localhost:4321/guide-editor/** to tune the eight real guide examples. It starts in Tide Light; `?theme=Bloom&mode=dark#editor` selects another preview and section. The page is unlinked and marked `noindex,nofollow`, not access-controlled; it remains part of static builds while present.
