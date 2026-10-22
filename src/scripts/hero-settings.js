@@ -10,7 +10,7 @@ export const artPattern = {
 };
 
 export const artSettings = Object.freeze({
-  scale: 1.5,
+  scale: 2,
   spread: 0.25,
   threshold: 0.54,
   contrast: 1.1,

@@ -80,7 +80,7 @@ Use Conventional Commit descriptions, such as `feat:`, `fix:`, `refactor:`, `bui
 
 The hero uses the AI-generated planted-balcony scene from `art-source/balcony/balcony-generated-reference.png`, copied unchanged to `public/assets/balcony.png`. It is always rendered with two-colour dithering; the old skyline overlay, Soft/ASCII variants and cursor reveal are removed. Desktop framing keeps the lake and sun in view; phone framing favours the planted facade and balcony rather than cropping them out.
 
-**Bayer fine** is the fixed dither treatment in both the live WebGL renderer and static Canvas2D fallback. The approved settings are 1.5px cells, 0.25 spread, 0.54 threshold, 1.1× contrast, 1 drift and 0.65 cursor strength, with **Ripple** as the sole pointer effect. Ripple rolls around the pointer; faster gestures add energy, while the dither grid stays fixed and the image retains the selected theme's two inks.
+**Bayer fine** is the fixed dither treatment in both the live WebGL renderer and static Canvas2D fallback. The approved settings are 2px cells, 0.25 spread, 0.54 threshold, 1.1× contrast, 1 drift and 0.65 cursor strength, with **Ripple** as the sole pointer effect. Ripple rolls around the pointer; faster gestures add energy, while the dither grid stays fixed and the image retains the selected theme's two inks.
 
 The hero has no image-tweaking controls or PNG export. Its rendering settings are fixed in `src/scripts/hero-settings.js`; the normal site flavour and Dark/Light controls still recolour the artwork.
 
