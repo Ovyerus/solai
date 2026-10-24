@@ -48,7 +48,6 @@ function renderPalette({ data, flavour, mode, palette }) {
   const modeName = mode === "light" ? "Light" : "Dark";
   renderRampTables(data, mode, modeName);
   selection.textContent = `${flavorName} · ${modeName} selected theme`;
-  document.title = `${flavorName} ${modeName} palette — Solai`;
   currentSelection = {
     palette,
     flavorName,

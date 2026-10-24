@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Solai social image · 1200 × 630</title>
+    <style>
+      @font-face {
+        font-family: Sora;
+        src: url('../public/assets/fonts/Sora.woff2') format('woff2');
+        font-weight: 100 800;
+      }
+      @font-face {
+        font-family: 'Iosevka Solai';
+        src: url('../public/assets/fonts/IosevkaSolai-Regular.woff2') format('woff2');
+        font-weight: 400;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      main {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #101416;
+        color: #DFE3E6;
+        font-family: Sora, sans-serif;
+        color-scheme: dark;
+      }
+      .wordmark {
+        position: absolute;
+        top: 50px;
+        left: 48px;
+        width: 276px;
+        height: auto;
+      }
+      h1 {
+        position: absolute;
+        top: 192px;
+        left: 48px;
+        margin: 0;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: -.035em;
+      }
+      .caption {
+        position: absolute;
+        top: 346px;
+        left: 48px;
+        margin: 0;
+        color: #B0B4B7;
+        font: 14px/1.4 'Iosevka Solai', monospace;
+      }
+      .scene {
+        position: absolute;
+        display: block;
+        height: auto;
+        border-radius: 2px;
+      }
+      .editor { top: 46px; right: 48px; width: 744px; }
+      .terminal { top: 386px; left: 48px; width: 480px; }
+      footer {
+        position: absolute;
+        right: 48px;
+        bottom: 40px;
+        text-align: right;
+        font: 14px/1.4 'Iosevka Solai', monospace;
+      }
+      .flavours {
+        display: flex;
+        gap: 20px;
+        margin: 0 0 19px;
+        padding: 0;
+        list-style: none;
+        color: #C7CBCE;
+      }
+      .flavours li { display: flex; align-items: center; gap: 7px; }
+      .flavours i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+      .domain { margin: 0; color: #00ACCE; }
+    </style>
+  </head>
+  <body>
+    <main aria-label="Solai social card">
+      <img class="wordmark" src="../src/assets/solai-wordmark.svg" alt="Solai" />
+      <h1>Colour themes for<br />editors, terminals<br />and the web.</h1>
+      <p class="caption">Five flavours · Light + Dark</p>
+      <img class="scene editor" src="../docs/preview-editor.png" alt="Editor colour specimen in Tide Dark" />
+      <img class="scene terminal" src="../docs/preview-terminal.png" alt="Terminal colour specimen in Tide Dark" />
+      <footer>
+        <ul class="flavours" aria-label="Flavours">
+          <li style="--accent: #00ACCE"><i></i>Tide</li>
+          <li style="--accent: #CA933C"><i></i>Ember</li>
+          <li style="--accent: #A194D8"><i></i>Dusk</li>
+          <li style="--accent: #67AC7A"><i></i>Viridian</li>
+          <li style="--accent: #DC839F"><i></i>Bloom</li>
+        </ul>
+        <p class="domain">solai.style</p>
+      </footer>
+    </main>
+  </body>
+</html>

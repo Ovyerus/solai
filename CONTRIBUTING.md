@@ -12,6 +12,7 @@ Solai is a static Astro site with Tailwind CSS and vanilla browser JavaScript. E
 - [Guide token editor](#guide-token-editor)
 - [Artwork](#balcony-artwork) and [provenance](#provenance-and-licenses)
 - [Deploy to Wisp](#deploy-to-wisp)
+- [Search and sharing](#search-and-sharing)
 - [Analytics](#analytics)
 
 ## Run locally
@@ -268,7 +269,17 @@ The deploy command does not build for you: always build first. It preserves ordi
 
 The same install/build/deploy commands and environment variables can move to a Tangled Spindle once one is available; no Spindle configuration is assumed here. Keep GitHub and Spindle from deploying the production site concurrently during a cutover.
 
-After publishing, check HTTPS, direct page loads for `/`, `/palette/`, `/guide/` and `/downloads/`, and actual downloads on the public host. Canonical/social metadata and deployed-host browser verification are separate from wiring up this workflow.
+After publishing, check HTTPS, direct page loads for `/`, `/palette/`, `/guide/` and `/downloads/`, and actual downloads on the public host. Also check the served canonical/social metadata, `/assets/og-image.png`, `/robots.txt` and `/sitemap.xml`; local verification does not check production hosting or social-client caches.
+
+## Search and sharing
+
+`astro.config.mjs` sets the production `site` to `https://solai.style`. The shared `src/layouts/Page.astro` emits absolute canonical and Open Graph URLs from that origin and the route pathname, excluding theme/mode queries and section fragments. Each page supplies its own title and required description; Palette keeps its route-level title when the selected theme changes.
+
+The layout also provides [Open Graph](https://ogp.me/) image metadata and large-image Twitter cards, including dimensions, MIME type and descriptive alternative text. All pages share the static 1200×630 `public/assets/og-image.png`: the canonical wordmark with the real Editor and Terminal specimens in Tide Dark. Its editable composition and capture instructions are in [the artwork guide](art-source/README.md#social-share-image). No image service or extra build dependency is involved.
+
+`src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` produce ordinary static files during the Astro build. The sitemap lists only Home, Palette, Guide and Downloads; update its explicit path list when adding public pages. The unlinked guide editor passes `noindex` to `Page`, which emits `noindex,nofollow`. It is intentionally crawlable so search engines can [read that exclusion](https://developers.google.com/search/docs/crawling-indexing/block-indexing), not blocked in robots.txt. This is not access control.
+
+The home page includes minimal [`WebSite` JSON-LD](https://developers.google.com/search/docs/appearance/site-names) identifying Solai and its canonical URL. Check source HTML as well as the browser DOM when changing metadata: link-preview crawlers need the tags without executing JavaScript.
 
 ## Analytics
 
