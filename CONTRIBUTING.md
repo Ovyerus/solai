@@ -47,7 +47,7 @@ node --check src/scripts/guide.js
 node --check src/scripts/guide-renderer.js
 node --check src/scripts/guide-editor.js
 node --check src/scripts/downloads.js
-node --test palette-source/ports/ports.test.mjs
+node --test palette-source/ports/*.test.mjs
 node --check src/data/guide.js
 pnpm build
 pnpm preview
@@ -177,6 +177,7 @@ This updates the canonical JSON, `public/downloads/flavor-studies.json`, `public
 
 - **VS Code / VSCodium:** an installable local VSIX containing all ten themes, plus individual theme-source JSON files.
 - **Zed:** a native JSON family containing all ten themes, plus individual one-theme families.
+- **Shiki:** custom TextMate JSON themes with stable names such as `solai-tide-dark`, plus an all-ten ZIP with a usage example. Load the parsed object, not the filename, into Shiki; these are not bundled theme IDs.
 - **Terminals:** Ghostty, Kitty, Alacritty, WezTerm, iTerm2, macOS Terminal, Windows Terminal and Xresources/xterm. Download the selected variant, a per-format all-ten ZIP, or the combined terminal bundle.
 - **Web/data:** the existing selected-palette JSON, semantic CSS variables and Tailwind colour tokens, plus complete-family JSON, CSS and Tailwind files.
 

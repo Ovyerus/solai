@@ -6,6 +6,7 @@ import { makeThemes, json } from "./ports/model.mjs";
 import { zip } from "./ports/archive.mjs";
 import { renderVSCode, vscodeFormat } from "./ports/vscode.mjs";
 import { renderZed, zedFormat } from "./ports/zed.mjs";
+import { renderShiki, shikiFormat, shikiExample } from "./ports/shiki.mjs";
 import { terminalFormats } from "./ports/terminals.mjs";
 import { exportCSS, exportTailwindCSS } from "../src/scripts/palette-shared.js";
 
@@ -225,6 +226,56 @@ formats.push({
   ...zedFormat,
   variants: zedVariants,
   bundle: { href: zedHref, label: "All ten themes · JSON" },
+});
+
+const shikiEntries = [];
+const shikiVariants = [];
+for (const theme of themes) {
+  const filename = fileName(theme, "json");
+  const content = licensed(renderShiki(theme), shikiFormat);
+  const href = await emit("themes/shiki/" + filename, content);
+  shikiEntries.push({ path: filename, content });
+  shikiVariants.push({
+    flavor: theme.flavor,
+    mode: theme.mode,
+    name: theme.name,
+    href,
+  });
+}
+const shikiReadme = `# Solai — Shiki
+
+${shikiFormat.description}
+
+${shikiFormat.installation.map((step) => "- " + step).join("\n")}
+
+## Example: Tide Dark
+
+\`\`\`js
+${shikiExample}
+\`\`\`
+
+Change the JSON filename for another variant; the theme name is read from the file.
+
+Custom themes: https://shiki.style/guide/load-theme
+Dual-theme CSS: https://shiki.style/guide/dual-themes
+
+${provenance}
+
+${scope}
+See LICENSE-Themes.txt and LICENSE-Dolch.txt.
+`;
+const shikiHref = await emit(
+  "themes/solai-shiki.zip",
+  zip([
+    ...shikiEntries,
+    ...legal,
+    { path: "INSTALL.md", content: shikiReadme },
+  ]),
+);
+formats.push({
+  ...shikiFormat,
+  variants: shikiVariants,
+  bundle: { href: shikiHref, label: "All ten themes · ZIP" },
 });
 
 const allTerminals = [];

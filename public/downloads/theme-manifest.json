@@ -292,6 +292,84 @@
       }
     },
     {
+      "id": "shiki",
+      "title": "Shiki",
+      "extension": "json",
+      "description": "TextMate themes for static syntax highlighting: mostly neutral code, accent strings and companion types, using the same syntax rules as the Solai VS Code port.",
+      "installation": [
+        "Download the selected JSON, or unzip all ten themes into your project. Each file is a separate custom theme, not a palette-data export.",
+        "In a project that uses Shiki, parse the JSON and pass the object to createHighlighter({ themes: [theme], langs: [yourLanguage] }), or await highlighter.loadTheme(theme) on an existing highlighter. Select it with theme: theme.name when rendering. A custom JSON path or Solai theme name alone is not a bundled Shiki theme.",
+        "For light/dark output, load both theme objects and use themes: { light: lightTheme.name, dark: darkTheme.name } when rendering; apply Shiki’s documented dual-theme CSS. A theme file does not switch your website’s appearance automatically.",
+        "Shiki uses TextMate grammars, not language-server semantic highlighting. Workbench chrome, search matches and nesting-depth bracket colours from editor ports are not reproduced. Language grammar coverage can differ."
+      ],
+      "variants": [
+        {
+          "flavor": "blue",
+          "mode": "dark",
+          "name": "Solai Tide Dark",
+          "href": "/downloads/themes/shiki/solai-tide-dark.json"
+        },
+        {
+          "flavor": "blue",
+          "mode": "light",
+          "name": "Solai Tide Light",
+          "href": "/downloads/themes/shiki/solai-tide-light.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "dark",
+          "name": "Solai Ember Dark",
+          "href": "/downloads/themes/shiki/solai-ember-dark.json"
+        },
+        {
+          "flavor": "alter",
+          "mode": "light",
+          "name": "Solai Ember Light",
+          "href": "/downloads/themes/shiki/solai-ember-light.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "dark",
+          "name": "Solai Dusk Dark",
+          "href": "/downloads/themes/shiki/solai-dusk-dark.json"
+        },
+        {
+          "flavor": "violet",
+          "mode": "light",
+          "name": "Solai Dusk Light",
+          "href": "/downloads/themes/shiki/solai-dusk-light.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "dark",
+          "name": "Solai Viridian Dark",
+          "href": "/downloads/themes/shiki/solai-viridian-dark.json"
+        },
+        {
+          "flavor": "green",
+          "mode": "light",
+          "name": "Solai Viridian Light",
+          "href": "/downloads/themes/shiki/solai-viridian-light.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "dark",
+          "name": "Solai Bloom Dark",
+          "href": "/downloads/themes/shiki/solai-bloom-dark.json"
+        },
+        {
+          "flavor": "rose",
+          "mode": "light",
+          "name": "Solai Bloom Light",
+          "href": "/downloads/themes/shiki/solai-bloom-light.json"
+        }
+      ],
+      "bundle": {
+        "href": "/downloads/themes/solai-shiki.zip",
+        "label": "All ten themes · ZIP"
+      }
+    },
+    {
       "id": "ghostty",
       "title": "Ghostty",
       "extension": "conf",

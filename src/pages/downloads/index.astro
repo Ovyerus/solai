@@ -4,10 +4,12 @@ import ThemeHead from '../../components/ThemeHead.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import manifest from '../../../public/downloads/theme-manifest.json';
+import { shikiExample } from '../../../palette-source/ports/shiki.mjs';
 
 const initialVariant = manifest.variants.find(variant => variant.flavor === 'blue' && variant.mode === 'dark')!;
 const editors = manifest.formats.filter(format => format.id === 'vscode' || format.id === 'zed');
-const terminals = manifest.formats.filter(format => format.id !== 'vscode' && format.id !== 'zed');
+const shiki = manifest.formats.find(format => format.id === 'shiki')!;
+const terminals = manifest.formats.filter(format => !['vscode', 'zed', 'shiki'].includes(format.id));
 const selectedFile = (format: typeof manifest.formats[number]): typeof format.variants[number] & { label?: string } => format.variants.find(variant => variant.flavor === 'blue' && variant.mode === 'dark')!;
 const sectionHeading = 'mb-[24px] flex flex-wrap items-end justify-between gap-[16px] border-t border-solai-border-subtle pt-[20px]';
 const heading = 'm-0 text-[clamp(30px,4vw,48px)] font-normal leading-[1.14] tracking-[-.035em] text-solai-text-emphasis';
@@ -30,7 +32,7 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
 
 <Page
   title="Download editor, terminal and web themes — Solai"
-  description="Download Solai for VS Code, VSCodium, Zed and eight terminal formats. All ten themes, installation guides, palette JSON, CSS variables and Tailwind v4 tokens."
+  description="Download Solai for Shiki, VS Code, VSCodium, Zed and eight terminal formats. All ten themes, installation guides, palette JSON, CSS variables and Tailwind v4 tokens."
   flavor="blue"
 >
   <ThemeHead slot="head" />
@@ -42,7 +44,7 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
         <h1 class="m-0 text-[clamp(48px,7vw,88px)] font-[450] leading-[1.1] tracking-[-.055em] text-solai-text-emphasis">Downloads</h1>
         <span class="rounded-[2px] border border-solai-border-strong px-[8px] py-[3px] font-mono text-[12px] leading-[normal] tracking-[.06em]">v{manifest.version}</span>
       </div>
-      <p class="mt-[24px] mb-0 max-w-[66ch] text-solai-text-secondary">Five flavours, each in light and dark. Install an application theme, or bring the same colours into your own project with CSS, Tailwind tokens and palette data.</p>
+      <p class="mt-[24px] mb-0 max-w-[66ch] text-solai-text-secondary">Five flavours, each in light and dark. Install an application theme, or bring the same colours into your own project with Shiki syntax highlighting, CSS, Tailwind tokens and palette data.</p>
       <div class="mt-[28px] border-y border-solai-border-subtle py-[18px]">
         <p class="m-0 font-mono text-[13px] text-solai-text-emphasis">Selected-variant files: <strong class="font-medium" data-download-variant>{initialVariant.name}</strong></p>
         <p id="downloads-status" class="mt-[8px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary" role="status">Selected-file links are fixed to Tide Dark until the appearance controls load. All-theme packages below contain every flavour and mode.</p>
@@ -50,6 +52,7 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
       <noscript><p class="mt-[16px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary">Without JavaScript, selected-file links stay on Tide Dark, regardless of the page’s appearance. Every all-theme package remains available and contains all ten variants.</p></noscript>
       <nav class="mt-[12px] flex flex-wrap gap-x-[28px] gap-y-[4px] text-[13px]" aria-label="Download sections">
         <a class={link} href="#editors">Editors ↓</a>
+        <a class={link} href="#shiki">Shiki ↓</a>
         <a class={link} href="#terminals">Terminals ↓</a>
         <a class={link} href="#web-data">Web &amp; palette data ↓</a>
         <a class={link} href="#licensing">Licensing &amp; limits ↓</a>
@@ -82,6 +85,34 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
           </article>
         ))}
       </div>
+    </section>
+
+    <section id="shiki" class="wrap pt-[64px] [@media(max-width:650px)]:pt-[40px]" aria-labelledby="shiki-title">
+      <div class={sectionHeading}>
+        <h2 id="shiki-title" class={heading}>Shiki</h2>
+        <span class="font-mono text-[12px] text-solai-text-secondary">Static syntax highlighting · all ten themes</span>
+      </div>
+      <article id="format-shiki" class="min-w-0 rounded-[2px] border border-solai-border-subtle p-[24px] [@media(max-width:650px)]:p-[18px]" aria-label="Shiki themes">
+        <p class="mt-0 mb-[16px] max-w-[75ch] text-[13px] text-solai-text-secondary">{shiki.description}</p>
+        <div class="flex flex-wrap items-start gap-x-[28px] gap-y-[4px] text-[13px]">
+          <a class={packageLink} href={shiki.bundle.href} download>{shiki.bundle.label} <span aria-hidden="true">↓</span></a>
+          <a class={link} href={selectedFile(shiki).href} download data-download-format="shiki">
+            <span><span data-download-variant>{initialVariant.name}</span><span data-download-file-label data-download-label-fallback="JSON"> · JSON</span> <span aria-hidden="true">↓</span></span>
+          </a>
+        </div>
+        <details class={detail}>
+          <summary class={summary}>Use with Shiki</summary>
+          <ol class="mt-[8px] mb-[16px] max-w-[85ch] list-decimal space-y-[12px] pl-[22px]">
+            {shiki.installation.map(step => <li class="pl-[3px] [overflow-wrap:anywhere]">{step}</li>)}
+          </ol>
+          <p class="my-[16px]">Example with Tide Dark. For another variant, change the JSON filename; the theme name is read from the file.</p>
+          <pre class="my-[16px] overflow-x-auto rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel p-[16px] font-mono text-[13px] text-solai-text-primary"><code>{shikiExample}</code></pre>
+          <div class="flex flex-wrap gap-x-[28px] gap-y-[4px]">
+            <a class={link} href="https://shiki.style/guide/load-theme">Shiki custom theme guide ↗</a>
+            <a class={link} href="https://shiki.style/guide/dual-themes">Light/dark CSS guide ↗</a>
+          </div>
+        </details>
+      </article>
     </section>
 
     <section id="terminals" class="wrap pt-[64px] [@media(max-width:650px)]:pt-[40px]" aria-labelledby="terminals-title">

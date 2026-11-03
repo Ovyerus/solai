@@ -40,11 +40,11 @@ nix develop --command node palette-source/build_ports.mjs
 
 This reads `public/assets/palettes.json`, the approved `src/data/guide.js` definitions, the existing `resolveRole` resolver and the exact upstream `LICENSE` text preserved in `reference/source-snapshot.json`. It does not read or apply guide-editor drafts. It writes:
 
-- `public/downloads/themes/`: VS Code/VSCodium VSIX and JSON sources, Zed family/individual JSON, eight terminal formats, selected Windows Terminal ZIPs and per-format/combined terminal bundles.
+- `public/downloads/themes/`: VS Code/VSCodium VSIX and JSON sources, Zed family/individual JSON, Shiki individual JSON and an all-ten ZIP, eight terminal formats, selected Windows Terminal ZIPs and per-format/combined terminal bundles.
 - `public/downloads/variants/`: the thirty selected JSON/CSS/Tailwind exports using the existing serializers, not a parallel implementation.
 - `public/downloads/theme-manifest.json`: the catalog consumed by the Astro downloads page and its shared-theme controller.
 
-`ports/model.mjs` resolves the shared colours; `vscode.mjs`, `zed.mjs` and `terminals.mjs` implement host-specific bindings. Terminal selection is composited over the actual terminal canvas once so formats without alpha reproduce the same fill. The sixteen ANSI entries retain the approved mode-aware mapping, including conventional black/white identities. Do not replace them with status colours or claim every slot is readable as foreground text.
+`ports/model.mjs` resolves the shared colours; `vscode.mjs`, `zed.mjs`, `shiki.mjs` and `terminals.mjs` implement host-specific bindings. VS Code and Shiki share the unchanged syntax rules in `textmate.mjs`; Shiki emits only canvas colours and TextMate rules, not editor chrome or semantic-token rules. Terminal selection is composited over the actual terminal canvas once so formats without alpha reproduce the same fill. The sixteen ANSI entries retain the approved mode-aware mapping, including conventional black/white identities. Do not replace them with status colours or claim every slot is readable as foreground text.
 
 Editor frame dividers use the guide's quieter `surfaces.border` mapping. Zed's default `border` follows that subtle tier, not the canonical `border.strong` token; VS Code's main frame already uses it. Focus, selection, diagnostics and active indent guides retain their distinct stronger colours. This port-specific choice does not change canonical palette roles or website styling.
 
@@ -61,6 +61,22 @@ node --test palette-source/ports/ports.test.mjs
 ```
 
 These tests cover readable normal/hover/selected popup text in every editor variant, not a complete application accessibility audit. Native host overrides, syntax in selected text, contrast-adjustment settings and emitted terminal colours still need real-consumer inspection. Zed cannot reproduce separate search-match text/underline colours; its six nesting accents require the user’s bracket-colour setting. Keep these limits visible in download instructions.
+
+## Shiki themes
+
+Download one JSON or the all-ten ZIP from [/downloads/#shiki](https://solai.style/downloads/#shiki). These are custom themes, not built-in Shiki theme IDs or an npm package. Register the parsed JSON object in `createHighlighter({ themes: [theme], langs: ["typescript"] })`, or use `await highlighter.loadTheme(theme)`; render with `theme: theme.name`. Names match filenames, for example `solai-tide-dark`. The ZIP and downloads page include a complete example.
+
+For Astro Markdown, pass the imported theme object to `markdown.shikiConfig.theme` in your own Astro configuration. This does not change the Solai website's code specimens. See [Shiki custom themes](https://shiki.style/guide/load-theme), [dual-theme CSS](https://shiki.style/guide/dual-themes) and [Astro syntax highlighting](https://docs.astro.build/en/guides/syntax-highlighting/).
+
+Shiki uses TextMate grammars without VS Code's language-server semantic overlays. The port deliberately omits workbench UI, interactive search and nesting-depth bracket colours. Syntax coverage depends on the loaded language grammar.
+
+After installing the website's locked dependencies, run the real-consumer tests as well:
+
+```sh
+node --test palette-source/ports/*.test.mjs
+```
+
+`shiki.test.mjs` uses the Shiki version already pinned through Astro, without adding a generator or website dependency. It loads every emitted theme, checks actual token colours/styles and dual-theme rendering, rejects unloaded custom names, and checks catalog/archive/licence consistency. The generator itself remains built-in-Node-only.
 
 ## Application theme license
 

@@ -32,6 +32,7 @@ The [Downloads page](https://solai.style/downloads/) includes installation instr
 
 - **VS Code / VSCodium:** a local VSIX containing all ten themes, plus individual theme JSON files.
 - **Zed:** a native theme family containing all ten themes, plus individual variants.
+- **[Shiki](https://shiki.style/):** custom TextMate JSON themes, individually or in an all-ten ZIP with a usage example.
 - **Terminals:** Ghostty, Kitty, Alacritty, WezTerm, iTerm2, macOS Terminal, Windows Terminal and Xresources/xterm. Choose one variant or an all-theme bundle.
 - **Web projects:** palette JSON, CSS custom properties and Tailwind CSS v4 colour tokens, for one variant or the complete family.
 
