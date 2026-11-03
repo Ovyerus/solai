@@ -36,6 +36,8 @@ The [Downloads page](https://solai.style/downloads/) includes installation instr
 - **Terminals:** Ghostty, Kitty, Alacritty, WezTerm, iTerm2, macOS Terminal, Windows Terminal and Xresources/xterm. Choose one variant or an all-theme bundle.
 - **Web projects:** palette JSON, CSS custom properties and Tailwind CSS v4 colour tokens, for one variant or the complete family.
 
+For agents and automated integrations, [`llms.txt`](https://solai.style/llms.txt) provides a plain-text integration guide with CSS/Tailwind examples, JSON structure and direct export links.
+
 These are downloadable files, not marketplace listings. Application themes do not bundle fonts or replace your existing application settings. The previews on the website are colour specimens, not live applications.
 
 ## Origins and credits

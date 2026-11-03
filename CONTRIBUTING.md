@@ -47,7 +47,7 @@ node --check src/scripts/guide.js
 node --check src/scripts/guide-renderer.js
 node --check src/scripts/guide-editor.js
 node --check src/scripts/downloads.js
-node --test palette-source/ports/*.test.mjs
+node --test palette-source/ports/*.test.mjs scripts/llms.test.mjs
 node --check src/data/guide.js
 pnpm build
 pnpm preview
@@ -194,6 +194,10 @@ nix develop --command node palette-source/build_ports.mjs
 Run this after palette regeneration or approved guide/port mapping changes. Generated files live under `public/downloads/themes/`, `public/downloads/variants/` and `public/downloads/theme-manifest.json`; generation is separate from the Astro build. See `palette-source/README.md`.
 
 Application theme packages and port mappings are [MIT-licensed](LICENSE), with Dolch’s original notice retained. Artwork, fonts and upstream palette material retain their existing terms. Strict Windows Terminal scheme JSON is distributed in a selected-variant ZIP with both notices; other standalone port files carry the notices as comments or root JSON metadata. The former reference/generators ZIP is preserved at `palette-source/reference/dolch-reference-starter.zip`, outside the served site.
+
+### Agent integration guide
+
+`public/llms.txt` is a hand-maintained, plain-text Markdown guide served unchanged at `/llms.txt`. Keep its examples, flavour IDs, export distinctions, links and licensing notes synchronized with the canonical data and download manifest when changing exports. It is documentation, not another palette source or generated theme file. `node --test scripts/llms.test.mjs` checks local links and the documented integration contracts; `pnpm build` copies it into the static site. It does not add a sitemap route or change crawler policy.
 
 ## Guide token editor
 

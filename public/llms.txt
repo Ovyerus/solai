@@ -1,0 +1,129 @@
+# Solai
+
+> Five colour flavours for interfaces, code, prose and terminals, each in Dark and Light. Quiet neutrals, deliberate accents, and solarpunk after sunset. This is an integration guide for using Solai in your own project, not a request to reproduce the Solai website.
+
+Use the published exports below as the source of truth. Download the files into your project rather than scraping colours from screenshots or copying the website's internal stylesheet. No Solai npm package, runtime framework or hosted API is required. The exports contain colours, not components, layout or fonts.
+
+**Choose a flavour and mode.** Display names, internal IDs and filename stems differ:
+
+- Tide: ID `blue`, filename stem `solai-tide` (cyan-blue accent).
+- Ember: ID `alter`, filename stem `solai-ember` (warm amber accent).
+- Dusk: ID `violet`, filename stem `solai-dusk` (violet accent).
+- Viridian: ID `green`, filename stem `solai-viridian` (leaf-green accent).
+- Bloom: ID `rose`, filename stem `solai-bloom` (rose accent).
+
+Modes are `dark` and `light`; the site's default is Tide Dark. A selected file has a name such as `solai-tide-dark.css` or `solai-bloom-light.tailwind.css`. All five flavours share twelve base colour families per mode; each has five custom ramps: `fg`, `bg`, `coShades`, `accent`, `coAccent`.
+
+**Plain CSS quick start.** Download the family CSS linked below as `flavors.css`. Set both attributes on the same root or themed container; plain family CSS requires them (it has no unqualified default):
+
+```html
+<html data-flavor="blue" data-mode="dark">
+```
+
+```css
+@import "./flavors.css";
+
+body {
+  background: var(--solai-surface-canvas);
+  color: var(--solai-text-primary);
+}
+.card {
+  background: var(--solai-surface-panel);
+  border: 1px solid var(--solai-border-subtle);
+}
+button {
+  background: var(--solai-accent-primary);
+  color: var(--solai-accent-ink);
+}
+button:hover { background: var(--solai-accent-hover); }
+button:focus-visible { outline: 2px solid var(--solai-accent-primary); }
+```
+
+Switch the attributes to change colours; persistence and system light/dark detection belong to your application. For a fixed theme, import one selected CSS file instead: it sets `:root`, `color-scheme` and the 32 semantic variables, without attributes. Selected plain CSS does NOT contain primitive ramp stops. Family CSS contains all 187 primitive stops plus 32 semantic roles per variant. Use either family CSS or selected CSS, not both.
+
+**Tailwind CSS v4 quick start.** Download the family Tailwind file linked below as `flavors.tailwind.css`. Import it after Tailwind in your own build:
+
+```css
+@import "tailwindcss";
+@import "./flavors.tailwind.css";
+```
+
+Use the same `data-flavor` and `data-mode` attributes as above. Family Tailwind defaults to Tide Dark and uses `@theme inline` aliases so nested theme containers resolve their own colours. A selected `.tailwind.css` file uses literal `@theme static` values for one fixed variant and needs no attributes. Both provide 219 colour tokens per variant (187 primitive stops + 32 semantic roles). Import family OR selected Tailwind, not both; the family already includes its CSS variables, so a separate `flavors.css` import is unnecessary.
+
+```html
+<button class="bg-solai-accent-primary text-solai-accent-ink hover:bg-solai-accent-hover focus-visible:outline-2 focus-visible:outline-solai-accent-primary">
+  Save
+</button>
+<section class="bg-solai-surface-panel text-solai-text-primary border border-solai-border-subtle">
+  Your content
+</section>
+```
+
+Keep utility class strings complete and visible to Tailwind's source scanner. Primitive utilities such as `bg-solai-accent-7` are available, but semantic roles are usually a safer starting point for interfaces. These files require Tailwind v4, not v3.
+
+**Role names and intended use.** CSS names use the `--solai-` namespace and kebab case; Tailwind colour tokens use `--color-solai-`. JSON keeps dotted/camelCase keys: `status.dangerBackground` becomes `--solai-status-danger-background`, and primitive `coAccent[8]` becomes `--solai-co-accent-8` (or Tailwind `bg-solai-co-accent-8`).
+
+- Surfaces: `surface.canvas`, `surface.panel`, `surface.raised`, `surface.hover`.
+- Borders: `border.subtle`, `border.strong`.
+- Text: `text.primary`, `text.emphasis`, `text.secondary`, `text.muted`, `text.disabled`.
+- Accents: `accent.primary`, `accent.hover`, `accent.highlight`, `accent.ink`, `accent.secondary`. Pair action fills with `accent.ink`, not an assumed white foreground.
+- Selection: `selection.background` is an alpha colour; assess the actual composite on your surface.
+- Status: `status.success`, `status.warning`, `status.danger`, `status.info`, each with its corresponding `Background` role. Interface meanings are green/yellow/red/blue; syntax categories and ANSI indices are not universal status meanings.
+- Support: `support.orange`, `support.chartreuse`, `support.spring`, `support.cyan`, `support.violet`, `support.magenta`, `support.rose`.
+
+**JSON quick start.** The canonical family JSON is schema version 2. `primitives` contains arrays of hex strings indexed by grade 0–10; `ramps` adds per-stop metadata. Each variant also contains `roles`, resolved `roleValues`, `syntaxRoles`, provenance and selected `contrastChecks`. For example:
+
+```js
+const response = await fetch("https://solai.style/assets/palettes.json");
+if (!response.ok) throw new Error(`Solai palette download failed: ${response.status}`);
+const data = await response.json();
+if (data.schemaVersion !== 2) throw new Error("Unsupported Solai palette schema");
+const palette = data.flavors.blue.modes.dark;
+const canvas = palette.roleValues["surface.canvas"];
+const text = palette.roleValues["text.primary"];
+const accent7 = palette.primitives.accent[7];
+```
+
+This illustrates the schema; most integrations can download and read the JSON at build time rather than fetching it on every page view. The family download `flavor-studies.json` contains the same data. A selected variant JSON is the variant object itself plus `name` and `source`, not the family wrapper. Read the manifest to discover exact selected-file and native-theme URLs instead of guessing paths.
+
+**Colour and host limits.** Higher grades are lighter in dark mode but darker in light mode; do not assume a fixed grade has a fixed lightness across modes. Prefer resolved roles to guessing grades. Web exports intentionally omit guide-only syntax/editor aliases; use the approved application mappings or a native port for those. Shiki themes use TextMate grammars, not language-server semantic highlighting. They do not reproduce editor chrome, interactive search or nesting-depth bracket colours. Terminal ANSI slots retain conventional normal/bright ordering and light-mode black/white identities; some are intentionally low-contrast as small foreground text. Check actual text, selection, hover, focus and disabled states on your own surfaces; the shipped checks are not a complete accessibility audit. Pair colour with labels/icons, not colour alone.
+
+**Origins and licensing.** Solai's original code, documentation, application themes and mappings are MIT licensed. Preserve the Solai and upstream Dolch notices when redistributing covered material; downloads embed the relevant notices, and native archives contain package-scoped licences. Tide preserves Dolch Blue primitives exactly. Ember preserves Dolch Alter's five custom ramps with the shared Blue base, not the entire original Alter palette. Dusk, Viridian and Bloom are independent studies; all UI semantic assignments are Solai proposals. Artwork is excluded from Solai's source-code licence. Fonts have their own licences; the website's Sora and Iosevka Solai are optional and not bundled with colour exports.
+
+## Core resources
+
+- [Colour usage guide](https://solai.style/guide/): Approved meanings and examples for surfaces, text/signals, code, prose, editor chrome, changes/diagnostics, terminal UI and ANSI slots.
+- [Palette explorer](https://solai.style/palette/): Exact primitive values for all flavours; visual inspection, not the machine-readable data source.
+- [Downloads and installation](https://solai.style/downloads/): All supported formats and native installation instructions.
+- [Download manifest](https://solai.style/downloads/theme-manifest.json): Schema version 1 catalog. `variants` contains flavour/mode/slug and selected JSON/CSS/Tailwind URLs; `formats` contains native format IDs, per-variant URLs, bundles and installation steps. Hrefs are site-root-relative; resolve against https://solai.style/.
+
+## Web exports
+
+- [Family CSS variables](https://solai.style/downloads/flavors.css): All ten variants; 219 primitive/semantic variables each, scoped by both theme attributes.
+- [Family Tailwind v4 tokens](https://solai.style/downloads/flavors.tailwind.css): All ten variants, scoped CSS variables and Tailwind aliases; Tide Dark fallback.
+- [Canonical family JSON](https://solai.style/assets/palettes.json): Schema v2 source of truth for all colours, roles, provenance and selected contrast checks.
+- [Family JSON download](https://solai.style/downloads/flavor-studies.json): Downloadable copy of the canonical family data.
+- [Tide Dark CSS](https://solai.style/downloads/variants/solai-tide-dark.css): Fixed-theme example; 32 semantic variables on `:root`, no primitive stops.
+- [Tide Dark Tailwind v4](https://solai.style/downloads/variants/solai-tide-dark.tailwind.css): Fixed-theme example; all 219 tokens.
+- [Tide Dark JSON](https://solai.style/downloads/variants/solai-tide-dark.json): Fixed-theme example; variant object with source metadata. Other variants are listed in the manifest.
+
+## Syntax highlighting and application themes
+
+- [Shiki Tide Dark JSON](https://solai.style/downloads/themes/shiki/solai-tide-dark.json): Parse and register the theme object with `createHighlighter({ themes: [theme], langs: [yourLanguage] })` or `await highlighter.loadTheme(theme)`; render with `theme: theme.name`. Its name is `solai-tide-dark`, not a built-in Shiki ID.
+- [Shiki Tide Light JSON](https://solai.style/downloads/themes/shiki/solai-tide-light.json): Load alongside Dark for dual-theme rendering; follow Shiki's dual-theme CSS instructions in the linked installation guide.
+- [All ten Shiki themes](https://solai.style/downloads/themes/solai-shiki.zip): Individual custom-theme JSON files, a runnable usage example and both licence notices.
+- [Shiki installation guide](https://solai.style/downloads/#shiki): Object loading, light/dark output and host limitations.
+- [VS Code / VSCodium package](https://solai.style/downloads/themes/solai-vscode.vsix): All ten themes in a local VSIX, not a Marketplace listing.
+- [Zed theme family](https://solai.style/downloads/themes/zed/solai.json): All ten themes in native Zed JSON.
+- [All terminal themes](https://solai.style/downloads/themes/solai-terminals.zip): Ghostty, Kitty, Alacritty, WezTerm, iTerm2, Terminal.app, Windows Terminal and Xresources. Do not replace a user's whole settings file, default profile, fonts or shell configuration to install a colour theme.
+
+## Optional
+
+- [Source repository](https://github.com/Ovyerus/solai): Website, generators and application port mappings.
+- [Export and port documentation](https://raw.githubusercontent.com/Ovyerus/solai/main/palette-source/README.md): Regeneration, provenance, licences and host-specific limitations.
+- [Approved application mappings](https://raw.githubusercontent.com/Ovyerus/solai/main/src/data/guide.js): Fixed guide role definitions used by application port generation; not additional canonical web aliases.
+- [Application role resolver](https://raw.githubusercontent.com/Ovyerus/solai/main/src/scripts/guide-renderer.js): Resolves approved guide definitions against canonical palette data.
+- [Solai MIT licence](https://raw.githubusercontent.com/Ovyerus/solai/main/LICENSE): Original source code, documentation, application themes and mappings.
+- [Dolch MIT notice](https://raw.githubusercontent.com/be5invis/vscode-theme-dolch/master/LICENSE): Preserve the exact upstream notice supplied in exports.
+- [Sora](https://github.com/sora-xor/sora-font): Optional interface font; separate font licence.
+- [Iosevka Solai](https://github.com/Ovyerus/iosevka-solai): Optional monospace font; separate font licence.
