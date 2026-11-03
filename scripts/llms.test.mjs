@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
+import { createAgentPrompt } from "../src/data/agent-prompt.js";
 
 const read = (path) => readFile(new URL("../" + path, import.meta.url), "utf8");
 const guide = await read("public/llms.txt");
@@ -130,3 +131,32 @@ test("JSON example resolves real colours and rejects failed downloads or unknown
     /Unsupported Solai palette schema/,
   );
 });
+
+for (const variant of manifest.variants) {
+  test(`${variant.name}: agent prompt includes exact variant exports and theme attributes`, async () => {
+    const prompt = createAgentPrompt(variant);
+    assert(prompt.startsWith(`Implement ${variant.name} in this project.`));
+    assert(prompt.includes(`data-flavor="${variant.flavor}"`));
+    assert(prompt.includes(`data-mode="${variant.mode}"`));
+    assert(prompt.includes("https://solai.style/llms.txt"));
+    for (const href of Object.values(variant.downloads)) {
+      assert(prompt.includes(new URL(href, "https://solai.style").href));
+    }
+    for (const [href] of prompt.matchAll(/https:\/\/solai\.style\/[^\s]+/g)) {
+      const url = new URL(href);
+      assert.equal(url.search, "");
+      assert.equal(url.hash, "");
+      if (!url.pathname.endsWith("/")) {
+        assert(
+          (
+            await stat(new URL("../public" + url.pathname, import.meta.url))
+          ).isFile(),
+        );
+      }
+    }
+    assert(prompt.includes("do not clone the Solai website"));
+    assert(prompt.includes("Preserve existing appearance controls"));
+    assert(prompt.includes("licence notices"));
+    assert(prompt.includes("instead of inventing colours"));
+  });
+}

@@ -1,6 +1,15 @@
 import { initTheme } from "./theme.js";
+import { copy } from "./palette-shared.js";
+import { createAgentPrompt } from "../data/agent-prompt.js";
 
 const status = document.querySelector("#downloads-status");
+const prompt = document.querySelector("#agent-prompt");
+const initialPrompt = prompt.textContent;
+const copyPrompt = document.querySelector("#copy-agent-prompt");
+copyPrompt.addEventListener("click", () =>
+  copy(prompt.textContent, "Agent prompt copied"),
+);
+copyPrompt.disabled = false;
 const variantLabels = [...document.querySelectorAll("[data-download-variant]")];
 const formatLinks = [...document.querySelectorAll("[data-download-format]")];
 const webLinks = [...document.querySelectorAll("[data-download-web]")];
@@ -15,6 +24,7 @@ const fixedFileLabels = [
 ].map((label) => ({ label, text: label.textContent }));
 
 function showUnavailable() {
+  prompt.textContent = initialPrompt;
   for (const { link, href } of fixedLinks) link.setAttribute("href", href);
   for (const label of variantLabels) label.textContent = fixedName;
   for (const { label, text } of fixedFileLabels) label.textContent = text;
@@ -32,6 +42,7 @@ try {
       const variant = manifest.variants.find(
         (item) => item.flavor === flavour && item.mode === mode,
       );
+      const promptText = createAgentPrompt(variant);
       const files = formatLinks.map((link) => {
         const format = manifest.formats.find(
           (item) => item.id === link.dataset.downloadFormat,
@@ -57,6 +68,7 @@ try {
       for (const { label, text } of files)
         label.textContent = text ? ` · ${text}` : "";
       for (const label of variantLabels) label.textContent = variant.name;
+      prompt.textContent = promptText;
       status.textContent =
         "Selected-file links match the appearance controls. Choose a flavour and Light or Dark in the header; all-theme packages always contain every variant.";
     },

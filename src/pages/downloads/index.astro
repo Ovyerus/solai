@@ -5,6 +5,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import manifest from '../../../public/downloads/theme-manifest.json';
 import { shikiExample } from '../../../palette-source/ports/shiki.mjs';
+import { createAgentPrompt } from '../../data/agent-prompt.js';
 
 const initialVariant = manifest.variants.find(variant => variant.flavor === 'blue' && variant.mode === 'dark')!;
 const editors = manifest.formats.filter(format => format.id === 'vscode' || format.id === 'zed');
@@ -50,6 +51,21 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
         <p id="downloads-status" class="mt-[8px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary" role="status">Selected-file links are fixed to Tide Dark until the appearance controls load. All-theme packages below contain every flavour and mode.</p>
       </div>
       <noscript><p class="mt-[16px] mb-0 max-w-[75ch] text-[13px] text-solai-text-secondary">Without JavaScript, selected-file links stay on Tide Dark, regardless of the page’s appearance. Every all-theme package remains available and contains all ten variants.</p></noscript>
+      <div class="mt-[24px] rounded-[2px] border border-solai-border-subtle p-[20px] [@media(max-width:650px)]:p-[16px]">
+        <div class="flex flex-wrap items-center justify-between gap-[16px]">
+          <div>
+            <h2 class="m-0 text-[18px] font-normal text-solai-text-emphasis">Bring Solai to your project</h2>
+            <p class="mt-[6px] mb-0 text-[13px] text-solai-text-secondary">Give your coding agent the guide and export links for <span data-download-variant>{initialVariant.name}</span>.</p>
+          </div>
+          <button id="copy-agent-prompt" type="button" disabled class="min-h-[44px] shrink-0 rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] font-sans text-[13px] font-medium text-solai-accent-ink hover:border-solai-accent-hover hover:bg-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-highlight disabled:cursor-not-allowed disabled:opacity-60">Copy agent prompt</button>
+        </div>
+        <details class="mt-[12px] text-[13px] text-solai-text-secondary">
+          <summary class={summary}>Read or manually copy the prompt</summary>
+          <p class="my-[12px]">Paste this into your coding agent, then add where you want the theme applied. It does not send anything or open an external service.</p>
+          <pre id="agent-prompt" class="my-[16px] max-h-[420px] overflow-auto whitespace-pre-wrap rounded-[2px] border border-solai-border-subtle bg-solai-surface-panel p-[16px] font-mono text-[13px] text-solai-text-primary [overflow-wrap:anywhere]">{createAgentPrompt(initialVariant)}</pre>
+          <a class={link} href="/llms.txt" type="text/plain">Read the agent integration guide ↗</a>
+        </details>
+      </div>
       <nav class="mt-[12px] flex flex-wrap gap-x-[28px] gap-y-[4px] text-[13px]" aria-label="Download sections">
         <a class={link} href="#editors">Editors ↓</a>
         <a class={link} href="#shiki">Shiki ↓</a>
@@ -207,6 +223,16 @@ const manifestJSON = JSON.stringify(manifest).replace(/</g, '\\u003c');
     <SiteFooter />
   </main>
 
+  <div id="toast" class="pointer-events-none fixed bottom-[25px] left-1/2 z-50 max-w-[90vw] -translate-x-1/2 rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[20px] py-[12px] text-center font-sans text-[12px] leading-[normal] text-solai-accent-ink opacity-0 [&.visible]:opacity-100" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" class="m-auto w-[min(600px,90vw)] rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[25px] text-solai-text-primary backdrop:bg-[#0009]" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description">
+    <form method="dialog">
+      <button class="float-right min-h-[44px] min-w-[44px] rounded-[2px] border border-solai-border-strong bg-transparent text-[23px] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-highlight" aria-label="Close">×</button>
+      <h2 id="copy-dialog-title" class="mt-[12px] mb-[16px] text-[21px] font-normal">Copy the agent prompt</h2>
+      <p id="copy-dialog-description" class="my-[16px] text-[13px]">Your browser couldn’t copy automatically. Select the prompt below and copy it manually.</p>
+      <textarea id="copy-fallback" class="mb-[20px] h-[240px] w-full rounded-[2px] border border-solai-border-strong bg-solai-surface-canvas p-[12px] font-mono text-[16px] text-solai-text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-highlight" aria-label="Agent prompt to copy" readonly spellcheck="false"></textarea>
+      <button class="min-h-[44px] rounded-[2px] border border-solai-accent-primary bg-solai-accent-primary px-[17px] py-[10px] font-sans text-[12px] font-medium text-solai-accent-ink hover:bg-solai-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solai-accent-highlight">Done</button>
+    </form>
+  </dialog>
   <script id="download-manifest" type="application/json" is:inline set:html={manifestJSON} />
   <script>
     import '../../scripts/downloads.js';
